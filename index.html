@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ilmis Garden</title>
+
+    <!-- Fonts -->
+    <!-- 1. Preconnect ke Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- 2. Preload stylesheet Google Fonts -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    />
+
+    <!-- 3. Load stylesheet font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 4. Fallback untuk browser lama / tanpa JavaScript -->
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar">
+      <a href="#home" class="navbar-logo"
+        ><img src="img/F4F6F4-full.png" alt=""
+      /></a>
+
+      <div class="navbar-nav">
+        <a href="#">Wedding</a>
+        <a href="">Workshop</a>
+        <a href="">Catalog</a>
+        <a href="#about">About Us</a>
+      </div>
+      <div class="navbar-extra">
+        <a href="" id="search"><i data-feather="search"></i></a>
+        <a href="" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <i id="menu" data-feather="menu"></i>
+      </div>
+    </nav>
+
+    <!-- Navbar End -->
+    <!-- Hero Sections-->
+    <!-- hero section start-->
+    <section class="hero" id="home">
+      <div class="slideshow">
+        <div
+          class="slide active"
+          style="background-image: url('img/Picture1.png')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('img/fl\ \(2\).jpeg')"
+        ></div>
+        <div
+          class="slide"
+          style="background-image: url('img/fl\ \(3\).jpeg')"
+        ></div>
+
+        <!-- Tombol dengan ikon Font Awesome -->
+        <button class="prev" onclick="prevSlide()">
+          <i class="fa-solid fa-chevron-left"></i>
+        </button>
+        <button class="next" onclick="nextSlide()">
+          <i class="fa-solid fa-chevron-right"></i>
+        </button>
+      </div>
+
+      <main class="content">
+        <h1>Home</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          tenetur eius quisquam velit eligendi amet autem suscipit non optio
+          tempore quam numquam molestias deserunt quas deleniti ratione,
+          laudantium quos modi.
+        </p>
+        <a href="#" class="cta">Beli Sekarang</a>
+      </main>
+    </section>
+    <!-- hero section end-->
+
+    <!-- ABoust Us -->
+    <section id="about" class="about">
+      <h2><span> Tentang Kami </span></h2>
+    </section>
+    <!-- ABoust Us End -->
+    <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- js -->
+    <script src="js/script.js"></script>
+    <script>
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".slide");
+      const totalSlides = slides.length;
+
+      setInterval(() => {
+        slides[currentSlide].classList.remove("active");
+        currentSlide = (currentSlide + 1) % totalSlides;
+        slides[currentSlide].classList.add("active");
+      }, 4000); // ganti setiap 4 detik
+    </script>
+  </body>
+</html>
