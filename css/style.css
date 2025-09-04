@@ -235,6 +235,32 @@ body {
   font-weight: 100;
   font-size: x-large;
 }
+.wedding,
+.workshop,
+.catalog,
+.about {
+  position: relative; /* tambahin ini */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d9;
+}
+
+.wedding::before,
+.workshop::before,
+.catalog::before,
+.about::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #d9d9d9;
+  z-index: -1;
+}
 
 .section-title {
   text-align: center;
