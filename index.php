@@ -1,3 +1,29 @@
+<?php
+require 'conn/db.php';
+
+// Data dummy keywords (bisa juga dari database jika ingin)
+$keywords = [
+    ['name' => 'Indoor Plant'],
+    ['name' => 'Outdoor Plant'],
+    ['name' => 'Cactus'],
+];
+
+// Ambil produk dari database
+$stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC");
+$products = $stmt->fetchAll();
+// Ambil filter dari GET
+$priceFilterActive = isset($_GET['price_filter']);
+$maxPrice = $priceFilterActive && isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
+
+if ($priceFilterActive && $maxPrice !== null) {
+    $stmt = $pdo->prepare("SELECT * FROM products WHERE price <= ? ORDER BY id DESC");
+    $stmt->execute([$maxPrice]);
+} else {
+    $stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC");
+}
+$products = $stmt->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -82,13 +108,6 @@
           class="slide"
           style="background-image: url('img/fl\ \(2\).jpeg')"
         ></div>
-        <!-- Tombol dengan ikon Font Awesome -->
-        <button class="prev" onclick="prevSlide()">
-          <i class="fa-solid fa-chevron-left"></i>
-        </button>
-        <button class="next" onclick="nextSlide()">
-          <i class="fa-solid fa-chevron-right"></i>
-        </button>
       </div>
 
       <main class="content">
@@ -103,33 +122,30 @@
       </main>
     </section>
     <!-- hero section end-->
-    <!-- Wedding Section -->
     <section class="wedding" id="wedding">
       <h2 class="section-title">Discover Our Bestsellers</h2>
       <p class="section-desc">
         Complete your special day with our floral touch.
       </p>
       <div class="product-grid">
+        <?php if (!empty($products)): ?>
+        <?php foreach ($products as $product): ?>
         <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Product" />
-          <p>Rp. 100.000</p>
+          <img
+            src="img/<?php echo htmlspecialchars($product['image']); ?>"
+            alt="<?php echo htmlspecialchars($product['name']); ?>"
+          />
+          <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+          <p>
+            Rp.
+            <?php echo number_format($product['price'], 0, ',', '.'); ?>
+          </p>
           <button>Buy</button>
         </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Product" />
-          <p>Rp. 100.000</p>
-          <button>Buy</button>
-        </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Product" />
-          <p>Rp. 100.000</p>
-          <button>Buy</button>
-        </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Product" />
-          <p>Rp. 100.000</p>
-          <button>Buy</button>
-        </div>
+        <?php endforeach; ?>
+        <?php else: ?>
+        <p>No products available.</p>
+        <?php endif; ?>
       </div>
     </section>
 
