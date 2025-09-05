@@ -187,54 +187,139 @@ if ($priceFilterActive && $maxPrice !== null) {
       </div>
     </div>
   </div>
+  <a href="" class="view-all">view all product</a>
+</section>
+
+<section class="weddingpkg" id="weddingpkg">
+  <div class="weddingpkg-container">
+    <!-- Kiri: teks -->
+    <div class="weddingpkg-text">
+      <h2>Wedding Package</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <button class="btn-weddingpkg">Show More</button>
+    </div>
+
+    <!-- Kanan: gambar -->
+    <div class="weddingpkg-img">
+      <img src="img/weddingpkg.png" alt="Wedding Package">
+    </div>
+  </div>
+  
+</section>
+<section class="weddingpkg" id="wedding">
+  <p class="section-desc">
+  </p>
+<div class="product-grid">
+  <?php if (!empty($bestsellers)): ?>
+    <?php foreach ($bestsellers as $product): ?>
+      <div class="product-card">
+        <div class="img-wrapper">
+          <img src="<?php echo htmlspecialchars($product['image']); ?>" 
+               alt="<?php echo htmlspecialchars($product['name']); ?>">
+        </div>
+        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+        <p>
+          Rp. <?php echo number_format($product['price'], 0, ',', '.'); ?>
+        </p>
+        <button>Buy</button>
+      </div>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <p>No products available.</p>
+  <?php endif; ?>
+</div>
+
+<a href="" class="view-all">view all product</a>
+
+
 </section>
 
 
-
     <!-- Workshop Section -->
-    <section class="workshop" id="workshop">
-      <h2 class="section-title">Workshop Class</h2>
-      <p class="section-desc">Join our hands-on floral arrangement classes.</p>
-      <div class="product-grid">
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Workshop" />
-          <p>Rp. 100.000</p>
-          <button>Join</button>
+<!-- Workshop Section -->
+<section class="workshop" id="workshop">
+  <div class="workshop-container">
+    <!-- Kiri: gambar -->
+    <div class="workshop-img">
+      <img src="img/weddingpkg.png" alt="Wedding Package">
+    </div>
+
+    <!-- Kanan: teks -->
+    <div class="workshop-text">
+      <h2>Wedding Package</h2>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
+        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
+        laboris nisi ut aliquip ex ea commodo consequat.
+      </p>
+      <button class="btn-workshop">Show More</button>
+    </div>
+  </div>
+</section>
+
+<section class="workshop" id="workshop">
+  <p class="section-desc">
+  </p>
+<div class="product-grid">
+  <?php if (!empty($bestsellers)): ?>
+    <?php foreach ($bestsellers as $product): ?>
+      <div class="product-card">
+        <div class="img-wrapper">
+          <img src="<?php echo htmlspecialchars($product['image']); ?>" 
+               alt="<?php echo htmlspecialchars($product['name']); ?>">
         </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Workshop" />
-          <p>Rp. 100.000</p>
-          <button>Join</button>
-        </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Workshop" />
-          <p>Rp. 100.000</p>
-          <button>Join</button>
-        </div>
-        <div class="product-card">
-          <img src="https://via.placeholder.com/300" alt="Workshop" />
-          <p>Rp. 100.000</p>
-          <button>Join</button>
-        </div>
+        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+        <p>
+          Rp. <?php echo number_format($product['price'], 0, ',', '.'); ?>
+        </p>
+        <button>Buy</button>
       </div>
-    </section>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <p>No products available.</p>
+  <?php endif; ?>
+</div>
+</section>
 
 
-    <!-- About Section -->
-    <section class="about" id="about">
-      <h2 class="section-title">Visit Us</h2>
+<!-- About Section -->
+<section class="about" id="about">
+  <div class="aboutus-container">
+
+    <!-- Kiri: gambar -->
+    <div class="about-img">
+      <img src="img/about.png" alt="Store Image">
+    </div>
+
+    <!-- Kanan: teks -->
+    <div class="aboutus-text">
+      <h2>Visit Us</h2>
       <p class="section-desc">Jl. Raya Golf Dago No.4, Bandung</p>
-      <img
-        src="https://via.placeholder.com/800x400"
-        alt="Store Image"
-        class="about-img"
-      />
-    </section>
+    </div>
+
+  </div>
+</section>
+
 
     <!-- Footer -->
     <footer class="footer">
-      <p>© 2025 Ilmis Garden | Bandung, Indonesia</p>
-      <p>0822-2828-9888</p>
+      <div style="margin-bottom: 3rem;">
+      <a href="" style="padding: 3rem; color:#d9d9d9;">Home</a><a href="" style="padding: 3rem; color:#d9d9d9">About Us</a>
+      <a href="" style="padding: 3rem; color:#d9d9d9">Product</a><a href="" style="padding: 3rem; color:#d9d9d9">Contact</a>
+      </div>
+      <div style="margin-bottom: 3rem;">
+      <p>Jalan Raya Golf Dago No. 4, Bandung, Jawa Barat, Indonesia</p>
+      <p>(+62 812-3456-7890)</p>
+      </div>
+    <div>
+
+      <p>Follow Us</p>
+      <p>(+62 812-3456-7890)</p>
+    </div>
     </footer>
 
     <!-- feather icons -->

@@ -209,35 +209,6 @@ body {
   background-position: center;
   opacity: 0;
   transition: opacity 1s ease-in-out;
-  border-radius: 10px;
-}
-
-/* Tombol Prev & Next */
-.slideshow button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0, 0, 0, 0.4);
-  color: white;
-  border: none;
-  font-size: 2rem;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  z-index: 2;
-  transition: background-color 0.3s;
-  border-radius: 50%;
-}
-
-.slideshow button:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-
-.slideshow .prev {
-  left: 20px;
-}
-
-.slideshow .next {
-  right: 20px;
 }
 
 .slide.active {
@@ -276,28 +247,25 @@ body {
   z-index: -1;
 }
 
-.workshop,
-.catalog,
-.about {
+.catalog {
+  margin: 1rem;
   position: relative; /* tambahin ini */
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: #d9d9d9;
+  background-color: var(--bg);
 }
 
-.workshop::before,
-.catalog::before,
-.about::before {
+.catalog::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #d9d9d9;
+  background-color: var(--bg);
   z-index: -1;
 }
 .view-all {
@@ -436,12 +404,186 @@ body {
 
 .visit img,
 .testimonial img,
-.wedding-content img,
-.workshop-content img {
+.wedding-content img {
   max-width: 100%;
   border-radius: 10px;
   margin: 1rem auto;
   display: block;
+}
+.weddingpkg {
+  background-color: #708871; /* warna hijau muda kayak di contoh */
+  padding: 50px 80px;
+}
+
+.weddingpkg-container {
+  display: flex; /* <-- ini kuncinya */
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px; /* jarak antara teks dan gambar */
+}
+
+.weddingpkg-text {
+  flex: 1;
+}
+
+.weddingpkg-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.weddingpkg-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn-weddingpkg {
+  padding: 10px 20px;
+  border: 1px solid #333;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.weddingpkg-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.weddingpkg-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .weddingpkg-container {
+    flex-direction: column; /* biar di HP jadi atas-bawah */
+    text-align: center;
+  }
+
+  .weddingpkg-img {
+    margin-top: 20px;
+  }
+}
+
+.workshop {
+  background-color: #f4f6f4;
+  padding: 50px 80px;
+  color: #283128;
+}
+
+.workshop-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+}
+
+.workshop-text {
+  flex: 1;
+}
+
+.workshop-text h2 {
+  color: #283128;
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.workshop-text p {
+  color: #283128;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn-workshop {
+  padding: 10px 20px;
+  border: 1px solid #333;
+  background: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.workshop-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.workshop-img img {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .workshop-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .workshop-img {
+    margin-top: 20px;
+  }
+}
+.about {
+  background-color: #f4f6f4;
+  padding: 50px 80px;
+  color: #283128;
+}
+.aboutus-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1300px; /* batasi lebar biar ga terlalu full */
+  margin: 0 auto; /* center ke tengah layar */
+}
+
+.aboutus-text {
+  flex: 1;
+}
+
+.aboutus-text h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.aboutus-text p {
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.about-img {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.about-img img {
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+/* Responsif HP */
+@media (max-width: 768px) {
+  .aboutus-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-img {
+    margin-bottom: 20px;
+  }
 }
 
 .testimonial-content {
@@ -453,14 +595,14 @@ body {
 }
 
 .footer {
-  background-color: #708871;
-  color: white;
+  background-color: #2f392f;
+  color: #d9d9d9;
   text-align: center;
   padding: 2rem 1rem;
 }
 
 .footer-icons a {
-  color: white;
+  color: #d9d9d9;
   margin: 0 1rem;
   font-size: 1.5rem;
 }
