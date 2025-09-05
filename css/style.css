@@ -106,6 +106,24 @@ body {
   align-items: center;
   background-color: var(--bg);
 }
+.hero button {
+  margin-top: 2rem;
+  background-color: #fff;
+  color: #283128; /* hijau senada navbar */
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #708871;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #333b33;
+  color: #fff;
+}
+
 .hero .content {
   padding: 1.4rem 7%;
   max-width: 60rem;
@@ -225,7 +243,9 @@ body {
 .slide.active {
   opacity: 1;
 }
-
+.hero p {
+  margin-top: 2rem;
+}
 .hero .content {
   padding: 1.4rem 7%;
   max-width: 60rem;
@@ -235,7 +255,27 @@ body {
   font-weight: 100;
   font-size: x-large;
 }
-.wedding,
+.wedding {
+  position: relative; /* tambahin ini */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e4e4e4;
+}
+
+.wedding::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #e4e4e4;
+  z-index: -1;
+}
+
 .workshop,
 .catalog,
 .about {
@@ -248,7 +288,6 @@ body {
   background-color: #d9d9d9;
 }
 
-.wedding::before,
 .workshop::before,
 .catalog::before,
 .about::before {
@@ -261,6 +300,18 @@ body {
   background-color: #d9d9d9;
   z-index: -1;
 }
+.view-all {
+  display: inline-block;
+  margin-top: 1.5rem; /* jarak dari elemen atas */
+  color: #708871; /* hijau keputihan */
+  font-weight: 300;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.view-all:hover {
+  color: #4a5a4a; /* warna lebih gelap saat hover */
+}
 
 .section-title {
   text-align: center;
@@ -270,53 +321,117 @@ body {
 }
 
 .product-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  padding: 2rem 0;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr)); /* default: 4 kolom */
+  gap: 3rem;
+  padding: 2rem;
+  max-width: 1400px; /* biar gak terlalu melebar di layar super besar */
+  margin: 0 auto; /* center di tengah */
 }
 
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr); /* tablet: 2 kolom */
+  }
+}
+
+/* --- Product Card --- */
 .product-card {
   background-color: #fff;
   color: #000;
   padding: 1rem;
-  width: 200px;
   text-align: center;
   border-radius: 12px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
 }
 
-.product-card img {
+/* --- Image wrapper 1:1 --- */
+.img-wrapper {
   width: 100%;
+  height: 0;
+  padding-top: 100%; /* tinggi = lebar → kotak */
+  position: relative;
+  overflow: hidden;
   border-radius: 8px;
+  background: #eee;
 }
 
+.img-wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Button --- */
 .product-card button {
   margin-top: 0.5rem;
+  width: 100%;
   background-color: #708871;
   color: white;
   padding: 0.5rem;
   border-radius: 8px;
   cursor: pointer;
+  border: none;
 }
 
 .catalog-grid {
   display: grid;
-  grid-template-columns: repeat(2, 150px);
-  justify-content: center;
+  grid-template-columns: repeat(2, 1fr); /* 2 kolom: kiri & kanan */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.catalog-column {
+  display: flex;
+  flex-direction: column;
   gap: 1.5rem;
-  margin: 2rem 0;
 }
 
 .catalog-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background: #fff;
-  color: #000;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 10px;
-  font-weight: 500;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  padding: 0.5rem;
+}
+
+.catalog-text {
+  color: #283128;
+  flex: 1;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 1.5rem;
+}
+
+.catalog-img {
+  flex: 1;
+  aspect-ratio: 1/1;
+  max-width: 180px;
+}
+
+.catalog-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 8%;
+}
+
+/* Responsif untuk HP */
+@media (max-width: 768px) {
+  .catalog-grid {
+    grid-template-columns: 1fr; /* jadi 1 kolom di layar kecil */
+  }
 }
 
 .visit img,

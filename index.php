@@ -1,28 +1,24 @@
 <?php
 require 'conn/db.php';
 
-// Data dummy keywords (bisa juga dari database jika ingin)
-$keywords = [
-    ['name' => 'Indoor Plant'],
-    ['name' => 'Outdoor Plant'],
-    ['name' => 'Cactus'],
-];
+// Ambil 4 produk terbaru untuk Best Sellers
+$stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC LIMIT 4");
+$bestsellers = $stmt->fetchAll();
 
-// Ambil produk dari database
-$stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC");
-$products = $stmt->fetchAll();
-// Ambil filter dari GET
+// Ambil semua produk (dengan filter harga jika ada) untuk bagian Catalog
 $priceFilterActive = isset($_GET['price_filter']);
 $maxPrice = $priceFilterActive && isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
 
 if ($priceFilterActive && $maxPrice !== null) {
     $stmt = $pdo->prepare("SELECT * FROM products WHERE price <= ? ORDER BY id DESC");
     $stmt->execute([$maxPrice]);
+    $products = $stmt->fetchAll();
 } else {
     $stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC");
+    $products = $stmt->fetchAll();
 }
-$products = $stmt->fetchAll();
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -111,43 +107,89 @@ $products = $stmt->fetchAll();
       </div>
 
       <main class="content">
-        <h1>Home</h1>
+        <h1>Where Every Flower</h1>
+<h1>Tells Your Story</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
           tenetur eius quisquam velit eligendi amet autem suscipit non optio
           tempore quam numquam molestias deserunt quas deleniti ratione,
           laudantium quos modi.
         </p>
-        <a href="#" class="cta">Beli Sekarang</a>
+        <button>Read More</button>
       </main>
     </section>
     <!-- hero section end-->
-    <section class="wedding" id="wedding">
-      <h2 class="section-title">Discover Our Bestsellers</h2>
-      <p class="section-desc">
-        Complete your special day with our floral touch.
-      </p>
-      <div class="product-grid">
-        <?php if (!empty($products)): ?>
-        <?php foreach ($products as $product): ?>
-        <div class="product-card">
-          <img
-            src="img/<?php echo htmlspecialchars($product['image']); ?>"
-            alt="<?php echo htmlspecialchars($product['name']); ?>"
-          />
-          <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-          <p>
-            Rp.
-            <?php echo number_format($product['price'], 0, ',', '.'); ?>
-          </p>
-          <button>Buy</button>
+    
+<!-- Best Sellers -->
+<section class="wedding" id="wedding">
+  <h2 class="section-title">Discover Our Bestsellers</h2>
+  <p class="section-desc">
+  </p>
+<div class="product-grid">
+  <?php if (!empty($bestsellers)): ?>
+    <?php foreach ($bestsellers as $product): ?>
+      <div class="product-card">
+        <div class="img-wrapper">
+          <img src="<?php echo htmlspecialchars($product['image']); ?>" 
+               alt="<?php echo htmlspecialchars($product['name']); ?>">
         </div>
-        <?php endforeach; ?>
-        <?php else: ?>
-        <p>No products available.</p>
-        <?php endif; ?>
+        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
+        <p>
+          Rp. <?php echo number_format($product['price'], 0, ',', '.'); ?>
+        </p>
+        <button>Buy</button>
       </div>
-    </section>
+    <?php endforeach; ?>
+  <?php else: ?>
+    <p>No products available.</p>
+  <?php endif; ?>
+</div>
+
+<a href="" class="view-all">view all product</a>
+
+
+</section>
+
+    <!-- Catalog Section -->
+<!-- Catalog Section -->
+<section class="catalog" id="catalog">
+  <h2 class="section-title">Explore Our Catalog</h2>
+  <div class="catalog-grid">
+    <!-- Kolom Kiri -->
+    <div class="catalog-column">
+      <div class="catalog-item">
+        <div class="catalog-text">Bouquet</div>
+        <div class="catalog-img"><img src="img/bouquet.jpg" alt="Bouquet"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Basket</div>
+        <div class="catalog-img"><img src="img/basket.jpg" alt="Basket"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Orchid</div>
+        <div class="catalog-img"><img src="img/orchid.jpg" alt="Orchid"></div>
+      </div>
+    </div>
+
+    <!-- Kolom Kanan -->
+    <div class="catalog-column">
+      <div class="catalog-item">
+        <div class="catalog-text">Box</div>
+        <div class="catalog-img"><img src="img/box.jpg" alt="Box"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Standing Flower</div>
+        <div class="catalog-img"><img src="img/standing.jpg" alt="Standing Flower"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Vase</div>
+        <div class="catalog-img"><img src="img/vase.jpg" alt="Vase"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
     <!-- Workshop Section -->
     <section class="workshop" id="workshop">
@@ -177,18 +219,6 @@ $products = $stmt->fetchAll();
       </div>
     </section>
 
-    <!-- Catalog Section -->
-    <section class="catalog" id="catalog">
-      <h2 class="section-title">Catalog</h2>
-      <div class="catalog-grid">
-        <div class="catalog-item">Bouquet</div>
-        <div class="catalog-item">Basket</div>
-        <div class="catalog-item">Orchid</div>
-        <div class="catalog-item">Box</div>
-        <div class="catalog-item">Standing Flower</div>
-        <div class="catalog-item">Vase</div>
-      </div>
-    </section>
 
     <!-- About Section -->
     <section class="about" id="about">
