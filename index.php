@@ -79,7 +79,7 @@ if ($priceFilterActive && $maxPrice !== null) {
       /></a>
 
       <div class="navbar-nav">
-        <a href="#wedding">Wedding</a>
+        <a href="product.php">Product</a>
         <a href="#workshop">Workshop</a>
         <a href="#catalog">Catalog</a>
         <a href="#about">About Us</a>
@@ -318,7 +318,7 @@ if ($priceFilterActive && $maxPrice !== null) {
     <div>
 
       <p>Follow Us</p>
-      <p>(+62 812-3456-7890)</p>
+      <a href=""></a><a href=""></a>
     </div>
     </footer>
 

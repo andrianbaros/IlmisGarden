@@ -472,7 +472,7 @@ body {
 
 .workshop {
   background-color: #f4f6f4;
-  padding: 50px 80px;
+  padding: 150px 80px;
   color: #283128;
 }
 
@@ -594,6 +594,61 @@ body {
   color: #000;
 }
 
+.bouquet-section {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  padding: 200px 80px;
+  background: #fff;
+}
+
+.bouquet-card {
+  position: relative;
+  width: 300px;
+  height: 450px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.bouquet-card:hover {
+  transform: translateY(-8px);
+}
+
+.bouquet-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 30px 20px;
+  background: linear-gradient(to top, rgba(40, 49, 40, 0.8), rgba(0, 0, 0, 0));
+  text-align: left;
+}
+
+.overlay h3 {
+  color: white;
+  font-size: 22px;
+  font-family: "Dancing Script", cursive; /* mirip tulisan elegan */
+  margin: 0;
+}
+
+/* Responsif HP */
+@media (max-width: 900px) {
+  .bouquet-section {
+    flex-direction: column;
+    align-items: center;
+  }
+  .bouquet-card {
+    width: 90%;
+    height: 400px;
+  }
+}
 .footer {
   background-color: #2f392f;
   color: #d9d9d9;
@@ -605,4 +660,17 @@ body {
   color: #d9d9d9;
   margin: 0 1rem;
   font-size: 1.5rem;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+.footer {
+  background: #283128; /* warna sesuai tema kamu */
+  color: #d9d9d9;
+  text-align: center;
+  padding: 30px 20px;
 }
