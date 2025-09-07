@@ -1,4 +1,5 @@
 <?php
+session_start(); // Tambahkan ini
 require 'conn/db.php';
 
 // Ambil 4 produk terbaru untuk Best Sellers
@@ -18,7 +19,6 @@ if ($priceFilterActive && $maxPrice !== null) {
     $products = $stmt->fetchAll();
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -72,11 +72,9 @@ if ($priceFilterActive && $maxPrice !== null) {
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <!-- Navbar Start -->
+<!-- Navbar Start -->
     <nav class="navbar">
-      <a href="#home" class="navbar-logo"
-        ><img src="img/F4F6F4-full.png" alt=""
-      /></a>
+      <a href="index.php" class="navbar-logo"><img src="img/F4F6F4-full.png" alt="Logo" /></a>
 
       <div class="navbar-nav">
         <a href="product.php">Product</a>
@@ -85,11 +83,19 @@ if ($priceFilterActive && $maxPrice !== null) {
         <a href="#about">About Us</a>
       </div>
       <div class="navbar-extra">
-        <a href="" id="search"><i data-feather="search"></i></a>
-        <a href="" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        
+        <?php if (isset($_SESSION['id_user'])): ?>
+          <span style="margin-right:70px; margin-bottom: 10px;">Hello, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
+          <a href="logout.php" style="margin-left:10px;"><i data-feather="log-out"></i></a>
+        <?php else: ?>
+          <a href="signin.php" style="margin-left:10px;"><i data-feather="log-in"></i></a>
+        <?php endif; ?>
+        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
         <i id="menu" data-feather="menu"></i>
+
       </div>
     </nav>
+    <!-- Navbar End -->
 
     <!-- Navbar End -->
     <!-- Hero Sections-->
