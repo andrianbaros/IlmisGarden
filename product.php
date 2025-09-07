@@ -63,8 +63,8 @@ require 'conn/db.php';
       <div class="navbar-nav">
         <a href="product.php">Product</a>
         <a href="index.php#workshop">Workshop</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#about">About Us</a>
+        <a href="index.php#catalog">Catalog</a>
+        <a href="index.php#about">About Us</a>
       </div>
       <div class="navbar-extra">
         <a href="" id="search"><i data-feather="search"></i></a>
@@ -90,9 +90,9 @@ require 'conn/db.php';
     </div></a>      
   </div>
 
-  <div class="bouquet-card">
+  <div class="bouquet-card"><a href="workshop.php">
     <img src="img/Product (1).png" alt="Workshop Class">
-    <div class="overlay">
+    <div class="overlay"></a>
     </div>
   </div>
 </section>

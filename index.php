@@ -115,7 +115,7 @@ if ($priceFilterActive && $maxPrice !== null) {
           tempore quam numquam molestias deserunt quas deleniti ratione,
           laudantium quos modi.
         </p>
-        <button>Read More</button>
+        <a href="#wedding" style="color: black;"><button>Read More</button></a>
       </main>
     </section>
     <!-- hero section end-->
@@ -145,7 +145,7 @@ if ($priceFilterActive && $maxPrice !== null) {
   <?php endif; ?>
 </div>
 
-<a href="" class="view-all">view all product</a>
+<a href="product.php" class="view-all">view all product</a>
 
 
 </section>
@@ -196,11 +196,13 @@ if ($priceFilterActive && $maxPrice !== null) {
     <div class="weddingpkg-text">
       <h2>Wedding Package</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-        laboris nisi ut aliquip ex ea commodo consequat.
+        Some feelings are too deep for words. They are spoken in the language of flowers.
+
+Allow us to be the interpreters of your heart. We will weave every hope, every laugh, and every happy tear into the bouquet you hold close, and upon the altar that embraces your sacred vows.
+
+This is not merely about flowers. It is about your love, made tangible.
       </p>
-      <button class="btn-weddingpkg">Show More</button>
+      <a href="wedding.php" style="color: black;"><button class="btn-weddingpkg">Show More</button></a>
     </div>
 
     <!-- Kanan: gambar -->
@@ -243,18 +245,20 @@ if ($priceFilterActive && $maxPrice !== null) {
   <div class="workshop-container">
     <!-- Kiri: gambar -->
     <div class="workshop-img">
-      <img src="img/weddingpkg.png" alt="Wedding Package">
+      <img src="img/image (2).png" alt="Workshop">
     </div>
 
     <!-- Kanan: teks -->
     <div class="workshop-text">
-      <h2>Wedding Package</h2>
+      <h2>Workshop</h2>
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut 
-        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-        laboris nisi ut aliquip ex ea commodo consequat.
+There is a certain magic when fingertips meet the delicacy of a petal, when fragrance becomes a breath of calm. This is not merely a class; it is an invitation to pause, to reconnect with your intuition and with nature.
+
+In our workshop, you will learn the silent language of flowers, understand how each stem wishes to dance, and weave them into a story born from your heart. Forget the world outside for a moment, and discover a therapy for the soul in every leaf and color you choose.
+
+Leave with a masterpiece in your hands and peace within your soul.
       </p>
-      <button class="btn-workshop">Show More</button>
+      <a href="workshop.php" style="color: black;"><button class="btn-workshop">Show More</button></a>
     </div>
   </div>
 </section>

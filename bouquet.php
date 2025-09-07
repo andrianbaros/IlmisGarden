@@ -56,12 +56,11 @@
       <a href="#home" class="navbar-logo"
         ><img src="img/F4F6F4-full.png" alt=""
       /></a>
-
       <div class="navbar-nav">
         <a href="product.php">Product</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#about">About Us</a>
+        <a href="index.php#workshop">Workshop</a>
+        <a href="index.php#catalog">Catalog</a>
+        <a href="index.php#about">About Us</a>
       </div>
       <div class="navbar-extra">
         <a href="" id="search"><i data-feather="search"></i></a>

@@ -1,0 +1,183 @@
+/* General */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.hero-left {
+  flex: 1;
+}
+.hero-left img {
+  width: 100%;
+  height: 100%;
+  max-width: 800px;
+  object-fit: cover;
+}
+
+.hero-right {
+  flex: 1;
+  background: #f9f9f9;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-right h1 {
+  font-size: clamp(22px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 20px;
+  line-height: 1.3;
+  color: #000;
+}
+
+.hero-right p {
+  font-size: clamp(14px, 2.5vw, 18px);
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Section container */
+.intro,
+.benefits,
+.pricelist,
+.contact {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
+.intro img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+/* Benefits */
+.benefits {
+  text-align: center;
+}
+.benefits h2 {
+  margin-bottom: 20px;
+}
+.benefits p {
+  margin-bottom: 20px;
+}
+
+/* Grid untuk gambar */
+.benefits-images {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 gambar di desktop */
+  gap: 20px;
+}
+.benefits-images img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Pricelist */
+.pricelist {
+  background: #f4f6f4;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(185, 189, 185, 0.418);
+  padding: 20px;
+}
+.table-wrapper {
+  overflow-x: auto; /* biar bisa geser di HP */
+  -webkit-overflow-scrolling: touch;
+}
+.pricelist table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  min-width: 600px; /* biar gak terlalu kecil */
+}
+.pricelist th,
+.pricelist td {
+  border: 2px solid #4e554a;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+.pricelist th {
+  background: #ffffff;
+  color: #000;
+}
+.pricelist .note {
+  margin-top: 15px;
+  color: #000000;
+}
+
+/* Contact */
+.contact {
+  text-align: center;
+}
+.btn-wa {
+  background: #25d366;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+}
+.btn-wa:hover {
+  background: #1ebe5a;
+}
+
+/* --- RESPONSIVE MEDIA QUERY --- */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .hero-left img {
+    max-height: 400px;
+  }
+  .hero-right {
+    padding: 30px;
+    text-align: center;
+  }
+
+  .benefits-images {
+    grid-template-columns: repeat(2, 1fr); /* 2 gambar di tablet */
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    min-height: auto;
+  }
+  .hero-left img {
+    max-height: 300px;
+  }
+  .hero-right {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .benefits-images {
+    grid-template-columns: 1fr; /* 1 gambar per baris */
+  }
+
+  .pricelist table {
+    font-size: 12px;
+  }
+}
