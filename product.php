@@ -62,7 +62,7 @@ require 'conn/db.php';
 
       <div class="navbar-nav">
         <a href="product.php">Product</a>
-        <a href="#workshop">Workshop</a>
+        <a href="index.php#workshop">Workshop</a>
         <a href="#catalog">Catalog</a>
         <a href="#about">About Us</a>
       </div>
@@ -84,10 +84,10 @@ require 'conn/db.php';
     </div>
   </div>
 
-  <div class="bouquet-card">
-    <img src="img/Product (3).png" alt="Flower Bouquet">
+  <div class="bouquet-card"><a href="bouquet.php">
+    <img src="img/Product (3).png" alt="Flower Bouquet" >
     <div class="overlay">
-    </div>
+    </div></a>      
   </div>
 
   <div class="bouquet-card">

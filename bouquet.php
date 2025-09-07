@@ -58,7 +58,7 @@
       /></a>
 
       <div class="navbar-nav">
-        <a href="#wedding">Wedding</a>
+        <a href="product.php">Product</a>
         <a href="#workshop">Workshop</a>
         <a href="#catalog">Catalog</a>
         <a href="#about">About Us</a>
@@ -78,39 +78,60 @@
     <p>Crafted with Love, Created to Bloom</p>
     <img src="img/rose.png" alt="Rose" class="hero-img">
   </section>
-
-  <!-- Blooming Collection -->
-  <section class="collection">
-    <h2>Explore Our Blooming Collection</h2>
-    <p>Discover the beauty of our bouquets designed for every occasion.</p>
-    <div class="collection-grid">
-      <img src="img/coll1.png" alt="Collection 1">
-      <img src="img/coll2.png" alt="Collection 2">
-      <img src="img/coll3.png" alt="Collection 3">
-      <img src="img/coll4.png" alt="Collection 4">
+<!-- Blooming Collection -->
+<section class="collection">
+  <table class="collection-table">
+    <tr>
+      <td class="left">Explore</td>
+      <td class="right">Our</td>
+    </tr>
+    <tr>
+      <td colspan="2" class="center">Blooming Collection</td>
+    </tr>
+  </table>
+  <div class="collection-wrapper">
+    <div class="collection-text">
+      <p>Find Your Perfect Bouquet Flowers</p>
     </div>
-  </section>
+    <div class="collection-grid">
+      <img src="img/Frame 153.png" alt="Collection 1">
+      <img src="img/Frame 154.png" alt="Collection 2">
+      <img src="img/Frame 152.png" alt="Collection 3">
+    </div>
+  </div>
+</section>
+
+
 
   <!-- Flower Bouquet Section -->
   <section class="flower-bouquet">
     <h2>Flower Bouquet</h2>
     <p>Beautifully arranged to brighten your day.</p>
     <div class="circle-images">
-      <img src="img/bouquet1.png" alt="Bouquet 1">
-      <img src="img/bouquet2.png" alt="Bouquet 2">
-      <img src="img/bouquet3.png" alt="Bouquet 3">
+      <img src="img/Ellipse 5.png" alt="Bouquet 1">
+      <img src="img/Ellipse 6.png" alt="Bouquet 2">
+      <img src="img/Ellipse 7.png" alt="Bouquet 3">
     </div>
   </section>
 
   <!-- Static Catalog (per jenis bunga) -->
   <section class="catalog">
+    <!-- Omakase -->
+    <div class="catalog-item gray">
+      <h3>Omakase</h3>
+      <div class="catalog-content">
+        <img src="img/Frame 157.png" alt="Omakase 1">
+        <img src="img/Frame 158.png" alt="Omakase 2">
+      </div>
+      <p>The classic flower of love and elegance, perfect for any occasion.</p>
 
+    </div>
     <!-- Rose -->
-    <div class="catalog-item">
+    <div class="catalog-item gray">
       <h3>Rose</h3>
       <div class="catalog-content">
-        <img src="img/rose1.png" alt="Rose 1">
-        <img src="img/rose2.png" alt="Rose 2">
+        <img src="img/Frame 157.png" alt="Rose 1">
+        <img src="img/Frame 158.png" alt="Rose 2">
       </div>
       <p>The classic flower of love and elegance, perfect for any occasion.</p>
       <div class="colors">
@@ -126,8 +147,8 @@
     <div class="catalog-item gray">
       <h3>Hydrangea</h3>
       <div class="catalog-content">
-        <img src="img/hyd1.png" alt="Hydrangea 1">
-        <img src="img/hyd2.png" alt="Hydrangea 2">
+        <img src="img/Frame 157 (3).png" alt="Hydrangea 1">
+        <img src="img/Frame 158 (1).png " alt="Hydrangea 2">
       </div>
       <p>Soft, voluminous petals that symbolize gratitude and grace.</p>
       <div class="colors">
@@ -142,9 +163,24 @@
   </section>
 
   <!-- Footer -->
-  <footer class="footer">
-    <p>&copy; 2025 Your Flower Shop | Jl. Raya Golf Dago No.4, Bandung</p>
-  </footer>
+<footer class="footer">
+  <div style="margin-bottom: 3rem;">
+    <a href="" style="padding: 3rem; color:#d9d9d9;">Home</a>
+    <a href="" style="padding: 3rem; color:#d9d9d9">About Us</a>
+    <a href="" style="padding: 3rem; color:#d9d9d9">Product</a>
+    <a href="" style="padding: 3rem; color:#d9d9d9">Contact</a>
+  </div>
+
+  <div style="margin-bottom: 3rem;">
+    <p>Jalan Raya Golf Dago No. 4, Bandung, Jawa Barat, Indonesia</p>
+    <p>(+62 812-3456-7890)</p>
+  </div>
+
+  <div>
+    <p>Follow Us</p>
+    <a href=""></a><a href=""></a>
+  </div>
+</footer>
     <!-- feather icons -->
     <script>
       feather.replace();

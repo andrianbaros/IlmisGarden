@@ -1,3 +1,16 @@
+/* Import font Italianno */
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+
+/* Apply Italianno ke semua heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Italianno", cursive;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background-color: var(--bg);
@@ -153,7 +166,7 @@ body {
   background: #f4f6f4;
 }
 .hero h1 {
-  font-size: 42px;
+  font-size: 100px;
   margin-bottom: 10px;
 }
 .hero p {
@@ -167,42 +180,196 @@ body {
 
 /* Collection */
 .collection {
-  padding: 60px 20px;
+  width: 100%;
+  margin: 60px auto;
   text-align: center;
 }
-.collection h2 {
-  font-size: 32px;
-  margin-bottom: 10px;
+
+.collection-table {
+  width: 37, 5%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  text-align: center;
 }
+
+.collection-table td {
+  padding: 10px;
+  font-family: inter, sans-serif;
+  font-weight: 500;
+}
+
+.collection-table .left {
+  text-align: left;
+  font-size: 80px;
+}
+
+.collection-table .right {
+  text-align: right;
+  font-size: 80px;
+}
+
+.collection-table .center {
+  text-align: center;
+  font-size: 80px;
+  line-height: 1.2;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .collection-table {
+    width: 70%;
+  }
+
+  .collection-table .left,
+  .collection-table .right,
+  .collection-table .center {
+    font-size: 50px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .collection-table {
+    width: 100%;
+  }
+
+  .collection-table td {
+    display: block;
+    width: 100%;
+    text-align: center !important; /* paksa center */
+  }
+
+  .collection-table .left,
+  .collection-table .right,
+  .collection-table .center {
+    font-size: 36px;
+  }
+}
+
+.collection-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* teks kiri, gambar kanan */
+  align-items: center;
+  gap: 40px;
+  margin: 50px auto;
+  max-width: 1200px;
+  padding: 20px;
+}
+
+.collection-text h2 {
+  font-size: 80px;
+  line-height: 1.2;
+}
+
+.collection-text p {
+  margin-top: 15px;
+  font-size: 18px;
+  color: #333;
+}
+
 .collection-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "left-top right-big"
+    "left-bottom right-big";
   gap: 20px;
-  margin-top: 30px;
 }
+
 .collection-grid img {
   width: 100%;
   border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Posisi gambar */
+.collection-grid img:nth-child(1) {
+  grid-area: left-top;
+}
+
+.collection-grid img:nth-child(2) {
+  grid-area: left-bottom;
+}
+
+.collection-grid img:nth-child(3) {
+  grid-area: right-big;
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+  .collection-wrapper {
+    grid-template-columns: 1fr; /* stack teks & grid */
+    text-align: center;
+  }
+  .collection-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "left-top right-big"
+      "left-bottom right-big";
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .collection-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "left-top"
+      "left-bottom"
+      "right-big";
+  }
 }
 
 /* Flower Bouquet */
 .flower-bouquet {
-  background: #7d8b7d;
+  background: #708871;
   color: white;
   padding: 60px 20px;
   text-align: center;
 }
+.flower-bouquet h2 {
+  font-size: 100px;
+}
+
 .circle-images {
   display: flex;
   justify-content: center;
   gap: 30px;
   margin-top: 30px;
+  flex-wrap: wrap; /* biar otomatis turun ke bawah kalau sempit */
 }
+
 .circle-images img {
-  width: 160px;
-  height: 160px;
+  width: 100%;
+  max-width: 400px;
   border-radius: 50%;
   object-fit: cover;
+  transition: 0.3s ease; /* efek halus saat resize */
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .circle-images {
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .circle-images img {
+    max-width: 250px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .circle-images {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+  .circle-images img {
+    max-width: 200px;
+    width: 80%;
+  }
 }
 
 /* Catalog */
@@ -210,33 +377,72 @@ body {
   padding: 60px 20px;
   text-align: center;
 }
+
 .catalog-item.gray {
   background: #f4f4f4;
 }
+
 .catalog-item h3 {
-  font-size: 28px;
+  font-size: 100px;
   margin-bottom: 20px;
 }
+
 .catalog-content {
   display: flex;
   justify-content: center;
   gap: 20px;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* biar otomatis turun kalau sempit */
 }
+
 .catalog-content img {
-  width: 240px;
+  width: 340px;
   border-radius: 12px;
+  transition: 0.3s ease;
 }
+
 .colors {
   margin-top: 15px;
 }
+
 .colors span {
   display: inline-block;
-  width: 20px;
-  height: 20px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   margin: 0 5px;
   border: 2px solid #ccc;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  .catalog-content img {
+    width: 250px;
+  }
+
+  .colors span {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .catalog-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+  }
+
+  .catalog-content img {
+    width: 80%; /* biar menyesuaikan layar */
+    max-width: 220px;
+  }
+
+  .colors span {
+    width: 35px;
+    height: 35px;
+  }
 }
 
 /* Footer */

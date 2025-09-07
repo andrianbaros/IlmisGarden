@@ -238,8 +238,6 @@ if ($priceFilterActive && $maxPrice !== null) {
 
 </section>
 
-
-    <!-- Workshop Section -->
 <!-- Workshop Section -->
 <section class="workshop" id="workshop">
   <div class="workshop-container">
