@@ -78,10 +78,10 @@ require 'conn/db.php';
 
 
 <section class="bouquet-section">
-  <div class="bouquet-card">
+  <div class="bouquet-card"><a href="wedding.php">
     <img src="img/Product (2).png" alt="Wedding Bouquet">
     <div class="overlay">
-    </div>
+    </div></a>
   </div>
 
   <div class="bouquet-card"><a href="bouquet.php">

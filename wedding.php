@@ -88,20 +88,26 @@
       </div>
     </nav>
     <!-- Navbar End -->
+    <section class="opening">
+  <div class="overlay">
+    <h1>Make Your Special day<br>
+Bloom with Beauty</h1>
+  </div>
+</section>
 
     <!-- Hero Wedding -->
     <div class="hero">
-      <h1>Our Special Wedding Arrangements</h1>
+        <div class="bg">      <h1>Wedding</h1><br>
+      <p>Arrangement</p></div>
+
     </div>
 
     <!-- Wedding Section -->
     <div class="section">
-      <h2>Wedding</h2>
-      <p>Arrangement</p>
 
       <!-- Bouquet Items -->
       <div class="bouquet">
-        <img src="img/cascade.jpg" alt="Cascade Bouquet" />
+        <img src="img/Frame 209 (1).png" alt="Cascade Bouquet" />
         <div class="bouquet-text">
           <h3>Cascade</h3>
           <p>
@@ -114,7 +120,7 @@
       </div>
 
       <div class="bouquet">
-        <img src="img/pomander.jpg" alt="Pomander Bouquet" />
+        <img src="img/Frame 209 (2).png" alt="Pomander Bouquet" />
         <div class="bouquet-text">
           <h3>Pomander</h3>
           <p>
@@ -126,7 +132,7 @@
       </div>
 
       <div class="bouquet">
-        <img src="img/pageant.jpg" alt="Pageant Bouquet" />
+        <img src="img/Frame 209 (3).png" alt="Pageant Bouquet" />
         <div class="bouquet-text">
           <h3>Pageant</h3>
           <p>
@@ -138,7 +144,7 @@
       </div>
 
       <div class="bouquet">
-        <img src="img/handtied.jpg" alt="Hand Tied Bouquet" />
+        <img src="img/Frame 209 (4).png" alt="Hand Tied Bouquet" />
         <div class="bouquet-text">
           <h3>Hand Tied</h3>
           <p>
@@ -150,7 +156,7 @@
       </div>
 
       <div class="bouquet">
-        <img src="img/round.jpg" alt="Round Bouquet" />
+        <img src="img/Frame 209 (5).png" alt="Round Bouquet" />
         <div class="bouquet-text">
           <h3>Round</h3>
           <p>
@@ -162,7 +168,7 @@
       </div>
 
       <div class="bouquet">
-        <img src="img/posy.jpg" alt="Posy Bouquet" />
+        <img src="img/Frame 209 (6).png" alt="Posy Bouquet" />
         <div class="bouquet-text">
           <h3>Posy</h3>
           <p>
@@ -174,7 +180,7 @@
       </div>
 
       <div class="bouquet">
-        <img src="img/contemporary.jpg" alt="Contemporary Bouquet" />
+        <img src="img/Frame 209 (7).png" alt="Contemporary Bouquet" />
         <div class="bouquet-text">
           <h3>Contemporary</h3>
           <p>
