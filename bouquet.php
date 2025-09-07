@@ -74,9 +74,9 @@
 
   <!-- Hero Section -->
   <section class="hero">
-    <h1>Bouquet</h1>
-    <p>Crafted with Love, Created to Bloom</p>
+    <h1 class="left">Crafted with Love</h1>
     <img src="img/rose.png" alt="Rose" class="hero-img">
+    <h1 class="right"> Created to Bloom</h1>
   </section>
 <!-- Blooming Collection -->
 <section class="collection">
@@ -91,7 +91,7 @@
   </table>
   <div class="collection-wrapper">
     <div class="collection-text">
-      <p>Find Your Perfect Bouquet Flowers</p>
+      <p>Find Your Perfect<br> Bouquet Flowers</p>
     </div>
     <div class="collection-grid">
       <img src="img/Frame 153.png" alt="Collection 1">
