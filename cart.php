@@ -1,8 +1,7 @@
 <?php
 session_start();
 require 'conn/db.php';
-
-// Cek login
+// Pastikan user login
 if (!isset($_SESSION['id_user'])) {
     header("Location: signin.php");
     exit;

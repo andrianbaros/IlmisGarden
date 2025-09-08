@@ -10,6 +10,12 @@
   border: none;
   text-decoration: none;
 }
+body {
+  font-family: "Inter", sans-serif;
+  background-color: var(--bg);
+
+  height: 2000px;
+}
 /* Navbar */
 .navbar {
   font-family: "Inter", sans-serif;
@@ -93,6 +99,41 @@
   transform: scaleX(0.5);
 }
 
+/* hero section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--bg);
+}
+.hero button {
+  margin-top: 2rem;
+  background-color: #fff;
+  color: #283128; /* hijau senada navbar */
+  padding: 0.6rem 1.2rem;
+  border: 2px solid #708871;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero button:hover {
+  background-color: #333b33;
+  color: #fff;
+}
+
+.hero .content {
+  padding: 1.4rem 7%;
+  max-width: 60rem;
+}
+
+/* About sections */
+.about {
+  padding: 10rem 7% 1.4rem;
+}
+
 /* media queries */
 /* laptop */
 @media (max-width: 1366px) {
@@ -141,6 +182,8 @@
     font-size: 55%;
   }
 }
+
+/* hero */
 
 .slideshow {
   position: absolute;

@@ -22,7 +22,6 @@ body {
   padding-top: 2rem; /* tambahan supaya lebih lega */
   display: flex;
   gap: 2rem;
-  margin-top: 100px !important;
 }
 
 /* ====== Product Grid ====== */
@@ -229,5 +228,74 @@ h3 {
   }
   .nav-links {
     gap: 1rem;
+  }
+}
+/* ====== Responsive ====== */
+
+/* Tablet (<= 992px) */
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
+  .products {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Mobile (<= 768px) */
+@media (max-width: 768px) {
+  body {
+    padding-top: 80px !important; /* navbar lebih kecil */
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr;
+    margin: 1rem;
+  }
+
+  .product-card {
+    padding: 0.8rem;
+  }
+
+  .product-card h4 {
+    font-size: 1rem;
+  }
+
+  .product-card img,
+  .product-image {
+    height: 150px;
+  }
+
+  .buy-button {
+    width: 100%;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+}
+
+/* Extra Small (<= 480px) */
+@media (max-width: 480px) {
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    margin: 1rem auto;
+    gap: 1rem;
+  }
+
+  .section-title {
+    font-size: 1.4rem;
+  }
+
+  .buy-button {
+    font-size: 0.9rem;
+    padding: 0.6rem;
   }
 }

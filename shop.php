@@ -1,7 +1,13 @@
 <?php
 session_start();
 require 'conn/db.php';
+// Pastikan user login
+if (!isset($_SESSION['id_user'])) {
+    header("Location: signin.php");
+    exit;
+}
 
+$user_id = $_SESSION['id_user'];
 // Ambil semua kategori unik dari DB (kolom type)
 $stmt = $pdo->query("SELECT DISTINCT type FROM products");
 $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
