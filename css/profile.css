@@ -4,6 +4,7 @@ body {
   background: #f8f9f7;
 }
 
+/* ===== Header ===== */
 .header {
   display: flex;
   justify-content: space-between;
@@ -11,8 +12,8 @@ body {
   background: #6b8063;
   color: #fff;
   padding: 12px 24px;
+  flex-wrap: wrap; /* biar turun kalau layar kecil */
 }
-
 .logo span {
   font-weight: bold;
 }
@@ -21,21 +22,25 @@ body {
   color: #fff;
   margin: 0 10px;
   text-decoration: none;
+  font-size: 1rem;
 }
 
+/* ===== Container Profile ===== */
 .profile-container {
   max-width: 700px;
-  margin: 30px auto;
+  margin: 100px auto 30px;
   background: #f2f4f1;
-  padding-top: 100px;
+  padding: 20px;
   border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Tabs */
 .tabs {
   display: flex;
   gap: 24px;
   margin-bottom: 20px;
+  flex-wrap: wrap; /* biar turun ke bawah di layar kecil */
 }
 .tabs a {
   text-decoration: none;
@@ -47,6 +52,7 @@ body {
   border-bottom: 2px solid #6b8063;
 }
 
+/* Form */
 .profile-form label {
   margin-top: 12px;
   display: block;
@@ -61,11 +67,13 @@ body {
   border-radius: 8px;
 }
 
+/* Photo Section */
 .photo-section {
   display: flex;
   align-items: center;
   gap: 12px;
-  margin-bottom: 20px;
+  margin: 20px 0;
+  flex-wrap: wrap;
 }
 .profile-photo {
   width: 70px;
@@ -81,11 +89,13 @@ body {
   cursor: pointer;
 }
 
+/* Buttons */
 .form-actions {
   margin-top: 20px;
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+  flex-wrap: wrap;
 }
 .cancel {
   background: #e0e0e0;
@@ -103,6 +113,7 @@ body {
   cursor: pointer;
 }
 
+/* Alert */
 .alert {
   background: #d9fdd3;
   border: 1px solid #9ccc65;
@@ -110,4 +121,44 @@ body {
   margin-bottom: 15px;
   border-radius: 6px;
   color: #33691e;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px;
+  }
+  .nav-links,
+  .nav-icons {
+    margin-top: 8px;
+    width: 100%;
+    text-align: center;
+  }
+  .profile-container {
+    margin: 80px 16px 20px;
+    padding: 16px;
+  }
+  .tabs {
+    justify-content: center;
+    gap: 12px;
+  }
+  .form-actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-photo {
+    width: 60px;
+    height: 60px;
+  }
+  .upload-btn {
+    width: 100%;
+    text-align: center;
+  }
+  .cancel,
+  .save {
+    flex: 1;
+    text-align: center;
+  }
 }
