@@ -50,27 +50,85 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>User Profile - Ilmisgarden</title>
-  <link rel="stylesheet" href="css/profile.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ilmisgarden</title>
+      <link rel="icon" href="img/F4F6F4-full.png" />
+
+    <!-- Fonts -->
+    <!-- 1. Preconnect ke Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- 2. Preload stylesheet Google Fonts -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    />
+
+    <!-- 3. Load stylesheet font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 4. Fallback untuk browser lama / tanpa JavaScript -->
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/profile.css" />
+
 </head>
-<body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">🌿 <span>ILMISGARDEN</span></div>
-    <nav class="nav-links">
-      <a href="shop.php">Product</a>
-      <a href="#">Catalog</a>
-      <a href="#">Workshop</a>
-      <a href="#">About Us</a>
+<body >
+<!-- Navbar Start -->
+    <nav class="navbar">
+      <a href="index.php" class="navbar-logo"><img src="img/F4F6F4-full.png" alt="Logo" /></a>
+
+      <div class="navbar-nav">
+        <a href="product.php">Product</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">About Us</a>
+      </div>
+      <div class="navbar-extra">
+        
+      <?php if (isset($_SESSION['id_user'])): ?>
+        <span style="margin-right:20px;">
+          Hello, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?>
+        </span>
+        <a href="logout.php"><i data-feather="log-out"></i></a>
+      <?php else: ?>
+        <a href="signin.php"><i data-feather="log-in"></i></a>
+      <?php endif; ?>
+
+        <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="profile.php" id="user"><i data-feather="user"></i></a>
+        <i id="menu" data-feather="menu"></i>
+
+      </div>
     </nav>
-    <div class="nav-icons">
-      <a href="#">🔍</a>
-      <a href="cart.php">🛒</a>
-      <a href="profile.php">👤</a>
-    </div>
-  </header>
+    <!-- Navbar End -->
 
   <!-- MAIN -->
   <main class="profile-container">
