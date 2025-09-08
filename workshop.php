@@ -68,8 +68,9 @@
     <!-- Navbar Start -->
     <nav class="navbar">
       <a href="index.php" class="navbar-logo"
-        ><img src="img/F4F6F4-full.png" alt="Ilmis Garden Logo"
+        ><img src="img/F4F6F4-full.png" alt=""
       /></a>
+
       <div class="navbar-nav">
         <a href="product.php">Product</a>
         <a href="index.php#workshop">Workshop</a>
@@ -77,11 +78,12 @@
         <a href="index.php#about">About Us</a>
       </div>
       <div class="navbar-extra">
-        <a href="" id="search"><i data-feather="search"></i></a>
-        <a href="" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+      <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="profile.php" id="user"><i data-feather="user"></i></a>
         <i id="menu" data-feather="menu"></i>
       </div>
     </nav>
+
     <!-- Navbar End -->
 <!-- Hero -->
 <section class="hero">

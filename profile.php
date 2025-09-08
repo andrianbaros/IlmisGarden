@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (password_verify($_POST['current_password'], $user['password'])) {
             if ($_POST['new_password'] === $_POST['confirm_password']) {
                 $newPass = password_hash($_POST['new_password'], PASSWORD_DEFAULT);
-                $stmt = $pdo->prepare("UPDATE users SET name=?, email=?, address=?, password=? WHERE id_user=?");
+                $stmt = $pdo->prepare("UPDATE users SET username=?, email=?, address=?, password=? WHERE id_user=?");
                 $stmt->execute([$name, $email, $address, $newPass, $user_id]);
                 $msg = "Profil berhasil diperbarui.";
             } else {
@@ -105,11 +105,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <nav class="navbar">
       <a href="index.php" class="navbar-logo"><img src="img/F4F6F4-full.png" alt="Logo" /></a>
 
+      
       <div class="navbar-nav">
         <a href="product.php">Product</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#about">About Us</a>
+        <a href="index.php#workshop">Workshop</a>
+        <a href="index.php#catalog">Catalog</a>
+        <a href="index.php#about">About Us</a>
       </div>
       <div class="navbar-extra">
         
@@ -169,5 +170,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
     </form>
   </main>
+      <!-- feather icons -->
+    <script>
+      feather.replace();
+    </script>
+    <!-- js -->
+    <script src="js/script.js"></script>
 </body>
 </html>

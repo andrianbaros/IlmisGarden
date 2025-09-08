@@ -17,6 +17,18 @@ if ($priceFilterActive && $maxPrice !== null) {
     $stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC");
     $products = $stmt->fetchAll();
 }
+
+
+// Wedding products
+$stmt = $pdo->prepare("SELECT * FROM products WHERE type = 'wedding' ORDER BY id DESC LIMIT 4");
+$stmt->execute();
+$weddingProducts = $stmt->fetchAll();
+
+// Workshop products
+$stmt2 = $pdo->prepare("SELECT * FROM products WHERE type = 'workshop' ORDER BY id DESC LIMIT 4");
+$stmt2->execute();
+$workshopProducts = $stmt2->fetchAll();
+?>
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,30 +86,23 @@ if ($priceFilterActive && $maxPrice !== null) {
     <nav class="navbar">
       <a href="index.php" class="navbar-logo"><img src="img/F4F6F4-full.png" alt="Logo" /></a>
 
+      
       <div class="navbar-nav">
         <a href="product.php">Product</a>
-        <a href="#workshop">Workshop</a>
-        <a href="#catalog">Catalog</a>
-        <a href="#about">About Us</a>
+        <a href="index.php#workshop">Workshop</a>
+        <a href="index.php#catalog">Catalog</a>
+        <a href="index.php#about">About Us</a>
       </div>
       <div class="navbar-extra">
         
-      <?php if (isset($_SESSION['id_user'])): ?>
-        <span style="margin-right:20px;">
-          Hello, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?>
-        </span>
-        <a href="logout.php"><i data-feather="log-out"></i></a>
-      <?php else: ?>
-        <a href="signin.php"><i data-feather="log-in"></i></a>
-      <?php endif; ?>
 
-        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+
+        <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="profile.php" id="user"><i data-feather="user"></i></a>
         <i id="menu" data-feather="menu"></i>
 
       </div>
     </nav>
-    <!-- Navbar End -->
-
     <!-- Navbar End -->
     <!-- Hero Sections-->
     <!-- hero section start-->
@@ -130,32 +135,32 @@ if ($priceFilterActive && $maxPrice !== null) {
 <!-- Best Sellers -->
 <section class="wedding" id="wedding">
   <h2 class="section-title">Discover Our Bestsellers</h2>
-  <p class="section-desc">
-  </p>
-<div class="product-grid">
-  <?php if (!empty($bestsellers)): ?>
-    <?php foreach ($bestsellers as $product): ?>
-      <div class="product-card">
-        <div class="img-wrapper">
-          <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-               alt="<?php echo htmlspecialchars($product['name']); ?>">
+  <p class="section-desc"></p>
+  <div class="product-grid">
+    <?php if (!empty($bestsellers)): ?>
+      <?php foreach ($bestsellers as $product): ?>
+        <div class="product-card">
+          <div class="img-wrapper">
+            <img src="<?= htmlspecialchars($product['image']); ?>" 
+                 alt="<?= htmlspecialchars($product['name']); ?>">
+          </div>
+          <h3><?= htmlspecialchars($product['name']); ?></h3>
+          <p>
+            Rp. <?= number_format($product['price'], 0, ',', '.'); ?>
+          </p>
+          <a href="product_details.php?id=<?= $product['id'] ?>" class="buy-btn">
+            <button type="button">Buy</button>
+          </a>
         </div>
-        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-        <p>
-          Rp. <?php echo number_format($product['price'], 0, ',', '.'); ?>
-        </p>
-        <button>Buy</button>
-      </div>
-    <?php endforeach; ?>
-  <?php else: ?>
-    <p>No products available.</p>
-  <?php endif; ?>
-</div>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p>No products available.</p>
+    <?php endif; ?>
+  </div>
 
-<a href="product.php" class="view-all">view all product</a>
-
-
+  <a href="product.php" class="view-all">View all products</a>
 </section>
+
 
     <!-- Catalog Section -->
 <!-- Catalog Section -->
@@ -220,32 +225,25 @@ This is not merely about flowers. It is about your love, made tangible.
   
 </section>
 <section class="weddingpkg" id="wedding">
-  <p class="section-desc">
-  </p>
-<div class="product-grid">
-  <?php if (!empty($bestsellers)): ?>
-    <?php foreach ($bestsellers as $product): ?>
-      <div class="product-card">
-        <div class="img-wrapper">
-          <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-               alt="<?php echo htmlspecialchars($product['name']); ?>">
+  <div class="product-grid">
+    <?php if (!empty($weddingProducts)): ?>
+      <?php foreach ($weddingProducts as $product): ?>
+        <div class="product-card">
+          <div class="img-wrapper">
+            <img src="<?= htmlspecialchars($product['image']) ?>" 
+                 alt="<?= htmlspecialchars($product['name']) ?>">
+          </div>
+          <h3><?= htmlspecialchars($product['name']) ?></h3>
+          <p>Rp. <?= number_format($product['price'], 0, ',', '.') ?></p>
+          <a href="product_details.php?id=<?= $product['id'] ?>"><button>Buy</button></a>
         </div>
-        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-        <p>
-          Rp. <?php echo number_format($product['price'], 0, ',', '.'); ?>
-        </p>
-        <button>Buy</button>
-      </div>
-    <?php endforeach; ?>
-  <?php else: ?>
-    <p>No products available.</p>
-  <?php endif; ?>
-</div>
-
-<a href="" class="view-all">view all product</a>
-
-
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p>No wedding products available.</p>
+    <?php endif; ?>
+  </div>
 </section>
+
 
 <!-- Workshop Section -->
 <section class="workshop" id="workshop">
@@ -269,30 +267,26 @@ Leave with a masterpiece in your hands and peace within your soul.
     </div>
   </div>
 </section>
-
 <section class="workshop" id="workshop">
-  <p class="section-desc">
-  </p>
-<div class="product-grid">
-  <?php if (!empty($bestsellers)): ?>
-    <?php foreach ($bestsellers as $product): ?>
-      <div class="product-card">
-        <div class="img-wrapper">
-          <img src="<?php echo htmlspecialchars($product['image']); ?>" 
-               alt="<?php echo htmlspecialchars($product['name']); ?>">
+  <div class="product-grid">
+    <?php if (!empty($workshopProducts)): ?>
+      <?php foreach ($workshopProducts as $product): ?>
+        <div class="product-card">
+          <div class="img-wrapper">
+            <img src="<?= htmlspecialchars($product['image']) ?>" 
+                 alt="<?= htmlspecialchars($product['name']) ?>">
+          </div>
+          <h3><?= htmlspecialchars($product['name']) ?></h3>
+          <p>Rp. <?= number_format($product['price'], 0, ',', '.') ?></p>
+          <a href="product_details.php?id=<?= $product['id'] ?>"><button>Buy</button></a>
         </div>
-        <h3><?php echo htmlspecialchars($product['name']); ?></h3>
-        <p>
-          Rp. <?php echo number_format($product['price'], 0, ',', '.'); ?>
-        </p>
-        <button>Buy</button>
-      </div>
-    <?php endforeach; ?>
-  <?php else: ?>
-    <p>No products available.</p>
-  <?php endif; ?>
-</div>
+      <?php endforeach; ?>
+    <?php else: ?>
+      <p>No workshop products available.</p>
+    <?php endif; ?>
+  </div>
 </section>
+
 
 
 <!-- About Section -->
