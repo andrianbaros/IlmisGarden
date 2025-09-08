@@ -1,10 +1,10 @@
 <?php
 session_start();
-include 'conn/db.php';
+require 'conn/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
+    $password = trim($_POST['password']);
 
     $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
     $stmt->execute([$email]);
@@ -12,20 +12,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($user && password_verify($password, $user['password'])) {
         // Simpan data ke session
-        $_SESSION['id_user'] = $user['id_user'];
-        $_SESSION['username'] = $user['username'];
-        $_SESSION['email'] = $user['email'];
+        $_SESSION['id_user']   = $user['id_user'];
+        $_SESSION['username']  = $user['username'];
+        $_SESSION['email']     = $user['email'];
 
-        // Redirect ke halaman utama / dashboard
-        echo "<script>alert('Login berhasil, Selamat datang {$user['username']}!'); 
-              window.location='index.php';</script>";
+        // Simpan pesan welcome di session (opsional)
+        $_SESSION['flash_msg'] = "Login berhasil, Selamat datang {$user['username']}!";
+
+        // Redirect
+        header("Location: shop.php");
         exit;
     } else {
-        echo "<script>alert('Email atau Password salah');</script>";
+        $error = "Email atau Password salah";
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,6 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div class="container">
     <form action="" method="POST">
       <h2>Sign In</h2>
+      <?php if (!empty($error)): ?>
+        <div class="error"><?php echo htmlspecialchars($error); ?></div>
+      <?php endif; ?>
       <div class="form-group">
         <label>Email</label>
         <input type="email" name="email" placeholder="example@gmail.com" required>

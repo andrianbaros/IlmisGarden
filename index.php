@@ -1,5 +1,4 @@
 <?php
-session_start(); // Tambahkan ini
 require 'conn/db.php';
 
 // Ambil 4 produk terbaru untuk Best Sellers
@@ -19,7 +18,6 @@ if ($priceFilterActive && $maxPrice !== null) {
     $products = $stmt->fetchAll();
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -84,12 +82,15 @@ if ($priceFilterActive && $maxPrice !== null) {
       </div>
       <div class="navbar-extra">
         
-        <?php if (isset($_SESSION['id_user'])): ?>
-          <span style="margin-right:70px; margin-bottom: 10px;">Hello, <?php echo htmlspecialchars($_SESSION['username']); ?></span>
-          <a href="logout.php" style="margin-left:10px;"><i data-feather="log-out"></i></a>
-        <?php else: ?>
-          <a href="signin.php" style="margin-left:10px;"><i data-feather="log-in"></i></a>
-        <?php endif; ?>
+      <?php if (isset($_SESSION['id_user'])): ?>
+        <span style="margin-right:20px;">
+          Hello, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?>
+        </span>
+        <a href="logout.php"><i data-feather="log-out"></i></a>
+      <?php else: ?>
+        <a href="signin.php"><i data-feather="log-in"></i></a>
+      <?php endif; ?>
+
         <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
         <i id="menu" data-feather="menu"></i>
 
