@@ -194,7 +194,7 @@ if ($priceFilterActive && $maxPrice !== null) {
       </div>
     </div>
   </div>
-  <a href="" class="view-all">view all product</a>
+  <a href="shop.php" class="view-all">view all catalog</a>
 </section>
 
 <section class="weddingpkg" id="weddingpkg">

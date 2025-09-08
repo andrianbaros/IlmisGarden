@@ -27,44 +27,97 @@ if ($priceFilterActive && $maxPrice !== null) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ilmisgarden</title>
+      <link rel="icon" href="img/F4F6F4-full.png" />
+
+    <!-- Fonts -->
+    <!-- 1. Preconnect ke Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- 2. Preload stylesheet Google Fonts -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    />
+
+    <!-- 3. Load stylesheet font -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- 4. Fallback untuk browser lama / tanpa JavaScript -->
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+        rel="stylesheet"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+
+    <!-- Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <script src="https://unpkg.com/feather-icons"></script>
+    <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="style.css" />
+
 </head>
-<body>
-  <!-- HEADER -->
-  <header class="header">
-    <div class="logo">
-      🌿 <span>ILMISGARDEN</span>
-    </div>
-    <nav class="nav-links">
-      <a href="#">Product</a>
-      <a href="#">Catalog</a>
-      <a href="#">Workshop</a>
-      <a href="#">About Us</a>
+<body >
+<!-- Navbar Start -->
+    <nav class="navbar">
+      <a href="index.php" class="navbar-logo"><img src="img/F4F6F4-full.png" alt="Logo" /></a>
+
+      <div class="navbar-nav">
+        <a href="product.php">Product</a>
+        <a href="#workshop">Workshop</a>
+        <a href="#catalog">Catalog</a>
+        <a href="#about">About Us</a>
+      </div>
+      <div class="navbar-extra">
+        
+      <?php if (isset($_SESSION['id_user'])): ?>
+        <span style="margin-right:20px;">
+          Hello, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?>
+        </span>
+        <a href="logout.php"><i data-feather="log-out"></i></a>
+      <?php else: ?>
+        <a href="signin.php"><i data-feather="log-in"></i></a>
+      <?php endif; ?>
+
+        <a href="#" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <i id="menu" data-feather="menu"></i>
+
+      </div>
     </nav>
-    <div class="nav-icons">
-      <a href="#">🔍</a>
-      <a href="#">🛒</a>
-      <a href="#">👤</a>
-    </div>
-  </header>
+    <!-- Navbar End -->
+
+    <!-- Navbar End -->
 
   <!-- MAIN -->
-  <main class="container">
+  <div class="container" style="padding-top: 100px;">
     <!-- SIDEBAR -->
     <aside class="sidebar">
-      <div class="filter-box">
-        <h2>Keywords</h2>
-        <?php foreach ($keywords as $kw): ?>
-          <div class="chip"><?= htmlspecialchars($kw['name']) ?></div>
-        <?php endforeach; ?>
-      </div>
+
 
       <div class="filter-section">
-        <label><input type="checkbox" checked> Label</label>
+        <h5>Keywords</h5><br>
+        <label><input type="checkbox" checked> Flower Bouquet </label>
         <small>Description</small>
-        <label><input type="checkbox" checked> Label</label>
+        <label><input type="checkbox" checked> Wedding Bouquet </label>
         <small>Description</small>
-        <label><input type="checkbox" checked> Label</label>
+        <label><input type="checkbox" checked> Workshop</label>
         <small>Description</small>
       </div>
 
@@ -77,29 +130,25 @@ if ($priceFilterActive && $maxPrice !== null) {
             </label>
           </h3>
           <div id="price-filter-content" style="display: <?= isset($_GET['price_filter']) ? 'block' : 'none' ?>;">
-            <input type="range" min="0" max="100000" value="<?= isset($_GET['max_price']) ? (int)$_GET['max_price'] : 50000 ?>" id="price-range" name="max_price" />
+            <input type="range" min="0" max="3000000" value="<?= isset($_GET['max_price']) ? (int)$_GET['max_price'] : 50000 ?>" id="price-range" name="max_price" />
             <div class="price-range">
               <span>Rp.0</span>
-              <span>Rp.0-100K</span>
+
+              <span>Rp.3.000.000</span>
             </div>
           </div>
         </div>
-        <button type="submit" style="margin-top: 12px;">Filter</button>
+        <button type="submit" style="  width: 100%;
+        margin-top:2rem;
+  padding: 0.6rem;
+  background: #708871;
+  border: #292b28;
+  border-radius: 6px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;">Filter</button>
       </form>
 
-      <div class="filter-section">
-        <h3>Color</h3>
-        <label><input type="checkbox" checked> Green</label>
-        <label><input type="checkbox" checked> Yellow</label>
-        <label><input type="checkbox" checked> Red</label>
-      </div>
-
-      <div class="filter-section">
-        <h3>Size</h3>
-        <label><input type="checkbox" checked> Small</label>
-        <label><input type="checkbox" checked> Medium</label>
-        <label><input type="checkbox" checked> Large</label>
-      </div>
     </aside>
 
     <!-- PRODUCTS -->
@@ -135,5 +184,10 @@ if ($priceFilterActive && $maxPrice !== null) {
     }
   });
 </script>
+    <script>
+      feather.replace();
+    </script>
+    <!-- js -->
+    <script src="js/script.js"></script>
 </body>
 </html>

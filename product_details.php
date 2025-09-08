@@ -4,7 +4,7 @@ require 'conn/db.php';
 
 // Pastikan ada ID produk di URL
 if (!isset($_GET['id'])) {
-    header("Location: index.php");
+    header("Location: signin.php");
     exit;
 }
 

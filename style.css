@@ -9,48 +9,20 @@ body {
   background: #f9f9f9;
   color: #333;
   line-height: 1.6;
+  padding-top: 120px !important; /* ini bikin semua konten turun */
 }
 
 /* ====== Header / Navbar ====== */
-.header {
-  background: #5b7553;
-  color: #fff;
-  padding: 1rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.logo {
-  font-weight: 700;
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: 0.2s;
-}
-.nav-links a:hover {
-  color: #d9d9d9;
-}
-.nav-icons a {
-  color: #fff;
-  margin-left: 1rem;
-  font-size: 1.2rem;
-}
 
 /* ====== Container ====== */
 .container {
   width: 90%;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 5rem auto; /* naikkan dari 2rem ke 5rem supaya turun lebih jauh */
+  padding-top: 2rem; /* tambahan supaya lebih lega */
+  display: flex;
+  gap: 2rem;
+  margin-top: 100px !important;
 }
 
 /* ====== Product Grid ====== */
@@ -228,11 +200,12 @@ h3 {
   color: #555;
 }
 
-.sidebar button {
+.sidebar button,
+.filter-section button {
   width: 100%;
   padding: 0.6rem;
-  background: #5b7553;
-  border: none;
+  background: #292b28;
+  border: #292b28;
   border-radius: 6px;
   color: #fff;
   cursor: pointer;
