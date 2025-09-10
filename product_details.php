@@ -103,7 +103,7 @@ if (isset($_POST['add_to_cart'])) {
 
     <script src="https://unpkg.com/feather-icons"></script>
     <link rel="stylesheet" href="css/navbar.css" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="css/detail.css" />
 
 </head>
 <body >

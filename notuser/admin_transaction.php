@@ -11,7 +11,32 @@ if (!isset($_SESSION['is_admin'])) {
 // Filter status
 $status_filter = $_GET['status'] ?? 'all';
 
-// Query transaksi (join ke users)
+// Hapus transaksi jika ada request
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_transaction'])) {
+    $id_transaction = (int)$_POST['id_transaction'];
+
+    // Hapus dulu detail item
+    $pdo->prepare("DELETE FROM transaction_items WHERE transaction_id=?")->execute([$id_transaction]);
+    // Hapus transaksi
+    $pdo->prepare("DELETE FROM transactions WHERE id_transaction=?")->execute([$id_transaction]);
+
+    header("Location: admin_transaction.php?msg=deleted");
+    exit;
+}
+
+// Update status jika ada request
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
+    $id_transaction = $_POST['id_transaction'];
+    $new_status     = $_POST['status'];
+
+    $update = $pdo->prepare("UPDATE transactions SET status = ? WHERE id_transaction = ?");
+    $update->execute([$new_status, $id_transaction]);
+
+    header("Location: admin_transaction.php?msg=updated");
+    exit;
+}
+
+// Query transaksi
 $sql = "
     SELECT t.id_transaction, t.total_items, t.subtotal, t.status, t.created_at,
            u.username, u.email,
@@ -26,18 +51,6 @@ $sql = "
 
 $stmt = $pdo->query($sql);
 $transactions = $stmt->fetchAll();
-
-// Update status jika ada request
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
-    $id_transaction = $_POST['id_transaction'];
-    $new_status     = $_POST['status'];
-
-    $update = $pdo->prepare("UPDATE transactions SET status = ? WHERE id_transaction = ?");
-    $update->execute([$new_status, $id_transaction]);
-
-    header("Location: admin_transaction.php");
-    exit;
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -46,10 +59,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Admin - Transactions</title>
   <link rel="stylesheet" href="admin_transaction.css">
-    <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-      <!-- Navbar -->
+          <!-- Navbar -->
   <nav class="navbar">
     <!-- Logo -->
     <a href="dashboard.php">
@@ -72,15 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
     </div>
   </nav>
 
-  <script>
-    feather.replace();
-
-    // Toggle menu untuk responsive
-    const navbarNav = document.querySelector('.navbar .navbar-nav');
-    document.querySelector('#menu').onclick = () => {
-      navbarNav.classList.toggle('active');
-    };
-  </script>
   <div class="container" style="margin: 100px auto;">
     <h2>My Order</h2>
     <div class="tabs">
@@ -121,7 +125,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
             <td><?= $t['total_items'] ?></td>
             <td><span class="status <?= $t['status'] ?>"><?= ucfirst($t['status']) ?></span></td>
             <td>
-              <form method="POST" class="status-form">
+              <!-- Update Status -->
+              <form method="POST" class="status-form" style="display:inline-block;">
                 <input type="hidden" name="id_transaction" value="<?= $t['id_transaction'] ?>">
                 <select name="status">
                   <option value="belum diproses" <?= $t['status']=='belum diproses'?'selected':'' ?>>Belum Diproses</option>
@@ -130,12 +135,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
                 </select>
                 <button type="submit" name="update_status">Update</button>
               </form>
+
+              <!-- Delete -->
+              <form method="POST" style="display:inline-block;" onsubmit="return confirm('Yakin ingin menghapus transaksi ini?')">
+                <input type="hidden" name="id_transaction" value="<?= $t['id_transaction'] ?>">
+                <button type="submit" name="delete_transaction" class="delete-btn">Delete</button>
+              </form>
             </td>
           </tr>
         <?php endforeach; 
       endif; ?>
       </tbody>
     </table>
-  </div>
+  </div
+  >
+    <script src="js/script.js"></script>
 </body>
 </html>

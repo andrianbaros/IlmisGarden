@@ -1,0 +1,138 @@
+/* ======== Global ======== */
+body {
+  margin: 0;
+  font-family: "Inter", "Poppins", sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ======== Product Detail ======== */
+.product-detail {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 100px auto;
+  background: #fafafa;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.product-detail img {
+  width: 100%;
+  max-width: 450px;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* box info */
+.product-info {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* ======== Info Box ======== */
+.product-info {
+  flex: 1;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.product-info h1 {
+  font-size: 1.8rem;
+  margin: 0 0 1rem;
+}
+
+.product-price {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #2f4f2f; /* hijau elegan */
+  margin-bottom: 1.5rem;
+}
+
+/* ======== Qty + Button ======== */
+.qty-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.qty-box label {
+  font-weight: 500;
+}
+
+.qty-box input {
+  padding: 0.4rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.buy-button {
+  background: #4a7856;
+  color: #fff;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  max-width: 200px;
+}
+
+.buy-button:hover {
+  background: #3a6446;
+}
+
+/* ======== Description ======== */
+.desc-box {
+  margin-top: 2rem;
+  background: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #eee;
+}
+
+.desc-box h3 {
+  margin-top: 0;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ======== Responsive ======== */
+@media (max-width: 768px) {
+  .product-detail {
+    flex-direction: column;
+    align-items: center; /* biar gambar dan teks center */
+    padding: 1rem;
+  }
+  .product-detail img {
+    max-width: 100%; /* gambar full lebar */
+    height: auto;
+    margin-bottom: 1rem;
+  }
+
+  .product-info {
+    width: 100%; /* info full lebar */
+    text-align: left;
+  }
+
+  .buy-button {
+    width: 100%; /* tombol full lebar biar rapi */
+    max-width: none;
+  }
+
+  .product-price {
+    font-size: 1.4rem;
+  }
+}
