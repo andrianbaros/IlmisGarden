@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       <button type="submit">Login Admin</button>
       <div class="switch">
-        <a href="login.php">Login sebagai User</a>
+        <a href="../signin.php">Login sebagai User</a>
       </div>
     </form>
   </div>
