@@ -1,0 +1,104 @@
+body {
+  font-family: "Inter", sans-serif;
+  background: #f4f6f4;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+h2 {
+  margin-bottom: 20px;
+}
+
+.tabs {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.tabs a {
+  text-decoration: none;
+  color: #333;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+
+.tabs a.active {
+  background: #283128;
+  color: #fff;
+}
+
+.transaction-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.transaction-table th,
+.transaction-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.transaction-table th {
+  background: #f9faf9;
+}
+
+.empty {
+  text-align: center;
+  color: #777;
+  padding: 30px;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+}
+
+.status.belum\ diproses {
+  background: #fff3cd;
+  color: #856404;
+}
+.status.diproses {
+  background: #cce5ff;
+  color: #004085;
+}
+.status.selesai {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status-form {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.status-form select,
+.status-form button {
+  padding: 5px 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.85rem;
+}
+
+.status-form button {
+  background: #283128;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.status-form button:hover {
+  background: #3c4c3c;
+}

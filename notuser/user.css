@@ -1,0 +1,147 @@
+/* General */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #708871;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px; /* supaya ada ruang di layar kecil */
+}
+
+.container {
+  width: 100%;
+  max-width: 400px;
+  background: #f4f6f4;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #222;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  outline: none;
+  border-color: #4f6b54;
+}
+
+.form-extra {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 15px;
+  flex-wrap: wrap; /* biar rapi kalau layar kecil */
+  gap: 10px;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: #708871;
+  border: none;
+  color: white;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #3f5844;
+}
+
+.switch {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.switch a {
+  color: #2d4f2f;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* ===================
+   RESPONSIVE DESIGN
+   =================== */
+
+/* Tablet (<= 768px) */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
+
+  button {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+
+/* Mobile (<= 480px) */
+@media (max-width: 480px) {
+  body {
+    padding: 10px;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  label {
+    font-size: 13px;
+  }
+
+  input {
+    font-size: 13px;
+    padding: 8px;
+  }
+
+  button {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .form-extra {
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 12px;
+  }
+}

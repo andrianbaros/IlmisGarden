@@ -135,7 +135,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <main class="profile-container">
     <div class="tabs">
       <a href="profile.php" class="active">Profile</a>
-      <a href="#">Transaction</a>
+      <a href="transaction.php">Transaction</a>
       <a href="#">Coupon</a>
       <a href="#">Membership</a>
     </div>

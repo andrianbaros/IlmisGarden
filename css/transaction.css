@@ -1,0 +1,57 @@
+.transaction-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.transaction-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.transaction-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.transaction-card p {
+  margin: 4px 0;
+  color: #444;
+}
+
+.transaction-card small {
+  color: #777;
+}
+
+.status {
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status.belum\ diproses {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.diproses {
+  background: #cce5ff;
+  color: #004085;
+}
+
+.status.selesai {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .transaction-card {
+    padding: 12px;
+  }
+}

@@ -11,15 +11,53 @@ $user_id = $_SESSION['id_user'];
 
 // ==================== Jika user baru klik BUY ====================
 if (isset($_GET['buy']) && $_GET['buy'] == 1) {
-    // Hapus semua cart user ini
-    $del = $pdo->prepare("DELETE FROM cart WHERE user_id=?");
-    $del->execute([$user_id]);
+    // Ambil cart user
+    $stmt = $pdo->prepare("SELECT c.qty, p.id AS product_id, p.price 
+                           FROM cart c 
+                           JOIN products p ON c.product_id = p.id 
+                           WHERE c.user_id=?");
+    $stmt->execute([$user_id]);
+    $items = $stmt->fetchAll();
 
-    // Redirect kembali biar cart kosong + langsung ke WA
+    if (!empty($items)) {
+        // Hitung total
+        $totalItem = 0;
+        $subtotal  = 0;
+        foreach ($items as $i) {
+            $totalItem += $i['qty'];
+            $subtotal  += $i['price'] * $i['qty'];
+        }
+
+        // Simpan transaksi ke tabel transactions
+        $pdo->beginTransaction();
+        try {
+            $stmt = $pdo->prepare("INSERT INTO transactions (user_id, total_items, subtotal, status) VALUES (?, ?, ?, 'belum diproses')");
+            $stmt->execute([$user_id, $totalItem, $subtotal]);
+            $transactionId = $pdo->lastInsertId();
+
+            // Simpan detail item
+            $stmtItem = $pdo->prepare("INSERT INTO transaction_items (transaction_id, product_id, qty, price) VALUES (?, ?, ?, ?)");
+            foreach ($items as $i) {
+                $stmtItem->execute([$transactionId, $i['product_id'], $i['qty'], $i['price']]);
+            }
+
+            // Hapus cart
+            $del = $pdo->prepare("DELETE FROM cart WHERE user_id=?");
+            $del->execute([$user_id]);
+
+            $pdo->commit();
+        } catch (Exception $e) {
+            $pdo->rollBack();
+            die("Error transaksi: " . $e->getMessage());
+        }
+    }
+
+    // Redirect WA
     $msg = urlencode($_GET['msg'] ?? "");
     header("Location: https://wa.me/6285795077194?text=$msg");
     exit;
 }
+
 
 // ==================== Ambil cart dari DB ====================
 $stmt = $pdo->prepare("SELECT c.id_cart AS cart_id, c.qty, p.id AS product_id, p.name, p.price, p.image 

@@ -29,7 +29,6 @@ $stmt2 = $pdo->prepare("SELECT * FROM products WHERE type = 'workshop' ORDER BY 
 $stmt2->execute();
 $workshopProducts = $stmt2->fetchAll();
 ?>
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
