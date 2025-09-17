@@ -7,6 +7,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $dob        = $_POST['dob'];
 
+    // Cek apakah email sudah terdaftar
+    $check = $pdo->prepare("SELECT email FROM users WHERE email = ?");
+    $check->execute([$email]);
+
+    if ($check->rowCount() > 0) {
+        echo "<script>alert('Email sudah digunakan, silakan pakai email lain.'); window.location='signup.php';</script>";
+        exit;
+    }
+
     // Ambil id terakhir
     $stmt = $pdo->query("SELECT id_user FROM users ORDER BY id_user DESC LIMIT 1");
     $last = $stmt->fetch();
@@ -18,9 +27,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $new_id = "IL001";
     }
 
-    // Insert data
-    $stmt = $pdo->prepare("INSERT INTO users (id_user, username, email, password, date_of_birth) VALUES (?, ?, ?, ?, ?)");
-    if ($stmt->execute([$new_id, $username, $email, $password, $dob])) {
+    // Insert data (pakai address kosong biar nggak error)
+    $address = '';
+
+    $stmt = $pdo->prepare("INSERT INTO users (id_user, username, email, password, date_of_birth, address) 
+                           VALUES (?, ?, ?, ?, ?, ?)");
+    if ($stmt->execute([$new_id, $username, $email, $password, $dob, $address])) {
         echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location='signin.php';</script>";
     } else {
         echo "<script>alert('Gagal daftar, coba lagi.');</script>";
