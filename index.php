@@ -118,13 +118,11 @@ $workshopProducts = $stmt2->fetchAll();
       </div>
 
       <main class="content">
-        <h1>Where Every Flower</h1>
-<h1>Tells Your Story</h1>
+        <h1>Selamat datang di</h1>
+        <h1><b>Ilmisgarden</b></h1>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
-          tenetur eius quisquam velit eligendi amet autem suscipit non optio
-          tempore quam numquam molestias deserunt quas deleniti ratione,
-          laudantium quos modi.
+        tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. 
+        Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan — semua kami buat dengan sentuhan hati.🌷
         </p>
         <a href="#wedding" style="color: black;"><button>Read More</button></a>
       </main>
@@ -170,15 +168,15 @@ $workshopProducts = $stmt2->fetchAll();
     <div class="catalog-column">
       <div class="catalog-item">
         <div class="catalog-text">Bouquet</div>
-        <div class="catalog-img"><img src="img/bouquet.jpg" alt="Bouquet"></div>
+        <div class="catalog-img"><img src="img/bouquet.png" alt="Bouquet"></div>
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Basket</div>
-        <div class="catalog-img"><img src="img/basket.jpg" alt="Basket"></div>
+        <div class="catalog-img"><img src="img/basket.png" alt="Basket"></div>
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Orchid</div>
-        <div class="catalog-img"><img src="img/orchid.jpg" alt="Orchid"></div>
+        <div class="catalog-img"><img src="img/orchid.png" alt="Orchid"></div>
       </div>
     </div>
 
@@ -186,15 +184,15 @@ $workshopProducts = $stmt2->fetchAll();
     <div class="catalog-column">
       <div class="catalog-item">
         <div class="catalog-text">Box</div>
-        <div class="catalog-img"><img src="img/box.jpg" alt="Box"></div>
+        <div class="catalog-img"><img src="img/box.png" alt="Box"></div>
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Standing Flower</div>
-        <div class="catalog-img"><img src="img/standing.jpg" alt="Standing Flower"></div>
+        <div class="catalog-img"><img src="img/standing.png" alt="Standing Flower"></div>
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Vase</div>
-        <div class="catalog-img"><img src="img/vase.jpg" alt="Vase"></div>
+        <div class="catalog-img"><img src="img/vase.png" alt="Vase"></div>
       </div>
     </div>
   </div>
@@ -207,11 +205,9 @@ $workshopProducts = $stmt2->fetchAll();
     <div class="weddingpkg-text">
       <h2>Wedding Package</h2>
       <p>
-        Some feelings are too deep for words. They are spoken in the language of flowers.
-
-Allow us to be the interpreters of your heart. We will weave every hope, every laugh, and every happy tear into the bouquet you hold close, and upon the altar that embraces your sacred vows.
-
-This is not merely about flowers. It is about your love, made tangible.
+      Setiap kisah cinta layak dirayakan dengan keindahan yang tulus. 
+      <b>Wedding Bouquet by Ilmisgarden</b> dirangkai dengan sentuhan lembut dan warna-warna yang menggambarkan harapan, cinta, dan kebahagiaan. 
+      Dibuat dengan bunga segar pilihan dan desain yang menyesuaikan tema pernikahanmu — sederhana, elegan, dan penuh makna. 
       </p>
       <a href="wedding.php" style="color: black;"><button class="btn-weddingpkg">Show More</button></a>
     </div>
@@ -256,11 +252,9 @@ This is not merely about flowers. It is about your love, made tangible.
     <div class="workshop-text">
       <h2>Workshop</h2>
       <p>
-There is a certain magic when fingertips meet the delicacy of a petal, when fragrance becomes a breath of calm. This is not merely a class; it is an invitation to pause, to reconnect with your intuition and with nature.
-
-In our workshop, you will learn the silent language of flowers, understand how each stem wishes to dance, and weave them into a story born from your heart. Forget the world outside for a moment, and discover a therapy for the soul in every leaf and color you choose.
-
-Leave with a masterpiece in your hands and peace within your soul.
+        Merangkai bunga adalah cara untuk menyentuh jiwa, memberi ketenangan di tengah kesibukan, dan menumbuhkan rasa percaya diri. Dengan setiap kelopak yang kamu susun, kamu bukan hanya menciptakan karya seni, tapi juga menciptakan momen kebahagiaan dan kedamaian dalam dirimu. </p>
+        <p>
+        Kebebasan untuk memilih jenis bunga dan rangkaian yang kamu ingin rasakan pengalamannya. Kami akan membantu membuatkan program dan modul yang sesuai untuk kamu. 
       </p>
       <a href="workshop.php" style="color: black;"><button class="btn-workshop">Show More</button></a>
     </div>
@@ -300,7 +294,7 @@ Leave with a masterpiece in your hands and peace within your soul.
     <!-- Kanan: teks -->
     <div class="aboutus-text">
       <h2>Visit Us</h2>
-      <p class="section-desc">Jl. Raya Golf Dago No.4, Bandung</p>
+      <a href="https://maps.app.goo.gl/UiEmKAw1AQ4xS1mEA">https://maps.app.goo.gl/UiEmKAw1AQ4xS1mEA</a>
     </div>
 
   </div>
@@ -315,7 +309,7 @@ Leave with a masterpiece in your hands and peace within your soul.
       </div>
       <div style="margin-bottom: 3rem;">
       <p>Jalan Raya Golf Dago No. 4, Bandung, Jawa Barat, Indonesia</p>
-      <p>(+62 812-3456-7890)</p>
+      <p>(WhatsApp : +62 857-9507-7194 )</p>
       </div>
     <div>
 

@@ -109,7 +109,7 @@ require 'conn/db.php';
 
   <div style="margin-bottom: 3rem;">
     <p>Jalan Raya Golf Dago No. 4, Bandung, Jawa Barat, Indonesia</p>
-    <p>(+62 812-3456-7890)</p>
+    <p>(WhatsApp : +62 857-9507-7194 )</p>
   </div>
 
   <div>
