@@ -6,6 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email      = $_POST['email'];
     $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $dob        = $_POST['dob'];
+    $address    = $_POST['address']; // ✅ ambil alamat dari form
 
     // Cek apakah email sudah terdaftar
     $check = $pdo->prepare("SELECT email FROM users WHERE email = ?");
@@ -27,9 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $new_id = "IL001";
     }
 
-    // Insert data (pakai address kosong biar nggak error)
-    $address = '';
-
+    // Insert data ke tabel users
     $stmt = $pdo->prepare("INSERT INTO users (id_user, username, email, password, date_of_birth, address) 
                            VALUES (?, ?, ?, ?, ?, ?)");
     if ($stmt->execute([$new_id, $username, $email, $password, $dob, $address])) {
@@ -71,6 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <div class="form-group">
         <label>Date of Birth</label>
         <input type="date" name="dob" required>
+      </div>
+      <div class="form-group">
+        <label>Address</label> <!-- ✅ Tambahkan field alamat -->
+        <textarea name="address" placeholder="masukkan alamat lengkap..." required></textarea>
       </div>
       <button type="submit">Sign Up</button>
       <div class="switch">

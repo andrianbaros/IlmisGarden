@@ -36,11 +36,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
     exit;
 }
 
-// Query transaksi
+// ✅ Query transaksi + alamat user
 $sql = "
-    SELECT t.id_transaction, t.total_items, t.subtotal, t.status, t.created_at,
-           u.username, u.email,
-           GROUP_CONCAT(p.name, ' (x', ti.qty, ')') AS items
+    SELECT 
+        t.id_transaction, 
+        t.total_items, 
+        t.subtotal, 
+        t.status, 
+        t.created_at,
+        u.username, 
+        u.email, 
+        u.address, -- ✅ tambahkan kolom alamat
+        GROUP_CONCAT(p.name, ' (x', ti.qty, ')') AS items
     FROM transactions t
     JOIN users u ON t.user_id = u.id_user
     JOIN transaction_items ti ON t.id_transaction = ti.transaction_id
@@ -62,31 +69,26 @@ $transactions = $stmt->fetchAll();
   <link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
-          <!-- Navbar -->
+  <!-- Navbar -->
   <nav class="navbar">
-    <!-- Logo -->
     <a href="dashboard.php">
       <img src="../img/F4F6F4-full.png" alt="IlmisGarden">
     </a>
 
-    <!-- Menu -->
     <div class="navbar-nav">
-      <a href="dashboard.php" class="active">Dashboard</a>
-      <a href="admin_transaction.php">Order</a>
+      <a href="dashboard.php">Dashboard</a>
+      <a href="admin_transaction.php" class="active">Order</a>
       <a href="product.php">Product</a>
-      <!-- <a href="coupon.php"><i data-feather="tag"></i> Coupon</a> -->
-      <!-- <a href="membership.php"><i data-feather="users"></i> Membership</a> -->
     </div>
 
-    <!-- Extra (Profile, dll) -->
     <div class="navbar-extra">
-
       <a href="#" id="menu"><i data-feather="menu"></i></a>
     </div>
   </nav>
 
   <div class="container" style="margin: 100px auto;">
-    <h2>My Order</h2>
+    <h2>Order List</h2>
+
     <div class="tabs">
       <a href="?status=all" class="<?= $status_filter=='all'?'active':'' ?>">All</a>
       <a href="?status=belum diproses" class="<?= $status_filter=='belum diproses'?'active':'' ?>">Need to Ship</a>
@@ -112,14 +114,15 @@ $transactions = $stmt->fetchAll();
 
       if (empty($filtered)): ?>
         <tr>
-          <td colspan="5" class="empty">There's No Order Anymore</td>
+          <td colspan="5" class="empty">There's No Order Yet</td>
         </tr>
       <?php else: 
         foreach ($filtered as $t): ?>
           <tr>
             <td>
-              <?= htmlspecialchars($t['username']) ?><br>
-              <small><?= htmlspecialchars($t['email']) ?></small>
+              <strong><?= htmlspecialchars($t['username']) ?></strong><br>
+              <small><?= htmlspecialchars($t['email']) ?></small><br>
+              <em style="color:#555; font-size:13px;">📍 <?= htmlspecialchars($t['address']) ?></em> <!-- ✅ tampilkan alamat -->
             </td>
             <td><?= htmlspecialchars($t['items']) ?></td>
             <td><?= $t['total_items'] ?></td>
@@ -147,8 +150,8 @@ $transactions = $stmt->fetchAll();
       endif; ?>
       </tbody>
     </table>
-  </div
-  >
-    <script src="js/script.js"></script>
+  </div>
+
+  <script src="js/script.js"></script>
 </body>
 </html>
