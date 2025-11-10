@@ -18,6 +18,7 @@ $products = $stmt->fetchAll();
 <head>
   <meta charset="UTF-8">
   <title>Admin - Product</title>
+  <link rel="icon" href="img/F4F6F4-full.png" />
   <script src="https://unpkg.com/feather-icons"></script>
   <style>
     body { font-family: 'Inter', sans-serif; background:#f4f6f4; margin:0; padding:20px; }

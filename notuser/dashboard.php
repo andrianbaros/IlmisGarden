@@ -75,6 +75,7 @@ while ($r = $stmt->fetch(PDO::FETCH_ASSOC)) {
     @media(max-width:900px){.grid{grid-template-columns:1fr}}
   </style>
   <link rel="stylesheet" href="../css/navbar.css">
+  <link rel="icon" href="../img/F4F6F4-full.png" />
 </head>
 <body>
       <!-- Navbar -->

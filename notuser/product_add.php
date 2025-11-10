@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <title>Add Product</title>
   <link rel="stylesheet" href="admin.css">
+  <link rel="icon" href="../img/F4F6F4-full.png" />
 </head>
 <body>
   <h2>Add Product</h2>

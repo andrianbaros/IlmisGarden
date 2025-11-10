@@ -36,6 +36,7 @@
     <meta charset="UTF-8" />
     <title>Admin - Tambah Produk</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="../img/F4F6F4-full.png" />
     </head>
     <body>
     <div class="admin-container">

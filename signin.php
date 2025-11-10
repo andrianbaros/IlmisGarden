@@ -3,11 +3,17 @@ session_start();
 require 'conn/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = trim($_POST['email']);
-    $password = trim($_POST['password']);
+    $identifier = trim($_POST['identifier']); // ✅ bisa email atau username
+    $password   = trim($_POST['password']);
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
-    $stmt->execute([$email]);
+    // Deteksi apakah input adalah email
+    if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+    } else {
+        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+    }
+
+    $stmt->execute([$identifier]);
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
@@ -16,14 +22,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username']  = $user['username'];
         $_SESSION['email']     = $user['email'];
 
-        // Simpan pesan welcome di session (opsional)
+        // Pesan selamat datang (opsional)
         $_SESSION['flash_msg'] = "Login berhasil, Selamat datang {$user['username']}!";
 
-        // Redirect
         header("Location: shop.php");
         exit;
     } else {
-        $error = "Email atau Password salah";
+        $error = "Username/Email atau Password salah";
     }
 }
 ?>
@@ -43,12 +48,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="error"><?php echo htmlspecialchars($error); ?></div>
       <?php endif; ?>
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" name="email" placeholder="example@gmail.com" required>
+        <label>Email or Username</label> <!-- ✅ ubah label -->
+        <input type="text" name="identifier" placeholder="Enter email or username" required>
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input type="password" name="password" placeholder="enter your password" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
       </div>
 
       <button type="submit">Sign In</button>
