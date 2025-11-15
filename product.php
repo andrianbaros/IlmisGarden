@@ -56,10 +56,10 @@ require 'conn/db.php';
   <body>
     <!-- Navbar Start -->
     <nav class="navbar">
-      <a href="index.php" class="navbar-logo"
-        ><img src="img/F4F6F4-full.png" alt=""
-      /></a>
 
+      <a href="index.php" class="navbar-logo">
+  <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
+</a>
       <div class="navbar-nav">
         <a href="product.php">Product</a>
         <a href="index.php#workshop">Workshop</a>

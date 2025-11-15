@@ -93,7 +93,10 @@ $products = $stmt->fetchAll();
 <body >
 <!-- Navbar Start -->
     <nav class="navbar">
-      <a href="index.php" class="navbar-logo"><img src="img/F4F6F4-full.png" alt="Logo" /></a>
+
+      <a href="index.php" class="navbar-logo">
+  <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
+</a>
 
       
       <div class="navbar-nav">
