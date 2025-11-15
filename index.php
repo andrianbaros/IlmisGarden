@@ -1,9 +1,10 @@
 <?php
 require 'conn/db.php';
 
-// Ambil 4 produk terbaru untuk Best Sellers
-$stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC LIMIT 4");
-$bestsellers = $stmt->fetchAll();
+// BESTSELLERS → Ambil 4 produk fix dari database
+$stmt = $pdo->prepare("SELECT * FROM products WHERE id IN (3,4,5,6)");
+$stmt->execute();
+$bestsellers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 // Ambil semua produk (dengan filter harga jika ada) untuk bagian Catalog
 $priceFilterActive = isset($_GET['price_filter']);
