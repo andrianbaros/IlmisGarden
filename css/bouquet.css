@@ -402,6 +402,161 @@ body {
   transition: 0.3s ease; /* efek halus saat resize */
 }
 
+.orchid-flex {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.orchid-card {
+  text-align: center;
+}
+
+.orchid-card img {
+  width: 220px;
+  border-radius: 20px;
+}
+
+.orchid-price {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.orchid-variety {
+  margin-top: 15px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.orchid-variety img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+.arch-image {
+  width: 230px; /* sesuaikan */
+  height: 300px; /* sesuaikan */
+  overflow: hidden;
+  clip-path: path("M0,150 Q115,0 230,150 L230,300 L0,300 Z");
+}
+
+.arch-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === ORCHID SECTION === */
+.orchid-section {
+  margin-top: 20px;
+}
+
+.orchid-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+
+/* IMAGE */
+.orchid-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* TEXT AREA */
+.orchid-text h3 {
+  font-size: 32px;
+  margin-bottom: 10px;
+  color: #6e8b56;
+}
+
+/* PRICE BOXES */
+.price-block {
+  background: #f8f8f8;
+  padding: 12px 18px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  border: 1px solid #e5e5e5;
+}
+
+.price-block h4 {
+  font-size: 22px;
+  color: #6e8b56;
+  margin-bottom: 5px;
+}
+
+.price-block p {
+  font-size: 15px;
+  color: #444;
+  line-height: 1.4;
+}
+
+/* RIGHT SIDE VARIETY */
+.orchid-variety-col {
+  text-align: center;
+}
+
+.variety-title {
+  font-size: 20px;
+  font-style: italic;
+  color: #75936a;
+  margin-bottom: 10px;
+}
+
+.variety-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.variety-list img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* VARIETY SECTION */
+.orchid-var-title {
+  margin-top: 1rem;
+  font-style: italic;
+  font-size: 36px;
+}
+
+.orchid-center {
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 30px 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 750px) {
+  .orchid-row {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .orchid-image img {
+    margin-bottom: 10px;
+  }
+}
+
+
+
 /* Tablet */
 @media (max-width: 768px) {
   .circle-images {
@@ -449,6 +604,11 @@ body {
   flex-wrap: wrap; /* biar otomatis turun kalau sempit */
 }
 
+
+.desc-catalog {
+  margin-bottom: 20px;
+}
+
 .catalog-content img {
   width: 340px;
   border-radius: 12px;
@@ -467,6 +627,32 @@ body {
   margin: 0 5px;
   border: 2px solid #ccc;
 }
+
+.image-wrapper {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.caption-top {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.caption-bottom {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 5px;
+  color: #555;
+}
+
 
 /* Tablet */
 @media (max-width: 768px) {
@@ -497,7 +683,24 @@ body {
     width: 35px;
     height: 35px;
   }
-}
+
+  .image-wrapper {
+    margin-bottom: 10px;
+  }
+
+  .caption-top {
+    font-size: 14px;
+    margin-bottom: 4px;
+  }
+
+  .image-wrapper img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .caption-bottom {
+    font-size: 13px;
+} }
 
 /* Footer */
 .footer {
