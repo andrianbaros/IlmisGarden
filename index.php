@@ -124,7 +124,7 @@ $workshopProducts = $stmt2->fetchAll();
       <main class="content">
         <h1>Selamat datang di</h1>
         <h1><b>Ilmisgarden</b></h1>
-        <p>
+        <p id="hero-text" class="fade-slide">
         tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. 
         Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan — semua kami buat dengan sentuhan hati.🌷
         </p>

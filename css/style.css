@@ -674,3 +674,24 @@ body {
   text-align: center;
   padding: 30px 20px;
 }
+
+.fade-text {
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.fade-text.show {
+  opacity: 1;
+}
+
+.fade-slide {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-slide.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
