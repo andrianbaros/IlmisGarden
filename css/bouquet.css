@@ -465,7 +465,6 @@ body {
   margin-bottom: 50px;
 }
 
-
 /* IMAGE */
 .orchid-image img {
   width: 200px;
@@ -474,7 +473,7 @@ body {
   border-radius: 50%;
   display: block;
   margin: 0 auto;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
 /* TEXT AREA */
@@ -555,8 +554,6 @@ body {
   }
 }
 
-
-
 /* Tablet */
 @media (max-width: 768px) {
   .circle-images {
@@ -603,7 +600,6 @@ body {
   margin-bottom: 20px;
   flex-wrap: wrap; /* biar otomatis turun kalau sempit */
 }
-
 
 .desc-catalog {
   margin-bottom: 20px;
@@ -653,7 +649,6 @@ body {
   color: #555;
 }
 
-
 /* Tablet */
 @media (max-width: 768px) {
   .catalog-content img {
@@ -700,7 +695,8 @@ body {
 
   .caption-bottom {
     font-size: 13px;
-} }
+  }
+}
 
 /* Footer */
 .footer {
@@ -708,4 +704,115 @@ body {
   color: white;
   text-align: center;
   padding: 20px;
+}
+/* ================= HYDRANGEA / CATALOG UPDATED ================ */
+
+.catalog-item {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+.catalog-item.gray {
+  background: #f4f4f4;
+}
+
+.catalog-item h3 {
+  font-size: 70px;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.catalog-content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.image-wrapper {
+  width: 320px;
+  text-align: center;
+}
+
+.caption-top {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.image-wrapper img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.caption-bottom {
+  font-size: 15px;
+  margin-top: 6px;
+  color: #444;
+}
+
+/* Color options */
+.colors span {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: inline-block;
+  margin: 0 4px;
+  border: 2px solid #ccc;
+}
+
+/* =========== TABLET ============ */
+@media (max-width: 768px) {
+  .catalog-item h3 {
+    font-size: 50px;
+  }
+
+  .image-wrapper {
+    width: 260px;
+  }
+
+  .caption-top {
+    font-size: 16px;
+  }
+
+  .caption-bottom {
+    font-size: 14px;
+  }
+
+  .colors span {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* =========== MOBILE ============ */
+@media (max-width: 480px) {
+  .catalog-item h3 {
+    font-size: 40px;
+  }
+
+  .catalog-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-wrapper {
+    width: 85%;
+    max-width: 220px;
+  }
+
+  .caption-top {
+    font-size: 14px;
+  }
+
+  .caption-bottom {
+    font-size: 13px;
+  }
+
+  .colors span {
+    width: 28px;
+    height: 28px;
+  }
 }
