@@ -2,15 +2,10 @@
 session_start();
 require 'conn/db.php';
 
-// Pastikan user login
-if (!isset($_SESSION['id_user'])) {
-    header("Location: signin.php");
-    exit;
-}
+// User ID opsional, hanya dipakai jika add_to_cart
+$user_id = $_SESSION['id_user'] ?? null;
 
-$user_id = $_SESSION['id_user'];
-
-// Pastikan ada ID produk di URL
+// Pastikan ada ID produk
 if (!isset($_GET['id'])) {
     header("Location: shop.php");
     exit;
@@ -28,31 +23,33 @@ if (!$product) {
     exit;
 }
 
-// ==================== Tambah ke keranjang ====================
+// Tambah ke keranjang (HARUS LOGIN)
 if (isset($_POST['add_to_cart'])) {
+    if (!$user_id) {
+        header("Location: signin.php");
+        exit;
+    }
+
     $qty = (int)$_POST['qty'];
     if ($qty < 1) $qty = 1;
 
-    // Cek apakah produk sudah ada di cart
     $stmt = $pdo->prepare("SELECT * FROM cart WHERE user_id=? AND product_id=?");
     $stmt->execute([$user_id, $id]);
     $cartItem = $stmt->fetch();
 
     if ($cartItem) {
-        // Update qty
         $stmt = $pdo->prepare("UPDATE cart SET qty = qty + ? WHERE id_cart = ?");
         $stmt->execute([$qty, $cartItem['id_cart']]);
     } else {
-        // Insert baru (TANPA kolom price)
         $stmt = $pdo->prepare("INSERT INTO cart (user_id, product_id, qty) VALUES (?, ?, ?)");
         $stmt->execute([$user_id, $id, $qty]);
     }
 
-    // Redirect ke cart
     header("Location: cart.php");
     exit;
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="id">
 <head>

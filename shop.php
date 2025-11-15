@@ -1,13 +1,10 @@
 <?php
 session_start();
 require 'conn/db.php';
-// Pastikan user login
-if (!isset($_SESSION['id_user'])) {
-    header("Location: signin.php");
-    exit;
-}
 
-$user_id = $_SESSION['id_user'];
+$user_id = $_SESSION['id_user'] ?? null;
+
+
 // Ambil semua kategori unik dari DB (kolom type)
 $stmt = $pdo->query("SELECT DISTINCT type FROM products");
 $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
@@ -15,7 +12,7 @@ $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 // Ambil filter dari GET
 $selectedKeywords = isset($_GET['keywords']) ? $_GET['keywords'] : [];
 $priceFilterActive = isset($_GET['price_filter']);
-$maxPrice = $priceFilterActive && isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
+$maxPrice = ($priceFilterActive && isset($_GET['max_price'])) ? (int)$_GET['max_price'] : null;
 
 // Query produk
 $query = "SELECT * FROM products WHERE 1=1";
@@ -43,89 +40,69 @@ $products = $stmt->fetchAll();
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ilmisgarden</title>
-      <link rel="icon" href="img/F4F6F4-full.png" />
+  <link rel="icon" href="img/F4F6F4-full.png" />
 
-    <!-- Fonts -->
-    <!-- 1. Preconnect ke Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet"
+  />
 
-    <!-- 2. Preload stylesheet Google Fonts -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-    />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+  </noscript>
 
-    <!-- 3. Load stylesheet font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet"
-    />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
 
-    <!-- 4. Fallback untuk browser lama / tanpa JavaScript -->
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet"
-      />
-    </noscript>
-
-    <!-- Icons -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    />
-
-    <script src="https://unpkg.com/feather-icons"></script>
-    <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="style.css" />
 
 </head>
-<body >
+<body>
+
 <!-- Navbar Start -->
-    <nav class="navbar">
+<nav class="navbar">
+  <a href="index.php" class="navbar-logo">
+    <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
+  </a>
 
-      <a href="index.php" class="navbar-logo">
-  <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
-</a>
+  <div class="navbar-nav">
+    <a href="product.php">Product</a>
+    <a href="index.php#workshop">Workshop</a>
+    <a href="index.php#catalog">Catalog</a>
+    <a href="index.php#about">About Us</a>
+  </div>
 
-      
-      <div class="navbar-nav">
-        <a href="product.php">Product</a>
-        <a href="index.php#workshop">Workshop</a>
-        <a href="index.php#catalog">Catalog</a>
-        <a href="index.php#about">About Us</a>
-      </div>
-      <div class="navbar-extra">
-        
-      <?php if (isset($_SESSION['id_user'])): ?>
-        <span style="margin-right:20px;">
-          Hello, <?php echo htmlspecialchars($_SESSION['username'] ?? 'User'); ?>
-        </span>
-        <a href="logout.php"><i data-feather="log-out"></i></a>
-      <?php else: ?>
-        <a href="signin.php"><i data-feather="log-in"></i></a>
-      <?php endif; ?>
+  <div class="navbar-extra">
+    <?php if (isset($_SESSION['id_user'])): ?>
+      <span style="margin-right:20px;">
+        Hello, <?= htmlspecialchars($_SESSION['username'] ?? 'User') ?>
+      </span>
+      <a href="logout.php"><i data-feather="log-out"></i></a>
+    <?php else: ?>
+      <a href="signin.php"><i data-feather="log-in"></i></a>
+    <?php endif; ?>
 
-        <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
-        <a href="profile.php" id="user"><i data-feather="user"></i></a>
-        <i id="menu" data-feather="menu"></i>
+    <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+    <a href="profile.php" id="user"><i data-feather="user"></i></a>
+    <i id="menu" data-feather="menu"></i>
+  </div>
+</nav>
+<!-- Navbar End -->
 
-      </div>
-    </nav>
-    <!-- Navbar End -->
+<!-- MAIN -->
+<div class="container">
 
-  <!-- MAIN -->
-  <div class="container" ">
   <!-- SIDEBAR -->
   <aside class="sidebar">
     <form method="GET" id="filter-form">
@@ -136,21 +113,22 @@ $products = $stmt->fetchAll();
             <input type="checkbox" name="keywords[]" value="<?= htmlspecialchars($k) ?>"
               <?= in_array($k, $selectedKeywords) ? 'checked' : '' ?>>
             <?= ucfirst($k) ?>
-          </label>
-          <br>
+          </label><br>
         <?php endforeach; ?>
       </div>
 
       <div class="filter-section">
         <h3>
           <label>
-            <input type="checkbox" id="price-filter-toggle" name="price_filter" value="1" <?= isset($_GET['price_filter']) ? 'checked' : '' ?> />
+            <input type="checkbox" id="price-filter-toggle" name="price_filter"
+              value="1" <?= $priceFilterActive ? 'checked' : '' ?> />
             Price
           </label>
         </h3>
-        <div id="price-filter-content" style="display: <?= isset($_GET['price_filter']) ? 'block' : 'none' ?>;">
+
+        <div id="price-filter-content" style="display: <?= $priceFilterActive ? 'block' : 'none' ?>;">
           <input type="range" min="0" max="3000000"
-                 value="<?= isset($_GET['max_price']) ? (int)$_GET['max_price'] : 50000 ?>"
+                 value="<?= $maxPrice ?? 50000 ?>"
                  id="price-range" name="max_price" />
           <div class="price-range">
             <span>Rp.0</span>
@@ -158,6 +136,7 @@ $products = $stmt->fetchAll();
           </div>
         </div>
       </div>
+
       <button type="submit">Filter</button>
     </form>
   </aside>
@@ -169,7 +148,9 @@ $products = $stmt->fetchAll();
     <?php else: ?>
       <?php foreach ($products as $p): ?>
         <div class="product-card">
-          <div class="product-image" style="background:url('<?= htmlspecialchars($p['image']) ?>') center/cover no-repeat;"></div>
+          <div class="product-image"
+            style="background:url('<?= htmlspecialchars($p['image']) ?>') center/cover no-repeat;">
+          </div>
           <h4><?= htmlspecialchars($p['name']) ?></h4>
           <p><?= nl2br(htmlspecialchars($p['description'])) ?></p>
           <p>Rp. <?= number_format($p['price'], 0, ',', '.') ?></p>
@@ -178,20 +159,22 @@ $products = $stmt->fetchAll();
       <?php endforeach; ?>
     <?php endif; ?>
   </section>
+
 </div>
 
+<!-- SCRIPTS -->
 <script>
-const priceToggle = document.getElementById('price-filter-toggle');
-const priceContent = document.getElementById('price-filter-content');
-priceToggle.addEventListener('change', function() {
-  priceContent.style.display = this.checked ? 'block' : 'none';
-});
+  const priceToggle = document.getElementById('price-filter-toggle');
+  const priceContent = document.getElementById('price-filter-content');
+
+  priceToggle.addEventListener('change', function() {
+    priceContent.style.display = this.checked ? 'block' : 'none';
+  });
+
+  feather.replace();
 </script>
-</script>
-    <script>
-      feather.replace();
-    </script>
-    <!-- js -->
-    <script src="js/script.js"></script>
+
+<script src="js/script.js"></script>
+
 </body>
 </html>
