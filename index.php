@@ -178,6 +178,18 @@ $workshopProducts = $stmt2->fetchAll();
         <div class="catalog-text">Orchid</div>
         <div class="catalog-img"><img src="img/orchid.png" alt="Orchid"></div>
       </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Blooming Canvas</div>
+        <div class="catalog-img"><img src="img/BloomingCanvas.jpg" alt="BloomingCanvas"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Money Bouquet</div>
+        <div class="catalog-img"><img src="img/MoneyBouquet.jpg" alt="MoneyBouquet"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Dried Flower Bouquet</div>
+        <div class="catalog-img"><img src="img/DriedFlowerBouquet.jpg" alt="DriedFlowerBouquet"></div>
+      </div>
     </div>
 
     <!-- Kolom Kanan -->
@@ -193,6 +205,14 @@ $workshopProducts = $stmt2->fetchAll();
       <div class="catalog-item">
         <div class="catalog-text">Vase</div>
         <div class="catalog-img"><img src="img/vase.png" alt="Vase"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Artisan Product</div>
+        <div class="catalog-img"><img src="img/ArtisanProduct.jpg" alt="ArtisanProduct"></div>
+      </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Artificial Flower Bouquet</div>
+        <div class="catalog-img"><img src="img/ArtificialFlowerBouquet.jpg" alt="ArtificialFlowerBouquet"></div>
       </div>
     </div>
   </div>
