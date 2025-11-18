@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ilmis Garden</title>
+    <title>IlmisGarden</title>
     <link rel="icon" href="img/F4F6F4-full.png" />
 
     <!-- Fonts -->
