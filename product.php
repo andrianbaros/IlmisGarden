@@ -61,7 +61,7 @@ require 'conn/db.php';
   <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
 </a>
       <div class="navbar-nav">
-        <a href="product.php">Product</a>
+        <a href="product.php"  class="active">Product</a>
         <a href="index.php#workshop">Workshop</a>
         <a href="index.php#catalog">Catalog</a>
         <a href="index.php#about">About Us</a>

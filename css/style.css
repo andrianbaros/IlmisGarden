@@ -694,4 +694,11 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+.navbar .navbar-nav a.active {
+  color: #1c221c !important; /* warna hitam */
+  font-weight: 700;
+}
 
+.navbar .navbar-nav a.active::after {
+  transform: scaleX(0.5); /* garis bawah tetap muncul */
+}

@@ -90,12 +90,13 @@ $workshopProducts = $stmt2->fetchAll();
 
 
       
-      <div class="navbar-nav">
-        <a href="product.php">Product</a>
-        <a href="index.php#workshop">Workshop</a>
-        <a href="index.php#catalog">Catalog</a>
-        <a href="index.php#about">About Us</a>
-      </div>
+<div class="navbar-nav">
+  <a href="product.php">Product</a>
+  <a href="index.php#workshop" data-section="workshop">Workshop</a>
+  <a href="index.php#catalog" data-section="catalog">Catalog</a>
+  <a href="index.php#about" data-section="about">About Us</a>
+</div>
+
       <div class="navbar-extra">
         
 
@@ -359,5 +360,22 @@ $workshopProducts = $stmt2->fetchAll();
         slides[currentSlide].classList.add("active");
       }, 4000); // ganti setiap 4 detik
     </script>
+    <script>
+  function setActiveMenu() {
+    const hash = window.location.hash.replace('#', '');
+    const links = document.querySelectorAll('.navbar-nav a');
+
+    links.forEach(link => link.classList.remove('active'));
+
+    if (hash) {
+      const target = document.querySelector(`.navbar-nav a[data-section="${hash}"]`);
+      if (target) target.classList.add('active');
+    }
+  }
+
+  window.addEventListener('load', setActiveMenu);
+  window.addEventListener('hashchange', setActiveMenu);
+</script>
+
   </body>
 </html>
