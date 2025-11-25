@@ -73,7 +73,6 @@
 </a>
       <div class="navbar-nav">
         <a href="product.php">Product</a>
-        <a href="index.php#workshop">Workshop</a>
         <a href="index.php#catalog">Catalog</a>
         <a href="index.php#about">About Us</a>
       </div>
@@ -106,24 +105,54 @@
 
   <!-- Intro -->
   <section class="intro">
-    <h2>Kenapa Merangkai Bunga?</h2>
-    <p>Merangkai bunga adalah cara untuk menyentuh jiwa,
-memberi ketenangan di tengah kesibukan, dan
-menumbuhkan rasa percaya diri. Dengan setiap kelopak
-yang kamu susun, kamu bukan hanya menciptakan karya
-seni, tapi juga menciptakan momen kebahagiaan dan
-kedamaian dalam dirimu.</p>
+    <h2>Workshop with Ilmisgarden: Ruang Belajar Kreatif untuk Semua Kalangan</h2>
+    <p>Merangkai bunga adalah cara untuk menyentuh jiwa, memberi ketenangan di tengah kesibukan, 
+      untuk kegiatan estetis dan juga bentuk ekspresi diri yang membawa banyak manfaat seperti menumbuhkan rasa percaya diri. 
+      Melalui workshop ini, peserta dapat belajar teknik dasar hingga lanjutan dalam merangkai bunga sekaligus menikmati pengalaman kreatif yang menyenangkan.</p>
+    <p>Kebebasan untuk memilih jenis bunga dan rangkaian yang kamu ingin rasakan pengalamannya. Kami akan membantu membuatkan program dan modul yang sesuai untuk kamu.
+    </p>
     <img src="img/Frame 222.png" alt="Workshop Bunga">
   </section>
 
   <!-- Benefits -->
   <section class="benefits">
-    <h2>Bangun Koneksi & Semangat Tim</h2>
-    <p>Kebebasan untuk memilih jenis bunga dan rangkaian
-yang kamu ingin rasakan pengalamannya. Kami akan
-membantu membuatkan program dan modul yang
-sesuai untuk kamu.</p>
-    <img src="img/Frame 223.png" alt="Corporate Workshop"><img src="img/Frame 224.png" alt="Corporate Workshop"><img src="img/Frame 225.png" alt="Corporate Workshop">
+    <h2>Manfaat Merangkai Bunga</h2>
+    <p>Mengikuti workshop merangkai bunga memberikan banyak benefit, di antaranya:</p>
+    <p>• Meningkatkan kreativitas melalui perpaduan warna, bentuk, dan tekstur.</p>
+    <p>• Mengurangi stres karena proses merangkai bunga dikenal menenangkan.</p>
+    <p>• Melatih fokus serta ketelitian, sehingga membantu meningkatkan keterampilan motorik halus.</p>
+    <p>• Membangun rasa percaya diri, terutama saat melihat hasil rangkaian yang berhasil dan indah.</p>
+  </section>
+
+  <section class="benefits">
+    <h2>Fasilitas yang Kami Sediakan</h2>
+    <p>Sebagai florist, kami menyediakan fasilitas lengkap agar peserta bisa belajar dan berkreasi dengan nyaman.</p>
+    <p>• <b>Tempat belajar fleksibel:</b> workshop bisa diadakan di studio kami atau sesuai kebutuhan.</p>
+    <p>• <b>Peralatan lengkap:</b> bunga segar, alat rangkai, dan semua perlengkapan disediakan oleh kami.</p>
+    <p>• <b>Instruktur berpengalaman:</b> peserta akan dibimbing oleh florist profesional yang siap mengajarkan teknik merangkai dari dasar.</p>
+  </section>
+
+  <section class="benefits">
+    <h2>Workshop yang Fleksibel untuk Hobi, Bisnis, dan Kebutuhan Corporate</h2>
+    <p>Workshop ini dirancang agar dapat diikuti oleh berbagai kalangan dengan tujuan yang berbeda. 
+      Baik untuk pengembangan diri, peningkatan keterampilan profesional, maupun kebutuhan perusahaan.</p>
+  </section>
+
+  <section class="benefits">
+    <h2>Untuk Hobi</h2>
+    <p>Bagi individu yang ingin menikmati aktivitas kreatif, workshop ini menjadi pilihan ideal untuk me time, 
+      aktivitas akhir pekan, atau sekadar mencari kegiatan yang menenangkan. Peserta dapat belajar teknik dasar 
+      merangkai bunga sambil menikmati suasana yang rileks dan inspiratif.</p>
+  </section>
+
+  <section class="benefits">
+    <h2>Untuk Bisnis</h2>
+    <p>Bagi yang tertarik memasuki dunia florist, workshop ini memberikan fondasi penting mulai dari pemilihan bunga, teknik rangkai yang tepat, hingga gaya desain kekinian yang relevan dengan pasar. Peserta akan memperoleh keterampilan praktis yang dapat langsung diterapkan dalam membangun usaha.</p>
+  </section>
+
+  <section class="benefits">
+    <h2>Untuk Korporat</h2>
+    <p>Workshop ini juga dapat diadaptasi menjadi aktivitas team building, employee engagement, atau sesi kreatif untuk meningkatkan kolaborasi dalam tim. Melalui kegiatan merangkai bunga, peserta dapat membangun koneksi, komunikasi, dan suasana kerja yang lebih positif.</p>
   </section>
 
   <!-- Pricelist -->
@@ -192,6 +221,10 @@ Free membership 1 tahun</li>
     <li>
 Hasil rangkaian milik peserta</li>
 </p>
+  </section>
+
+  <section class="benefits">
+  <img src="img/Frame 223.png" alt="Corporate Workshop"><img src="img/Frame 224.png" alt="Corporate Workshop"><img src="img/Frame 225.png" alt="Corporate Workshop"><img src="img/Frame 226.png" alt="Corporate Workshop">
   </section>
 
   <!-- Contact -->

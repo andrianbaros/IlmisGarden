@@ -77,7 +77,6 @@
 </a>
       <div class="navbar-nav">
         <a href="product.php">Product</a>
-        <a href="index.php#workshop">Workshop</a>
         <a href="index.php#catalog">Catalog</a>
         <a href="index.php#about">About Us</a>
       </div>
@@ -105,6 +104,65 @@ Bloom with Beauty</h1>
 
     <!-- Wedding Section -->
     <div class="section">
+
+    <!-- Bouquet Items -->
+    <div class="bouquet">
+        <div class="bouquet-text">
+          <p><b>Makna dan Tradisi di Balik Wedding Bouquet</b></p>
+          <p>
+          Tradisi pengantin wanita membawa wedding bouquet bukan sekedar hiasan 
+          yang mempercantik penampilan di hari bahagia. Di balik rangkaian 
+          bunga itu, tersimpan simbol melambangkan harapan, doa, dan keindahan perjalanan baru yang akan di mulai bersama pasangan.
+          </p>
+
+          <p>
+          Setiap tangkai bunga menggambarkan makna: kesetiaan, kebahagiaan, 
+          ketulusan, dan cinta yang tumbuh dari hati. Bouquet menjadi lambang 
+          bahwa pengantin membawa kehangatan serta energi positif menuju kehidupan rumah tangga. Selain itu, aromanya yang lembut dan warnanya yang menenangkan memberi sentuhan keharuan pada momen pernikahan.
+          </p>
+
+          <P>Kini, wedding bouquet digunakan sebagai tradisi, dan juga simbol bahwa cinta adalah sesuatu yang 
+            hidup, indah, tumbuh, dan layak dirayakan.</P>
+            <img src="img/wedding1.png" alt="Wedding Workshop">
+        </div>
+      </div>
+
+      <!-- Bouquet Items -->
+      <div class="bouquet">
+        <div class="bouquet-text">
+          <p><b>Pemilihan Bunga untuk Wedding Bouquet</b></p>
+          <p>Bunga yang dirangkai dalam wedding bouquet kami pilih dari jenis bunga khusus atau bunga terbaik, agar tampil lebih cantik, segar, dan harmonis.
+            Tujuannya agar bouquet terlihat indah saat dibawa, memaksimalkan hasil foto, dan menambah kesan elegan pada penampilan pengantin.
+          </p>
+        </div>
+      </div>
+
+      <!-- Bouquet Items -->
+      <div class="bouquet">
+        <div class="bouquet-text">
+          <p><b>Desain Bouquet yang Stabil dan Ergonomis</b></p>
+          <p>Wedding bouquet yang kami buat dirancang agar dapat berdiri dengan stabil dengan sendirinya ketika diletakkan. 
+          </p>
+          <img src="img/wedding2.png" alt="Wedding Workshop">
+          <p>Tujuannya agar bouquet tetap rapi dan tidak mudah rusak saat pengantin 
+            wanita tidak sedang memegangnya. Desain ini membuat bouquet 
+            lebih ergonomis, aman disimpan, dan tetap cantik sepanjang acara. Walaupun tidak semua jenis rangkaian bisa dibuat berdiri dengan stabil, kami akan memastikan pengantin tetap merasa nyaman saat memegangnya.</p>
+        </div>
+      </div>
+
+      <!-- Bouquet Items -->
+      <div class="bouquet">
+        <div class="bouquet-text">
+          <p><b>Proses Pengemasan dan Pengiriman</b></p>
+          <p>Untuk proses pengiriman, bouquet dikemas menggunakan dus khusus, dilengkapi ember plastik kecil berisi air dan kapas agar batang bunga tetap lembab.
+             Cara ini menjaga kesegaran bunga selama perjalanan sehingga bouquet tiba dalam kondisi terbaik. 
+          </p>
+          <img src="img/wedding3.png" alt="Wedding Workshop">
+          <p>Semua perhatian dan detail ini kami lakukan agar setiap orang terutama sang pengantin 
+            bisa menikmati keindahan bunga lebih lama, merasakan pesonanya 
+            sepanjang momen istimewa, dan menyimpan kenangannya dengan sempurna.</p>
+        </div>
+      </div>
 
       <!-- Bouquet Items -->
       <div class="bouquet">

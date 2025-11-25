@@ -92,7 +92,6 @@ $workshopProducts = $stmt2->fetchAll();
       
 <div class="navbar-nav">
   <a href="product.php">Product</a>
-  <a href="index.php#workshop" data-section="workshop">Workshop</a>
   <a href="index.php#catalog" data-section="catalog">Catalog</a>
   <a href="index.php#about" data-section="about">About Us</a>
 </div>
