@@ -218,6 +218,10 @@ $workshopProducts = $stmt2->fetchAll();
         <div class="catalog-text">Artificial Flower Bouquet</div>
         <div class="catalog-img"><img src="img/ArtificialFlowerBouquet.jpg" alt="ArtificialFlowerBouquet"></div>
       </div>
+      <div class="catalog-item">
+        <div class="catalog-text">Real Plant</div>
+        <div class="catalog-img"><img src="img/RealPlant.png" alt="RealPlant"></div>
+      </div>
     </div>
   </div>
   <a href="shop.php" class="view-all">view all catalog</a>

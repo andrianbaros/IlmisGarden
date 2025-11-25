@@ -683,6 +683,38 @@
       </div>
     </div>
 
+    <!-- Real Plant -->
+    <div class="catalog-item gray">
+      <h3>Real Plant</h3>
+      <div class="catalog-content">
+        <div class="image-wrapper">
+          <div class="caption-top"><b>Small Real Plant</b> start from 250k</div>
+          <img src="img/RealPlant1.png" alt="Real Plant 1">
+          <div class="caption-bottom"></div>
+        </div>
+
+        <div class="image-wrapper">
+          <div class="caption-top"><b>Medium Real Plant</b> start from 300k</div>
+          <img src="img/RealPlant2.png" alt="Real Plant 2">
+          <div class="caption-bottom"></div>
+        </div>
+
+        <div class="image-wrapper">
+          <div class="caption-top"><b>Large Real Plant</b> start from 500k</div>
+          <img src="img/RealPlant3.png" alt="Real Plant 3">
+          <div class="caption-bottom"></div>
+        </div>
+      </div>
+      <p>Rangkaian dengan bunga utama Bunga <b>Asli</b>, bisa dikombinasi dengan daun, filler, dan bunga lain. </p>
+      <p>*Rangkaian bisa dibuat ke dalam vase, box, basket, dengan penambahan harga yang tercantum pada halaman <b>add on.</b></p>
+      <div class="colors">
+        <span style="background:white"></span>
+        <span style="background:yellow"></span>
+        <span style="background:red"></span>
+        <span style="background:pink"></span>
+      </div>
+    </div>
+
 
   </section>
 

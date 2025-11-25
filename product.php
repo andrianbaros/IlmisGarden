@@ -96,7 +96,25 @@ require 'conn/db.php';
   </div>
 
   <div class="bouquet-card"><a href="workshop.php">
-    <img src="img/Product (1).png" alt="Workshop Class">
+    <img src="img/FlowerArrangement.png" alt="Flower Arrangement">
+    <div class="overlay"></a>
+    </div>
+  </div>
+
+  <div class="bouquet-card"><a href="workshop.php">
+    <img src="img/Plants.png" alt="Plants">
+    <div class="overlay"></a>
+    </div>
+  </div>
+
+  <div class="bouquet-card"><a href="workshop.php">
+    <img src="img/Decorations.png" alt="Decorations">
+    <div class="overlay"></a>
+    </div>
+  </div>
+
+  <div class="bouquet-card"><a href="workshop.php">
+    <img src="img/ArtisanProduct.png" alt="Artisan Product">
     <div class="overlay"></a>
     </div>
   </div>
