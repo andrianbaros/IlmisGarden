@@ -1,0 +1,141 @@
+/* General */
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: #fff;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Hero */
+.plants-hero {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 70vh;
+}
+.plants-hero-left {
+  flex: 1;
+}
+.plants-hero-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  max-height: 600px;
+}
+.plants-hero-right {
+  flex: 1;
+  padding: 40px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.plants-hero-right h1 {
+  font-size: clamp(24px, 4vw, 42px);
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.plants-hero-right p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* Intro */
+.plants-intro {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+.plants-intro h2 {
+  /* General */
+  margin-bottom: 10px;
+}
+
+/* Gallery */
+.plants-gallery-section {
+  padding: 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+.plants-gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.plants-gallery img {
+  width: 100%;
+  border-radius: 10px;
+  height: 260px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Plant Pricelist */
+.plant-pricelist {
+  padding: 40px 20px;
+  max-width: 1000px;
+  margin: auto;
+  text-align: center;
+}
+.plant-pricelist h2 {
+  margin-bottom: 20px;
+}
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.plant-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+  margin-top: 20px;
+}
+.plant-table th,
+.plant-table td {
+  border: 2px solid #4e554a;
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+}
+.plant-table th {
+  background: #f4f6f4;
+  font-weight: 600;
+}
+
+/* Contact */
+.plants-contact {
+  text-align: center;
+  padding: 40px 20px;
+}
+.btn-wa {
+  background: #25d366;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.btn-wa:hover {
+  background: #1ebe5a;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .plants-gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .plants-hero {
+    flex-direction: column;
+  }
+  .plants-gallery {
+    grid-template-columns: 1fr;
+  }
+  .plant-table {
+    font-size: 12px;
+    min-width: 450px;
+  }
+}
