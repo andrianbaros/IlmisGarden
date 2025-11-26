@@ -78,7 +78,6 @@
 <section class="plants-gallery-section">
 <div class="plants-gallery">
 <img src="img/plants 2.jpg" alt="Real Plant 1" />
-<img src="img/plants 1.jpg" alt="Real Plant 2" />
 <img src="img/plants 3.jpg" alt="Real Plant 3" />
 <img src="img/plants 4.jpg" alt="Real Plant 4" />
 </div>

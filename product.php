@@ -107,7 +107,7 @@ require 'conn/db.php';
     </div>
   </div>
 
-  <div class="bouquet-card"><a href="decations.php">
+  <div class="bouquet-card"><a href="decoration.php">
     <img src="img/Decorations.png" alt="Decorations">
     <div class="overlay"></a>
     </div>

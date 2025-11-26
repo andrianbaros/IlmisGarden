@@ -93,7 +93,7 @@
   </section>
 
   <section class="floral-omakase">
-    <h2>Bouquet Omakase</h2>
+    <h2>Omakase</h2>
     <p>
       Percayakan kreativitas penuh kepada kami! Anda cukup memberikan tema warna atau nuansa
       yang diinginkan—sisanya kami yang merangkai.

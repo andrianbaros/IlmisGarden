@@ -84,26 +84,10 @@
     <div class="deco-card-wrapper">
 
       <div class="deco-card">
-        <h3>Standing Flower</h3>
-        <p>
-          Focal point elegan untuk event, showroom, kantor, maupun sudut ruangan 
-          yang ingin tampil lebih berkelas.
-        </p>
-      </div>
-
-      <div class="deco-card">
         <h3>Centerpiece</h3>
         <p>
           Mempercantik meja makan, coffee table, atau meja tamu. 
           Memberikan suasana hangat & berkarakter.
-        </p>
-      </div>
-
-      <div class="deco-card">
-        <h3>Blooming Canvas</h3>
-        <p>
-          Karya estetik yang memadukan seni visual dan rangkaian bunga. 
-          Cocok untuk wall decor yang penuh personality.
         </p>
       </div>
 
