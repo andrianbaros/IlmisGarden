@@ -95,25 +95,25 @@ require 'conn/db.php';
     </div>
   </div>
 
-  <div class="bouquet-card"><a href="workshop.php">
+  <div class="bouquet-card"><a href="floral.php">
     <img src="img/FlowerArrangement.png" alt="Flower Arrangement">
     <div class="overlay"></a>
     </div>
   </div>
 
-  <div class="bouquet-card"><a href="workshop.php">
+  <div class="bouquet-card"><a href="plants.php">
     <img src="img/Plants.png" alt="Plants">
     <div class="overlay"></a>
     </div>
   </div>
 
-  <div class="bouquet-card"><a href="workshop.php">
+  <div class="bouquet-card"><a href="decations.php">
     <img src="img/Decorations.png" alt="Decorations">
     <div class="overlay"></a>
     </div>
   </div>
 
-  <div class="bouquet-card"><a href="workshop.php">
+  <div class="bouquet-card"><a href="artisan.php">
     <img src="img/ArtisanProduct.png" alt="Artisan Product">
     <div class="overlay"></a>
     </div>
