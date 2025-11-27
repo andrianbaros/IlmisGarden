@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -17,9 +18,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <script src="https://unpkg.com/feather-icons"></script>
 
-  <!-- Bouquet Layout Base -->
+  <!-- CSS from bouquet layout -->
   <link rel="stylesheet" href="css/bouquet.css" />
-  <!-- Floral Page Extra Styles -->
+  <!-- Floral extra CSS -->
   <link rel="stylesheet" href="css/floral.css" />
 </head>
 
@@ -44,104 +45,124 @@
     </div>
   </nav>
 
-  <!-- HERO (MATCHED WITH BOUQUET STYLE) -->
-  <section class="hero floral-hero-fixed">
-    <h1 class="left">Ilmisgarden</h1>
-    <img src="img/floral.jpg" class="hero-img" />
-    <h1 class="right">Merangkai Cerita dalam Bunga</h1>
+  <!-- HERO -->
+  <section class="floral-hero">
+    <h1>Ilmisgarden – Merangkai Cerita dalam Setiap Bunga</h1>
+    <p>
+      Ilmisgarden hadir sebagai rumah bagi pecinta bunga yang menginginkan rangkaian
+      yang indah juga memiliki karakter dan makna. Setiap rangkaian bunga menyampaikan
+      perasaan, menciptakan suasana, dan meninggalkan kesan yang tak terlupakan.
+    </p>
   </section>
 
   <!-- INTRO CONTENT -->
-  <section class="collection">
-    <table class="collection-table">
-      <tr>
-        <td class="left">Flower</td>
-        <td class="right">Arrangement</td>
-      </tr>
-      <tr>
-        <td colspan="2" class="center">By Ilmisgarden</td>
-      </tr>
-    </table>
+  <section class="floral-content">
+    <div class="floral-text">
+      <h2>Kami menyediakan berbagai jenis flower arrangement yang dapat disesuaikan untuk berbagai momen:</h2>
+      <ul>
+        <li>Bouquet Flower</li>
+        <li>Basket Flower</li>
+        <li>Bloombox Flower</li>
+        <li>Vase Arrangement</li>
+        <li>Standing Flower & Blooming Canvas</li>
+        <li>Dan rangkaian lain sesuai permintaan, prioritas kami adalah membantu mensukseskan momen anda.</li>
+      </ul>
 
-    <div class="collection-wrapper">
-      <div class="collection-text">
-        <p>
-          Kami menyediakan berbagai jenis arrangement untuk setiap momen:<br>
-          Bouquet, Basket, Bloombox, Vase Arrangement, Standing Flower, Blooming Canvas,
-          dan custom sesuai keinginan Anda.
-        </p>
-      </div>
-
-      <div class="collection-grid">
-        <img src="img/floral (5).jpg" alt="">
-        <img src="img/floral (4).jpg" alt="">
-        <img src="img/floral (3).jpg" alt="">
-      </div>
+      <p>
+        Setiap produk dibuat menggunakan bunga pilihan terbaik untuk memastikan
+        tampilan yang cantik, harmonis, dan tahan lama.
+      </p>
     </div>
   </section>
 
   <!-- TREND -->
-  <section class="flower-bouquet">
+  <section class="floral-trend">
     <h2>Selalu Mengikuti Tren</h2>
-    <p>Dari Korean Style, rustic, modern minimalis, hingga pastel aesthetic.</p>
-
-    <div class="circle-images">
-      <img src="img/floral (5).jpg" />
-      <img src="img/floral1.jpeg" />
-      <img src="img/floral2.jpeg" />
-    </div>
+    <p>
+      Dunia floristry terus berkembang, dan Ilmisgarden selalu terbuka untuk menerima update gaya rangkaian terbaru.
+      Kami siap menyesuaikan desain berdasarkan tren—mulai dari modern minimalis, rustic, korean style, pastel aesthetic,
+      hingga desain elegan yang klasik.
+    </p>
+    <img src="img/floral (5).jpg" alt="Trend Image" />
   </section>
 
-  <!-- ASYMMETRIC SECTION -->
+  <!-- ASYMMETRIC -->
   <section class="floral-asym">
     <div class="asym-text">
-      <h2>Asimetris Seimbang</h2>
+      <h2>Desain Asimetris Seimbang : Harmoni dalam Visual</h2>
       <p>
-        Komposisi khas kami dengan visual flow yang lembut, dinamis,
-        dan enak dilihat dari berbagai sudut.
+        Salah satu ciri khas Ilmisgarden adalah komposisi rangkaian bentuk asimetris seimbang.
+        Struktur ini memberikan keseimbangan visual yang membuat rangkaian terlihat nyaman,
+        “entertaining” untuk mata, dan mengajak setiap orang menikmati detail bunga dari berbagai sudut.
       </p>
     </div>
 
-    <img src="img/floral (4).jpg" class="asym-img" />
+    <img src="img/floral (4).jpg" class="asym-img" alt="Asymmetric Design" />
   </section>
 
   <!-- OMAKASE -->
-  <section class="flower-bouquet">
-    <h2>Omakase</h2>
-    <p>Percayakan kreativitas penuh pada florist kami.</p>
+  <section class="floral-omakase">
+    <h2>Omakase: Percayakan pada Kreativitas Kami</h2>
+    <p>
+      Bagi pelanggan yang ingin sesuatu yang unik, kami menawarkan rangkaian omakase.
+      Anda cukup menyampaikan tema warna, bentuk rangkaian dan nuansa yang diinginkan.
+    </p>
 
-    <div class="circle-images">
-      <img src="img/floral (3).jpg" />
-      <img src="img/floral3.jpeg" />
-      <img src="img/floral2.jpeg" />
-    </div>
+    <img src="img/floral (3).jpg" alt="Omakase Image" />
+
+    <p>
+      Kami memadukan warna, tinggi, tekstur, dan flow bunga dengan teknik artistik agar tidak membosankan
+      dan tetap menyenangkan untuk dilihat.
+    </p>
   </section>
 
   <!-- STANDING FLOWER -->
-  <section class="catalog">
-    <div class="catalog-item gray">
-      <h3>Standing Flower</h3>
-      <div class="catalog-content">
-        <img src="img/floral3.jpeg">
-        <img src="img/floral2.jpeg">
-        <img src="img/floral1.jpeg">
-      </div>
-      <p>Ucapan elegan untuk grand opening, wedding, dan acara penting lainnya.</p>
-    </div>
+  <section class="floral-Standing">
+    <h2>STANDING FLOWER</h2>
+    <p>
+      Kami percaya bahwa setiap ucapan selamat layak disampaikan dengan cara yang berkesan.
+      Standing Flower premium kami dirancang dengan sentuhan seni florist profesional.
+    </p>
 
-    <!-- Blooming Canvas -->
-    <div class="catalog-item gray">
-      <h3>Blooming Canvas</h3>
-      <div class="catalog-content">
-        <img src="img/BloomingCanvas1.png">
-        <img src="img/BloomingCanvas2.png">
-        <img src="img/BloomingCanvas3.png">
-      </div>
-      <p>Papan ucapan berbunga berdesain modern, elegan, dan customizable.</p>
+    <p><b>Cocok untuk:</b></p>
+    <ul>
+      <li>Ulang Tahun</li>
+      <li>Wisuda</li>
+      <li>Grand Opening</li>
+      <li>Ucapan Selamat</li>
+      <li>Event Korporat</li>
+    </ul>
+
+    <div class="floral-gallery">
+      <img src="img/floral3.jpeg" />
+      <img src="img/floral2.jpeg" />
+      <img src="img/floral1.jpeg" />
     </div>
   </section>
 
-  <!-- BOUQUET SECTION -->
+  <!-- BLOOMING CANVAS -->
+  <section class="floral-Standing">
+    <h2>BLOOMING CANVAS</h2>
+
+    <div class="floral-gallery">
+      <img src="img/BloomingCanvas1.png" />
+      <img src="img/BloomingCanvas2.png" />
+      <img src="img/BloomingCanvas3.png" />
+    </div>
+
+    <p>Papan ucapan dengan rangkaian bunga artificial bernuansa elegan.</p>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="deco-contact">
+    <h2>Hubungi kami untuk diskusi</h2>
+    <a href="https://wa.me/6285795077194" target="_blank" class="btn-wa">
+      💬 WhatsApp Kami
+    </a>
+  </section>
+
+  <!-- === PRICELIST SECTION (DARI FLORAL.PHP 2) === -->
+
   <section class="flower-bouquet">
     <h2>Flower Bouquet</h2>
     <p>Beautifully arranged to brighten your day.</p>
@@ -153,10 +174,9 @@
     </div>
   </section>
 
-  <!-- THE CATALOG (CONNECTED TO BOUQUET.CSS) -->
   <section class="catalog">
 
-    <!-- OMAKASE -->
+    <!-- OMAKASE CATALOG -->
     <div class="catalog-item gray">
       <h3>Omakase</h3>
       <div class="catalog-content">
@@ -185,7 +205,7 @@
         <div class="image-wrapper">
           <div class="caption-top"><b>Small Rose</b> start 155k</div>
           <img src="img/rose3.png" />
-          <div class="caption-bottom">>5 Stem</div>
+          <div class="caption-bottom">&gt;5 Stem</div>
         </div>
       </div>
     </div>
@@ -247,12 +267,6 @@
       </div>
     </div>
 
-  </section>
-
-  <!-- CONTACT -->
-  <section class="deco-contact">
-    <h2>Diskusikan Rangkaianmu</h2>
-    <a href="https://wa.me/6285795077194" target="_blank" class="btn-wa">💬 WhatsApp Kami</a>
   </section>
 
   <script>
