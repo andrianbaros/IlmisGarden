@@ -62,7 +62,13 @@
   object-fit: cover;
 }
 
+
 /* TEXT */
+
+.artisan-content {
+  flex: 1; /* teks lebih kecil */
+}
+
 .artisan-content h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
@@ -87,6 +93,136 @@
   color: #333;
 }
 
+/* ========= ORCHID SECTION – PREMIUM BOTANICAL STYLE ========= */
+
+.orchid-center {
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+}
+
+/* TITLE */
+.catalog-item.gray {
+  background: transparent;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  color: #4b5f4f;
+  font-size: 2.2rem;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* SECTION WRAPPER */
+.orchid-section {
+  width: 90%;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* EACH ROW */
+.orchid-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: rgba(229, 235, 229, 0.75);
+  padding: 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease;
+}
+
+.orchid-row:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 25px rgba(93, 119, 94, 0.18);
+}
+
+/* IMAGE */
+.orchid-image img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* TEXT AREA */
+.orchid-text {
+  flex: 1;
+  text-align: left;
+}
+
+.orchid-text h3 {
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #273a2c;
+}
+
+/* PRICE BLOCK */
+.price-block {
+  background: #ffffff;
+  padding: 12px 14px;
+  border-radius: 14px;
+  display: inline-block;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.price-block h4 {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #2f4b34;
+}
+
+.price-block p {
+  font-size: 0.95rem;
+  line-height: 1.35;
+  margin-top: 4px;
+  color: #4b5f4f;
+}
+
+/* VARIETY TITLE */
+.orchid-var-title {
+  margin-top: 25px;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #4b5f4f;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* VARIETY IMAGES */
+.orchid-variety {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 14px;
+}
+
+.orchid-variety img {
+  width: 55px;
+  height: 55px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #4b5f4f;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  transition: 0.25s ease;
+}
+
+.orchid-variety img:hover {
+  transform: scale(1.12);
+  border-color: #708871;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .artisan-card {
@@ -101,5 +237,36 @@
   .artisan-img img {
     width: 100%;
     max-width: 420px;
+  }
+
+  .orchid-row {
+    padding: 14px;
+  }
+
+  .orchid-image img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .orchid-text h3 {
+    font-size: 1.2rem;
+  }
+
+  .price-block {
+    padding: 8px 12px;
+  }
+
+  .catalog-item.gray {
+    font-size: 1.7rem;
+  }
+
+
+  .orchid-var-title {
+    font-size: 1.6rem;
+  }
+
+  .orchid-variety img {
+    width: 42px;
+    height: 42px;
   }
 }

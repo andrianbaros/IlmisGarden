@@ -69,9 +69,15 @@
       <div class="artisan-content">
         <h2>1. Floral Tea</h2>
         <p>
-          Floral Tea adalah koleksi paling spesial dari Artisan Series. Diracik bersama Hage Natural, teh ini memadukan keindahan
-          bunga dengan cita rasa lembut dan manfaat relaksasi. Menggunakan camomile dan lavender premium yang memberi efek menenangkan.
+        Floral Tea adalah salah satu koleksi paling spesial dari artisan series kami. Diracik melalui kolaborasi bersama Hage Natural, 
+        teh ini menggabungkan keindahan bunga dengan cita rasa yang lembut dan manfaat yang menenangkan. Setiap elemennya dirancang secara 
+        detail mulai dari pemilihan bunga, gagang teh berbentuk bunga, hingga kemasan yang artistik sehingga menghadirkan pengalaman minum teh yang berbeda 
+        dari biasanya, lebih intim, lebih estetik, dan lebih mindful.
         </p>
+        <br>
+        <p> Floral Tea menggunakan dua bunga utama yang terkenal dengan efek relaksasinya, yaitu bunga camomile dan bunga lavender. 
+          Kombinasi keduanya menghasilkan teh dengan aroma yang mewah, rasa yang halus, serta manfaat relaksasi yang kuat, cocok dinikmati saat malam hari, 
+          setelah bekerja, atau saat ingin me time.</p>
       </div>
     </div>
 
@@ -80,10 +86,17 @@
         <img src="img/artisan2.jpg" alt="Diffuser">
       </div>
       <div class="artisan-content">
-        <h2>2. Diffuser</h2>
+        <h2>2. Floral Scent</h2>
         <p>
-          Diffuser Floral kami adalah perpaduan aroma menenangkan dan visual dekoratif yang estetik. Menggunakan essential oil
-          premium dan potongan bunga asli di dalam botolnya, menciptakan dekor minimalis natural untuk berbagai gaya interior.
+        Diffuser Floral kami adalah perpaduan antara aroma yang menenangkan dan keindahan visual yang estetik. 
+        Dirancang sebagai dekor fungsional, diffuser ini tidak hanya menyebarkan wangi floral yang lembut, 
+        tetapi juga mempercantik ruangan melalui potongan bunga asli yang kami masukkan ke dalam botolnya.
+        Komposisi utama diffuser adalah alkohol dan essential oil premium.
+        <br>
+        <br>
+        <i>Ambience de Fleur – </i>Desain diffuser dibuat dengan konsep minimalis natural sehingga mudah menyatu dengan berbagai gaya interior, 
+        mulai dari modern, minimalis, rustic, hingga classic. Dilengkapi dengan reed stick yang membantu aroma menyebar secara perlahan 
+        dan konsisten. Diffuser kami cocok untuk kamar tidur, ruang tamu, ruang kerja, hingga area self-care.
         </p>
       </div>
     </div>
@@ -94,16 +107,23 @@
       </div>
       <div class="artisan-content">
         <h2>3. Blooming Bar & Lush Petals</h2>
-        <p>
-          Kolaborasi bersama RawGlow Rituals menghadirkan Blooming Bar dan Lush Petals — perawatan tubuh botanical premium.
-          Blooming Bar diformulasikan dari VCO, Sunflower Oil, Olive Oil, dan petal bunga pilihan.
+        <p>Dalam kolaborasi spesial bersama RawGlow Rituals, Ilmisgarden menghadirkan rangkaian perawatan tubuh natural yang memadukan 
+          keindahan bunga dengan kehangatan ritual selfcare. Blooming Bar dan Lush Petals tercipta untuk memanjakan kulit sekaligus memberikan 
+          pengalaman mandi yang aromatik, lembut, dan menenangkan.
+          <br>
+          Terinspirasi dari pesona bunga dan ketenangan mandi ritual, kedua produk ini menggunakan organic botanical oil serta petal bunga pilihan, 
+          menciptakan sensasi perawatan tubuh yang lembut, mewah, dan penuh makna.
+          <br>
+          <br>
+          <b>Blooming Bar — Handmade Soap Natural</b>
+          Blooming Bar adalah sabun mandi yang dirancang untuk memberi kelembaban tahan lama tanpa membuat kulit terasa licin ataupun kering. 
+          Teksturnya yang lembut dan busa creamy membersihkan kulit secara menyeluruh sambil mempertahankan hidrasi alami.
+          <br>
+          Blooming Bar ini diformulasikan dari <b>Virgin Coconut Oil (VCO), Sunflower Oil, Palm Oil, Olive Oil, Castor Oil, dan Canola Oil </b>
+          yang bekerja bersama untuk membersihkan sekaligus menutrisi kulit. VCO dan olive oil memberi kelembutan ekstra, sunflower dan canola oil kaya vitamin untuk menutrisi kulit, 
+          sementara castor oil membantu menghasilkan busa lembut yang nyaman dipakai. Dipadukan dengan <b>Fragrance Oil premium</b> dan <b>Petal bunga pilihan</b>, sabun ini 
+          memberikan pengalaman mandi yang lebih menyegarkan dan mewah setiap hari.
         </p>
-        <ul>
-          <li>Lavender — relaks dan menenangkan</li>
-          <li>Floral — lembut dan elegan</li>
-          <li>Fresh — segar dan membangkitkan energi</li>
-          <li>Coconut — creamy dan tropis</li>
-        </ul>
       </div>
     </div>
 
@@ -112,19 +132,116 @@
         <img src="img/artisan4.jpg" alt="Lush Petals">
       </div>
       <div class="artisan-content">
-        <h2>Lush Petals — Body Scrub</h2>
-        <p>
-          Body scrub yang mengangkat sel kulit mati secara gentle dengan botanical oils & petal bunga. Menjaga hidrasi dan
-          membuat kulit halus seperti sutra.
+        <h2>Lush Petals — Body Scrub Moisturizing & Exfoliating</h2>
+        <p>Untuk perawatan kulit yang lebih menyeluruh, Ilmisgarden menghadirkan Lush Petals, body scrub lembut dengan exfoliant alami yang aman digunakan setiap hari. 
+          Kandungan botanical oils dan petal bunga membantu mengangkat sel kulit mati secara gentle tanpa iritasi, sekaligus menjaga hidrasi kulit.
+          <br>
+          Lush Petals memberikan manfaat seperti membantu menghaluskan dan mencerahkan kulit, mengangkat sel kulit mati tanpa membuat kulit terasa kering. 
+          Kandungannya juga bekerja untuk mengunci kelembapan setelah mandi, sehingga kulit tetap lembut dan segar sepanjang hari. Dengan penggunaan rutin, 
+          Lush Petals membantu menyamarkan tekstur kasar dan membuat kulit terasa lebih halus, lembut, dan selembut sutra.
+          <br>
+          <br>
+          Kolaborasi Ilmisgarden x RawGlow Rituals bertujuan untuk mengubah rutinitas mandi menjadi momen self-love yang memanjakan tubuh, pikiran, dan indera.
+          <br>
+          <br>
+          Setiap detail mulai dari aroma, komposisi bahan, tekstur, hingga tampilan kelopak bunga dirancang dengan cinta dan dedikasi untuk menciptakan produk 
+          perawatan tubuh yang bukan hanya bekerja efektif, tetapi juga menghadirkan pengalaman relaksasi yang personal dan intim.
+          <br>
+          <br>
+          Kenapa harus memilih Blooming Bar & Lush Petals?
+          <br>
+          ✓ Cocok untuk semua jenis kulit
+          <br>
+          ✓ Aman untuk pemakaian harian
+          <br>
+          ✓ Ideal untuk Anda yang menginginkan kulit lembab, glowing, dan harum sepanjang hari
         </p>
-        <ul>
-          <li>Floral — lembut & romantis</li>
-          <li>Mint — segar & dingin</li>
-          <li>Lavender — menenangkan</li>
-        </ul>
       </div>
     </div>
+
+
+    <!-- ORCHID SECTION -->
+    <div class="orchid-center">
+      <div class="catalog-item gray">
+        <h3>Lush Petals</h3>
+      </div>
+
+      <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/orchid21.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+            <h3>Floral</h3>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>Lembut, manis, dan romantis</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/orchid21.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+            <h3>Mint</h3>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>Segar, dingin, dan menyegarkan pikiran</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/orchid21.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+            <h3>Lavender</h3>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>menenangkan dan memberi efek relaks</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="catalog-item gray">
+        <h4 class="orchid-var-title">Variety</h4>
+        <div class="orchid-variety">
+          <img src="img/orchid-var1.png" alt="Var 1">
+          <img src="img/orchid-var2.png" alt="Var 2">
+          <img src="img/orchid-var3.png" alt="Var 3">
+          <img src="img/orchid-var4.png" alt="Var 4">
+          <img src="img/orchid-var5.png" alt="Var 5">
+        </div>
+      </div>
+    </div>
+
+     <!-- Product Section -->
+  <section class="artisan-section">
+    <div class="artisan-card">
+      <div class="artisan-content">
+        <p><i>Blooming Bar & Lush Petals — Let Your Bathing Time Blossom Beautifully</i>
+        </p>
+        <br>
+        <br>
+        <p> Rasakan keharuman bunga, kelembutan kulit, dan ketenangan batin dalam setiap ritual mandi Anda.</p>
+      </div>
+    </div>
+
   </section>
+
 
   <script>
     feather.replace();

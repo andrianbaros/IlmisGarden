@@ -220,7 +220,7 @@ $workshopProducts = $stmt2->fetchAll();
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Real Plant</div>
-        <div class="catalog-img"><img src="img/RealPlant.png" alt="RealPlant"></div>
+        <div class="catalog-img"><img src="img/realplants.png" alt="RealPlant"></div>
       </div>
     </div>
   </div>

@@ -571,7 +571,7 @@
       <p><i>Tulisan dan warna dapat disesuaikan sesuai tema acara. Tersedia pilihan rangkaian dengan berbagai ukuran dan desain.</i></p>
     </div>
     
-    <div class="orchid-center">
+  <div class="orchid-center">
   <div class="catalog-item gray">
     <h3>Orchid On Vase</h3>
   </div>
