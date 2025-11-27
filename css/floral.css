@@ -120,11 +120,44 @@ section {
 
 .floral-gallery img {
   width: 100%;
-  height: 420px; /* PORTRAIT */
+  height: 350px; /* PORTRAIT */
   object-fit: cover;
   border-radius: 14px;
 }
 
+/* ===========================
+   Contact Section
+   =========================== */
+
+   .deco-contact {
+    padding: 70px 7%;
+    text-align: center;
+  }
+  
+  .deco-contact h2 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #2f322f;
+  }
+  
+  .btn-wa {
+    background: #4caf50;
+    color: white;
+    padding: 14px 26px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: 0.3s;
+  }
+  
+  .btn-wa:hover {
+    background: #449b47;
+  }
+  
+  
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .floral-images {
@@ -140,9 +173,30 @@ section {
   }
 
   .floral-trend img,
-  .floral-omakase img,
+  .floral-omakase img {}
   .asym-img {
     max-width: 100%;
     height: 420px; /* mobile portrait tetap proporsional */
   }
 }
+
+/* ==== CENTER GAMBAR "SELALU MENGIKUTI TREN" ==== */
+.floral-trend img {
+  display: block;
+  margin: 25px auto 0; /* auto = center */
+  max-width: 380px;
+}
+
+/* ==== CENTER GAMBAR "OMAKASE" ==== */
+.floral-omakase img {
+  display: block;
+  margin: 25px auto 0; /* center */
+  max-width: 380px;
+}
+
+.floral-asym img {
+  display: block;
+  margin: 25px auto 0; /* center */
+  height: 420px;
+}
+

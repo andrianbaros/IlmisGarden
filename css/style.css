@@ -595,8 +595,9 @@ body {
 }
 
 .bouquet-section {
-  display: flex;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(3, 300px); /* 3 kolom masing-masing 300px */
+  justify-content: center; /* supaya grid berada di tengah */
   gap: 30px;
   padding: 170px 80px;
   background: #fff;
@@ -622,6 +623,12 @@ body {
   object-fit: cover;
 }
 
+/* Card ke-7 dibuat center di baris ke-3 */
+.bouquet-card:nth-child(7) {
+  grid-column: 2; /* posisi tengah */
+}
+
+
 .overlay {
   position: absolute;
   bottom: 0;
@@ -638,17 +645,29 @@ body {
   margin: 0;
 }
 
-/* Responsif HP */
+/* RESPONSIVE HP */
 @media (max-width: 900px) {
   .bouquet-section {
-    flex-direction: column;
-    align-items: center;
+    grid-template-columns: repeat(2, 1fr); /* tetap 2 kolom */
+    gap: 20px;
+    padding: 40px 20px;
+    justify-items: center; /* biar rapi tengah */
   }
+
   .bouquet-card {
-    width: 90%;
-    height: 400px;
+    width: 100%;
+    max-width: 150px;  /* perkecil untuk hp */
+    height: 330px;
+  }
+
+  /* Card ke-7 biarkan otomatis */
+  .bouquet-card:nth-child(7) {
+    grid-column: auto;
   }
 }
+
+
+
 .footer {
   background-color: #2f392f;
   color: #d9d9d9;

@@ -56,17 +56,18 @@
   <section class="floral-content">
 
     <div class="floral-text">
-      <h2>Jenis Flower Arrangement</h2>
+      <h2>Kami menyediakan berbagai jenis flower arrangement yang dapat disesuaikan untuk berbagai momen:</h2>
       <ul>
         <li>Bouquet Flower</li>
         <li>Basket Flower</li>
         <li>Bloombox Flower</li>
         <li>Vase Arrangement</li>
-        <li>Custom arrangement sesuai permintaan</li>
+        <li>Standing Flower & Blooming Canvas</li>
+        <li>Dan rangkaian lain sesuai permintaan, prioritas kami adalah membantu mensukseskan momen anda.</li>
       </ul>
       <p>
-        Semua rangkaian dibuat menggunakan bunga pilihan terbaik untuk memastikan tampilan
-        yang cantik, harmonis, dan tahan lama.
+      Setiap produk dibuat menggunakan bunga pilihan terbaik untuk memastikan 
+      tampilan yang cantik, harmonis, dan tahan lama.
       </p>
     </div>
 
@@ -75,30 +76,93 @@
   <section class="floral-trend">
     <h2>Selalu Mengikuti Tren</h2>
     <p>
-      Ilmisgarden terus menyesuaikan desain berdasarkan tren terbaru—modern minimalis,
-      rustic, Korean style, pastel aesthetic, hingga desain klasik elegan.
+    Dunia floristry terus berkembang, dan Ilmisgarden selalu terbuka untuk menerima update gaya rangkaian terbaru. 
+    Kami siap menyesuaikan desain berdasarkan tren—mulai dari modern minimalis, rustic, korean style, pastel aesthetic, 
+    hingga desain elegan yang klasik.
     </p>
     <img src="img/floral (5).jpg" alt="Trend Image" />
   </section>
 
   <section class="floral-asym">
     <div class="asym-text">
-      <h2>Desain Asimetris Seimbang</h2>
+      <h2>Desain Asimetris Seimbang : Harmoni dalam Visual</h2>
       <p>
-        Struktur asimetris seimbang memberikan harmoni visual dan flow yang halus sehingga
-        rangkaian terlihat tidak monoton dan nyaman untuk dinikmati dari berbagai sudut.
+      Salah satu ciri khas Ilmisgarden adalah komposisi rangkaian bentuk asimetris seimbang. 
+      Struktur ini memberikan keseimbangan visual yang membuat rangkaian terlihat nyaman, “entertaining” untuk mata, 
+      dan mengajak setiap orang menikmati detail bunga dari berbagai sudut. Desain ini menciptakan flow yang halus 
+      sehingga bunga tidak terlihat berat atau monoton.
       </p>
     </div>
     <img src="img/floral (4).jpg" class="asym-img" alt="Asymmetric Design" />
   </section>
 
   <section class="floral-omakase">
-    <h2>Omakase</h2>
+    <h2>Omakase: Percayakan pada Kreativitas Kami</h2>
     <p>
-      Percayakan kreativitas penuh kepada kami! Anda cukup memberikan tema warna atau nuansa
-      yang diinginkan—sisanya kami yang merangkai.
+    Bagi pelanggan yang ingin sesuatu yang unik, kami menawarkan rangkaian omakase. 
+    Anda cukup menyampaikan tema warna, bentuk rangkaian misalnya bentuk bouquet atau vase 
+    dan nuansa yang diinginkan—sisanya kami olah dengan kreativitas penuh menggunakan bunga terbaik 
+    yang tersedia hari ini.
     </p>
     <img src="img/floral (3).jpg" alt="Omakase Image" />
+    <p>Di setiap rangkaian, Ilmisgarden menghadirkan sentuhan seni yang membuatnya berbeda. 
+      Kami memadukan warna, tinggi, tekstur, dan flow bunga dengan teknik artistik agar tidak membosankan 
+      dan tetap menyenangkan untuk dilihat</p>
+  </section>
+
+  <section class="floral-Standing">
+    <h2>STANDING FLOWER</h2>
+    <p>
+    Kami percaya bahwa setiap ucapan selamat layak disampaikan dengan cara yang berkesan. Karena itu, 
+    Ilmisgarden menyediakan Standing Flower premium yang dirancang khusus untuk menyampaikan pesan positif, 
+    doa baik, dan apresiasi yang tulus. Setiap rangkaian dibuat dengan sentuhan seni florist profesional dan 
+    material pilihan terbaik untuk menghasilkan tampilan yang elegan dan penuh kesan.
+    </p>
+    <br>
+    <p><b>Standing flower kami cocok untuk segala kebutuhan, seperti:</b></p>
+    <li>Ucapan Selamat Ulang Tahun</li>
+    <li>Graduation/Wisuda</li>
+    <li>Grand Opening Toko, Kantor, atau Usaha Baru</li>
+    <li>Ucapan Selamat & Sukses</li>
+    <li>Event Korporat & Acara Spesial Lainnya</li><br>
+    <p>Kami menghadirkan pilihan desain yang modern, elegan, dan dapat disesuaikan dengan tema acara atau warna. 
+      Menggunakan bunga segar ataupun artifisial pilihan yang dirangkai secara profesional untuk memastikan standing 
+      flower tampil menawan dan tahan lama.</p>
+
+      <div class="floral-gallery">
+      <img src="img/floral3.jpeg" />
+      <img src="img/floral2.jpeg" />
+      <img src="img/floral1.jpeg" />
+    </div>
+
+  </section>
+
+  <section class="floral-Standing">
+    <h2>BLOOMING CANVAS</h2>
+
+      <div class="floral-gallery">
+      <img src="img/BloomingCanvas1.png" />
+      <img src="img/BloomingCanvas2.png" />
+      <img src="img/BloomingCanvas3.png" />
+      </div><br>
+
+      <p>Papan ucapan dengan rangkaian bunga artificial bernuansa elegan, cocok untuk momen pernikahan 
+        dan acara spesial lainnya. Menggunakan kombinasi bunga premium dengan warna lembut serta latar 
+        artistik yang modern.</p>
+        <br>
+      
+      <p>
+      <i>Tulisan dan warna dapat disesuaikan sesuai tema acara. Tersedia pilihan rangkaian dengan berbagai ukuran dan desain.</i>
+      </p>
+    </div>
+    
+  </section>
+
+  <section class="deco-contact">
+    <h2>Hubungi kami untuk diskusi</h2>
+    <a href="https://wa.me/6285795077194" target="_blank" class="btn-wa">
+      💬 WhatsApp Kami
+    </a>
   </section>
 
   <section class="floral-pricelist">
@@ -113,19 +177,19 @@
       <tbody>
         <tr>
           <td>Bouquet Flower</td>
-          <td>Rp 250.000</td>
+          <td>Start From Rp 250.000</td>
         </tr>
         <tr>
           <td>Basket Flower</td>
-          <td>Rp 450.000</td>
+          <td>Start From Rp 450.000</td>
         </tr>
         <tr>
           <td>Bloombox Premium</td>
-          <td>Rp 380.000</td>
+          <td>Start From Rp 380.000</td>
         </tr>
         <tr>
           <td>Vase Arrangement</td>
-          <td>Rp 200.000</td>
+          <td>Start From Rp 200.000</td>
         </tr>
       </tbody>
     </table>
