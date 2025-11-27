@@ -1,4 +1,11 @@
-/* General */
+/* =========================
+   IMPORT FONT
+========================= */
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+
+/* =========================
+   GENERAL
+========================= */
 body {
   margin: 0;
   font-family: "Inter", sans-serif;
@@ -7,13 +14,16 @@ body {
   line-height: 1.6;
 }
 
-/* Hero */
+/* =========================
+   HERO
+========================= */
 .plants-hero {
   display: flex;
   flex-wrap: wrap;
   width: 100%;
   min-height: 70vh;
 }
+
 .plants-hero-left {
   flex: 1;
 }
@@ -23,6 +33,7 @@ body {
   object-fit: cover;
   max-height: 600px;
 }
+
 .plants-hero-right {
   flex: 1;
   padding: 40px;
@@ -41,7 +52,9 @@ body {
   color: #333;
 }
 
-/* Intro */
+/* =========================
+   INTRO
+========================= */
 .plants-intro {
   max-width: 900px;
   margin: auto;
@@ -49,30 +62,38 @@ body {
   text-align: center;
 }
 .plants-intro h2 {
-  /* General */
   margin-bottom: 10px;
 }
 
-/* Gallery */
+/* =========================
+   GALLERY — FIX CENTER
+========================= */
 .plants-gallery-section {
   padding: 20px;
   max-width: 1100px;
   margin: auto;
+  display: flex;
+  justify-content: center;
 }
+
 .plants-gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 260px); /* EXACT 3 columns & centered */
   gap: 20px;
+  justify-content: center; /* memastikan center */
 }
+
 .plants-gallery img {
-  width: 100%;
-  border-radius: 10px;
+  width: 260px;
   height: 260px;
   object-fit: cover;
+  border-radius: 10px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-/* Plant Pricelist */
+/* =========================
+   PRICELIST (ORCHID)
+========================= */
 .plant-pricelist {
   padding: 40px 20px;
   max-width: 1000px;
@@ -82,33 +103,104 @@ body {
 .plant-pricelist h2 {
   margin-bottom: 20px;
 }
-.table-wrapper {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-.plant-table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 600px;
+
+.orchid-section {
   margin-top: 20px;
 }
-.plant-table th,
-.plant-table td {
-  border: 2px solid #4e554a;
-  padding: 12px;
-  text-align: center;
-  font-size: 14px;
-}
-.plant-table th {
-  background: #f4f6f4;
-  font-weight: 600;
+
+.orchid-row {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 50px;
 }
 
-/* Contact */
+.orchid-image img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* =========================
+   ITALIANNO STYLING
+========================= */
+.orchid-text {
+  text-align: left;
+}
+
+.orchid-text h3 {
+  font-family: "Italianno", cursive;
+  font-size: 40px;
+  font-weight: 400;
+  color: #6e8b56;
+  margin-bottom: 8px;
+}
+
+.price-block {
+  background: #f8f8f8;
+  padding: 15px 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #e5e5e5;
+  text-align: left;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.price-block h4 {
+  font-family: "Italianno", cursive;
+  font-size: 36px;
+  font-weight: 400;
+  color: #6e8b56;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.price-block p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.4;
+}
+
+/* =========================
+   VARIETY SECTION
+========================= */
+.orchid-var-title {
+  margin-top: 1rem;
+  font-size: 28px;
+  font-style: italic;
+  color: #6e8b56;
+}
+
+.orchid-variety {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+}
+
+.orchid-variety img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #ddd;
+}
+
+/* =========================
+   CONTACT
+========================= */
 .plants-contact {
   text-align: center;
   padding: 40px 20px;
 }
+
 .btn-wa {
   background: #25d366;
   color: white;
@@ -121,21 +213,52 @@ body {
   background: #1ebe5a;
 }
 
-/* Responsive */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 1024px) {
   .plants-gallery {
     grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
   }
 }
+
 @media (max-width: 768px) {
   .plants-hero {
     flex-direction: column;
   }
+
   .plants-gallery {
     grid-template-columns: 1fr;
   }
-  .plant-table {
-    font-size: 12px;
-    min-width: 450px;
+
+  .orchid-row {
+    grid-template-columns: 1fr;
+    text-align: center;
   }
+
+  .orchid-text h3 {
+    text-align: center;
+    font-size: 32px;
+  }
+
+  .price-block h4,
+  .price-block p {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .orchid-variety img {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* =========================
+   TITLE OVERRIDE
+========================= */
+.catalog-item h1,
+.catalog-item h3 {
+  font-family: "Italianno", cursive;
 }
