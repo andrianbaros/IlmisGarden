@@ -192,382 +192,376 @@
         <span style="background:#c3d2b2"></span>
       </div>
     </div>
+  <!-- ROSE -->
+  <div class="catalog-item gray">
+    <h3>Rose</h3>
+    <div class="catalog-content">
 
-    <!-- ROSE -->
-    <div class="catalog-item gray">
-      <h3>Rose</h3>
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top"><b>Single Rose</b> start 50k</div>
-          <img src="img/rose1.png" />
-          <div class="caption-bottom">1 Stem</div>
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top"><b>Petite Rose</b> start 85k</div>
-          <img src="img/rose2.png" />
-          <div class="caption-bottom">3 Stem</div>
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top"><b>Small Rose</b> start 155k</div>
-          <img src="img/rose3.png" />
-          <div class="caption-bottom">&gt;5 Stem</div>
-        </div>
+      <div class="item">
+        <img src="img/rose1.png" />
+        <p class="price"><b>Single Rose</b> – start 50k</p>
+        <p class="info">1 Stem</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#c43b3b"></span>
-        <span style="background:#ffcece"></span>
-        <span style="background:#ffc7e1"></span>
-        <span style="background:#ffe6d9"></span>
-        <span style="background:#ffffff;border:1px solid #ddd"></span>
-      </div>
-    </div>
-    <!-- HYDRANGEA -->
-    <div class="catalog-item gray">
-      <h3>Hydrangea</h3>
-
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top"><b>Single Blue</b> 77k</div>
-          <img src="img/Hydrangea1.png" />
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top"><b>Purple</b> 126k</div>
-          <img src="img/Hydrangea2.png" />
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top"><b>Small</b> 160k</div>
-          <img src="img/Hydrangea3.png" />
-        </div>
+      <div class="item">
+        <img src="img/rose2.png" />
+        <p class="price"><b>Petite Rose</b> – start 85k</p>
+        <p class="info">3 Stem</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#7eb6ff"></span>   <!-- Blue -->
-        <span style="background:#d4a4ff"></span>   <!-- Purple -->
-        <span style="background:#ffb3d9"></span>   <!-- Pink -->
+      <div class="item">
+        <img src="img/rose3.png" />
+        <p class="price"><b>Small Rose</b> – start 155k</p>
+        <p class="info">&gt;5 Stem</p>
       </div>
+
     </div>
 
-    <!-- POM POM -->
-    <div class="catalog-item gray">
-      <h3>Pom Pom</h3>
+    <div class="colors">
+      <span style="background:#c43b3b"></span>
+      <span style="background:#ffcece"></span>
+      <span style="background:#ffc7e1"></span>
+      <span style="background:#ffe6d9"></span>
+      <span style="background:#ffffff;border:1px solid #ddd"></span>
+    </div>
+  </div>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Single 80k</div>
-          <img src="img/PomPom1.png" />
-        </div>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium 350k</div>
-          <img src="img/PomPom2.png" />
-        </div>
+  <!-- HYDRANGEA -->
+  <div class="catalog-item gray">
+    <h3>Hydrangea</h3>
+    <div class="catalog-content">
 
-        <div class="image-wrapper">
-          <div class="caption-top">Large 450k</div>
-          <img src="img/PomPom3.png" />
-        </div>
+      <div class="item">
+        <img src="img/Hydrangea1.png" />
+        <p class="price">Single Blue – 77k</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ffdfef"></span>   <!-- Soft Pink -->
-        <span style="background:#d9f5ff"></span>   <!-- Baby Blue -->
-        <span style="background:#fff7ad"></span>   <!-- Pastel Yellow -->
+      <div class="item">
+        <img src="img/Hydrangea2.png" />
+        <p class="price">Purple – 126k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/Hydrangea3.png" />
+        <p class="price">Small – 160k</p>
+      </div>
+
+    </div>
+
+    <div class="colors">
+      <span style="background:#7eb6ff"></span>
+      <span style="background:#d4a4ff"></span>
+      <span style="background:#ffb3d9"></span>
+    </div>
+  </div>
+
+
+  <!-- POM POM -->
+  <div class="catalog-item gray">
+    <h3>Pom Pom</h3>
+
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/PomPom1.png" />
+        <p class="price">Single – 80k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/PomPom2.png" />
+        <p class="price">Medium – 350k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/PomPom3.png" />
+        <p class="price">Large – 450k</p>
       </div>
     </div>
 
-    <!-- SMALL GOMPIE -->
-    <div class="catalog-item gray">
-      <h3>Small Gompie</h3>
+    <div class="colors">
+      <span style="background:#ffdfef"></span>
+      <span style="background:#d9f5ff"></span>
+      <span style="background:#fff7ad"></span>
+    </div>
+  </div>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Single 170k</div>
-          <img src="img/Gompie1.png" />
-        </div>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium 280k</div>
-          <img src="img/Gompie2.png" />
-        </div>
+  <!-- SMALL GOMPIE -->
+  <div class="catalog-item gray">
+    <h3>Small Gompie</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Large 520k</div>
-          <img src="img/Gompie3.png" />
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/Gompie1.png" />
+        <p class="price">Single – 170k</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ffb3b3"></span>   <!-- Red Pink -->
-        <span style="background:#ffcce0"></span>   <!-- Blush Pink -->
-        <span style="background:#ffe6f7"></span>   <!-- Light Pink -->
+      <div class="item">
+        <img src="img/Gompie2.png" />
+        <p class="price">Medium – 280k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/Gompie3.png" />
+        <p class="price">Large – 520k</p>
       </div>
     </div>
 
-    <!-- SMALL SUNFLOWER -->
-    <div class="catalog-item gray">
-      <h3>Small Sunflower</h3>
+    <div class="colors">
+      <span style="background:#ffb3b3"></span>
+      <span style="background:#ffcce0"></span>
+      <span style="background:#ffe6f7"></span>
+    </div>
+  </div>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Single Sunflower 100k</div>
-          <img src="img/Sunflower1.png" />
-          <div class="caption-bottom">1 Stem</div>
-        </div>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Small Sunflower 170k</div>
-          <img src="img/Sunflower2.png" />
-          <div class="caption-bottom">1 Stem + Foliage</div>
-        </div>
+  <!-- SMALL SUNFLOWER -->
+  <div class="catalog-item gray">
+    <h3>Small Sunflower</h3>
+
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/Sunflower1.png" />
+        <p class="price">Single Sunflower – 100k</p>
+        <p class="info">1 Stem</p>
       </div>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Medium Sunflower 430k</div>
-          <img src="img/Sunflower3.png" />
-          <div class="caption-bottom">&gt;3 Stem</div>
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Large Sunflower 550k</div>
-          <img src="img/Sunflower4.png" />
-          <div class="caption-bottom">&gt;5 Stem</div>
-        </div>
+      <div class="item">
+        <img src="img/Sunflower2.png" />
+        <p class="price">Small Sunflower – 170k</p>
+        <p class="info">1 Stem + Foliage</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ffde3b"></span>   <!-- Yellow -->
-        <span style="background:#fce893"></span>   <!-- Light Yellow -->
-        <span style="background:#7a5c2e"></span>   <!-- Brown Center -->
+      <div class="item">
+        <img src="img/Sunflower3.png" />
+        <p class="price">Medium Sunflower – 430k</p>
+        <p class="info">&gt;3 Stem</p>
+      </div>
+
+      <div class="item">
+        <img src="img/Sunflower4.png" />
+        <p class="price">Large Sunflower – 550k</p>
+        <p class="info">&gt;5 Stem</p>
       </div>
     </div>
 
-    <!-- GERBERA -->
-    <div class="catalog-item gray">
-      <h3>Gerbera</h3>
-
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Gerbera Only</div>
-          <img src="img/Gerbera1.png" />
-          <div class="caption-bottom">5 Stem 150k</div>
-          <div class="caption-bottom">10 Stem 200k</div>
-          <div class="caption-bottom">20 Stem 350k</div>
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Mix Gerbera Start 300k</div>
-          <img src="img/Gerbera3.png" />
-          <div class="caption-bottom">5 Stem + Foliage</div>
-        </div>
-      </div>
-
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ff7a7a"></span>   <!-- Red -->
-        <span style="background:#ffb6d9"></span>   <!-- Pink -->
-        <span style="background:#fff1a8"></span>   <!-- Yellow -->
-        <span style="background:#ff8f47"></span>   <!-- Orange -->
-      </div>
+    <div class="colors">
+      <span style="background:#ffde3b"></span>
+      <span style="background:#fce893"></span>
+      <span style="background:#7a5c2e"></span>
     </div>
-    <!-- LILY -->
-    <div class="catalog-item gray">
-      <h3>Lily</h3>
+  </div>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Single Lily 250k</div>
-          <img src="img/Lily1.png" />
-          <div class="caption-bottom">1 Stem + Foliage</div>
-        </div>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium Lily 500k</div>
-          <img src="img/Lily2.png" />
-          <div class="caption-bottom">&gt;2 Stem</div>
-        </div>
+  <!-- GERBERA -->
+  <div class="catalog-item gray">
+    <h3>Gerbera</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Large Lily 1.350k</div>
-          <img src="img/Lily3.png" />
-          <div class="caption-bottom">&gt;3 Stem</div>
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/Gerbera1.png" />
+        <p class="price">Gerbera Only</p>
+        <p class="info">5 Stem 150k<br>10 Stem 200k<br>20 Stem 350k</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#fff4f4"></span> <!-- White Pink -->
-        <span style="background:#ffd1d6"></span> <!-- Blush Pink -->
-        <span style="background:#f7e9ff"></span> <!-- Lilac -->
+      <div class="item">
+        <img src="img/Gerbera3.png" />
+        <p class="price">Mix Gerbera – start 300k</p>
+        <p class="info">5 Stem + Foliage</p>
       </div>
     </div>
 
+    <div class="colors">
+      <span style="background:#ff7a7a"></span>
+      <span style="background:#ffb6d9"></span>
+      <span style="background:#fff1a8"></span>
+      <span style="background:#ff8f47"></span>
+    </div>
+  </div>
 
-    <!-- DIANTHUS -->
-    <div class="catalog-item gray">
-      <h3>Dianthus</h3>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Single Dianthus 300k</div>
-          <img src="img/Dianthus1.png" />
-          <div class="caption-bottom">&gt;5 Stem</div>
-        </div>
+  <!-- LILY -->
+  <div class="catalog-item gray">
+    <h3>Lily</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium Dianthus 555k</div>
-          <img src="img/Dianthus2.png" />
-          <div class="caption-bottom">&gt;10 Stem</div>
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Large Dianthus 1.150k</div>
-          <img src="img/Dianthus3.png" />
-          <div class="caption-bottom">&gt;20 Stem</div>
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/Lily1.png" />
+        <p class="price">Single Lily – 250k</p>
+        <p class="info">1 Stem + Foliage</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ffb3c6"></span> <!-- Soft Pink -->
-        <span style="background:#ff7aa2"></span> <!-- Hot Pink -->
-        <span style="background:#ffa8a8"></span> <!-- Peach -->
+      <div class="item">
+        <img src="img/Lily2.png" />
+        <p class="price">Medium Lily – 500k</p>
+        <p class="info">&gt;2 Stem</p>
+      </div>
+
+      <div class="item">
+        <img src="img/Lily3.png" />
+        <p class="price">Large Lily – 1.350k</p>
+        <p class="info">&gt;3 Stem</p>
       </div>
     </div>
 
+    <div class="colors">
+      <span style="background:#fff4f4"></span>
+      <span style="background:#ffd1d6"></span>
+      <span style="background:#f7e9ff"></span>
+    </div>
+  </div>
 
-    <!-- LISIANHTUS -->
-    <div class="catalog-item gray">
-      <h3>Lisianthus</h3>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Single Lisianthus 150k</div>
-          <img src="img/Lisianthus1.png" />
-          <div class="caption-bottom">1 Stem</div>
-        </div>
+  <!-- DIANTHUS -->
+  <div class="catalog-item gray">
+    <h3>Dianthus</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium Lisianthus 250k</div>
-          <img src="img/Lisianthus2.png" />
-          <div class="caption-bottom">Foliage + Filler</div>
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Large Lisianthus 500k</div>
-          <img src="img/Lisianthus3.png" />
-          <div class="caption-bottom">&gt;5 Stem</div>
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/Dianthus1.png" />
+        <p class="price">Single Dianthus – 300k</p>
+        <p class="info">&gt;5 Stem</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ffffff"></span> <!-- White -->
-        <span style="background:#e3d7ff"></span> <!-- Purple -->
-        <span style="background:#ffe2ff"></span> <!-- Pink -->
+      <div class="item">
+        <img src="img/Dianthus2.png" />
+        <p class="price">Medium Dianthus – 555k</p>
+        <p class="info">&gt;10 Stem</p>
+      </div>
+
+      <div class="item">
+        <img src="img/Dianthus3.png" />
+        <p class="price">Large Dianthus – 1.150k</p>
+        <p class="info">&gt;20 Stem</p>
       </div>
     </div>
 
+    <div class="colors">
+      <span style="background:#ffb3c6"></span>
+      <span style="background:#ff7aa2"></span>
+      <span style="background:#ffa8a8"></span>
+    </div>
+  </div>
 
-    <!-- MONEY BOUQUET -->
-    <div class="catalog-item gray">
-      <h3>Money Bouquet</h3>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Small 80k</div>
-          <img src="img/MoneyBouquet1.png" />
-        </div>
+  <!-- LISIANHTUS -->
+  <div class="catalog-item gray">
+    <h3>Lisianthus</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium 400k</div>
-          <img src="img/MoneyBouquet2.png" />
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Large 850k</div>
-          <img src="img/MoneyBouquet3.png" />
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/Lisianthus1.png" />
+        <p class="price">Single Lisianthus – 150k</p>
+        <p class="info">1 Stem</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#d1ffd8"></span> <!-- Green -->
-        <span style="background:#fff4b8"></span> <!-- Soft Gold -->
+      <div class="item">
+        <img src="img/Lisianthus2.png" />
+        <p class="price">Medium Lisianthus – 250k</p>
+        <p class="info">Foliage + Filler</p>
+      </div>
+
+      <div class="item">
+        <img src="img/Lisianthus3.png" />
+        <p class="price">Large Lisianthus – 500k</p>
+        <p class="info">&gt;5 Stem</p>
       </div>
     </div>
 
+    <div class="colors">
+      <span style="background:#ffffff"></span>
+      <span style="background:#e3d7ff"></span>
+      <span style="background:#ffe2ff"></span>
+    </div>
+  </div>
 
-    <!-- ARTIFICIAL FLOWERS -->
-    <div class="catalog-item gray">
-      <h3>Artificial Flowers</h3>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Small 250k</div>
-          <img src="img/ArtificialFlowers1.png" />
-        </div>
+  <!-- MONEY BOUQUET -->
+  <div class="catalog-item gray">
+    <h3>Money Bouquet</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium 500k</div>
-          <img src="img/ArtificialFlowers2.png" />
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Large 700k</div>
-          <img src="img/ArtificialFlowers3.png" />
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/MoneyBouquet1.png" />
+        <p class="price">Small – 80k</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#ffdee2"></span>
-        <span style="background:#e7eaff"></span>
-        <span style="background:#eaffea"></span>
+      <div class="item">
+        <img src="img/MoneyBouquet2.png" />
+        <p class="price">Medium – 400k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/MoneyBouquet3.png" />
+        <p class="price">Large – 850k</p>
       </div>
     </div>
 
+    <div class="colors">
+      <span style="background:#d1ffd8"></span>
+      <span style="background:#fff4b8"></span>
+    </div>
+  </div>
 
-    <!-- DRIED FLOWERS -->
-    <div class="catalog-item gray">
-      <h3>Dried Flowers</h3>
 
-      <div class="catalog-content">
-        <div class="image-wrapper">
-          <div class="caption-top">Small 250k</div>
-          <img src="img/DriedFlowers1.png" />
-        </div>
+  <!-- ARTIFICIAL FLOWERS -->
+  <div class="catalog-item gray">
+    <h3>Artificial Flowers</h3>
 
-        <div class="image-wrapper">
-          <div class="caption-top">Medium 300k</div>
-          <img src="img/DriedFlowers2.png" />
-        </div>
-
-        <div class="image-wrapper">
-          <div class="caption-top">Large 500k</div>
-          <img src="img/DriedFlowers3.png" />
-        </div>
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/ArtificialFlowers1.png" />
+        <p class="price">Small – 250k</p>
       </div>
 
-      <!-- COLORS -->
-      <div class="colors">
-        <span style="background:#f7e7ce"></span> <!-- Sand -->
-        <span style="background:#e6d8bf"></span> <!-- Beige -->
-        <span style="background:#dfc49a"></span> <!-- Brown Wheat -->
+      <div class="item">
+        <img src="img/ArtificialFlowers2.png" />
+        <p class="price">Medium – 500k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/ArtificialFlowers3.png" />
+        <p class="price">Large – 700k</p>
       </div>
     </div>
 
-  </section>
+    <div class="colors">
+      <span style="background:#ffdee2"></span>
+      <span style="background:#e7eaff"></span>
+      <span style="background:#eaffea"></span>
+    </div>
+  </div>
+
+
+  <!-- DRIED FLOWERS -->
+  <div class="catalog-item gray">
+    <h3>Dried Flowers</h3>
+
+    <div class="catalog-content">
+      <div class="item">
+        <img src="img/DriedFlowers1.png" />
+        <p class="price">Small – 250k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/DriedFlowers2.png" />
+        <p class="price">Medium – 300k</p>
+      </div>
+
+      <div class="item">
+        <img src="img/DriedFlowers3.png" />
+        <p class="price">Large – 500k</p>
+      </div>
+    </div>
+
+    <div class="colors">
+      <span style="background:#f7e7ce"></span>
+      <span style="background:#e6d8bf"></span>
+      <span style="background:#dfc49a"></span>
+    </div>
+  </div>
+
+</section>
 
   <script>
     feather.replace();
