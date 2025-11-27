@@ -1,4 +1,11 @@
-/* GLOBAL TEXT COLOR FIX */
+/* =========================
+   IMPORT FONT
+========================= */
+@import url("https://fonts.googleapis.com/css2?family=Italianno&display=swap");
+
+/* =========================
+   GLOBAL TEXT
+========================= */
 .artisan-hero,
 .artisan-container,
 .artisan-section,
@@ -7,7 +14,9 @@
   color: #222 !important;
 }
 
-/* HERO */
+/* =========================
+   HERO
+========================= */
 .artisan-hero {
   padding: 4rem 1.5rem;
   background: #f7f7f7;
@@ -24,7 +33,6 @@
   font-size: 2.7rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #222;
 }
 
 .artisan-container p {
@@ -34,21 +42,21 @@
   color: #333;
 }
 
-/* PRODUCT SECTIONS */
+/* =========================
+   PRODUCT SECTIONS
+========================= */
 .artisan-section {
   max-width: 1200px;
   margin: 3rem auto;
   padding: 0 1.5rem;
   display: grid;
   gap: 3.5rem;
-  color: #222;
 }
 
 .artisan-card {
   display: flex;
   align-items: center;
   gap: 2rem;
-  color: #222;
 }
 
 .artisan-card.reverse {
@@ -62,11 +70,8 @@
   object-fit: cover;
 }
 
-
-/* TEXT */
-
 .artisan-content {
-  flex: 1; /* teks lebih kecil */
+  flex: 1;
 }
 
 .artisan-content h2 {
@@ -84,55 +89,50 @@
 .artisan-content ul {
   margin-top: 1rem;
   padding-left: 1.2rem;
-  color: #333;
 }
 
 .artisan-content ul li {
   font-size: 0.95rem;
   margin-bottom: 0.3rem;
-  color: #333;
 }
 
-/* ========= ORCHID SECTION – PREMIUM BOTANICAL STYLE ========= */
+/* =========================
+   ORCHID — PREMIUM BOTANICAL
+========================= */
 
-.orchid-center {
-  width: 100%;
-  text-align: center;
-  margin-top: 60px;
-}
-
-/* TITLE */
+/* Title "Orchid On Vase" */
 .catalog-item.gray {
   background: transparent;
   padding: 0.5rem 0;
   margin-bottom: 1rem;
   color: #4b5f4f;
-  font-size: 2.2rem;
-  font-weight: 600;
+  font-size: 2.5rem;
+  font-weight: 400;
   text-align: center;
-  letter-spacing: 0.5px;
+  font-family: "Italianno", cursive;
+  letter-spacing: 1px;
 }
 
-/* SECTION WRAPPER */
+/* Wrapper */
 .orchid-section {
   width: 90%;
-  max-width: 780px;
+  max-width: 820px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 22px;
+  gap: 26px;
 }
 
-/* EACH ROW */
+/* Row */
 .orchid-row {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 22px;
   background: rgba(229, 235, 229, 0.75);
-  padding: 20px;
-  border-radius: 20px;
-  backdrop-filter: blur(4px);
+  padding: 22px 24px;
+  border-radius: 22px;
   border: 1px solid rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(4px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: 0.3s ease;
 }
@@ -142,77 +142,79 @@
   box-shadow: 0 10px 25px rgba(93, 119, 94, 0.18);
 }
 
-/* IMAGE */
+/* Image */
 .orchid-image img {
-  width: 120px;
-  height: 120px;
-  object-fit: cover;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
-  border: 4px solid #ffffff;
+  object-fit: cover;
+  border: 4px solid #fff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
-/* TEXT AREA */
+/* Orchid Text */
 .orchid-text {
   flex: 1;
   text-align: left;
 }
 
 .orchid-text h3 {
-  font-size: 1.5rem;
-  margin-bottom: 8px;
-  font-weight: 600;
-  color: #273a2c;
+  font-family: "Italianno", cursive;
+  font-size: 42px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  color: #2f4b34;
 }
 
-/* PRICE BLOCK */
+/* Price Box */
 .price-block {
   background: #ffffff;
-  padding: 12px 14px;
-  border-radius: 14px;
+  padding: 14px 18px;
+  border-radius: 16px;
+  margin-bottom: 10px;
   display: inline-block;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
 }
 
 .price-block h4 {
+  font-family: "Italianno", cursive;
+  font-size: 36px;
   margin: 0;
-  font-size: 1.3rem;
-  font-weight: 600;
   color: #2f4b34;
 }
 
 .price-block p {
-  font-size: 0.95rem;
-  line-height: 1.35;
+  font-size: 14px;
   margin-top: 4px;
   color: #4b5f4f;
+  line-height: 1.4;
 }
 
 /* VARIETY TITLE */
 .orchid-var-title {
-  margin-top: 25px;
-  font-size: 2rem;
-  font-weight: 600;
+  margin-top: 30px;
+  font-size: 42px;
+  font-family: "Italianno", cursive;
   color: #4b5f4f;
-  letter-spacing: 0.5px;
   text-align: center;
 }
 
-/* VARIETY IMAGES */
+/* Variety Images */
 .orchid-variety {
   display: flex;
   justify-content: center;
-  gap: 16px;
+  flex-wrap: wrap;
+  gap: 18px;
   padding-top: 14px;
 }
 
 .orchid-variety img {
-  width: 55px;
-  height: 55px;
-  object-fit: cover;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
+  object-fit: cover;
   border: 2px solid #4b5f4f;
-  background: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.3);
   backdrop-filter: blur(4px);
   transition: 0.25s ease;
 }
@@ -222,51 +224,46 @@
   border-color: #708871;
 }
 
-
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE
+========================= */
 @media (max-width: 900px) {
-  .artisan-card {
+  .artisan-card,
+  .artisan-card.reverse {
     flex-direction: column;
     text-align: center;
   }
 
-  .artisan-card.reverse {
-    flex-direction: column;
-  }
-
-  .artisan-img img {
-    width: 100%;
-    max-width: 420px;
-  }
-
   .orchid-row {
-    padding: 14px;
+    flex-direction: column;
+    text-align: center;
   }
 
-  .orchid-image img {
-    width: 90px;
-    height: 90px;
+  .orchid-text {
+    text-align: center;
   }
 
   .orchid-text h3 {
-    font-size: 1.2rem;
+    font-size: 34px;
   }
 
   .price-block {
-    padding: 8px 12px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
-  .catalog-item.gray {
-    font-size: 1.7rem;
+  .price-block h4,
+  .price-block p {
+    text-align: center;
   }
 
-
-  .orchid-var-title {
-    font-size: 1.6rem;
+  .orchid-image img {
+    width: 100px;
+    height: 100px;
   }
 
   .orchid-variety img {
-    width: 42px;
-    height: 42px;
+    width: 48px;
+    height: 48px;
   }
 }
