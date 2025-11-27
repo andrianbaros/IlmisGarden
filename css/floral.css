@@ -1,202 +1,322 @@
-/* GENERAL */
+/* ===========================================================
+   GLOBAL – clean, soft, modern florist aesthetic
+=========================================================== */
 body {
   font-family: "Inter", sans-serif;
   background: #fafafa;
   color: #333;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 h1,
 h2 {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
-  color: #222;
+  color: #202020;
 }
 
 section {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1180px;
   margin: auto;
-  padding: 50px 0;
+  padding: 60px 0;
 }
 
-/* HERO */
+/* Global soft shadow */
+.soft-shadow {
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* Global card background */
+.card {
+  background: #ffffff;
+  border-radius: 16px;
+}
+
+/* ===========================================================
+   HERO SECTION (premium florist style)
+=========================================================== */
 .floral-hero {
   text-align: center;
-  padding-top: 120px;
+  padding-top: 150px;
+  max-width: 720px;
+}
+
+.floral-hero h1 {
+  font-size: 42px;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
 }
 
 .floral-hero p {
-  max-width: 700px;
+  font-size: 18px;
+  color: #555;
   margin: auto;
+  line-height: 1.8;
 }
 
-/* CONTENT */
+/* ===========================================================
+   TEXT CONTENT
+=========================================================== */
 .floral-content {
   display: flex;
-  gap: 40px;
-  align-items: center;
+  gap: 45px;
   flex-wrap: wrap;
 }
 
 .floral-text {
   flex: 1;
+  font-size: 18px;
 }
 
-.floral-images {
-  flex: 1;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
+.floral-text ul {
+  margin: 18px 0;
+  padding-left: 20px;
 }
 
-.floral-images img {
-  width: 100%;
-  height: 380px; /* FIX PORTRAIT */
-  object-fit: cover;
-  border-radius: 14px;
+.floral-text li {
+  margin-bottom: 10px;
+  color: #444;
 }
 
-/* TREND */
+/* ===========================================================
+   TREND
+=========================================================== */
+.floral-trend {
+  text-align: center;
+}
+
 .floral-trend img {
   width: 100%;
-  max-width: 450px;
-  height: 520px; /* PORTRAIT */
+  max-width: 420px;
+  height: 540px;
   object-fit: cover;
-  border-radius: 14px;
-  margin-top: 20px;
+  border-radius: 16px;
+  margin-top: 30px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* ASYMMETRIC */
+/* ===========================================================
+   ASYMMETRIC SECTION
+=========================================================== */
 .floral-asym {
   display: flex;
-  gap: 40px;
-  align-items: center;
+  gap: 45px;
   flex-wrap: wrap;
+  align-items: center;
+}
+
+.asym-text {
+  flex: 1;
+  font-size: 18px;
 }
 
 .asym-img {
   flex: 1;
   width: 100%;
-  height: 520px; /* PORTRAIT */
+  height: 540px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* OMAKASE */
+/* ===========================================================
+   OMAKASE SECTION
+=========================================================== */
+.floral-omakase {
+  text-align: center;
+}
+
 .floral-omakase img {
   width: 100%;
   max-width: 420px;
-  height: 500px; /* PORTRAIT */
+  height: 520px;
   object-fit: cover;
-  border-radius: 14px;
-  margin-top: 20px;
+  border-radius: 16px;
+  margin: 25px auto;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
 }
 
-/* PRICELIST TABLE */
-.floral-pricelist table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-  background: white;
-  border-radius: 10px;
-  overflow: hidden;
+.floral-omakase p {
+  max-width: 760px;
+  margin: 14px auto;
 }
 
-.floral-pricelist th,
-.floral-pricelist td {
-  padding: 14px 18px;
-  border-bottom: 1px solid #ddd;
-  text-align: left;
-}
-
-/* GALLERY PORTRAIT */
+/* ===========================================================
+   GALLERY (Standing Flower & Canvas)
+=========================================================== */
 .floral-gallery {
-  margin-top: 30px;
+  margin-top: 35px;
   display: grid;
+  gap: 22px;
   grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
 }
 
 .floral-gallery img {
   width: 100%;
-  height: 350px; /* PORTRAIT */
+  height: 380px;
   object-fit: cover;
-  border-radius: 14px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  transition: 0.3s ease;
 }
 
-/* ===========================
-   Contact Section
-   =========================== */
+.floral-gallery img:hover {
+  transform: translateY(-6px);
+}
 
-   .deco-contact {
-    padding: 70px 7%;
-    text-align: center;
-  }
-  
-  .deco-contact h2 {
-    font-size: 26px;
-    font-weight: 600;
-    margin-bottom: 25px;
-    color: #2f322f;
-  }
-  
-  .btn-wa {
-    background: #4caf50;
-    color: white;
-    padding: 14px 26px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.3s;
-  }
-  
-  .btn-wa:hover {
-    background: #449b47;
-  }
-  
-  
-/* RESPONSIVE */
+/* ===========================================================
+   BOUQUET CIRCLE SECTION
+=========================================================== */
+.flower-bouquet {
+  text-align: center;
+  margin-top: 70px;
+}
+
+.flower-bouquet h2 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.circle-images {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.circle-images img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 6px solid #fff;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+  transition: 0.25s ease;
+}
+
+.circle-images img:hover {
+  transform: scale(1.05);
+}
+
+/* ===========================================================
+   CATALOG SECTION
+=========================================================== */
+.catalog {
+  margin-top: 70px;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.catalog-item {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}
+
+.catalog-item h3 {
+  font-size: 36px;
+  margin-bottom: 25px;
+}
+
+.catalog-content {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-top: 25px;
+}
+
+/* IMAGE WRAPPER */
+.image-wrapper {
+  position: relative;
+  text-align: center;
+}
+
+.catalog-content img {
+  width: 260px;
+  height: 350px;
+  border-radius: 16px;
+  object-fit: cover;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
+}
+
+/* Caption Top */
+.caption-top {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.92);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+}
+
+/* Bottom caption */
+.caption-bottom {
+  font-size: 15px;
+  margin-top: 10px;
+  color: #555;
+}
+
+/* ===========================================================
+   CONTACT SECTION
+=========================================================== */
+.deco-contact {
+  text-align: center;
+  padding: 80px 0;
+}
+
+.deco-contact h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+}
+
+.btn-wa {
+  background: #4caf50;
+  color: white;
+  padding: 14px 30px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+  display: inline-block;
+}
+
+.btn-wa:hover {
+  background: #419c47;
+  transform: translateY(-3px);
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
 @media (max-width: 768px) {
-  .floral-images {
-    grid-template-columns: 1fr;
-  }
-
   .floral-gallery {
     grid-template-columns: 1fr;
   }
 
-  .floral-asym {
-    flex-direction: column;
-  }
-
-  .floral-trend img,
-  .floral-omakase img {}
   .asym-img {
-    max-width: 100%;
-    height: 420px; /* mobile portrait tetap proporsional */
+    height: 420px;
+  }
+
+  .circle-images img {
+    width: 130px;
+    height: 130px;
+    border-width: 4px;
+  }
+
+  .catalog-content img {
+    width: 100%;
+    max-width: 260px;
+    height: 300px;
   }
 }
-
-/* ==== CENTER GAMBAR "SELALU MENGIKUTI TREN" ==== */
-.floral-trend img {
-  display: block;
-  margin: 25px auto 0; /* auto = center */
-  max-width: 380px;
-}
-
-/* ==== CENTER GAMBAR "OMAKASE" ==== */
-.floral-omakase img {
-  display: block;
-  margin: 25px auto 0; /* center */
-  max-width: 380px;
-}
-
-.floral-asym img {
-  display: block;
-  margin: 25px auto 0; /* center */
-  height: 420px;
-}
-
