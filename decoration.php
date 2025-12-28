@@ -67,16 +67,14 @@
     </div>
   </section>
 
-  <!-- Gallery -->
-  <section class="deco-gallery-section">
+    <!-- Gallery -->
+    <section class="deco-gallery-section">
     <div class="deco-gallery">
       <img src="img/deco1.jpg" alt="Decoration 1" />
       <img src="img/deco2.jpg" alt="Decoration 2" />
       <img src="img/deco3.jpg" alt="Decoration 3" />
-      <img src="img/deco4.jpg" alt="Decoration 4" />
     </div>
-  </section>
-
+    </section>
   <!-- Types -->
   <section class="deco-types">
     <h2>Jenis Dekorasi & Rangkaian</h2>

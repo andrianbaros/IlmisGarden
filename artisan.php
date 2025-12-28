@@ -48,14 +48,16 @@
     <div class="artisan-container">
       <h1>Artisan Collection</h1>
       <p>
-        Di balik setiap produk kami, ada sebuah cerita tentang keindahan, craftsmanship, dan sentuhan bunga yang membawa ketenangan.
-        Melalui Artisan Collection, kami menghadirkan rangkaian produk fungsional berbahan dasar bunga yang dibuat secara khusus
-        bersama pengrajin lokal Bandung.
+      Di balik setiap produk kami, ada sebuah cerita tentang keindahan, craftsmanship, dan sentuhan bunga yang membawa ketenangan. Melalui Artisan Collection, 
+      kami menghadirkan rangkaian produk fungsional berbahan dasar bunga yang dibuat secara khusus bersama pengrajin lokal Bandung. Kami percaya bahwa kualitas 
+      terbaik lahir dari tangan-tangan ahli. Karena itu, kami berkolaborasi dengan para pengrajin lokal Bandung. Kolaborasi ini juga merupakan bentuk dukungan kami 
+      terhadap komunitas kreatif lokal, sehingga setiap pembelian produk untuk mempercantik ruangan,juga membantu menghidupkan industri kerajinan dalam negeri.
       </p>
 
       <p>
-        Setiap produk dalam koleksi ini tidak hanya indah untuk dilihat, tetapi juga mampu meningkatkan mood dan membuat perasaan
-        jauh lebih baik. Kami percaya bahwa bunga bukan hanya dekorasi — tetapi sebuah pengalaman emosi.
+      Setiap produk dalam koleksi ini terdapat bunga-bunga yang indah untuk dilihat, dan mampu membuat perasaan 
+      orang yang menggunakannya jauh lebih baik. Kehadiran penambahan bunga di setiap produk yang biasa kita pakai dapat 
+      membuat rasa lebih tenang dan rileks saat menggunakannya, juga mood yang lebih positif. 
       </p>
     </div>
   </section>
@@ -81,6 +83,59 @@
       </div>
     </div>
 
+    <div class="orchid-center">
+      <div class="catalog-item gray">
+        <h3>Floral Tea Camovender</h3>
+      </div>
+
+      <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/floral1.jpg" alt="Orchid 1 or 2">
+          </div>
+
+            <div class="price-block">
+              <h4>12 K</h4>
+              <p>1 Sachet Floral Tea Camovender</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/floral2.jpg" alt="Orchid 1 or 2">
+          </div>
+
+            <div class="price-block">
+              <h4>57 K</h4>
+              <p>5 Sachet Floral Tea Camovender</p>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/floral3.jpg" alt="Orchid 1 or 2">
+          </div>
+
+            <div class="price-block">
+              <h4>75 K</h4>
+              <p>10 Sachet Floral Tea Camovender</p>
+            </div>
+          </div>
+          <br>
+        </div>
+
+      </div>
+
     <div class="artisan-card reverse">
       <div class="artisan-img">
         <img src="img/artisan2.jpg" alt="Diffuser">
@@ -100,6 +155,58 @@
         </p>
       </div>
     </div>
+
+    <div class="orchid-center">
+      <div class="catalog-item gray">
+        <h3>Floral Scent</h3>
+      </div>
+
+      <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/Fleur2.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+          <h3>Ambience de Fleur</h3>
+
+            <div class="price-block">
+              <h4>115 K</h4>
+              100 ml Floral Scent + Stick Reed<br>
+              Dengan dekorasi bunga<br>
+              Lembut, Elegan, Menenangkan 
+              </p>
+            </div>
+          </div>
+        </div>
+</div>
+        <br>
+        <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/Fleur1.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+          <h3>Ambience de Fleur</h3>
+
+            <div class="price-block">
+            <h4>178 K</h4>
+              200 ml Floral Scent + Stick Reed<br>
+              Dengan dekorasi bunga<br>
+              Lembut, Elegan, Menenangkan 
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+  </div>
+</div>
 
     <div class="artisan-card">
       <div class="artisan-img">
@@ -127,14 +234,141 @@
       </div>
     </div>
 
+    <div class="orchid-center">
+      <div class="catalog-item gray">
+        <h3>Blooming Bar</h3>
+      </div>
+
+      <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming1.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+          <h3>Lavender</h3>
+
+            <div class="price-block">
+              <h4>58 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Relaks dan menenangkan
+              </p>
+            </div>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Tatakan Kayu + Pouch Scrub
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+<br>
+        <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming2.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+          <h3>Floral</h3>
+
+            <div class="price-block">
+              <h4>58 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Relaks dan menenangkan
+              </p>
+            </div>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Tatakan Kayu + Pouch Scrub
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming3.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+          <h3>Fresh</h3>
+
+            <div class="price-block">
+              <h4>58 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Relaks dan menenangkan
+              </p>
+            </div>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Tatakan Kayu + Pouch Scrub
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="orchid-section">
+
+        <!-- ORCHID 1 / 2 -->
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming4.png" alt="Orchid 1 or 2">
+          </div>
+
+          <div class="orchid-text">
+          <h3>Coconut</h3>
+
+            <div class="price-block">
+              <h4>58 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Relaks dan menenangkan
+              </p>
+            </div>
+
+            <div class="price-block">
+              <h4>135 K</h4>
+              10gr Blooming Bar<br>
+              Dengan dekorasi bunga<br>
+              Tatakan Kayu + Pouch Scrub
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+        
+
     <div class="artisan-card reverse">
       <div class="artisan-img">
         <img src="img/artisan4.jpg" alt="Lush Petals">
       </div>
       <div class="artisan-content">
         <h2>Lush Petals — Body Scrub Moisturizing & Exfoliating</h2>
-        <p>Untuk perawatan kulit yang lebih menyeluruh, Ilmisgarden menghadirkan Lush Petals, body scrub lembut dengan exfoliant alami yang aman digunakan setiap hari. 
-          Kandungan botanical oils dan petal bunga membantu mengangkat sel kulit mati secara gentle tanpa iritasi, sekaligus menjaga hidrasi kulit.
+        <p>Untuk perawatan kulit yang lebih menyeluruh, Ilmisgarden menghadirkan Lush Petals, body scrub lembut dengan exfoliant alami yang aman digunakan setiap hari.
+           Kandungan botanical oils dan petal bunga membantu mengangkat sel kulit mati secara gentle tanpa iritasi, sekaligus menjaga hidrasi kulit.
           <br>
           Lush Petals memberikan manfaat seperti membantu menghaluskan dan mencerahkan kulit, mengangkat sel kulit mati tanpa membuat kulit terasa kering. 
           Kandungannya juga bekerja untuk mengunci kelembapan setelah mandi, sehingga kulit tetap lembut dan segar sepanjang hari. Dengan penggunaan rutin, 
@@ -145,7 +379,7 @@
           <br>
           <br>
           Setiap detail mulai dari aroma, komposisi bahan, tekstur, hingga tampilan kelopak bunga dirancang dengan cinta dan dedikasi untuk menciptakan produk 
-          perawatan tubuh yang bukan hanya bekerja efektif, tetapi juga menghadirkan pengalaman relaksasi yang personal dan intim.
+          perawatan tubuh yang bekerja efektif, juga menghadirkan pengalaman relaksasi yang personal dan intim.
           <br>
           <br>
           Kenapa harus memilih Blooming Bar & Lush Petals?
@@ -171,7 +405,7 @@
         <!-- ORCHID 1 / 2 -->
         <div class="orchid-row">
           <div class="orchid-image">
-            <img src="img/orchid21.png" alt="Orchid 1 or 2">
+            <img src="img/lav1.png" alt="Orchid 1 or 2">
           </div>
 
           <div class="orchid-text">
@@ -186,7 +420,7 @@
 
         <div class="orchid-row">
           <div class="orchid-image">
-            <img src="img/orchid21.png" alt="Orchid 1 or 2">
+            <img src="img/lav2.png" alt="Orchid 1 or 2">
           </div>
 
           <div class="orchid-text">
@@ -201,7 +435,7 @@
 
         <div class="orchid-row">
           <div class="orchid-image">
-            <img src="img/orchid21.png" alt="Orchid 1 or 2">
+            <img src="img/lav3.png" alt="Orchid 1 or 2">
           </div>
 
           <div class="orchid-text">
@@ -214,17 +448,6 @@
           </div>
         </div>
 
-      </div>
-
-      <div class="catalog-item gray">
-        <h4 class="orchid-var-title">Variety</h4>
-        <div class="orchid-variety">
-          <img src="img/orchid-var1.png" alt="Var 1">
-          <img src="img/orchid-var2.png" alt="Var 2">
-          <img src="img/orchid-var3.png" alt="Var 3">
-          <img src="img/orchid-var4.png" alt="Var 4">
-          <img src="img/orchid-var5.png" alt="Var 5">
-        </div>
       </div>
     </div>
 

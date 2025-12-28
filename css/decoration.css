@@ -44,25 +44,33 @@
    Gallery Section
    =========================== */
 
-.deco-gallery-section {
-  padding: 60px 7%;
-}
+   .deco-gallery-section {
+    padding: 60px 0;        /* hilangkan padding kiri-kanan */
+    display: flex;
+    justify-content: center;
+  }
 
 /* Mobile Default → 1 kolom vertikal */
 .deco-gallery {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  justify-content: center;  
+  justify-items: center;      
   gap: 28px;
 }
 
+
+
 .deco-gallery img {
-  width: 100%;
+  width: 90%;                 /* tidak full, jadi tetap center */
+  max-width: 500px;           /* batas maksimum supaya rapi */
   height: 380px;
   object-fit: cover;
   border-radius: 14px;
   transition: 0.3s ease;
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
 }
+
 
 .deco-gallery img:hover {
   transform: scale(1.02);
@@ -71,14 +79,22 @@
 /* Desktop → 4 kolom berjajar */
 @media (min-width: 900px) {
   .deco-gallery {
-    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    max-width: 1200px;    /* menentukan area grid */
+    margin: 0 auto;       /* pusatkan container */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);  /* SELALU 3 kolom */
+    gap: 28px;
+    justify-items: center;
   }
+  
 
   .deco-gallery img {
-    height: 500px; /* tetap portrait & tidak terlalu besar */
+    height: 500px;
     max-height: 500px;
   }
 }
+
 
 /* ===========================
    Decoration Types

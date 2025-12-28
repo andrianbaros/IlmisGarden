@@ -2,7 +2,7 @@
 $host = 'localhost';
 $db   = 'ilmisgarden_db';
 $user = 'root'; // sesuaikan username db Anda
-$pass = '';     // sesuaikan password db Anda
+$pass = '';      // sesuaikan password db Anda
 $charset = 'utf8mb4';
 
 $dsn = "mysql:host=$host;dbname=$db;charset=$charset";

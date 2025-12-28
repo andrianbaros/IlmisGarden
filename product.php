@@ -83,11 +83,11 @@ require 'conn/db.php';
     </div></a>
   </div>
 
-  <div class="bouquet-card"><a href="bouquet.php">
+  <!-- <div class="bouquet-card"><a href="bouquet.php">
     <img src="img/Product (3).png" alt="Flower Bouquet" >
     <div class="overlay">
     </div></a>      
-  </div>
+  </div> -->
 
   <div class="bouquet-card"><a href="workshop.php">
     <img src="img/Product (1).png" alt="Workshop Class">

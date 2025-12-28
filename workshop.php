@@ -87,7 +87,7 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-left">
-    <img src="img/workshop.png" alt="Workshop Bunga">
+    <img src="img/workshop.jpg" alt="Workshop Bunga">
   </div>
   <div class="hero-right">
     <h1>
@@ -224,7 +224,7 @@ Hasil rangkaian milik peserta</li>
   </section>
 
   <section class="benefits">
-  <img src="img/Frame 223.png" alt="Corporate Workshop"><img src="img/Frame 224.png" alt="Corporate Workshop"><img src="img/Frame 225.png" alt="Corporate Workshop"><img src="img/Frame 226.png" alt="Corporate Workshop">
+  <img src="img/Frame 223.png" alt="Corporate Workshop"><img src="img/Frame 224.png" alt="Corporate Workshop"><img src="img/Frame 225.png" alt="Corporate Workshop"><img src="img/Frame 226.png" alt="Corporate Workshop"><img src="img/Frame 227.png" alt="Corporate Workshop"><img src="img/Frame 228.png" alt="Corporate Workshop">
   </section>
 
   <!-- Contact -->
