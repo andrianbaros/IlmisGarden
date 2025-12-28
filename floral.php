@@ -199,19 +199,19 @@
 
       <div class="item">
         <img src="img/rose1.png" />
-        <p class="price"><b>Single Rose</b> – start 50k</p>
+        <p class="price"><b>Single Rose</b> – Start from 50k</p>
         <p class="info">1 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/rose2.png" />
-        <p class="price"><b>Petite Rose</b> – start 85k</p>
+        <p class="price"><b>Petite Rose</b> – Start from 85k</p>
         <p class="info">3 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/rose3.png" />
-        <p class="price"><b>Small Rose</b> – start 155k</p>
+        <p class="price"><b>Small Rose</b> – Start from 155k</p>
         <p class="info">&gt;5 Stem</p>
       </div>
 
@@ -234,17 +234,17 @@
 
       <div class="item">
         <img src="img/Hydrangea1.png" />
-        <p class="price">Single Blue – 77k</p>
+        <p class="price">Single Blue – Start from 77k</p>
       </div>
 
       <div class="item">
         <img src="img/Hydrangea2.png" />
-        <p class="price">Purple – 126k</p>
+        <p class="price">Purple – Start from 126k</p>
       </div>
 
       <div class="item">
         <img src="img/Hydrangea3.png" />
-        <p class="price">Small – 160k</p>
+        <p class="price">Small – Start from 160k</p>
       </div>
 
     </div>
@@ -264,17 +264,17 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/PomPom1.png" />
-        <p class="price">Single – 80k</p>
+        <p class="price">Single – Start from 80k</p>
       </div>
 
       <div class="item">
         <img src="img/PomPom2.png" />
-        <p class="price">Medium – 350k</p>
+        <p class="price">Medium – Start from 350k</p>
       </div>
 
       <div class="item">
         <img src="img/PomPom3.png" />
-        <p class="price">Large – 450k</p>
+        <p class="price">Large – Start from 450k</p>
       </div>
     </div>
 
@@ -293,17 +293,17 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/Gompie1.png" />
-        <p class="price">Single – 170k</p>
+        <p class="price">Single – Start from 170k</p>
       </div>
 
       <div class="item">
         <img src="img/Gompie2.png" />
-        <p class="price">Medium – 280k</p>
+        <p class="price">Medium – Start from 280k</p>
       </div>
 
       <div class="item">
         <img src="img/Gompie3.png" />
-        <p class="price">Large – 520k</p>
+        <p class="price">Large – Start from 520k</p>
       </div>
     </div>
 
@@ -322,25 +322,25 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/Sunflower1.png" />
-        <p class="price">Single Sunflower – 100k</p>
+        <p class="price">Single Sunflower – Start from 100k</p>
         <p class="info">1 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/Sunflower2.png" />
-        <p class="price">Small Sunflower – 170k</p>
+        <p class="price">Small Sunflower – Start from 170k</p>
         <p class="info">1 Stem + Foliage</p>
       </div>
 
       <div class="item">
         <img src="img/Sunflower3.png" />
-        <p class="price">Medium Sunflower – 430k</p>
+        <p class="price">Medium Sunflower – Start from 430k</p>
         <p class="info">&gt;3 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/Sunflower4.png" />
-        <p class="price">Large Sunflower – 550k</p>
+        <p class="price">Large Sunflower – Start from 550k</p>
         <p class="info">&gt;5 Stem</p>
       </div>
     </div>
@@ -361,12 +361,12 @@
       <div class="item">
         <img src="img/Gerbera1.png" />
         <p class="price">Gerbera Only</p>
-        <p class="info">5 Stem 150k<br>10 Stem 200k<br>20 Stem 350k</p>
+        <p class="info">5 Stem Start from 150k<br>10 Stem Start from 200k<br>20 Stem Start from 350k</p>
       </div>
 
       <div class="item">
         <img src="img/Gerbera3.png" />
-        <p class="price">Mix Gerbera – start 300k</p>
+        <p class="price">Mix Gerbera – Start from 300k</p>
         <p class="info">5 Stem + Foliage</p>
       </div>
     </div>
@@ -387,19 +387,19 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/Lily1.png" />
-        <p class="price">Single Lily – 250k</p>
+        <p class="price">Single Lily – Start from 250k</p>
         <p class="info">1 Stem + Foliage</p>
       </div>
 
       <div class="item">
         <img src="img/Lily2.png" />
-        <p class="price">Medium Lily – 500k</p>
+        <p class="price">Medium Lily – Start from 500k</p>
         <p class="info">&gt;2 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/Lily3.png" />
-        <p class="price">Large Lily – 1.350k</p>
+        <p class="price">Large Lily – Start from 1.350k</p>
         <p class="info">&gt;3 Stem</p>
       </div>
     </div>
@@ -419,19 +419,19 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/Dianthus1.png" />
-        <p class="price">Single Dianthus – 300k</p>
+        <p class="price">Single Dianthus – Start from 300k</p>
         <p class="info">&gt;5 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/Dianthus2.png" />
-        <p class="price">Medium Dianthus – 555k</p>
+        <p class="price">Medium Dianthus – Start from 555k</p>
         <p class="info">&gt;10 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/Dianthus3.png" />
-        <p class="price">Large Dianthus – 1.150k</p>
+        <p class="price">Large Dianthus – Start from 1.150k</p>
         <p class="info">&gt;20 Stem</p>
       </div>
     </div>
@@ -451,19 +451,19 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/Lisianthus1.png" />
-        <p class="price">Single Lisianthus – 150k</p>
+        <p class="price">Single Lisianthus – Start from 150k</p>
         <p class="info">1 Stem</p>
       </div>
 
       <div class="item">
         <img src="img/Lisianthus2.png" />
-        <p class="price">Medium Lisianthus – 250k</p>
+        <p class="price">Medium Lisianthus – Start from 250k</p>
         <p class="info">Foliage + Filler</p>
       </div>
 
       <div class="item">
         <img src="img/Lisianthus3.png" />
-        <p class="price">Large Lisianthus – 500k</p>
+        <p class="price">Large Lisianthus – Start from 500k</p>
         <p class="info">&gt;5 Stem</p>
       </div>
     </div>
@@ -483,17 +483,17 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/MoneyBouquet1.png" />
-        <p class="price">Small – 80k</p>
+        <p class="price">Small – Start from 80k</p>
       </div>
 
       <div class="item">
         <img src="img/MoneyBouquet2.png" />
-        <p class="price">Medium – 400k</p>
+        <p class="price">Medium – Start from 400k</p>
       </div>
 
       <div class="item">
         <img src="img/MoneyBouquet3.png" />
-        <p class="price">Large – 850k</p>
+        <p class="price">Large – Start from 850k</p>
       </div>
     </div>
 
@@ -511,17 +511,17 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/ArtificialFlowers1.png" />
-        <p class="price">Small – 250k</p>
+        <p class="price">Small – Start from 250k</p>
       </div>
 
       <div class="item">
         <img src="img/ArtificialFlowers2.png" />
-        <p class="price">Medium – 500k</p>
+        <p class="price">Medium – Start from 500k</p>
       </div>
 
       <div class="item">
         <img src="img/ArtificialFlowers3.png" />
-        <p class="price">Large – 700k</p>
+        <p class="price">Large – Start from 700k</p>
       </div>
     </div>
 
@@ -540,17 +540,17 @@
     <div class="catalog-content">
       <div class="item">
         <img src="img/DriedFlowers1.png" />
-        <p class="price">Small – 250k</p>
+        <p class="price">Small – Start from 250k</p>
       </div>
 
       <div class="item">
         <img src="img/DriedFlowers2.png" />
-        <p class="price">Medium – 300k</p>
+        <p class="price">Medium – Start from 300k</p>
       </div>
 
       <div class="item">
         <img src="img/DriedFlowers3.png" />
-        <p class="price">Large – 500k</p>
+        <p class="price">Large – Start from 500k</p>
       </div>
     </div>
 

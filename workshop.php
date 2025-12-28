@@ -87,7 +87,7 @@
 <!-- Hero -->
 <section class="hero">
   <div class="hero-left">
-    <img src="img/workshop.jpg" alt="Workshop Bunga">
+    <img src="img/workshop.png" alt="Workshop Bunga">
   </div>
   <div class="hero-right">
     <h1>

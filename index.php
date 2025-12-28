@@ -179,8 +179,8 @@ $workshopProducts = $stmt2->fetchAll();
         <div class="catalog-img"><img src="img/basket.png" alt="Basket"></div>
       </div>
       <div class="catalog-item">
-        <div class="catalog-text">Orchid</div>
-        <div class="catalog-img"><img src="img/orchid.png" alt="Orchid"></div>
+        <div class="catalog-text">Add-on</div>
+        <div class="catalog-img"><img src="img/addon.jpg" alt="Orchid"></div>
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Blooming Canvas</div>
@@ -212,7 +212,7 @@ $workshopProducts = $stmt2->fetchAll();
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Artisan Product</div>
-        <div class="catalog-img"><img src="img/ArtisanProduct.jpg" alt="ArtisanProduct"></div>
+        <div class="catalog-img"><img src="img/ArtisanProductmenu.png" alt="ArtisanProduct"></div>
       </div>
       <div class="catalog-item">
         <div class="catalog-text">Artificial Flower Bouquet</div>
