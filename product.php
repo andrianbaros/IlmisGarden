@@ -62,7 +62,7 @@ require 'conn/db.php';
 </a>
       <div class="navbar-nav">
         <a href="product.php"  class="active">Product</a>
-        <a href="index.php#catalog">Catalog</a>
+        <a href="shop.php">Catalog</a>
         <a href="index.php#about">About Us</a>
       </div>
       <div class="navbar-extra">

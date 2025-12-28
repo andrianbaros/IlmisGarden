@@ -32,7 +32,7 @@
 
     <div class="navbar-nav">
       <a href="product.php">Product</a>
-      <a href="index.php#catalog">Catalog</a>
+      <a href="shop.php">Catalog</a>
       <a href="index.php#about">About Us</a>
     </div>
 

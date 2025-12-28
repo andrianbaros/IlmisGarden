@@ -2,7 +2,7 @@
 require 'conn/db.php';
 
 // BESTSELLERS → Ambil 4 produk fix dari database
-$stmt = $pdo->prepare("SELECT * FROM products WHERE id IN (3,4,5,6)");
+$stmt = $pdo->prepare("SELECT * FROM products WHERE id IN (17,20,19,6)");
 $stmt->execute();
 $bestsellers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
@@ -92,7 +92,7 @@ $workshopProducts = $stmt2->fetchAll();
       
 <div class="navbar-nav">
   <a href="product.php">Product</a>
-  <a href="index.php#catalog" data-section="catalog">Catalog</a>
+  <a href="shop.php" data-section="catalog">Catalog</a>
   <a href="index.php#about" data-section="about">About Us</a>
 </div>
 
@@ -125,10 +125,10 @@ $workshopProducts = $stmt2->fetchAll();
         <h1>Selamat datang di</h1>
         <h1><b>Ilmisgarden</b></h1>
         <p id="hero-text" class="fade-slide">
-        tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. 
+        Tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. 
         Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan — semua kami buat dengan sentuhan hati.🌷
         </p>
-        <a href="#wedding" style="color: black;"><button>Read More</button></a>
+        <a href="#about" style="color: black;"><button>Read More</button></a>
       </main>
     </section>
     <!-- hero section end-->

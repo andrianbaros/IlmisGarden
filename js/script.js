@@ -29,7 +29,7 @@ const heroText = document.getElementById("hero-text");
 const texts = [
   "tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan — semua kami buat dengan sentuhan hati.🌷",
 
-  "Artisan Product - produk2 fungsional berbahan dasar bunga berkolaborasi dengan pengrajin lokal."
+  "Artisan produk-produk fungsional berbahan dasar bunga berkolaborasi dengan pengrajin lokal."
 ];
 
 function changeSlide() {
