@@ -60,12 +60,24 @@ if (isset($_GET['buy']) && $_GET['buy'] == 1) {
 
 
 // ==================== Ambil cart dari DB ====================
-$stmt = $pdo->prepare("SELECT c.id_cart AS cart_id, c.qty, p.id AS product_id, p.name, p.price, p.image 
-                       FROM cart c 
-                       JOIN products p ON c.product_id = p.id 
-                       WHERE c.user_id=?");
+$stmt = $pdo->prepare("
+    SELECT 
+        c.id_cart AS cart_id,
+        c.qty,
+        p.id AS product_id,
+        p.name,
+        p.price,
+        pi.image
+    FROM cart c
+    JOIN products p ON c.product_id = p.id
+    LEFT JOIN product_images pi 
+        ON pi.product_id = p.id 
+        AND pi.is_primary = 1
+    WHERE c.user_id = ?
+");
 $stmt->execute([$user_id]);
 $cart = $stmt->fetchAll();
+
 
 // Hitung total
 $totalItem = 0;
