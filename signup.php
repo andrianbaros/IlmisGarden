@@ -4,20 +4,21 @@ include 'conn/db.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username   = $_POST['username'];
     $email      = $_POST['email'];
+    $whatsapp   = $_POST['whatsapp'];
     $password   = password_hash($_POST['password'], PASSWORD_DEFAULT);
     $dob        = $_POST['dob'];
-    $address    = $_POST['address']; // ✅ ambil alamat dari form
+    $address    = $_POST['address'];
 
-    // Cek apakah email sudah terdaftar
-    $check = $pdo->prepare("SELECT email FROM users WHERE email = ?");
-    $check->execute([$email]);
+    // Cek email atau WA sudah terdaftar
+    $check = $pdo->prepare("SELECT email FROM users WHERE email = ? OR whatsapp = ?");
+    $check->execute([$email, $whatsapp]);
 
     if ($check->rowCount() > 0) {
-        echo "<script>alert('Email sudah digunakan, silakan pakai email lain.'); window.location='signup.php';</script>";
+        echo "<script>alert('Email atau No WhatsApp sudah digunakan'); window.location='signup.php';</script>";
         exit;
     }
 
-    // Ambil id terakhir
+    // Generate ID user
     $stmt = $pdo->query("SELECT id_user FROM users ORDER BY id_user DESC LIMIT 1");
     $last = $stmt->fetch();
 
@@ -27,14 +28,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
         $new_id = "IL001";
     }
+if ($_POST['password'] !== $_POST['confirm']) {
+    echo "<script>alert('Password tidak sama'); window.location='signup.php';</script>";
+    exit;
+}
 
-    // Insert data ke tabel users
-    $stmt = $pdo->prepare("INSERT INTO users (id_user, username, email, password, date_of_birth, address) 
-                           VALUES (?, ?, ?, ?, ?, ?)");
-    if ($stmt->execute([$new_id, $username, $email, $password, $dob, $address])) {
-        echo "<script>alert('Registrasi berhasil! Silakan login.'); window.location='signin.php';</script>";
+    // Insert user
+    $stmt = $pdo->prepare("
+        INSERT INTO users 
+        (id_user, username, email, whatsapp, password, date_of_birth, address) 
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ");
+
+    if ($stmt->execute([$new_id, $username, $email, $whatsapp, $password, $dob, $address])) {
+        echo "<script>alert('Registrasi berhasil!'); window.location='signin.php';</script>";
     } else {
-        echo "<script>alert('Gagal daftar, coba lagi.');</script>";
+        echo "<script>alert('Registrasi gagal');</script>";
     }
 }
 ?>
@@ -59,6 +68,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label>Email</label>
         <input type="email" name="email" placeholder="example@gmail.com" required>
       </div>
+      <div class="form-group">
+  <label>No WhatsApp</label>
+  <input 
+    type="text" 
+    name="whatsapp" 
+    placeholder="08xxxxxxxxxx" 
+    pattern="^[0-9]{10,15}$"
+    required
+  >
+</div>
+
       <div class="form-group">
         <label>Password</label>
         <input type="password" name="password" placeholder="enter your password" required>
