@@ -4,33 +4,52 @@ require 'conn/db.php';
 
 $user_id = $_SESSION['id_user'] ?? null;
 
-
-// Ambil semua kategori unik dari DB (kolom type)
+/* =============================
+   Ambil kategori/type
+============================= */
 $stmt = $pdo->query("SELECT DISTINCT type FROM products");
 $keywords = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
-// Ambil filter dari GET
-$selectedKeywords = isset($_GET['keywords']) ? $_GET['keywords'] : [];
-$priceFilterActive = isset($_GET['price_filter']);
-$maxPrice = ($priceFilterActive && isset($_GET['max_price'])) ? (int)$_GET['max_price'] : null;
+/* =============================
+   Ambil filter
+============================= */
+$selectedKeywords   = $_GET['keywords'] ?? [];
+$priceFilterActive  = isset($_GET['price_filter']);
+$maxPrice           = ($priceFilterActive && isset($_GET['max_price']))
+                        ? (int)$_GET['max_price']
+                        : null;
 
-// Query produk
-$query = "SELECT * FROM products WHERE 1=1";
+/* =============================
+   Query produk + gambar utama
+============================= */
+$sql = "
+    SELECT 
+        p.*,
+        pi.image AS main_image
+    FROM products p
+    LEFT JOIN product_images pi
+      ON p.id = pi.product_id AND pi.is_primary = 1
+    WHERE 1=1
+";
+
 $params = [];
 
+// filter type
 if (!empty($selectedKeywords)) {
     $placeholders = implode(',', array_fill(0, count($selectedKeywords), '?'));
-    $query .= " AND type IN ($placeholders)";
+    $sql .= " AND p.type IN ($placeholders)";
     $params = array_merge($params, $selectedKeywords);
 }
 
+// filter harga
 if ($priceFilterActive && $maxPrice !== null) {
-    $query .= " AND price <= ?";
+    $sql .= " AND p.price <= ?";
     $params[] = $maxPrice;
 }
 
-$query .= " ORDER BY id DESC";
-$stmt = $pdo->prepare($query);
+$sql .= " ORDER BY p.id DESC";
+
+$stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $products = $stmt->fetchAll();
 ?>
@@ -45,20 +64,8 @@ $products = $stmt->fetchAll();
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
-    rel="stylesheet"
-  />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap"
-    rel="stylesheet"
-  />
-
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
 
   <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
@@ -66,24 +73,23 @@ $products = $stmt->fetchAll();
 
   <link rel="stylesheet" href="css/navbar.css" />
   <link rel="stylesheet" href="style.css" />
-
 </head>
 <body>
 
-<!-- Navbar Start -->
+<!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.php" class="navbar-logo">
-    <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
+    <img src="img/F4F6F4-full.png" alt="Logo" style="width:200px;">
   </a>
 
   <div class="navbar-nav">
-    <a href="product.php">Product</a>
-    <a href="shop.php">Catalog</a>
+    <a href="shop.php" class="active">Product</a>
+    <a href="index.php#catalog">Catalog</a>
     <a href="index.php#about">About Us</a>
   </div>
 
   <div class="navbar-extra">
-    <?php if (isset($_SESSION['id_user'])): ?>
+    <?php if ($user_id): ?>
       <span style="margin-right:20px;">
         Hello, <?= htmlspecialchars($_SESSION['username'] ?? 'User') ?>
       </span>
@@ -92,21 +98,20 @@ $products = $stmt->fetchAll();
       <a href="signin.php"><i data-feather="log-in"></i></a>
     <?php endif; ?>
 
-    <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
-    <a href="profile.php" id="user"><i data-feather="user"></i></a>
+    <a href="cart.php"><i data-feather="shopping-cart"></i></a>
+    <a href="profile.php"><i data-feather="user"></i></a>
     <i id="menu" data-feather="menu"></i>
   </div>
 </nav>
-<!-- Navbar End -->
 
 <!-- MAIN -->
 <div class="container">
 
   <!-- SIDEBAR -->
   <aside class="sidebar">
-    <form method="GET" id="filter-form">
+    <form method="GET">
       <div class="filter-section">
-        <h5>Keywords</h5><br>
+        <h5>Category</h5><br>
         <?php foreach ($keywords as $k): ?>
           <label>
             <input type="checkbox" name="keywords[]" value="<?= htmlspecialchars($k) ?>"
@@ -117,23 +122,17 @@ $products = $stmt->fetchAll();
       </div>
 
       <div class="filter-section">
-        <h3>
-          <label>
-            <input type="checkbox" id="price-filter-toggle" name="price_filter"
-              value="1" <?= $priceFilterActive ? 'checked' : '' ?> />
-            Price
-          </label>
-        </h3>
+        <label>
+          <input type="checkbox" name="price_filter" <?= $priceFilterActive ? 'checked' : '' ?>>
+          Max Price
+        </label>
 
-        <div id="price-filter-content" style="display: <?= $priceFilterActive ? 'block' : 'none' ?>;">
+        <?php if ($priceFilterActive): ?>
           <input type="range" min="0" max="3000000"
-                 value="<?= $maxPrice ?? 50000 ?>"
-                 id="price-range" name="max_price" />
-          <div class="price-range">
-            <span>Rp.0</span>
-            <span>Rp.3.000.000</span>
-          </div>
-        </div>
+                 name="max_price"
+                 value="<?= $maxPrice ?? 0 ?>">
+          <p>≤ Rp. <?= number_format($maxPrice ?? 0,0,',','.') ?></p>
+        <?php endif; ?>
       </div>
 
       <button type="submit">Filter</button>
@@ -142,37 +141,41 @@ $products = $stmt->fetchAll();
 
   <!-- PRODUCTS -->
   <section class="products">
-    <?php if (count($products) === 0): ?>
+    <?php if (empty($products)): ?>
       <p>Tidak ada produk tersedia.</p>
     <?php else: ?>
       <?php foreach ($products as $p): ?>
+
+        <?php
+          $img = $p['main_image']
+                 ? $p['main_image']
+                 : 'img/no-image.png';
+        ?>
+
         <div class="product-card">
           <div class="product-image"
-            style="background:url('<?= htmlspecialchars($p['image']) ?>') center/cover no-repeat;">
+               style="background:url('<?= htmlspecialchars($img) ?>') center/cover no-repeat;">
           </div>
+
           <h4><?= htmlspecialchars($p['name']) ?></h4>
-          <p><?= nl2br(htmlspecialchars($p['description'])) ?></p>
-          <p>Rp. <?= number_format($p['price'], 0, ',', '.') ?></p>
-          <a href="product_details.php?id=<?= $p['id'] ?>" class="buy-button">BUY</a>
+          <p class="price">
+            Rp. <?= number_format($p['price'],0,',','.') ?>
+          </p>
+
+          <a href="product_details.php?id=<?= $p['id'] ?>" class="buy-button">
+            BUY
+          </a>
         </div>
+
       <?php endforeach; ?>
     <?php endif; ?>
   </section>
 
 </div>
 
-<!-- SCRIPTS -->
 <script>
-  const priceToggle = document.getElementById('price-filter-toggle');
-  const priceContent = document.getElementById('price-filter-content');
-
-  priceToggle.addEventListener('change', function() {
-    priceContent.style.display = this.checked ? 'block' : 'none';
-  });
-
   feather.replace();
 </script>
-
 <script src="js/script.js"></script>
 
 </body>

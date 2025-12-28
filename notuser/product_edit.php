@@ -1,39 +1,87 @@
 <?php
-require '../conn/db.php'; // koneksi PDO
+require '../conn/db.php';
 
-// daftar kategori/type (bisa diubah sesuai kebutuhan)
 $types = ['flower', 'wedding', 'workshop'];
 
 $id = $_GET['id'] ?? null;
-if (!$id) die("Product ID required");
+if (!$id) die("ID required");
 
-// ambil data
-$stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
+/* ===============================
+   HAPUS 1 GAMBAR
+================================ */
+if (isset($_GET['delete_image'])) {
+    $imgId = (int)$_GET['delete_image'];
+
+    // ambil data gambar
+    $stmt = $pdo->prepare("SELECT image FROM product_images WHERE id=?");
+    $stmt->execute([$imgId]);
+    $img = $stmt->fetch();
+
+    if ($img) {
+        $filePath = "../".$img['image'];
+        if (file_exists($filePath)) {
+            unlink($filePath); // hapus file fisik
+        }
+
+        $pdo->prepare("DELETE FROM product_images WHERE id=?")
+            ->execute([$imgId]);
+    }
+
+    header("Location: product_edit.php?id=".$id);
+    exit;
+}
+
+/* ===============================
+   AMBIL PRODUK
+================================ */
+$stmt = $pdo->prepare("SELECT * FROM products WHERE id=?");
 $stmt->execute([$id]);
 $product = $stmt->fetch();
 if (!$product) die("Product not found");
 
-// update
+/* ===============================
+   AMBIL GAMBAR
+================================ */
+$imgStmt = $pdo->prepare(
+    "SELECT * FROM product_images
+     WHERE product_id=?
+     ORDER BY is_primary DESC, id ASC"
+);
+$imgStmt->execute([$id]);
+$images = $imgStmt->fetchAll();
+
+/* ===============================
+   UPDATE PRODUK
+================================ */
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $name  = $_POST['name'];
-    $desc  = $_POST['description'];
-    $price = $_POST['price'];
-    $type  = $_POST['type'];
 
-    // cek apakah ada gambar baru
-    $imagePath = $product['image']; // default gambar lama
-    if (!empty($_FILES['image']['name'])) {
-        $targetDir = "../img/pr/";
-        $fileName = time() . "_" . basename($_FILES["image"]["name"]);
-        $targetFile = $targetDir . $fileName;
+    $pdo->prepare(
+        "UPDATE products SET name=?, description=?, price=?, type=? WHERE id=?"
+    )->execute([
+        $_POST['name'],
+        $_POST['description'],
+        $_POST['price'],
+        $_POST['type'],
+        $id
+    ]);
 
-        if (move_uploaded_file($_FILES["image"]["tmp_name"], $targetFile)) {
-            $imagePath = "img/pr/" . $fileName;
+    // upload gambar baru
+    if (!empty($_FILES['images']['name'][0])) {
+        foreach ($_FILES['images']['name'] as $i => $imgName) {
+            if ($_FILES['images']['error'][$i] === 0) {
+                $tmp  = $_FILES['images']['tmp_name'][$i];
+                $file = time().'_'.$imgName;
+                $path = "../img/pr/".$file;
+
+                move_uploaded_file($tmp, $path);
+
+                $pdo->prepare(
+                    "INSERT INTO product_images (product_id, image)
+                     VALUES (?, ?)"
+                )->execute([$id, "img/pr/".$file]);
+            }
         }
     }
-
-    $stmt = $pdo->prepare("UPDATE products SET name=?, description=?, price=?, type=?, image=? WHERE id=?");
-    $stmt->execute([$name, $desc, $price, $type, $imagePath, $id]);
 
     header("Location: product.php?msg=updated");
     exit;
@@ -42,54 +90,85 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Edit Product</title>
-  <link rel="stylesheet" href="admin.css">
-  <link rel="icon" href="img/F4F6F4-full.png" />
+<meta charset="UTF-8">
+<title>Edit Product</title>
+<link rel="stylesheet" href="admin.css">
+<style>
+.image-grid {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+}
+.image-box {
+  position:relative;
+}
+.image-box img {
+  width:90px;
+  height:90px;
+  object-fit:cover;
+  border-radius:6px;
+}
+.delete-img {
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:#dc3545;
+  color:#fff;
+  border:none;
+  border-radius:50%;
+  width:22px;
+  height:22px;
+  font-size:14px;
+  cursor:pointer;
+}
+</style>
 </head>
 <body>
-  <h2>Edit Product</h2>
-  <form method="post" enctype="multipart/form-data">
-    <div class="form-container">
-      <div class="card">
-        <h3>Basic Information</h3>
-        <div class="form-group">
-          <label>Product Name</label>
-          <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
-        </div>
-        <div class="form-group">
-          <label>Description</label>
-          <textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
-        </div>
-        <div class="form-grid">
-          <div class="form-group">
-            <label>Price</label>
-            <input type="number" name="price" value="<?= $product['price'] ?>" required>
-          </div>
-          <div class="form-group">
-            <label>Category (type)</label>
-            <select name="type" required>
-              <option value="">-- Select Category --</option>
-              <?php foreach ($types as $t): ?>
-                <option value="<?= $t ?>" <?= $product['type'] == $t ? 'selected' : '' ?>>
-                  <?= ucfirst($t) ?>
-                </option>
-              <?php endforeach; ?>
-            </select>
-          </div>
-        </div>
-        <button type="submit" class="btn">Update Product</button>
-        <a href="product.php" ><button class="btn cancel">Cancel</button></a>
-      </div>
 
-      <div class="card image-upload">
-        <h3>Image</h3>
-        <?php if ($product['image']): ?>
-          <img src="../<?= htmlspecialchars($product['image']) ?>" width="120" style="margin-bottom:10px;border-radius:6px;">
-        <?php endif; ?>
-        <input type="file" name="image" accept="image/*">
-      </div>
-    </div>
-  </form>
+<h2>Edit Product</h2>
+
+<form method="post" enctype="multipart/form-data">
+
+<label>Name</label>
+<input type="text" name="name"
+       value="<?= htmlspecialchars($product['name']) ?>" required>
+
+<label>Description</label>
+<textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
+
+<label>Price</label>
+<input type="number" name="price"
+       value="<?= $product['price'] ?>" required>
+
+<label>Category</label>
+<select name="type">
+<?php foreach ($types as $t): ?>
+<option value="<?= $t ?>" <?= $product['type']==$t?'selected':'' ?>>
+<?= ucfirst($t) ?>
+</option>
+<?php endforeach; ?>
+</select>
+
+<h3>Current Images</h3>
+<div class="image-grid">
+<?php foreach ($images as $img): ?>
+  <div class="image-box">
+    <img src="../<?= htmlspecialchars($img['image']) ?>">
+    <a href="?id=<?= $id ?>&delete_image=<?= $img['id'] ?>"
+       onclick="return confirm('Hapus gambar ini?')"
+       class="delete-img">×</a>
+  </div>
+<?php endforeach; ?>
+</div>
+
+<h3>Add Images</h3>
+<input type="file" name="images[]" multiple accept="image/*">
+
+<br><br>
+<button type="submit">Update</button>
+<a href="product.php">Cancel</a>
+
+</form>
+
 </body>
 </html>
