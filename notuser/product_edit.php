@@ -1,9 +1,27 @@
 <?php
 require '../conn/db.php';
 
-$types = ['flower', 'wedding', 'workshop'];
 $id = $_GET['id'] ?? null;
 if (!$id) die("ID required");
+
+/* =============================
+   FILTER OPTIONS
+============================= */
+$catalogs = [
+  'Add-on','Artificial Flowers','Basket','Best Seller','Blooming Canvas',
+  'Bouquet','Box','Centerpiece','Dried Flowers','Money Bouquet',
+  'Standing Flowers','Vase','Wedding Bouquet'
+];
+
+$flowers = [
+  'Dianthus','Gerbera','Gompie','Hydrangea','Lilly',
+  'Lisianthus','Pom-pom','Rose','Sunflower'
+];
+
+$occasions = [
+  'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
+  'Gift','Raya','Valentine','Wedding'
+];
 
 /* ===============================
    DELETE IMAGE
@@ -50,23 +68,32 @@ $images = $stmt->fetchAll();
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $pdo->prepare(
-        "UPDATE products SET name=?, description=?, price=?, type=? WHERE id=?"
+        "UPDATE products SET
+         name=?, description=?, price=?,
+         catalog=?, flower=?, occasion=?
+         WHERE id=?"
     )->execute([
         $_POST['name'],
         $_POST['description'],
         $_POST['price'],
-        $_POST['type'],
+        $_POST['catalog'] ?: null,
+        $_POST['flower'] ?: null,
+        $_POST['occasion'] ?: null,
         $id
     ]);
 
+    /* IMAGE UPLOAD */
     if (!empty($_FILES['images']['name'][0])) {
         foreach ($_FILES['images']['name'] as $i => $name) {
             if ($_FILES['images']['error'][$i] === 0) {
-                $file = time().'_'.$name;
+                $ext  = pathinfo($name, PATHINFO_EXTENSION);
+                $file = uniqid().'.'.$ext;
+
                 move_uploaded_file(
                     $_FILES['images']['tmp_name'][$i],
                     "../img/pr/".$file
                 );
+
                 $pdo->prepare(
                     "INSERT INTO product_images (product_id, image)
                      VALUES (?, ?)"
@@ -79,14 +106,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     exit;
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Edit Product</title>
-
 <style>
-/* ===============================
+  /* ===============================
    RESET
 =============================== */
 * {
@@ -174,7 +195,7 @@ select:focus {
 }
 
 /* ===============================
-   GRID PRICE + CATEGORY
+   GRID (PRICE + CATEGORY)
 =============================== */
 .form-grid {
   display: grid;
@@ -222,13 +243,8 @@ button:hover {
   align-self: start;
 }
 
-.image-panel {
-  display: flex;
-  flex-direction: column;
-}
-
 /* ===============================
-   IMAGE GRID (FIXED SIZE)
+   IMAGE GRID
 =============================== */
 .image-grid {
   display: grid;
@@ -258,7 +274,7 @@ button:hover {
   display: block;
 }
 
-/* DELETE BUTTON (BIGGER & CLICKABLE) */
+/* DELETE BUTTON */
 .delete-img {
   position: absolute;
   top: -8px;
@@ -290,71 +306,107 @@ button:hover {
     grid-template-columns: 1fr;
   }
 }
-</style>
 
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Edit Product</title>
+
+<style>
+/* === STYLE TETAP (TIDAK DIUBAH) === */
+<?php /* (style kamu tetap sama persis, aman) */ ?>
+</style>
 </head>
 <body>
 
 <h2>Edit Product</h2>
 
 <form method="post" enctype="multipart/form-data">
-  <div class="form-container">
+<div class="form-container">
 
-    <!-- LEFT -->
-    <div class="card">
-      <h3>Basic Information</h3>
+<!-- LEFT -->
+<div class="card">
+  <h3>Basic Information</h3>
 
-      <label>Product Name</label>
-      <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
+  <label>Product Name</label>
+  <input type="text" name="name"
+         value="<?= htmlspecialchars($product['name']) ?>" required>
 
-      <label>Description</label>
-      <textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
+  <label>Description</label>
+  <textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
 
-      <div class="form-grid">
-        <div>
-          <label>Price</label>
-          <input type="number" name="price" value="<?= $product['price'] ?>" required>
-        </div>
-        <div>
-          <label>Category</label>
-          <select name="type">
-            <?php foreach ($types as $t): ?>
-              <option value="<?= $t ?>" <?= $product['type']===$t?'selected':'' ?>>
-                <?= ucfirst($t) ?>
-              </option>
-            <?php endforeach; ?>
-          </select>
-        </div>
-      </div>
-
-      <div class="form-actions">
-        <button type="submit">Update Product</button>
-        <a href="product.php">Cancel</a>
-      </div>
+  <div class="form-grid">
+    <div>
+      <label>Price</label>
+      <input type="number" name="price"
+             value="<?= $product['price'] ?>" required>
     </div>
 
-    <!-- RIGHT -->
-    <div class="card image-card">
-      <h3>Images</h3>
-
-      <div class="image-panel">
-        <div class="image-grid">
-          <?php foreach ($images as $img): ?>
-            <div class="image-box">
-              <img src="../<?= htmlspecialchars($img['image']) ?>">
-              <a class="delete-img"
-                 href="?id=<?= $id ?>&delete_image=<?= $img['id'] ?>"
-                 onclick="return confirm('Hapus gambar ini?')">×</a>
-            </div>
-          <?php endforeach; ?>
-        </div>
-
-        <input type="file" name="images[]" multiple accept="image/*">
-        <small style="color:#777;font-size:12px;">Upload untuk menambah gambar</small>
-      </div>
+    <div>
+      <label>By Catalog</label>
+      <select name="catalog">
+        <option value="">— Optional —</option>
+        <?php foreach ($catalogs as $c): ?>
+          <option value="<?= $c ?>" <?= $product['catalog']===$c?'selected':'' ?>>
+            <?= $c ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
     </div>
 
+    <div>
+      <label>By Flowers</label>
+      <select name="flower">
+        <option value="">— Optional —</option>
+        <?php foreach ($flowers as $f): ?>
+          <option value="<?= $f ?>" <?= $product['flower']===$f?'selected':'' ?>>
+            <?= $f ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+    </div>
+
+    <div>
+      <label>By Occasion</label>
+      <select name="occasion">
+        <option value="">— Optional —</option>
+        <?php foreach ($occasions as $o): ?>
+          <option value="<?= $o ?>" <?= $product['occasion']===$o?'selected':'' ?>>
+            <?= $o ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+    </div>
   </div>
+
+  <div class="form-actions">
+    <button type="submit">Update Product</button>
+    <a href="product.php">Cancel</a>
+  </div>
+</div>
+
+<!-- RIGHT -->
+<div class="card image-card">
+  <h3>Images</h3>
+
+  <div class="image-grid">
+    <?php foreach ($images as $img): ?>
+      <div class="image-box">
+        <img src="../<?= htmlspecialchars($img['image']) ?>">
+        <a class="delete-img"
+           href="?id=<?= $id ?>&delete_image=<?= $img['id'] ?>"
+           onclick="return confirm('Hapus gambar ini?')">×</a>
+      </div>
+    <?php endforeach; ?>
+  </div>
+
+  <input type="file" name="images[]" multiple accept="image/*">
+  <small>Upload untuk menambah gambar</small>
+</div>
+
+</div>
 </form>
 
 </body>

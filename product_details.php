@@ -4,16 +4,20 @@ require 'conn/db.php';
 
 $user_id = $_SESSION['id_user'] ?? null;
 
-// cek id produk
+/* ===============================
+   VALIDASI ID PRODUK
+================================ */
 if (!isset($_GET['id'])) {
-    header("Location: product.php");
+    header("Location: shop.php");
     exit;
 }
 
 $id = (int)$_GET['id'];
 
-// ambil produk
-$stmt = $pdo->prepare("SELECT * FROM products WHERE id=?");
+/* ===============================
+   GET PRODUCT
+================================ */
+$stmt = $pdo->prepare("SELECT * FROM products WHERE id = ?");
 $stmt->execute([$id]);
 $product = $stmt->fetch();
 
@@ -22,22 +26,26 @@ if (!$product) {
     exit;
 }
 
-// ambil semua gambar produk
-$imgStmt = $pdo->prepare(
+/* ===============================
+   GET PRODUCT IMAGES
+================================ */
+$stmt = $pdo->prepare(
     "SELECT image FROM product_images
      WHERE product_id = ?
-     ORDER BY is_primary DESC"
+     ORDER BY is_primary DESC, id ASC"
 );
-$imgStmt->execute([$id]);
-$images = $imgStmt->fetchAll();
+$stmt->execute([$id]);
+$images = $stmt->fetchAll();
 
 if (!$images) {
-    // fallback kalau belum ada image
     $images = [['image' => 'img/no-image.png']];
 }
 
-// tambah ke cart
+/* ===============================
+   ADD TO CART
+================================ */
 if (isset($_POST['add_to_cart'])) {
+
     if (!$user_id) {
         header("Location: signin.php");
         exit;
@@ -46,22 +54,22 @@ if (isset($_POST['add_to_cart'])) {
     $qty = max(1, (int)$_POST['qty']);
 
     $stmt = $pdo->prepare(
-        "SELECT * FROM cart WHERE user_id=? AND product_id=?"
+        "SELECT id_cart, qty FROM cart
+         WHERE user_id = ? AND product_id = ?"
     );
     $stmt->execute([$user_id, $id]);
-    $cartItem = $stmt->fetch();
+    $cart = $stmt->fetch();
 
-    if ($cartItem) {
-        $stmt = $pdo->prepare(
-            "UPDATE cart SET qty = qty + ? WHERE id_cart=?"
-        );
-        $stmt->execute([$qty, $cartItem['id_cart']]);
+    if ($cart) {
+        $pdo->prepare(
+            "UPDATE cart SET qty = qty + ?
+             WHERE id_cart = ?"
+        )->execute([$qty, $cart['id_cart']]);
     } else {
-        $stmt = $pdo->prepare(
+        $pdo->prepare(
             "INSERT INTO cart (user_id, product_id, qty)
              VALUES (?, ?, ?)"
-        );
-        $stmt->execute([$user_id, $id, $qty]);
+        )->execute([$user_id, $id, $qty]);
     }
 
     header("Location: cart.php");
@@ -73,29 +81,94 @@ if (isset($_POST['add_to_cart'])) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title><?= htmlspecialchars($product['name']) ?> | Ilmisgarden</title>
 
-<link rel="icon" href="img/F4F6F4-full.png" />
+<link rel="icon" href="img/F4F6F4-full.png">
 <link rel="stylesheet" href="css/navbar.css">
 <link rel="stylesheet" href="css/detail.css">
+
 <script src="https://unpkg.com/feather-icons"></script>
 
 <style>
+/* ===== GALLERY ===== */
 .product-gallery img {
-  border-radius: 10px;
+  border-radius: 12px;
 }
 .thumbs {
   display: flex;
   gap: 10px;
   margin-top: 12px;
+  flex-wrap: wrap;
 }
 .thumbs img {
-  width: 80px;
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
   cursor: pointer;
   opacity: .7;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 .thumbs img:hover {
   opacity: 1;
+}
+
+/* ===== PRODUCT DETAIL ===== */
+.product-detail {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.product-info h1 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #4a6652;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.qty-box {
+  margin-bottom: 14px;
+}
+
+.qty-box input {
+  padding: 6px;
+}
+
+.buy-button {
+  background: #708871;
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.buy-button:hover {
+  background: #4a6652;
+}
+
+.desc-box {
+  margin-top: 28px;
+}
+
+.desc-box h3 {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 900px) {
+  .product-detail {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
@@ -105,13 +178,15 @@ if (isset($_POST['add_to_cart'])) {
 <!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.php" class="navbar-logo">
-    <img src="img/F4F6F4-full.png" style="width:200px">
+    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" style="width:200px">
   </a>
+
   <div class="navbar-nav">
-    <a href="product.php">Product</a>
+    <a href="shop.php">Product</a>
     <a href="index.php#catalog">Catalog</a>
     <a href="index.php#about">About</a>
   </div>
+
   <div class="navbar-extra">
     <?php if ($user_id): ?>
       <span>Hello, <?= htmlspecialchars($_SESSION['username']) ?></span>
@@ -125,6 +200,7 @@ if (isset($_POST['add_to_cart'])) {
 
 <!-- CONTENT -->
 <main>
+
 <div class="product-detail">
 
   <!-- GALLERY -->
@@ -144,17 +220,19 @@ if (isset($_POST['add_to_cart'])) {
   <!-- INFO -->
   <div class="product-info">
     <h1><?= htmlspecialchars($product['name']) ?></h1>
+
     <span class="product-price">
-      Rp <?= number_format($product['price'],0,',','.') ?>
+      Rp <?= number_format($product['price'], 0, ',', '.') ?>
     </span>
 
     <form method="POST">
       <div class="qty-box">
-        <label>Qty</label>
+        <label>Qty</label><br>
         <input type="number" name="qty" value="1" min="1" style="width:70px">
       </div>
+
       <button type="submit" name="add_to_cart" class="buy-button">
-        Buy
+        Add to Cart
       </button>
     </form>
 
@@ -165,6 +243,7 @@ if (isset($_POST['add_to_cart'])) {
   </div>
 
 </div>
+
 </main>
 
 <script>
