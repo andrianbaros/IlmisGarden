@@ -210,20 +210,26 @@ $products = $stmt->fetchAll();
 </div>
 
 
+<div class="filter-actions">
+  <label>
+    <input type="checkbox" name="price_filter" <?= $priceFilterActive ? 'checked' : '' ?>>
+    Max Price
+  </label>
 
-  <div class="filter-actions">
-    <label>
-      <input type="checkbox" name="price_filter" <?= $priceFilterActive?'checked':'' ?>>
-      Max Price
-    </label>
+  <?php if ($priceFilterActive): ?>
+    <input
+      type="number"
+      name="max_price"
+      min="0"
+      step="1000"
+      placeholder="Contoh: 500000"
+      value="<?= htmlspecialchars($maxPrice ?? '') ?>"
+    >
+  <?php endif; ?>
 
-    <?php if ($priceFilterActive): ?>
-      <input type="range" name="max_price" min="0" max="3000000"
-             value="<?= $maxPrice ?>">
-    <?php endif; ?>
+  <button type="submit">Apply Filter</button>
+</div>
 
-    <button type="submit">Apply Filter</button>
-  </div>
 
 </form>
 

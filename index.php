@@ -21,12 +21,12 @@ if ($priceFilterActive && $maxPrice !== null) {
 
 
 // Wedding products
-$stmt = $pdo->prepare("SELECT * FROM products WHERE type = 'wedding' ORDER BY id DESC LIMIT 4");
+$stmt = $pdo->prepare("SELECT * FROM products WHERE occasion = 'wedding' ORDER BY id DESC LIMIT 4");
 $stmt->execute();
 $weddingProducts = $stmt->fetchAll();
 
 // Workshop products
-$stmt2 = $pdo->prepare("SELECT * FROM products WHERE type = 'workshop' ORDER BY id DESC LIMIT 4");
+$stmt2 = $pdo->prepare("SELECT * FROM products WHERE occasion = 'workshop' ORDER BY id DESC LIMIT 4");
 $stmt2->execute();
 $workshopProducts = $stmt2->fetchAll();
 ?>
