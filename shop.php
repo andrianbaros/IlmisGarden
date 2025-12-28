@@ -154,10 +154,15 @@ $products = $stmt->fetchAll();
 <!-- FILTER BAR -->
 <form method="GET" class="filter-bar">
 
-  <div class="filter-grid">
+<div class="filter-accordion-wrapper">
 
-    <div class="filter-group">
-      <h5>By Catalog</h5>
+  <!-- BY CATALOG -->
+  <div class="accordion-item">
+    <button type="button" class="accordion-header">
+      By Catalog
+      <span class="icon">▸</span>
+    </button>
+    <div class="accordion-body">
       <?php foreach ($catalogs as $c): ?>
         <label>
           <input type="checkbox" name="catalog[]" value="<?= $c ?>"
@@ -166,9 +171,15 @@ $products = $stmt->fetchAll();
         </label>
       <?php endforeach; ?>
     </div>
+  </div>
 
-    <div class="filter-group">
-      <h5>By Flowers</h5>
+  <!-- BY FLOWERS -->
+  <div class="accordion-item">
+    <button type="button" class="accordion-header">
+      By Flowers
+      <span class="icon">▸</span>
+    </button>
+    <div class="accordion-body">
       <?php foreach ($flowers as $f): ?>
         <label>
           <input type="checkbox" name="flower[]" value="<?= $f ?>"
@@ -177,9 +188,15 @@ $products = $stmt->fetchAll();
         </label>
       <?php endforeach; ?>
     </div>
+  </div>
 
-    <div class="filter-group">
-      <h5>By Occasion</h5>
+  <!-- BY OCCASION -->
+  <div class="accordion-item">
+    <button type="button" class="accordion-header">
+      By Occasion
+      <span class="icon">▸</span>
+    </button>
+    <div class="accordion-body">
       <?php foreach ($occasions as $o): ?>
         <label>
           <input type="checkbox" name="occasion[]" value="<?= $o ?>"
@@ -188,8 +205,11 @@ $products = $stmt->fetchAll();
         </label>
       <?php endforeach; ?>
     </div>
-
   </div>
+
+</div>
+
+
 
   <div class="filter-actions">
     <label>
@@ -227,6 +247,33 @@ $products = $stmt->fetchAll();
 
 </div>
 
-<script>feather.replace();</script>
+<script>
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const item = header.parentElement;
+      const body = item.querySelector('.accordion-body');
+
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        if (i !== item) {
+          i.classList.remove('active');
+          i.querySelector('.accordion-body').style.maxHeight = null;
+        }
+      });
+
+      if (item.classList.contains('active')) {
+        item.classList.remove('active');
+        body.style.maxHeight = null;
+      } else {
+        item.classList.add('active');
+        body.style.maxHeight = body.scrollHeight + "px";
+      }
+    });
+  });
+</script>
+
+<script>
+  feather.replace();
+</script>
+
 </body>
 </html>
