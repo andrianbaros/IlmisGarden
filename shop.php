@@ -151,7 +151,7 @@ $products = $stmt->fetchAll();
             style="background:url('<?= htmlspecialchars($p['image']) ?>') center/cover no-repeat;">
           </div>
           <h4><?= htmlspecialchars($p['name']) ?></h4>
-          
+          <p><?= nl2br(htmlspecialchars($p['description'])) ?></p>
           <p>Rp. <?= number_format($p['price'], 0, ',', '.') ?></p>
           <a href="product_details.php?id=<?= $p['id'] ?>" class="buy-button">BUY</a>
         </div>
