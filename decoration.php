@@ -73,6 +73,9 @@
       <img src="img/deco1.jpg" alt="Decoration 1" />
       <img src="img/deco2.jpg" alt="Decoration 2" />
       <img src="img/deco3.jpg" alt="Decoration 3" />
+      <img src="img/deco7.jpg" alt="Decoration 7" />
+      <img src="img/deco5.jpg" alt="Decoration 5" />
+      <img src="img/deco6.jpg" alt="Decoration 6" />
     </div>
     </section>
   <!-- Types -->
