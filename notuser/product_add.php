@@ -20,6 +20,9 @@ $occasions = [
   'Gift','Raya','Valentine','Wedding'
 ];
 
+/* =============================
+   INSERT PRODUCT
+============================= */
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $catalog  = !empty($_POST['catalog'])  ? implode(',', $_POST['catalog'])  : null;
@@ -81,13 +84,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <title>Add Product</title>
 
 <style>
-* { box-sizing:border-box;margin:0;padding:0 }
-body {
+*{box-sizing:border-box;margin:0;padding:0}
+body{
   font-family:Inter,sans-serif;
   background:#f4f6f4;
   padding:32px;
 }
 h2{margin-bottom:24px}
+
 .form-container{
   max-width:1100px;
   margin:auto;
@@ -95,42 +99,61 @@ h2{margin-bottom:24px}
   grid-template-columns:2fr 1fr;
   gap:24px;
 }
+
 .card{
   background:#fff;
-  padding:20px;
+  padding:24px;
   border-radius:14px;
   box-shadow:0 6px 20px rgba(0,0,0,.06);
 }
+
 label{
-  display:block;
-  margin-top:14px;
   font-weight:600;
   font-size:13px;
+  display:block;
+  margin-bottom:6px;
 }
+
 input,textarea{
   width:100%;
-  margin-top:6px;
   padding:10px;
   border-radius:8px;
   border:1px solid #c5cec7;
+  margin-bottom:14px;
 }
-.checkbox-group{
-  margin-top:10px;
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-  gap:6px;
+
+textarea{min-height:100px}
+
+/* ===== TABLE CHECKBOX ===== */
+.filter-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:20px;
 }
-.checkbox-group label{
-  font-weight:400;
-  font-size:13px;
+
+.filter-table th{
+  text-align:left;
+  font-size:14px;
+  padding-bottom:8px;
 }
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:14px;
+
+.filter-table td{
+  padding:4px 0;
+  vertical-align:middle;
 }
-button{
+
+.filter-table input{
+  margin-right:8px;
+}
+
+/* ===== ACTION BUTTON ===== */
+.form-actions{
   margin-top:20px;
+  display:flex;
+  gap:12px;
+}
+
+button{
   background:#708871;
   color:#fff;
   border:none;
@@ -138,12 +161,24 @@ button{
   border-radius:8px;
   cursor:pointer;
 }
-button:hover{background:#4a6652}
+
+.btn-cancel{
+  background:#ddd;
+  color:#333;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.btn-cancel:hover{background:#cfcfcf}
+
 @media(max-width:900px){
   .form-container{grid-template-columns:1fr}
 }
 </style>
 </head>
+
 <body>
 
 <h2>Add Product</h2>
@@ -154,54 +189,57 @@ button:hover{background:#4a6652}
 <!-- LEFT -->
 <div class="card">
 
-  <label>Product Name</label>
-  <input type="text" name="name" required>
+<label>Product Name</label>
+<input type="text" name="name" required>
 
-  <label>Description</label>
-  <textarea name="description"></textarea>
+<label>Description</label>
+<textarea name="description"></textarea>
 
-  <div class="form-grid">
-    <div>
-      <label>Price</label>
-      <input type="number" name="price" required>
-    </div>
-  </div>
+<label>Price</label>
+<input type="number" name="price" required>
 
-  <label>By Catalog</label>
-  <div class="checkbox-group">
-    <?php foreach ($catalogs as $c): ?>
-      <label>
-        <input type="checkbox" name="catalog[]" value="<?= $c ?>"> <?= $c ?>
-      </label>
-    <?php endforeach; ?>
-  </div>
+<table class="filter-table">
+<tr><th colspan="2">By Catalog</th></tr>
+<?php foreach ($catalogs as $c): ?>
+<tr>
+  <td width="24"><input type="checkbox" name="catalog[]" value="<?= $c ?>"></td>
+  <td><?= $c ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
 
-  <label>By Flowers</label>
-  <div class="checkbox-group">
-    <?php foreach ($flowers as $f): ?>
-      <label>
-        <input type="checkbox" name="flower[]" value="<?= $f ?>"> <?= $f ?>
-      </label>
-    <?php endforeach; ?>
-  </div>
+<table class="filter-table">
+<tr><th colspan="2">By Flowers</th></tr>
+<?php foreach ($flowers as $f): ?>
+<tr>
+  <td width="24"><input type="checkbox" name="flower[]" value="<?= $f ?>"></td>
+  <td><?= $f ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
 
-  <label>By Occasion</label>
-  <div class="checkbox-group">
-    <?php foreach ($occasions as $o): ?>
-      <label>
-        <input type="checkbox" name="occasion[]" value="<?= $o ?>"> <?= $o ?>
-      </label>
-    <?php endforeach; ?>
-  </div>
+<table class="filter-table">
+<tr><th colspan="2">By Occasion</th></tr>
+<?php foreach ($occasions as $o): ?>
+<tr>
+  <td width="24"><input type="checkbox" name="occasion[]" value="<?= $o ?>"></td>
+  <td><?= $o ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
 
+<div class="form-actions">
   <button type="submit">Add Product</button>
+  <a href="product.php" class="btn-cancel">Cancel</a>
+</div>
+
 </div>
 
 <!-- RIGHT -->
 <div class="card">
-  <label>Images</label>
-  <input type="file" name="images[]" multiple accept="image/*" required>
-  <small style="color:#666">• Gambar pertama otomatis jadi utama</small>
+<label>Images</label>
+<input type="file" name="images[]" multiple accept="image/*" required>
+<small style="color:#666">• Gambar pertama otomatis jadi utama</small>
 </div>
 
 </div>

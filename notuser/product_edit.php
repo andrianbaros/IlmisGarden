@@ -23,24 +23,21 @@ $occasions = [
   'Gift','Raya','Valentine','Wedding'
 ];
 
-/* ===============================
+/* =============================
    GET PRODUCT
-================================ */
+============================= */
 $stmt = $pdo->prepare("SELECT * FROM products WHERE id=?");
 $stmt->execute([$id]);
 $product = $stmt->fetch();
 if (!$product) die("Product not found");
 
-/* ===============================
-   PARSE COMMA DATA
-================================ */
 $selectedCatalogs  = $product['catalog']  ? explode(',', $product['catalog'])  : [];
 $selectedFlowers   = $product['flower']   ? explode(',', $product['flower'])   : [];
 $selectedOccasions = $product['occasion'] ? explode(',', $product['occasion']) : [];
 
-/* ===============================
+/* =============================
    GET IMAGES
-================================ */
+============================= */
 $stmt = $pdo->prepare(
   "SELECT * FROM product_images
    WHERE product_id=?
@@ -49,9 +46,9 @@ $stmt = $pdo->prepare(
 $stmt->execute([$id]);
 $images = $stmt->fetchAll();
 
-/* ===============================
+/* =============================
    DELETE IMAGE
-================================ */
+============================= */
 if (isset($_GET['delete_image'])) {
   $imgId = (int)$_GET['delete_image'];
   $img = $pdo->prepare("SELECT image FROM product_images WHERE id=?");
@@ -65,9 +62,9 @@ if (isset($_GET['delete_image'])) {
   exit;
 }
 
-/* ===============================
+/* =============================
    UPDATE PRODUCT
-================================ */
+============================= */
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
   $catalog  = !empty($_POST['catalog'])  ? implode(',', $_POST['catalog'])  : null;
@@ -89,7 +86,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id
   ]);
 
-  /* IMAGE UPLOAD */
   if (!empty($_FILES['images']['name'][0])) {
     foreach ($_FILES['images']['name'] as $i => $name) {
       if ($_FILES['images']['error'][$i] === 0) {
@@ -115,19 +111,132 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <title>Edit Product</title>
 
 <style>
+*{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Inter,sans-serif;background:#f4f6f4;padding:32px}
-.form-container{max-width:1100px;margin:auto;display:grid;grid-template-columns:2fr 1fr;gap:24px}
-.card{background:#fff;padding:20px;border-radius:14px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
-label{font-weight:600;font-size:13px;display:block;margin-top:14px}
-input,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #c5cec7;margin-top:6px}
-.checkbox-group{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px;margin-top:6px}
-.checkbox-group label{font-weight:400;font-size:13px}
-.image-grid{display:grid;grid-template-columns:repeat(auto-fill,56px);gap:8px;margin-bottom:12px}
-.image-box{width:56px;height:56px;border-radius:8px;overflow:hidden;position:relative}
-.image-box img{width:100%;height:100%;object-fit:cover}
-.delete-img{position:absolute;top:-6px;right:-6px;background:#dc3545;color:#fff;border-radius:50%;width:22px;height:22px;text-align:center;line-height:22px;text-decoration:none}
-button{margin-top:20px;background:#708871;color:#fff;border:none;padding:10px 18px;border-radius:8px}
-@media(max-width:900px){.form-container{grid-template-columns:1fr}}
+h2{margin-bottom:24px}
+
+.form-container{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:24px;
+}
+
+.card{
+  background:#fff;
+  padding:24px;
+  border-radius:14px;
+  box-shadow:0 6px 20px rgba(0,0,0,.06);
+}
+
+label{
+  font-weight:600;
+  font-size:13px;
+  display:block;
+  margin-bottom:6px;
+}
+
+input,textarea{
+  width:100%;
+  padding:10px;
+  border-radius:8px;
+  border:1px solid #c5cec7;
+  margin-bottom:14px;
+}
+
+textarea{min-height:100px}
+
+/* ===== TABLE CHECKBOX ===== */
+.filter-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-bottom:20px;
+}
+
+.filter-table th{
+  text-align:left;
+  font-size:14px;
+  padding-bottom:8px;
+}
+
+.filter-table td{
+  padding:4px 0;
+  vertical-align:middle;
+}
+
+.filter-table input{
+  margin-right:8px;
+}
+
+/* ===== ACTION BUTTON ===== */
+.form-actions{
+  margin-top:20px;
+  display:flex;
+  gap:12px;
+}
+
+button{
+  background:#708871;
+  color:#fff;
+  border:none;
+  padding:10px 18px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.btn-cancel{
+  background:#ddd;
+  color:#333;
+  padding:10px 18px;
+  border-radius:8px;
+  text-decoration:none;
+  font-size:13px;
+}
+
+.btn-cancel:hover{background:#cfcfcf}
+
+/* ===== IMAGE ===== */
+.image-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,64px);
+  gap:10px;
+  margin-bottom:12px;
+}
+
+.image-box{
+  width:64px;
+  height:64px;
+  border-radius:10px;
+  overflow:hidden;
+  position:relative;
+  border:1px solid #ddd;
+}
+
+.image-box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.delete-img{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  width:22px;
+  height:22px;
+  background:#dc3545;
+  color:#fff;
+  border-radius:50%;
+  text-align:center;
+  line-height:22px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+@media(max-width:900px){
+  .form-container{grid-template-columns:1fr}
+}
 </style>
 </head>
 
@@ -138,64 +247,69 @@ button{margin-top:20px;background:#708871;color:#fff;border:none;padding:10px 18
 <form method="post" enctype="multipart/form-data">
 <div class="form-container">
 
+<!-- LEFT -->
 <div class="card">
-  <label>Product Name</label>
-  <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
 
-  <label>Description</label>
-  <textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
+<label>Product Name</label>
+<input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
 
-  <label>Price</label>
-  <input type="number" name="price" value="<?= $product['price'] ?>" required>
+<label>Description</label>
+<textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
 
-  <label>By Catalog</label>
-  <div class="checkbox-group">
-    <?php foreach ($catalogs as $c): ?>
-      <label>
-        <input type="checkbox" name="catalog[]" value="<?= $c ?>"
-          <?= in_array($c,$selectedCatalogs)?'checked':'' ?>>
-        <?= $c ?>
-      </label>
-    <?php endforeach; ?>
-  </div>
+<label>Price</label>
+<input type="number" name="price" value="<?= $product['price'] ?>" required>
 
-  <label>By Flowers</label>
-  <div class="checkbox-group">
-    <?php foreach ($flowers as $f): ?>
-      <label>
-        <input type="checkbox" name="flower[]" value="<?= $f ?>"
-          <?= in_array($f,$selectedFlowers)?'checked':'' ?>>
-        <?= $f ?>
-      </label>
-    <?php endforeach; ?>
-  </div>
+<table class="filter-table">
+<tr><th colspan="2">By Catalog</th></tr>
+<?php foreach ($catalogs as $c): ?>
+<tr>
+<td width="24"><input type="checkbox" name="catalog[]" value="<?= $c ?>" <?= in_array($c,$selectedCatalogs)?'checked':'' ?>></td>
+<td><?= $c ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
 
-  <label>By Occasion</label>
-  <div class="checkbox-group">
-    <?php foreach ($occasions as $o): ?>
-      <label>
-        <input type="checkbox" name="occasion[]" value="<?= $o ?>"
-          <?= in_array($o,$selectedOccasions)?'checked':'' ?>>
-        <?= $o ?>
-      </label>
-    <?php endforeach; ?>
-  </div>
+<table class="filter-table">
+<tr><th colspan="2">By Flowers</th></tr>
+<?php foreach ($flowers as $f): ?>
+<tr>
+<td width="24"><input type="checkbox" name="flower[]" value="<?= $f ?>" <?= in_array($f,$selectedFlowers)?'checked':'' ?>></td>
+<td><?= $f ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
 
+<table class="filter-table">
+<tr><th colspan="2">By Occasion</th></tr>
+<?php foreach ($occasions as $o): ?>
+<tr>
+<td width="24"><input type="checkbox" name="occasion[]" value="<?= $o ?>" <?= in_array($o,$selectedOccasions)?'checked':'' ?>></td>
+<td><?= $o ?></td>
+</tr>
+<?php endforeach; ?>
+</table>
+
+<div class="form-actions">
   <button type="submit">Update Product</button>
+  <a href="product.php" class="btn-cancel">Cancel</a>
 </div>
 
+</div>
+
+<!-- RIGHT -->
 <div class="card">
-  <label>Images</label>
-  <div class="image-grid">
-    <?php foreach ($images as $img): ?>
-      <div class="image-box">
-        <img src="../<?= htmlspecialchars($img['image']) ?>">
-        <a class="delete-img"
-           href="?id=<?= $id ?>&delete_image=<?= $img['id'] ?>">×</a>
-      </div>
-    <?php endforeach; ?>
-  </div>
-  <input type="file" name="images[]" multiple>
+<label>Images</label>
+<div class="image-grid">
+<?php foreach ($images as $img): ?>
+<div class="image-box">
+<img src="../<?= htmlspecialchars($img['image']) ?>">
+<a class="delete-img"
+   href="?id=<?= $id ?>&delete_image=<?= $img['id'] ?>"
+   onclick="return confirm('Hapus gambar ini?')">×</a>
+</div>
+<?php endforeach; ?>
+</div>
+<input type="file" name="images[]" multiple>
 </div>
 
 </div>
