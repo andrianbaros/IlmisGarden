@@ -17,7 +17,7 @@ $flowers = [
 
 $occasions = [
   'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
-  'Gift','Raya','Valentine','Wedding'
+  'Gift','Raya','Valentine','Wedding','Workshop'
 ];
 
 /* =============================
@@ -72,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
       }
     }
   }
-
+//
   header("Location: product.php?msg=added");
   exit;
 }

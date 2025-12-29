@@ -20,7 +20,7 @@ $flowers = [
 
 $occasions = [
   'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
-  'Gift','Raya','Valentine','Wedding'
+  'Gift','Raya','Valentine','Wedding','Workshop'
 ];
 
 /* =============================
