@@ -21,41 +21,45 @@ function formatWA($number) {
 $status_filter = $_GET['status'] ?? 'all';
 
 // Hapus transaksi
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['delete_transaction'])) {
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['delete_transaction'])) {
     $id_transaction = (int)$_POST['id_transaction'];
 
-    $pdo->prepare("DELETE FROM transaction_items WHERE transaction_id=?")->execute([$id_transaction]);
-    $pdo->prepare("DELETE FROM transactions WHERE id_transaction=?")->execute([$id_transaction]);
+    $pdo->prepare("DELETE FROM transaction_items WHERE transaction_id = ?")
+        ->execute([$id_transaction]);
+
+    $pdo->prepare("DELETE FROM transactions WHERE id_transaction = ?")
+        ->execute([$id_transaction]);
 
     header("Location: admin_transaction.php?msg=deleted");
     exit;
 }
 
 // Update status
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['update_status'])) {
-    $id_transaction = $_POST['id_transaction'];
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['update_status'])) {
+    $id_transaction = (int)$_POST['id_transaction'];
     $new_status     = $_POST['status'];
 
-    $pdo->prepare("UPDATE transactions SET status = ? WHERE id_transaction = ?")
-        ->execute([$new_status, $id_transaction]);
+    $pdo->prepare(
+        "UPDATE transactions SET status = ? WHERE id_transaction = ?"
+    )->execute([$new_status, $id_transaction]);
 
     header("Location: admin_transaction.php?msg=updated");
     exit;
 }
 
-// Query transaksi + WA user
+// Query transaksi + data user + timestamp
 $sql = "
     SELECT 
-        t.id_transaction, 
-        t.total_items, 
-        t.subtotal, 
-        t.status, 
+        t.id_transaction,
+        t.total_items,
+        t.subtotal,
+        t.status,
         t.created_at,
-        u.username, 
-        u.email, 
+        u.username,
+        u.email,
         u.whatsapp,
         u.address,
-        GROUP_CONCAT(p.name, ' (x', ti.qty, ')') AS items
+        GROUP_CONCAT(p.name, ' (x', ti.qty, ')' SEPARATOR ', ') AS items
     FROM transactions t
     JOIN users u ON t.user_id = u.id_user
     JOIN transaction_items ti ON t.id_transaction = ti.transaction_id
@@ -69,11 +73,12 @@ $transactions = $pdo->query($sql)->fetchAll();
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin - Transactions</title>
-  <link rel="stylesheet" href="admin_transaction.css">
-  <link rel="stylesheet" href="../css/navbar.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin - Transactions</title>
+
+<link rel="stylesheet" href="admin_transaction.css">
+<link rel="stylesheet" href="../css/navbar.css">
 </head>
 <body>
 
@@ -103,38 +108,37 @@ $transactions = $pdo->query($sql)->fetchAll();
 <tr>
   <th>User</th>
   <th>Product</th>
-  <th>Quantity</th>
+  <th>Qty</th>
+  <th>Order Time</th>
   <th>Status</th>
   <th>Action</th>
 </tr>
 </thead>
+
 <tbody>
-
 <?php
-$filtered = array_filter($transactions, function($t) use ($status_filter) {
-    return $status_filter == 'all' || $t['status'] == $status_filter;
+$filtered = array_filter($transactions, function ($t) use ($status_filter) {
+    return $status_filter === 'all' || $t['status'] === $status_filter;
 });
-
 
 if (empty($filtered)): ?>
 <tr>
-  <td colspan="5" class="empty">There's No Order Yet</td>
+  <td colspan="6" class="empty">There's No Order Yet</td>
 </tr>
 <?php else:
 foreach ($filtered as $t):
 
 $wa = formatWA($t['whatsapp']);
 
-if ($t['status'] == 'belum diproses') {
+if ($t['status'] === 'belum diproses') {
     $msg = 'Halo '.$t['username'].', pesanan Anda sudah kami terima 😊';
-} elseif ($t['status'] == 'diproses') {
+} elseif ($t['status'] === 'diproses') {
     $msg = 'Halo '.$t['username'].', pesanan Anda sedang diproses 🌸';
-} elseif ($t['status'] == 'selesai') {
+} elseif ($t['status'] === 'selesai') {
     $msg = 'Halo '.$t['username'].', pesanan Anda sudah dikirim 🚚';
 } else {
     $msg = 'Halo '.$t['username'];
 }
-
 ?>
 
 <tr>
@@ -142,12 +146,11 @@ if ($t['status'] == 'belum diproses') {
   <strong><?= htmlspecialchars($t['username']) ?></strong><br>
   <small><?= htmlspecialchars($t['email']) ?></small><br>
 
-<a href="https://wa.me/<?= $wa ?>?text=<?= urlencode($msg) ?>"
-   target="_blank"
-   style="color:#25D366;font-weight:600;text-decoration:none;">
-   📞 <?= htmlspecialchars($wa) ?>
-</a>
-<br>
+  <a href="https://wa.me/<?= $wa ?>?text=<?= urlencode($msg) ?>"
+     target="_blank"
+     style="color:#25D366;font-weight:600;text-decoration:none;">
+     📞 <?= htmlspecialchars($wa) ?>
+  </a><br>
 
   <em style="color:#555;font-size:13px;">
     📍 <?= htmlspecialchars($t['address']) ?>
@@ -155,8 +158,21 @@ if ($t['status'] == 'belum diproses') {
 </td>
 
 <td><?= htmlspecialchars($t['items']) ?></td>
-<td><?= $t['total_items'] ?></td>
-<td><span class="status <?= $t['status'] ?>"><?= ucfirst($t['status']) ?></span></td>
+
+<td><?= (int)$t['total_items'] ?></td>
+
+<!-- TIMESTAMP PEMBELIAN -->
+<td>
+  <small style="color:#555;">
+    <?= date('d M Y, H:i', strtotime($t['created_at'])) ?>
+  </small>
+</td>
+
+<td>
+  <span class="status <?= $t['status'] ?>">
+    <?= ucfirst($t['status']) ?>
+  </span>
+</td>
 
 <td>
 <form method="POST" style="display:inline-block;">
@@ -172,7 +188,9 @@ if ($t['status'] == 'belum diproses') {
 <form method="POST" style="display:inline-block;"
       onsubmit="return confirm('Yakin ingin menghapus transaksi ini?')">
   <input type="hidden" name="id_transaction" value="<?= $t['id_transaction'] ?>">
-  <button type="submit" name="delete_transaction" class="delete-btn">Delete</button>
+  <button type="submit" name="delete_transaction" class="delete-btn">
+    Delete
+  </button>
 </form>
 </td>
 </tr>
@@ -181,5 +199,6 @@ if ($t['status'] == 'belum diproses') {
 </tbody>
 </table>
 </div>
+
 </body>
 </html>

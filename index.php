@@ -1,34 +1,78 @@
 <?php
 require 'conn/db.php';
 
-// BESTSELLERS → Ambil 4 produk fix dari database
-$stmt = $pdo->prepare("SELECT * FROM products WHERE id IN (17,20,19,6)");
+/* =============================
+   BESTSELLERS
+============================= */
+$stmt = $pdo->prepare("
+  SELECT p.*, pi.image
+  FROM products p
+  LEFT JOIN product_images pi 
+    ON pi.product_id = p.id AND pi.is_primary = 1
+  WHERE p.id IN (17,20,19,6)
+");
 $stmt->execute();
 $bestsellers = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Ambil semua produk (dengan filter harga jika ada) untuk bagian Catalog
+
+/* =============================
+   ALL PRODUCTS + PRICE FILTER
+============================= */
 $priceFilterActive = isset($_GET['price_filter']);
 $maxPrice = $priceFilterActive && isset($_GET['max_price']) ? (int)$_GET['max_price'] : null;
 
 if ($priceFilterActive && $maxPrice !== null) {
-    $stmt = $pdo->prepare("SELECT * FROM products WHERE price <= ? ORDER BY id DESC");
+    $stmt = $pdo->prepare("
+      SELECT p.*, pi.image
+      FROM products p
+      LEFT JOIN product_images pi 
+        ON pi.product_id = p.id AND pi.is_primary = 1
+      WHERE p.price <= ?
+      ORDER BY p.id DESC
+    ");
     $stmt->execute([$maxPrice]);
-    $products = $stmt->fetchAll();
 } else {
-    $stmt = $pdo->query("SELECT * FROM products ORDER BY id DESC");
-    $products = $stmt->fetchAll();
+    $stmt = $pdo->query("
+      SELECT p.*, pi.image
+      FROM products p
+      LEFT JOIN product_images pi 
+        ON pi.product_id = p.id AND pi.is_primary = 1
+      ORDER BY p.id DESC
+    ");
 }
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
-// Wedding products
-$stmt = $pdo->prepare("SELECT * FROM products WHERE occasion = 'wedding' ORDER BY id DESC LIMIT 4");
+/* =============================
+   WEDDING PRODUCTS
+============================= */
+$stmt = $pdo->prepare("
+  SELECT p.*, pi.image
+  FROM products p
+  LEFT JOIN product_images pi 
+    ON pi.product_id = p.id AND pi.is_primary = 1
+  WHERE p.occasion = 'wedding'
+  ORDER BY p.id DESC
+  LIMIT 4
+");
 $stmt->execute();
-$weddingProducts = $stmt->fetchAll();
+$weddingProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-// Workshop products
-$stmt2 = $pdo->prepare("SELECT * FROM products WHERE occasion = 'workshop' ORDER BY id DESC LIMIT 4");
+
+/* =============================
+   WORKSHOP PRODUCTS
+============================= */
+$stmt2 = $pdo->prepare("
+  SELECT p.*, pi.image
+  FROM products p
+  LEFT JOIN product_images pi 
+    ON pi.product_id = p.id AND pi.is_primary = 1
+  WHERE p.occasion = 'workshop'
+  ORDER BY p.id DESC
+  LIMIT 4
+");
 $stmt2->execute();
-$workshopProducts = $stmt2->fetchAll();
+$workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
