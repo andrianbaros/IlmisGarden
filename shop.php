@@ -122,32 +122,59 @@ $products = $stmt->fetchAll();
     grid-template-columns:1fr;
   }
 }
+
+/* ===== ACTIVE NAVBAR FIX (GLOBAL) ===== */
+.navbar .navbar-nav a.active {
+  color: #1c221c !important;
+  font-weight: 700;
+}
+
+.navbar .navbar-nav a.active::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #1c221c;
+  transform: scaleX(0.6) !important;
+}
+
+.navbar .navbar-nav a.active:hover {
+  color: #1c221c;
+}
+
+/* ===== ACTIVE MOBILE OVERRIDE ===== */
+@media (max-width: 1366px) {
+  .navbar .navbar-nav a.active {
+    color: #1c221c !important;
+  }
+
+  .navbar .navbar-nav a.active::after {
+    transform: scaleX(0.6) !important;
+  }
+}
+
+
+}
 </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <a href="index.php" class="navbar-logo">
-    <img src="img/F4F6F4-full.png" style="width:200px;">
-  </a>
+    <nav class="navbar">
 
-  <div class="navbar-nav">
-    <a href="shop.php" class="active">Product</a>
-    <a href="index.php#catalog">Catalog</a>
-    <a href="index.php#about">About Us</a>
-  </div>
+      <a href="index.php" class="navbar-logo">
+  <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
+</a>
+      <div class="navbar-nav">
+        <a href="product.php" >Product</a>
+        <a href="shop.php"  class="active">Catalog</a>
+        <a href="index.php#about">About Us</a>
+      </div>
+      <div class="navbar-extra">
+      <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        <a href="profile.php" id="user"><i data-feather="user"></i></a>
+        <i id="menu" data-feather="menu"></i>
+      </div>
+    </nav>
 
-  <div class="navbar-extra">
-    <?php if ($user_id): ?>
-      <span>Hello, <?= htmlspecialchars($_SESSION['username']) ?></span>
-      <a href="logout.php"><i data-feather="log-out"></i></a>
-    <?php else: ?>
-      <a href="signin.php"><i data-feather="log-in"></i></a>
-    <?php endif; ?>
-    <a href="cart.php"><i data-feather="shopping-cart"></i></a>
-  </div>
-</nav>
 
 <div class="container">
 

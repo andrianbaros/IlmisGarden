@@ -628,7 +628,6 @@ body {
   grid-column: 2; /* posisi tengah */
 }
 
-
 .overlay {
   position: absolute;
   bottom: 0;
@@ -656,7 +655,7 @@ body {
 
   .bouquet-card {
     width: 100%;
-    max-width: 150px;  /* perkecil untuk hp */
+    max-width: 150px; /* perkecil untuk hp */
     height: 330px;
   }
 
@@ -665,8 +664,6 @@ body {
     grid-column: auto;
   }
 }
-
-
 
 .footer {
   background-color: #2f392f;
@@ -720,4 +717,31 @@ body {
 
 .navbar .navbar-nav a.active::after {
   transform: scaleX(0.5); /* garis bawah tetap muncul */
+}
+/* ===== ACTIVE NAVBAR FIX ===== */
+.navbar .navbar-nav a.active {
+  color: #1c221c !important; /* hitam */
+  font-weight: 700;
+}
+
+/* paksa underline selalu muncul */
+.navbar .navbar-nav a.active::after {
+  content: "";
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid #1c221c;
+  transform: scaleX(0.6) !important;
+}
+
+.navbar .navbar-nav a.active:hover {
+  color: #1c221c;
+}
+@media (max-width: 1366px) {
+  .navbar .navbar-nav a.active {
+    color: #1c221c !important;
+  }
+
+  .navbar .navbar-nav a.active::after {
+    transform: scaleX(0.6) !important;
+  }
 }
