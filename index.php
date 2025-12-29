@@ -170,10 +170,13 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         <h1>Selamat datang di</h1>
         <h1><b>Ilmisgarden</b></h1>
         <p id="hero-text" class="fade-slide">
-        Tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. 
-        Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan — semua kami buat dengan sentuhan hati.🌷
+        Tempat di mana setiap bunga punya cerita.<br> 
+        Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap<br> 
+        momen spesialmu.<br> 
+        Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan<br> 
+        semua kami buat dengan sentuhan hati.🌷<br>
         </p>
-        <a href="#about" style="color: black;"><button>Read More</button></a>
+        <a href="product.php" style="color: black;"><button>Read More</button></a>
       </main>
     </section>
     <!-- hero section end-->
