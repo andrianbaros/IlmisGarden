@@ -51,7 +51,7 @@ $stmt = $pdo->prepare("
   FROM products p
   LEFT JOIN product_images pi 
     ON pi.product_id = p.id AND pi.is_primary = 1
-  WHERE p.occasion = 'wedding'
+  WHERE FIND_IN_SET('Wedding', p.occasion)
   ORDER BY p.id DESC
   LIMIT 4
 ");
@@ -67,12 +67,13 @@ $stmt2 = $pdo->prepare("
   FROM products p
   LEFT JOIN product_images pi 
     ON pi.product_id = p.id AND pi.is_primary = 1
-  WHERE p.occasion = 'workshop'
+  WHERE FIND_IN_SET('Workshop', p.occasion)
   ORDER BY p.id DESC
   LIMIT 4
 ");
 $stmt2->execute();
 $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">

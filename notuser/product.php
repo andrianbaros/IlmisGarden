@@ -9,15 +9,19 @@ if (!isset($_SESSION['is_admin'])) {
 }
 
 /*
- Ambil produk + gambar utama
+ Ambil produk + 1 gambar (prioritas primary, fallback ke image lain)
 */
 $sql = "
     SELECT 
         p.*,
-        pi.image AS main_image
+        (
+          SELECT pi.image
+          FROM product_images pi
+          WHERE pi.product_id = p.id
+          ORDER BY pi.is_primary DESC, pi.id ASC
+          LIMIT 1
+        ) AS main_image
     FROM products p
-    LEFT JOIN product_images pi
-      ON p.id = pi.product_id AND pi.is_primary = 1
     ORDER BY p.id DESC
 ";
 
@@ -130,7 +134,7 @@ $products = $stmt->fetchAll();
       <div class="card">
 
         <?php
-          $img = $p['main_image'] 
+          $img = $p['main_image']
                  ? "../".$p['main_image']
                  : "../img/no-image.png";
         ?>

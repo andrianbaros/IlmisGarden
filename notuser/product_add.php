@@ -47,9 +47,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $product_id = $pdo->lastInsertId();
 
   /* =============================
-     IMAGE UPLOAD
+     IMAGE UPLOAD (FIXED)
   ============================= */
   if (!empty($_FILES['images']['name'][0])) {
+
+    $insert = $pdo->prepare(
+      "INSERT INTO product_images (product_id, image, is_primary)
+       VALUES (?, ?, 0)"
+    );
+
     foreach ($_FILES['images']['name'] as $i => $name) {
       if ($_FILES['images']['error'][$i] === 0) {
 
@@ -61,18 +67,23 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
           "../img/pr/".$file
         );
 
-        $pdo->prepare(
-          "INSERT INTO product_images (product_id, image, is_primary)
-           VALUES (?, ?, ?)"
-        )->execute([
+        $insert->execute([
           $product_id,
-          "img/pr/".$file,
-          $i === 0 ? 1 : 0
+          "img/pr/".$file
         ]);
       }
     }
+
+    // ===== PASTIKAN ADA PRIMARY IMAGE =====
+    $pdo->prepare("
+      UPDATE product_images
+      SET is_primary = 1
+      WHERE product_id = ?
+      ORDER BY id ASC
+      LIMIT 1
+    ")->execute([$product_id]);
   }
-//
+
   header("Location: product.php?msg=added");
   exit;
 }

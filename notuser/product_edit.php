@@ -38,26 +38,43 @@ $selectedOccasions = $product['occasion'] ? explode(',', $product['occasion']) :
 /* =============================
    GET IMAGES
 ============================= */
-$stmt = $pdo->prepare(
-  "SELECT * FROM product_images
-   WHERE product_id=?
-   ORDER BY is_primary DESC, id ASC"
-);
+$stmt = $pdo->prepare("
+  SELECT * FROM product_images
+  WHERE product_id=?
+  ORDER BY is_primary DESC, id ASC
+");
 $stmt->execute([$id]);
 $images = $stmt->fetchAll();
 
 /* =============================
-   DELETE IMAGE
+   DELETE IMAGE (SAFE)
 ============================= */
 if (isset($_GET['delete_image'])) {
   $imgId = (int)$_GET['delete_image'];
-  $img = $pdo->prepare("SELECT image FROM product_images WHERE id=?");
+
+  $img = $pdo->prepare(
+    "SELECT image, is_primary FROM product_images WHERE id=?"
+  );
   $img->execute([$imgId]);
   $row = $img->fetch();
+
   if ($row) {
     @unlink("../".$row['image']);
-    $pdo->prepare("DELETE FROM product_images WHERE id=?")->execute([$imgId]);
+    $pdo->prepare("DELETE FROM product_images WHERE id=?")
+        ->execute([$imgId]);
+
+    // jika primary dihapus → set pengganti
+    if ($row['is_primary'] == 1) {
+      $pdo->prepare("
+        UPDATE product_images
+        SET is_primary = 1
+        WHERE product_id=?
+        ORDER BY id ASC
+        LIMIT 1
+      ")->execute([$id]);
+    }
   }
+
   header("Location: product_edit.php?id=".$id);
   exit;
 }
@@ -86,18 +103,46 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $id
   ]);
 
+  /* =============================
+     UPLOAD IMAGE (SAFE)
+  ============================= */
   if (!empty($_FILES['images']['name'][0])) {
+
+    $insert = $pdo->prepare(
+      "INSERT INTO product_images (product_id, image, is_primary)
+       VALUES (?, ?, 0)"
+    );
+
     foreach ($_FILES['images']['name'] as $i => $name) {
       if ($_FILES['images']['error'][$i] === 0) {
-        $ext = pathinfo($name, PATHINFO_EXTENSION);
+        $ext  = pathinfo($name, PATHINFO_EXTENSION);
         $file = uniqid().'.'.$ext;
-        move_uploaded_file($_FILES['images']['tmp_name'][$i], "../img/pr/".$file);
-        $pdo->prepare(
-          "INSERT INTO product_images (product_id, image)
-           VALUES (?, ?)"
-        )->execute([$id, "img/pr/".$file]);
+
+        move_uploaded_file(
+          $_FILES['images']['tmp_name'][$i],
+          "../img/pr/".$file
+        );
+
+        $insert->execute([$id, "img/pr/".$file]);
       }
     }
+  }
+
+  // ===== PASTIKAN ADA PRIMARY IMAGE =====
+  $check = $pdo->prepare("
+    SELECT COUNT(*) FROM product_images
+    WHERE product_id=? AND is_primary=1
+  ");
+  $check->execute([$id]);
+
+  if ($check->fetchColumn() == 0) {
+    $pdo->prepare("
+      UPDATE product_images
+      SET is_primary = 1
+      WHERE product_id=?
+      ORDER BY id ASC
+      LIMIT 1
+    ")->execute([$id]);
   }
 
   header("Location: product.php?msg=updated");
@@ -112,7 +157,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter,sans-serif;background:#f4f6f4;padding:32px}
+body{
+  font-family:Inter,sans-serif;
+  background:#f4f6f4;
+  padding:32px
+}
 h2{margin-bottom:24px}
 
 .form-container{
@@ -263,7 +312,10 @@ button{
 <tr><th colspan="2">By Catalog</th></tr>
 <?php foreach ($catalogs as $c): ?>
 <tr>
-<td width="24"><input type="checkbox" name="catalog[]" value="<?= $c ?>" <?= in_array($c,$selectedCatalogs)?'checked':'' ?>></td>
+<td width="24">
+<input type="checkbox" name="catalog[]" value="<?= $c ?>"
+<?= in_array($c,$selectedCatalogs)?'checked':'' ?>>
+</td>
 <td><?= $c ?></td>
 </tr>
 <?php endforeach; ?>
@@ -273,7 +325,10 @@ button{
 <tr><th colspan="2">By Flowers</th></tr>
 <?php foreach ($flowers as $f): ?>
 <tr>
-<td width="24"><input type="checkbox" name="flower[]" value="<?= $f ?>" <?= in_array($f,$selectedFlowers)?'checked':'' ?>></td>
+<td width="24">
+<input type="checkbox" name="flower[]" value="<?= $f ?>"
+<?= in_array($f,$selectedFlowers)?'checked':'' ?>>
+</td>
 <td><?= $f ?></td>
 </tr>
 <?php endforeach; ?>
@@ -283,7 +338,10 @@ button{
 <tr><th colspan="2">By Occasion</th></tr>
 <?php foreach ($occasions as $o): ?>
 <tr>
-<td width="24"><input type="checkbox" name="occasion[]" value="<?= $o ?>" <?= in_array($o,$selectedOccasions)?'checked':'' ?>></td>
+<td width="24">
+<input type="checkbox" name="occasion[]" value="<?= $o ?>"
+<?= in_array($o,$selectedOccasions)?'checked':'' ?>>
+</td>
 <td><?= $o ?></td>
 </tr>
 <?php endforeach; ?>
