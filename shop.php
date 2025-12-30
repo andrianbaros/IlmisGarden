@@ -48,23 +48,45 @@ $sql = "
 $params = [];
 
 if ($catalogFilter) {
-  $sql .= " AND p.catalog IN (" . str_repeat('?,', count($catalogFilter)-1) . "?)";
-  $params = array_merge($params, $catalogFilter);
+  $likes = [];
+  foreach ($catalogFilter as $c) {
+    $likes[] = "FIND_IN_SET(LOWER(REPLACE(?,' ','')), LOWER(REPLACE(p.catalog,' ','')))";
+    $params[] = strtolower($c);
+  }
+  $sql .= " AND p.catalog IS NOT NULL AND (" . implode(" OR ", $likes) . ")";
 }
+
+
 if ($flowerFilter) {
-  $sql .= " AND p.flower IN (" . str_repeat('?,', count($flowerFilter)-1) . "?)";
-  $params = array_merge($params, $flowerFilter);
+  $likes = [];
+  foreach ($flowerFilter as $f) {
+    $likes[] = "FIND_IN_SET(LOWER(REPLACE(?,' ','')), LOWER(REPLACE(p.flower,' ','')))";
+    $params[] = strtolower($f);
+  }
+  $sql .= " AND p.flower IS NOT NULL AND (" . implode(" OR ", $likes) . ")";
 }
+
 if ($occasionFilter) {
-  $sql .= " AND p.occasion IN (" . str_repeat('?,', count($occasionFilter)-1) . "?)";
-  $params = array_merge($params, $occasionFilter);
+  $likes = [];
+  foreach ($occasionFilter as $o) {
+    $likes[] = "FIND_IN_SET(LOWER(REPLACE(?,' ','')), LOWER(REPLACE(p.occasion,' ','')))";
+    $params[] = strtolower($o);
+  }
+  $sql .= " AND p.occasion IS NOT NULL AND (" . implode(" OR ", $likes) . ")";
 }
+
+
+
+/* =============================
+   PRICE
+============================= */
 if ($priceFilterActive && $maxPrice) {
   $sql .= " AND p.price <= ?";
   $params[] = $maxPrice;
 }
 
 $sql .= " ORDER BY p.id DESC";
+
 
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
@@ -153,7 +175,7 @@ $products = $stmt->fetchAll();
 }
 
 
-}
+
 </style>
 </head>
 <body>
