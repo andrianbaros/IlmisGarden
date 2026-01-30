@@ -454,7 +454,7 @@
     </div>
 
      <!-- Product Section -->
-  <section class="artisan-section">
+  <section class="artisan-section" class="container" style="padding-bottom:100px;">
     <div class="artisan-card">
       <div class="artisan-content">
         <p><i>Blooming Bar & Lush Petals — Let Your Bathing Time Blossom Beautifully</i>
@@ -466,6 +466,42 @@
     </div>
 
   </section>
+<footer
+  style="
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#283128;
+    color:#d9d9d9;
+    text-align:center;
+    padding:10px 10px;
+    z-index:9999;
+    font-size:14px;
+  ">
+
+
+  <!-- Address -->
+  <div style="margin-bottom:6px;">
+    Jalan Raya Golf Dago No. 4, Bandung
+  </div>
+
+  <!-- WA & IG sejajar -->
+  <div style="display:flex; justify-content:center; gap:20px;">
+    <a href="https://wa.me/6285795077194"
+       target="_blank"
+       style="color:#d9d9d9;">
+       WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/ilmisgarden/"
+       target="_blank"
+       style="color:#d9d9d9;">
+       Instagram
+    </a>
+  </div>
+
+</footer>
 
  <script>feather.replace();
 

@@ -121,24 +121,41 @@ require 'conn/db.php';
 </section>
 
 
-<!-- Footer -->
-<footer class="footer">
-  <div style="margin-bottom: 3rem;">
-    <a href="" style="padding: 3rem; color:#d9d9d9;">Home</a>
-    <a href="" style="padding: 3rem; color:#d9d9d9">About Us</a>
-    <a href="" style="padding: 3rem; color:#d9d9d9">Product</a>
-    <a href="" style="padding: 3rem; color:#d9d9d9">Contact</a>
+<footer
+  style="
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#283128;
+    color:#d9d9d9;
+    text-align:center;
+    padding:10px 10px;
+    z-index:9999;
+    font-size:14px;
+  ">
+
+
+  <!-- Address -->
+  <div style="margin-bottom:6px;">
+    Jalan Raya Golf Dago No. 4, Bandung
   </div>
 
-  <div style="margin-bottom: 3rem;">
-    <p>Jalan Raya Golf Dago No. 4, Bandung, Jawa Barat, Indonesia</p>
-    <p>(WhatsApp : +62 857-9507-7194 )</p>
+  <!-- WA & IG sejajar -->
+  <div style="display:flex; justify-content:center; gap:20px;">
+    <a href="https://wa.me/6285795077194"
+       target="_blank"
+       style="color:#d9d9d9;">
+       WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/ilmisgarden/"
+       target="_blank"
+       style="color:#d9d9d9;">
+       Instagram
+    </a>
   </div>
 
-  <div>
-    <p>Follow Us</p>
-    <a href=""></a><a href=""></a>
-  </div>
 </footer>
 
 

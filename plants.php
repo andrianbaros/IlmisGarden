@@ -165,7 +165,7 @@
   </div>
 
   <!-- VARIETY -->
-  <div class="catalog-item gray">
+  <div class="catalog-item gray" class="container" style="padding-bottom:100px;">
     <h4 class="orchid-var-title">Variety</h4>
     <div class="orchid-variety">
       <img src="img/orchid-var1.png" alt="Var 1">
@@ -177,7 +177,45 @@
   </div>
 
 </section>
+  <!-- Contact -->
+  <section class="contact">
+     </section>
+<footer
+  style="
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    background:#283128;
+    color:#d9d9d9;
+    text-align:center;
+    padding:10px 10px;
+    z-index:9999;
+    font-size:14px;
+  ">
 
+
+  <!-- Address -->
+  <div style="margin-bottom:6px;">
+    Jalan Raya Golf Dago No. 4, Bandung
+  </div>
+
+  <!-- WA & IG sejajar -->
+  <div style="display:flex; justify-content:center; gap:20px;">
+    <a href="https://wa.me/6285795077194"
+       target="_blank"
+       style="color:#d9d9d9;">
+       WhatsApp
+    </a>
+
+    <a href="https://www.instagram.com/ilmisgarden/"
+       target="_blank"
+       style="color:#d9d9d9;">
+       Instagram
+    </a>
+  </div>
+
+</footer>
 
 <script>
   feather.replace();
