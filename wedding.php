@@ -250,7 +250,7 @@ Bloom with Beauty</h1>
         </div>
       </div>
     </div>
-    <footer
+<footer
   style="
     position:fixed;
     bottom:0;
@@ -264,25 +264,26 @@ Bloom with Beauty</h1>
     font-size:14px;
   ">
 
-
   <!-- Address -->
   <div style="margin-bottom:6px;">
     Jalan Raya Golf Dago No. 4, Bandung
   </div>
 
-  <!-- WA & IG sejajar -->
-  <div style="display:flex; justify-content:center; gap:20px;">
+  <!-- WA & IG icon -->
+  <div style="display:flex; justify-content:center; gap:25px; font-size:20px;">
+    
     <a href="https://wa.me/6285795077194"
        target="_blank"
        style="color:#d9d9d9;">
-       WhatsApp
+       <i data-feather="message-circle">+6285795077194</i>
     </a>
 
     <a href="https://www.instagram.com/ilmisgarden/"
        target="_blank"
        style="color:#d9d9d9;">
-       Instagram
+       <i data-feather="instagram">@ilmisGarden</i>
     </a>
+
   </div>
 
 </footer>
