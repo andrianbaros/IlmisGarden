@@ -130,9 +130,9 @@ require 'conn/db.php';
     background:#283128;
     color:#d9d9d9;
     text-align:center;
-    padding:10px 10px;
+    padding:8px 10px;
     z-index:9999;
-    font-size:14px;
+    font-size:13px;
   ">
 
   <!-- Address -->
@@ -140,24 +140,45 @@ require 'conn/db.php';
     Jalan Raya Golf Dago No. 4, Bandung
   </div>
 
-  <!-- WA & IG icon -->
-  <div style="display:flex; justify-content:center; gap:25px; font-size:20px;">
+  <!-- WA & IG -->
+  <div style="
+      display:flex;
+      justify-content:center;
+      gap:40px;
+  ">
     
+    <!-- WhatsApp -->
     <a href="https://wa.me/6285795077194"
        target="_blank"
-       style="color:#d9d9d9;">
-       <i data-feather="message-circle">+6285795077194</i>
+       style="
+         color:#d9d9d9;
+         display:flex;
+         flex-direction:column;
+         align-items:center;
+         text-decoration:none;
+       ">
+       <i data-feather="message-circle"></i>
+       <span style="margin-top:3px;">+62 857-9507-7194</span>
     </a>
 
+    <!-- Instagram -->
     <a href="https://www.instagram.com/ilmisgarden/"
        target="_blank"
-       style="color:#d9d9d9;">
-       <i data-feather="instagram">@ilmisGarden</i>
+       style="
+         color:#d9d9d9;
+         display:flex;
+         flex-direction:column;
+         align-items:center;
+         text-decoration:none;
+       ">
+       <i data-feather="instagram"></i>
+       <span style="margin-top:3px;">@ilmisgarden</span>
     </a>
 
   </div>
 
 </footer>
+
 
 
     <!-- feather icons -->
