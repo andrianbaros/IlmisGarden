@@ -20,8 +20,10 @@ $flowers = [
 
 $occasions = [
   'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
-  'Gift','Raya','Valentine','Wedding'
+  'Gift','Raya','Valentine','Wedding',
+  'Sebulan Penuh Cinta','Imlek'
 ];
+
 
 /* =============================
    GET FILTER
@@ -174,6 +176,19 @@ $products = $stmt->fetchAll();
   }
 }
 
+.filter-actions {
+  margin-top:20px;
+  display:flex;
+  flex-direction:column;   /* ini bikin turun ke bawah */
+  align-items:flex-start;
+  gap:10px;
+}
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+  
 
 
 </style>
@@ -271,24 +286,28 @@ $products = $stmt->fetchAll();
 
 
 <div class="filter-actions">
-  <label>
-    <input type="checkbox" name="price_filter" <?= $priceFilterActive ? 'checked' : '' ?>>
-    Max Price
-  </label>
 
-  <?php if ($priceFilterActive): ?>
-    <input
-      type="number"
-      name="max_price"
-      min="0"
-      step="1000"
-      placeholder="Contoh: 500000"
-      value="<?= htmlspecialchars($maxPrice ?? '') ?>"
-    >
-  <?php endif; ?>
+  <div class="price-row">
+    <label>
+      <input type="checkbox" name="price_filter"
+        <?= $priceFilterActive ? 'checked' : '' ?>>
+      Max Price
+    </label>
+
+    <?php if ($priceFilterActive): ?>
+      <input type="number"
+        name="max_price"
+        min="0"
+        step="1000"
+        placeholder="Contoh: 500000"
+        value="<?= htmlspecialchars($maxPrice ?? '') ?>">
+    <?php endif; ?>
+  </div>
 
   <button type="submit">Apply Filter</button>
+
 </div>
+
 
 
 </form>
@@ -300,13 +319,20 @@ $products = $stmt->fetchAll();
 <?php else: ?>
   <?php foreach ($products as $p): ?>
     <?php $img = $p['main_image'] ?: 'img/no-image.png'; ?>
-    <div class="product-card">
-      <div class="product-image"
-           style="background:url('<?= htmlspecialchars($img) ?>') center/cover no-repeat;"></div>
-      <h4><?= htmlspecialchars($p['name']) ?></h4>
-      <p class="price">Rp <?= number_format($p['price'],0,',','.') ?></p>
-      <a href="product_details.php?id=<?= $p['id'] ?>" class="buy-button">BUY</a>
-    </div>
+<div class="product-card">
+
+  <a href="product_details.php?id=<?= $p['id'] ?>">
+    <div class="product-image"
+         style="background:url('<?= htmlspecialchars($img) ?>') center/cover no-repeat;"></div>
+  </a>
+
+  <h4><?= htmlspecialchars($p['name']) ?></h4>
+  <p class="price">Rp <?= number_format($p['price'],0,',','.') ?></p>
+
+  <a href="product_details.php?id=<?= $p['id'] ?>" class="buy-button">BUY</a>
+
+</div>
+
   <?php endforeach; ?>
 <?php endif; ?>
 </section>
