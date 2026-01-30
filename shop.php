@@ -179,23 +179,34 @@ $products = $stmt->fetchAll();
 </style>
 </head>
 <body>
-
+<!-- Navbar Start -->
     <nav class="navbar">
-
-      <a href="index.php" class="navbar-logo">
+<a href="index.php" class="navbar-logo">
   <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
 </a>
-      <div class="navbar-nav">
-        <a href="product.php" >Product</a>
-        <a href="shop.php"  class="active">Catalog</a>
-        <a href="index.php#about">About Us</a>
-      </div>
+
+
+      
+<div class="navbar-nav">
+  <a href="product.php">Product</a>
+  <a href="shop.php" data-section="catalog" class="active">Catalog</a>
+  <a href="index.php#about" data-section="about">About Us</a>
+</div>
+
       <div class="navbar-extra">
-      <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
+        
+
+
+        <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
         <a href="profile.php" id="user"><i data-feather="user"></i></a>
-        <i id="menu" data-feather="menu"></i>
+        <a href="#" id="menu-btn">
+  <i data-feather="menu"></i>
+</a>
+
+
       </div>
     </nav>
+    <!-- Navbar End -->
 
 
 <div class="container">
@@ -324,11 +335,27 @@ $products = $stmt->fetchAll();
       }
     });
   });
-</script>
 
-<script>
-  feather.replace();
-</script>
+feather.replace();
+
+const navbarNav = document.querySelector(".navbar-nav");
+const menuBtn = document.querySelector("#menu-btn");
+
+menuBtn.addEventListener("click", function(e){
+  e.preventDefault();
+  e.stopPropagation();
+  navbarNav.classList.toggle("active");
+});
+
+document.addEventListener("click", function (e) {
+  if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
+    navbarNav.classList.remove("active");
+  }
+});
+
+    </script>
+    <!-- js -->
+    <script src="js/script.js"></script>
 
 </body>
 </html>

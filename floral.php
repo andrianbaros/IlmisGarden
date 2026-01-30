@@ -39,7 +39,10 @@
     <div class="navbar-extra">
       <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
       <a href="profile.php" id="user"><i data-feather="user"></i></a>
-      <i id="menu" data-feather="menu"></i>
+ <a href="#" id="menu-btn">
+  <i data-feather="menu"></i>
+</a>
+
     </div>
   </nav>
 
@@ -565,7 +568,23 @@
 
   <script>
     feather.replace();
-  </script>
+  const navbarNav = document.querySelector(".navbar-nav");
+const menuBtn = document.querySelector("#menu-btn");
 
+menuBtn.addEventListener("click", function(e){
+  e.preventDefault();
+  e.stopPropagation();
+  navbarNav.classList.toggle("active");
+});
+
+document.addEventListener("click", function (e) {
+  if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
+    navbarNav.classList.remove("active");
+  }
+});
+
+    </script>
+    <!-- js -->
+    <script src="js/script.js"></script>
 </body>
 </html>
