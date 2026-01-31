@@ -76,18 +76,25 @@ require 'conn/db.php';
 <!-- Bouquet Section -->
 
 
-<section class="bouquet-section">
+<section class="bouquet-section" style="margin-top:100px"> 
+  <div class="bouquet-card"><a href="imlek.php">
+    <img src="img/imlek.png" alt="Imlek" >
+    <div class="overlay">
+    </div></a>      
+  </div>
+  <div class="bouquet-card"><a href="bulan-penuh-cinta.php">
+    <img src="img/Bulanpenuhcinta.png" alt="Imlek" >
+    <div class="overlay">
+    </div></a>      
+  </div>
+
+
   <div class="bouquet-card"><a href="wedding.php">
     <img src="img/Product (2).png" alt="Wedding Bouquet">
     <div class="overlay">
     </div></a>
   </div>
 
-  <!-- <div class="bouquet-card"><a href="bouquet.php">
-    <img src="img/Product (3).png" alt="Flower Bouquet" >
-    <div class="overlay">
-    </div></a>      
-  </div> -->
 
   <div class="bouquet-card"><a href="workshop.php">
     <img src="img/Product (1).png" alt="Workshop Class">
@@ -119,7 +126,9 @@ require 'conn/db.php';
     </div>
   </div>
 </section>
-
+<section style="margin-bottom: 100px";>
+.
+</section>
 
 <footer
   style="
@@ -136,47 +145,50 @@ require 'conn/db.php';
   ">
 
   <!-- Address -->
-  <div style="margin-bottom:6px;">
-    Jalan Raya Golf Dago No. 4, Bandung
-  </div>
+  <div style="margin-bottom:10px;">
+  <a
+          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
+          target="_blank"
+          style="color:#d9d9d9;"
+        >
+    Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
+  </a>  <br>
+</div>
 
-  <!-- WA & IG -->
-  <div style="
-      display:flex;
-      justify-content:center;
-      gap:40px;
-  ">
-    
+  <!-- Social Icons -->
+  <div style="display:flex; justify-content:center; gap:28px; align-items:center;">
+
     <!-- WhatsApp -->
     <a href="https://wa.me/6285795077194"
        target="_blank"
-       style="
-         color:#d9d9d9;
-         display:flex;
-         flex-direction:column;
-         align-items:center;
-         text-decoration:none;
-       ">
-       <i data-feather="message-circle"></i>
-       <span style="margin-top:3px;">+62 857-9507-7194</span>
+       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
+        <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
+      </svg>
+      <span>WA</span>
     </a>
 
     <!-- Instagram -->
     <a href="https://www.instagram.com/ilmisgarden/"
        target="_blank"
-       style="
-         color:#d9d9d9;
-         display:flex;
-         flex-direction:column;
-         align-items:center;
-         text-decoration:none;
-       ">
-       <i data-feather="instagram"></i>
-       <span style="margin-top:3px;">@ilmisgarden</span>
+       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
+        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
+      </svg>
+      <span>IG</span>
+    </a>
+
+    <!-- TikTok -->
+    <a href="https://www.tiktok.com/@ilmisgarden"
+       target="_blank"
+       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
+        <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
+      </svg>
+      <span>TikTok</span>
     </a>
 
   </div>
-
 </footer>
 
 

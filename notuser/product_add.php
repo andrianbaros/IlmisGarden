@@ -16,9 +16,20 @@ $flowers = [
 ];
 
 $occasions = [
-  'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
-  'Gift','Raya','Valentine','Wedding','Workshop'
+  'Anniversary',
+  'Birthday',
+  'Christmas',
+  'Graduation',
+  'Grand Opening',
+  'Gift',
+  'Raya',
+  'Valentine',
+  'Wedding',
+  'Workshop',
+  'Imlek',
+  'Sebulan Penuh Cinta'
 ];
+
 
 /* =============================
    INSERT PRODUCT

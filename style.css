@@ -409,3 +409,14 @@ h3 {
 .accordion-item.active .accordion-header .icon {
   transform: rotate(90deg);
 }
+/* Default: desktop → menu disembunyikan */
+#menu-btn {
+  display: none;
+}
+
+/* Muncul hanya di layar kecil */
+@media (max-width: 1366px) {
+  #menu-btn {
+    display: inline-block;
+  }
+}
