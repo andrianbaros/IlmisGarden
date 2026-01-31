@@ -216,7 +216,7 @@ $products = $stmt->fetchAll();
 <div class="navbar-nav">
   <a href="product.php">Product</a>
   <a href="shop.php" data-section="catalog" class="active">Catalog</a>
-  <a href="index.php#about" data-section="about">About Us</a>
+  <a href="about.php" data-section="about">About Us</a>
 </div>
 
       <div class="navbar-extra">

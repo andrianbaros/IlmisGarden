@@ -184,7 +184,7 @@ if (isset($_POST['add_to_cart'])) {
   <div class="navbar-nav">
     <a href="shop.php">Product</a>
     <a href="index.php#catalog">Catalog</a>
-    <a href="index.php#about">About</a>
+    <a href="about.php">About</a>
   </div>
 
   <div class="navbar-extra">

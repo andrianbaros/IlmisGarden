@@ -112,7 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="navbar-nav">
         <a href="product.php">Product</a>
         <a href="shop.php">Catalog</a>
-        <a href="index.php#about">About Us</a>
+        <a href="about.php">About Us</a>
       </div>
       <div class="navbar-extra">
         
