@@ -191,7 +191,7 @@ Bloom with Beauty</h1>
       </div>
 
       <div class="bouquet">
-        <img src="img/Frame 209 (3).png" alt="Pageant Bouquet" />
+        <img src="img/IMG_1716.jpg" alt="Pageant Bouquet" />
         <div class="bouquet-text">
           <h3>Pageant</h3>
           <p>

@@ -756,3 +756,49 @@ body {
     display: inline-block;
   }
 }
+
+/* ===== SPOTLIGHT SECTION ===== */
+.spotlight-section {
+  margin-top: 140px; /* aman dari navbar */
+  display: grid;
+  grid-template-columns: repeat(2, 300px); /* sama kayak bouquet */
+  gap: 30px;
+  justify-content: center;
+  padding: 0 80px 80px;
+}
+
+.spotlight-card {
+  position: relative;
+  width: 300px;   /* SAMA */
+  height: 450px;  /* SAMA */
+  border-radius: 16px; /* SAMA */
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* SAMA */
+  transition: transform 0.3s ease;
+}
+
+.spotlight-card:hover {
+  transform: translateY(-8px);
+}
+
+.spotlight-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+@media (max-width: 900px) {
+  .spotlight-section {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 40px 20px;
+    justify-items: center;
+  }
+
+  .spotlight-card {
+    width: 100%;
+    max-width: 150px; /* sama kayak bouquet HP */
+    height: 330px;
+  }
+}
+

@@ -74,19 +74,20 @@ require 'conn/db.php';
 
     <!-- Navbar End -->
 <!-- Bouquet Section -->
+<section class="spotlight-section">
+
+  <a href="bulan-penuh-cinta.php" class="spotlight-card">
+    <img src="img/Bulanpenuhcinta.png" alt="Bulan Penuh Cinta">
+  </a>
+
+  <a href="imlek.php" class="spotlight-card">
+    <img src="img/imlek.png" alt="Imlek">
+  </a>
+
+</section>
 
 
 <section class="bouquet-section" style="margin-top:100px"> 
-  <div class="bouquet-card"><a href="imlek.php">
-    <img src="img/imlek.png" alt="Imlek" >
-    <div class="overlay">
-    </div></a>      
-  </div>
-  <div class="bouquet-card"><a href="bulan-penuh-cinta.php">
-    <img src="img/Bulanpenuhcinta.png" alt="Imlek" >
-    <div class="overlay">
-    </div></a>      
-  </div>
 
 
   <div class="bouquet-card"><a href="wedding.php">

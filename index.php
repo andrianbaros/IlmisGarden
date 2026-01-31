@@ -315,7 +315,7 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
     <!-- Kanan: gambar -->
     <div class="weddingpkg-img">
-      <img src="img/weddingpkg.png" alt="Wedding Package">
+      <img src="img/weddingpkg.jpg" alt="Wedding Package">
     </div>
   </div>
   
