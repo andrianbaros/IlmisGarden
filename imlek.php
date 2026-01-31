@@ -61,7 +61,7 @@
     <p>Bersama IlmisGarden</p>
 
     <!-- BUTTON AWAL -->
-    <a href="shop.php?moment=imlek" class="btn-primary">
+    <a href="shop.php?occasion%5B%5D=Imlek" class="btn-primary">
       Lihat Koleksi Imlek
     </a>
   </div>
@@ -179,7 +179,7 @@
 
 <!-- ================= CTA AKHIR ================= -->
 <section class="article-cta" >
-  <a href="shop.php?moment=imlek" class="btn-primary" >
+  <a href="shop.php?occasion%5B%5D=Imlek" class="btn-primary" >
     Lihat Semua Koleksi Imlek
   </a>
 </section>

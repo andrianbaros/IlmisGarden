@@ -217,59 +217,84 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
   <h2 class="section-title">Explore Our Catalog</h2>
   <div class="catalog-grid">
     <!-- Kolom Kiri -->
+    
     <div class="catalog-column">
-      <div class="catalog-item">
+      <a href="shop.php?catalog%5B%5D=Bouquet">
+      <div class="catalog-item" >
         <div class="catalog-text">Bouquet</div>
         <div class="catalog-img"><img src="img/bouquet.png" alt="Bouquet"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Basket">
       <div class="catalog-item">
         <div class="catalog-text">Basket</div>
         <div class="catalog-img"><img src="img/basket.png" alt="Basket"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Add-on">
       <div class="catalog-item">
         <div class="catalog-text">Add-on</div>
         <div class="catalog-img"><img src="img/addon.jpg" alt="Orchid"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Blooming Canvas">
       <div class="catalog-item">
         <div class="catalog-text">Blooming Canvas</div>
         <div class="catalog-img"><img src="img/BloomingCanvas.jpg" alt="BloomingCanvas"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Money Bouquet">
       <div class="catalog-item">
         <div class="catalog-text">Money Bouquet</div>
         <div class="catalog-img"><img src="img/MoneyBouquet.jpg" alt="MoneyBouquet"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Dried Flowers">
       <div class="catalog-item">
         <div class="catalog-text">Dried Flower Bouquet</div>
         <div class="catalog-img"><img src="img/DriedFlowerBouquet.jpg" alt="DriedFlowerBouquet"></div>
       </div>
+    </a>
     </div>
 
     <!-- Kolom Kanan -->
     <div class="catalog-column">
+      <a href="shop.php?catalog%5B%5D=Box">
       <div class="catalog-item">
         <div class="catalog-text">Box</div>
         <div class="catalog-img"><img src="img/box.png" alt="Box"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Standing Flowers">
       <div class="catalog-item">
         <div class="catalog-text">Standing Flower</div>
         <div class="catalog-img"><img src="img/standing.png" alt="Standing Flower"></div>
       </div>
+      </a>
+      <a href="shop.php?catalog%5B%5D=Vase">
       <div class="catalog-item">
         <div class="catalog-text">Vase</div>
         <div class="catalog-img"><img src="img/vase.png" alt="Vase"></div>
       </div>
+    </a>
+    <a href="artisan.php">
       <div class="catalog-item">
         <div class="catalog-text">Artisan Product</div>
         <div class="catalog-img"><img src="img/ArtisanProductmenu.png" alt="ArtisanProduct"></div>
       </div>
+    </a>
+      <a href="shop.php?catalog%5B%5D=Artificial Flowers">
       <div class="catalog-item">
         <div class="catalog-text">Artificial Flower Bouquet</div>
         <div class="catalog-img"><img src="img/ArtificialFlowerBouquet.jpg" alt="ArtificialFlowerBouquet"></div>
       </div>
+      </a>
+      <a href="plants.php">
       <div class="catalog-item">
         <div class="catalog-text">Real Plant</div>
         <div class="catalog-img"><img src="img/realplants.png" alt="RealPlant"></div>
       </div>
+      </a>
     </div>
   </div>
   <a href="shop.php" class="view-all">view all catalog</a>

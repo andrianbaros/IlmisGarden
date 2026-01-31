@@ -84,7 +84,7 @@
     <p>Perayaan rasa, perhatian, dan keindahan dalam setiap rangkaian bunga.</p>
 
     <!-- BUTTON AWAL -->
-    <a href="shop.php?moment=bulan-penuh-cinta" class="btn-primary">
+    <a href="http://localhost/a/shop.php?occasion%5B%5D=Sebulan+Penuh+Cinta" class="btn-primary">
       Lihat Koleksi Bulan Penuh Cinta
     </a>
   </div>
