@@ -1,0 +1,386 @@
+:root {
+    --bg-main: #2c6049;
+    --text-heading: #e4a6cc;
+    --text-body: #ded0c0;
+    --bg-soft: #355f50;
+    --border-soft: rgba(222, 208, 192, 0.3);
+  }
+  
+  /* =============================
+   CUSTOM FONTS
+============================= */
+@font-face {
+  font-family: 'Gulfs Display';
+  src: url('../fonts/GulfsDisplay-Regular.woff2') format('woff2'),
+       url('../fonts/GulfsDisplay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'TT Fors Display';
+  src: url('../fonts/TTForsDisplay-Regular.woff2') format('woff2'),
+       url('../fonts/TTForsDisplay-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* =============================
+   ARTICLE BASE
+============================= */
+body {
+    font-family: 'TT Fors Display', sans-serif;
+    color: var(--text-body);
+    background-color: var(--bg-main);
+    line-height: 1.7;
+  }
+  
+  h1, h2, h3 {
+    font-family: 'Gulfs Display', serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--text-heading);
+  }
+  
+/* =============================
+   POSTER HEADER (1414 x 2000)
+============================= */
+.poster-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  padding: 4rem 6%;
+  background: var(--bg-main);
+}
+
+.poster-side {
+  display: flex;
+  justify-content: center;
+}
+
+.poster-side img {
+  width: 100%;
+  max-width: 420px; /* aman utk 1414px original */
+  aspect-ratio: 1414 / 2000;
+  object-fit: contain; /* PENTING: tidak terpotong */
+  border-radius: 26px;
+  background: #1f4d3b; /* fallback kalau png transparan */
+}
+
+
+/* =============================
+   RESPONSIVE
+============================= */
+@media (max-width: 768px) {
+  .poster-header {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .poster-side img {
+    max-width: 320px;
+  }
+}
+
+
+
+
+  /* =============================
+     HERO
+  ============================= */
+  .article-hero {
+    padding: 6rem 8%;
+    background: var(--bg-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .article-hero-content {
+    max-width: 720px;
+  }
+  
+  .article-hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 1rem;
+  }
+  
+  .article-hero p {
+    font-size: 1.05rem;
+    color: var(--text-body);
+    margin-bottom: 2rem;
+  }
+  
+  /* =============================
+     BUTTONS
+  ============================= */
+  .btn-primary, {
+    background-color: var(--text-heading);
+    color: #2c6049;
+  }
+  .btn-secondary {
+    display: inline-block;
+    padding: 0.85rem 2rem;
+    border-radius: 30px;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  
+  .btn-primary {
+    background-color: #2e2e2e;
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #f1b9d8;
+  }
+  
+  .btn-secondary {
+    border: 1px solid var(--text-heading);
+    color: var(--text-heading);
+    background: transparent;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--text-heading);
+    color: #2c6049;
+  }
+  
+  /* =============================
+     ARTICLE CONTENT
+  ============================= */
+  .article-content {
+    padding: 4.5rem 8%;
+    max-width: 850px;
+    margin: auto;
+  }
+  
+  .article-content p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+  }
+  
+  /* =============================
+     PRODUCT LIST
+  ============================= */
+  .article-products {
+    padding: 4rem 8%;
+    background: #fafafa;
+  }
+  
+  .article-products h2 {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+  
+  .product-group {
+    max-width: 720px;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+  
+  .product-group h3 {
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .product-group ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  
+  .product-group ul li {
+    padding: 0.4rem 0;
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border-soft);
+  }
+  
+  /* =============================
+     LOVE CONFESSION
+  ============================= */
+  .article-confession {
+    padding: 4rem 8%;
+    background: var(--bg-main);
+    text-align: center;
+    color: var(--text-body);
+  }
+  
+  .article-confession h2 {
+    margin-bottom: 1.2rem;
+  }
+  
+  .article-confession p {
+    max-width: 620px;
+    margin: auto;
+    margin-bottom: 1.2rem;
+    font-size: 0.95rem;
+    color: #ffffff;
+  }
+  
+  /* =============================
+     CTA AKHIR
+  ============================= */
+  .article-cta {
+    padding: 3.5rem 8%;
+    text-align: center;
+    background: var(--bg-soft);
+  }
+  
+  /* =============================
+   ARTICLE IMAGE
+============================= */
+.article-image {
+    padding: 3.5rem 8%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .article-image img {
+    width: 100%;
+    max-width: 1000px;
+    border-radius: 18px;
+    object-fit: cover;
+  }
+  
+  /* =============================
+     ARTICLE GALLERY
+  ============================= */
+  .article-gallery {
+    padding: 3rem 8%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .article-gallery img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 16px;
+  }
+  
+  /* =============================
+     RESPONSIVE GALLERY
+  ============================= */
+  @media (max-width: 768px) {
+    .article-gallery {
+      grid-template-columns: 1fr;
+    }
+  
+    .article-image {
+      padding: 2.5rem 6%;
+    }
+  }
+
+  /* =============================
+   PRODUCT VERTICAL LAYOUT
+============================= */
+.article-products {
+    padding: 4.5rem 8%;
+    background: #fafafa;
+  }
+  
+  .article-products h2 {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .product-vertical {
+    max-width: 1000px;
+    margin: 0 auto 4.5rem;
+  }
+  
+  .product-header {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+  }
+  
+  .product-header h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .product-header p {
+    font-size: 0.95rem;
+    color: #555;
+  }
+  
+  /* =============================
+     IMAGE ROW
+  ============================= */
+  .product-images-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+  }
+  
+  
+  .product-image-item {
+    width: 220px; /* konsisten & rapi */
+    text-align: center;
+  }
+  
+  
+  .product-image-item img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 18px;
+    margin-bottom: 0.7rem;
+  }
+  
+  .product-image-item span {
+    font-size: 0.9rem;
+    color: #2e2e2e;
+    display: block;
+  }
+  
+  /* =============================
+     RESPONSIVE
+  ============================= */
+  @media (max-width: 768px) {
+    .product-images-row {
+      grid-template-columns: 1fr;
+    }
+  
+    .product-header h3 {
+      font-size: 1.2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .product-image-item {
+      width: 100%;
+      max-width: 280px;
+    }
+  }
+  
+  
+  /* =============================
+     RESPONSIVE
+  ============================= */
+  @media (max-width: 768px) {
+    .article-hero {
+      padding: 4rem 6%;
+    }
+  
+    .article-hero h1 {
+      font-size: 2rem;
+    }
+  
+    .article-content,
+    .article-products,
+    .article-confession,
+    .article-cta {
+      padding: 3rem 6%;
+    }
+  }
+  
