@@ -152,34 +152,34 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
       </div>
     </nav>
     <!-- Navbar End -->
-    <!-- Hero Sections-->
-    <!-- hero section start-->
-    <section class="hero" id="home">
-      <div class="slideshow">
-        <div
-          class="slide active"
-          style="background-image: url('img/Picture1.png')"
-        ></div>
-        <div
-          class="slide"
-          style="background-image: url('img/fl\ \(2\).jpeg')"
-        ></div>
-      </div>
+<!-- hero section start -->
+<section class="hero" id="home">
 
-      <main class="content">
-        <h1>Selamat datang di</h1>
-        <h1><b>Ilmisgarden</b></h1>
-        <p id="hero-text" class="fade-slide">
-        Tempat di mana setiap bunga punya cerita.<br> 
-        Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap<br> 
-        momen spesialmu.<br> 
-        Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan<br> 
-        semua kami buat dengan sentuhan hati.🌷<br>
-        </p>
-        <a href="product.php" style="color: black;"><button>Read More</button></a>
-      </main>
-    </section>
-    <!-- hero section end-->
+  <div class="slideshow">
+    <div class="slide active"
+      style="background-image:url('img/Picture1.png')"></div>
+
+    <div class="slide"
+      style="background-image:url('img/fl (2).jpeg')"></div>
+    <div class="slide"
+      style="background-image:url('img/Imlek.png')"></div>
+  </div>
+
+  <main class="content">
+    <h1>Selamat datang di</h1>
+    <h1><b>Ilmisgarden</b></h1>
+
+    <p id="hero-text" class="fade-slide"></p>
+
+    <!-- PENTING: tidak pakai <a> -->
+    <button id="hero-btn" data-link="about.php">
+      Read More
+    </button>
+  </main>
+
+</section>
+<!-- hero section end -->
+
     
 <!-- Best Sellers -->
 <section class="wedding" id="wedding">

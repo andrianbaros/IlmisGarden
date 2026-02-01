@@ -15,41 +15,60 @@ document.addEventListener("click", function (e) {
   }
 });
 
-
 // =====================
-// SLIDESHOW + CHANGE TEXT (fade + slide)
 // =====================
-let currentSlide = 0;
-const slides = document.querySelectorAll(".slide");
-const totalSlides = slides.length;
+// SLIDESHOW HERO
+// =====================
+document.addEventListener("DOMContentLoaded", () => {
+  let currentSlide = 0;
 
-const heroText = document.getElementById("hero-text");
+  const slides = document.querySelectorAll(".slide");
+  const heroText = document.getElementById("hero-text");
+  const heroBtn = document.getElementById("hero-btn");
 
-// Teks untuk setiap slide
-const texts = [
-  "tempat di mana setiap bunga punya cerita. Kami merangkai setiap tangkai dengan cinta, menghadirkan keindahan alami untuk setiap momen spesialmu. Dari buket penuh makna, hampers bunga elegan, hingga dekorasi ruangan yang menenangkan — semua kami buat dengan sentuhan hati.🌷",
+  const texts = [
+    `Tempat di mana setiap bunga punya cerita.<br>
+     Kami merangkai setiap tangkai dengan cinta
+     untuk setiap momen spesialmu. 🌷`,
 
-  "Artisan produk-produk fungsional berbahan dasar bunga berkolaborasi dengan pengrajin lokal."
-];
+    `Artisan produk berbahan dasar bunga<br>
+     berkolaborasi dengan pengrajin lokal
+     dan desain berkarakter.`,
 
-function changeSlide() {
-  // Ganti slide
-  slides[currentSlide].classList.remove("active");
-  currentSlide = (currentSlide + 1) % totalSlides;
-  slides[currentSlide].classList.add("active");
+    `Rayakan <b>Imlek</b> dengan rangkaian bunga<br>
+     penuh makna, harapan, dan keberuntungan. 🧧🌸`,
+  ];
 
-  // Fade + slide-out
-  heroText.classList.remove("show");
+  const links = ["about.php", "artisan.php", "imlek.php"];
 
-  setTimeout(() => {
-    heroText.textContent = texts[currentSlide];
+  // ===== INIT PERTAMA =====
+  heroText.innerHTML = texts[0];
+  heroBtn.dataset.link = links[0];
+  heroText.classList.add("show");
 
-    // Fade + slide-in
-    heroText.classList.add("show");
-  }, 200);
-}
+  heroBtn.addEventListener("click", () => {
+    window.location.href = heroBtn.dataset.link;
+  });
 
-setInterval(changeSlide, 4000);
+  function changeSlide() {
+    // slide visual
+    slides[currentSlide].classList.remove("active");
+    currentSlide = (currentSlide + 1) % slides.length;
+    slides[currentSlide].classList.add("active");
 
-// Tampilkan teks awal
-heroText.classList.add("show");
+    // text anim
+    heroText.classList.remove("show");
+
+    setTimeout(() => {
+      heroText.innerHTML = texts[currentSlide];
+      heroBtn.dataset.link = links[currentSlide];
+
+      // 🔥 PENTING: PAKSA repaint
+      void heroText.offsetWidth;
+
+      heroText.classList.add("show");
+    }, 300);
+  }
+
+  setInterval(changeSlide, 4000);
+});
