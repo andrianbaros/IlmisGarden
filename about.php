@@ -94,11 +94,11 @@
       </div>
 
       <div class="about-thumbnails">
-        <img src="img/about.png" onclick="setAboutImage(0)" class="active">
-        <img src="img/about.png" onclick="setAboutImage(1)">
-        <img src="img/about.png" onclick="setAboutImage(2)">
-        <img src="img/about.png" onclick="setAboutImage(3)">
-        <img src="img/about.png" onclick="setAboutImage(4)">
+        <img src="img/aboutus1.jpeg" onclick="setAboutImage(0)" class="active">
+        <img src="img/aboutus2.jpeg" onclick="setAboutImage(1)">
+        <img src="img/aboutus3.jpeg" onclick="setAboutImage(2)">
+        <img src="img/aboutus4.jpeg" onclick="setAboutImage(3)">
+        <img src="img/fototeam.jpeg" onclick="setAboutImage(4)">
       </div>
 
     </div>
@@ -297,11 +297,11 @@ document.addEventListener("click", function (e) {
     </script>
 <script>
   const aboutImages = [
-    "img/about.png",
-    "img/about.png",
-    "img/about.png",
-    "img/about.png",
-    "img/about.png"
+    "img/aboutus1.jpeg",
+    "img/aboutus2.jpeg",
+    "img/aboutus3.jpeg",
+    "img/aboutus4.jpeg",
+    "img/fototeam.jpeg"
   ];
 
   let aboutIndex = 0;

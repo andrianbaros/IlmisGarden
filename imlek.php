@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merayakan Imlek | IlmisGarden</title>
+  <title>Merayakan Imlek | Ilmisgarden</title>
 
   <link rel="icon" href="img/F4F6F4-full.png" />
 
@@ -11,29 +11,13 @@
   <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/article.css" />
 <link rel="stylesheet" href="css/article-imlek.css" />
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="https://unpkg.com/feather-icons"></script>
-<style>
-  /* Default: desktop → menu disembunyikan */
-#menu-btn {
-  display: none;
-}
 
-/* Muncul hanya di layar kecil */
-@media (max-width: 1366px) {
-  #menu-btn {
-    display: inline-block;
-  }
-}
-
-</style>
 </head>
 
-<>
+<body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
+<!-- Navbar -->
+<nav class="navbar">
     <a href="index.php" class="navbar-logo">
       <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
     </a>
@@ -53,15 +37,19 @@
     </div>
   </nav>
 
+<section class="article-imagep">
+  <img src="img/DGR01932.jpg" alt="Imlek Arrangement Ilmisgarden">
+</section>
+
 
 <!-- ================= HERO ================= -->
 <section class="article-hero">
   <div class="article-hero-content">
     <h1>Merayakan Imlek dengan Keindahan dan Makna</h1>
-    <p>Bersama IlmisGarden</p>
+    <p>Bersama Ilmisgarden</p>
 
     <!-- BUTTON AWAL -->
-    <a href="shop.php?occasion%5B%5D=Imlek" class="btn-primary">
+    <a href="shop.php?moment=imlek" class="btn-primary">
       Lihat Koleksi Imlek
     </a>
   </div>
@@ -73,19 +61,19 @@
 
   <p>
     Imlek merupakan momen pergantian tahun yang sarat akan harapan baru, keberuntungan,
-    dan kebersamaan yang hangat. Di momen istimewa ini, IlmisGarden menghadirkan keindahan
+    dan kebersamaan yang hangat. Di momen istimewa ini, Ilmisgarden menghadirkan keindahan
     rangkaian bunga yang dirancang dengan penuh perhatian dan sentuhan estetika.
   </p>
 
   <p>
-    Rangkaian bunga Imlek dari IlmisGarden cocok untuk berbagai momen—sebagai dekorasi rumah,
+    Rangkaian bunga Imlek dari Ilmisgarden cocok untuk berbagai momen—sebagai dekorasi rumah,
     hadiah untuk keluarga dan relasi, hingga simbol doa dan harapan baik bagi perjalanan
     di tahun yang baru. Lebih dari sekadar hiasan, setiap rangkaian membawa pesan
     keberuntungan dan ketulusan yang ingin dibagikan.
   </p>
 
   <p>
-    Melalui momen Imlek kali ini, IlmisGarden mengajak Anda untuk menyambut tahun baru
+    Melalui momen Imlek kali ini, Ilmisgarden mengajak Anda untuk menyambut tahun baru
     dengan keindahan yang bermakna. Biarkan bunga menjadi simbol doa, harapan, dan niat baik
     yang mengiringi setiap langkah di tahun yang akan datang.
   </p>
@@ -101,19 +89,17 @@
   <div class="product-vertical">
 
     <div class="product-header">
-      <h3>Rangkaian Imlek</h3>
+      <h3>Fortune Basket</h3>
     </div>
 
     <div class="product-images-row">
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=311" alt="Fortune Basket">
-        <span>Fortune Basket</span>
+        <img src="img/DGR01890.jpg" alt="Fortune Basket">
       </div>
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=312" alt="Golden Harmony Bloombox">
-        <span>Golden Harmony Bloombox</span>
+        <img src="img/DGR01967.jpg" alt="Golden Harmony Bloombox">
       </div>
 
 
@@ -125,24 +111,21 @@
   <div class="product-vertical">
 
     <div class="product-header">
-      <h3>Rangkaian Imlek</h3>
+      <h3>Golden Harmony Bloombox</h3>
     </div>
 
     <div class="product-images-row">
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=311" alt="Fortune Basket">
-        <span>Fortune Basket</span>
+        <img src="img/bloombox(1).jpg" alt="Fortune Basket">
       </div>
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=312" alt="Golden Harmony Bloombox">
-        <span>Golden Harmony Bloombox</span>
+        <img src="img/bloombox.jpg" alt="Golden Harmony Bloombox">
       </div>
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=313" alt="Imperial Luck Arrangement">
-        <span>Imperial Luck Arrangement</span>
+        <img src="img/bloombox(2).jpg" alt="Imperial Luck Arrangement">
       </div>
 
     </div>
@@ -153,19 +136,17 @@
   <div class="product-vertical">
 
     <div class="product-header">
-      <h3>Rangkaian Imlek</h3>
+      <h3>Imperial Luck Arrangement</h3>
     </div>
 
     <div class="product-images-row">
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=311" alt="Fortune Basket">
-        <span>Fortune Basket</span>
+        <img src="img/imperal.jpg" alt="Fortune Basket">
       </div>
 
       <div class="product-image-item">
-        <img src="https://picsum.photos/500/500?random=312" alt="Golden Harmony Bloombox">
-        <span>Golden Harmony Bloombox</span>
+        <img src="img/imperal(2).jpg" alt="Golden Harmony Bloombox">
       </div>
 
 
@@ -178,15 +159,11 @@
 
 
 <!-- ================= CTA AKHIR ================= -->
-<section class="article-cta" >
-  <a href="shop.php?occasion%5B%5D=Imlek" class="btn-primary" >
+<section class="article-cta">
+  <a href="shop.php?moment=imlek" class="btn-primary">
     Lihat Semua Koleksi Imlek
   </a>
 </section>
-<section style="margin-bottom: 100px;">.</section>
-
-
-
 <footer
   style="
     position:fixed;
@@ -202,71 +179,47 @@
   ">
 
   <!-- Address -->
-  <div style="margin-bottom:10px;">
-  <a
-          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
-          target="_blank"
-          style="color:#d9d9d9;"
-        >
-    Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
-  </a>  <br>
+  <div style="margin-bottom:6px;">
+    Jalan Raya Golf Dago No. 4, Bandung
   </div>
 
-  <!-- Social Icons -->
-  <div style="display:flex; justify-content:center; gap:28px; align-items:center;">
-
+  <!-- WA & IG -->
+  <div style="
+      display:flex;
+      justify-content:center;
+      gap:40px;
+  ">
+    
     <!-- WhatsApp -->
     <a href="https://wa.me/6285795077194"
        target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
-      </svg>
-      <span>WA</span>
+       style="
+         color:#d9d9d9;
+         display:flex;
+         flex-direction:column;
+         align-items:center;
+         text-decoration:none;
+       ">
+       <i data-feather="message-circle"></i>
+       <span style="margin-top:3px;">+62 857-9507-7194</span>
     </a>
 
     <!-- Instagram -->
-    <a href="https://www.instagram.com/ilmisgarden/"
+    <a href="https://www.instagram.com/Ilmisgarden/"
        target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-      </svg>
-      <span>IG</span>
-    </a>
-
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@ilmisgarden"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
-      </svg>
-      <span>TikTok</span>
+       style="
+         color:#d9d9d9;
+         display:flex;
+         flex-direction:column;
+         align-items:center;
+         text-decoration:none;
+       ">
+       <i data-feather="instagram"></i>
+       <span style="margin-top:3px;">@Ilmisgarden</span>
     </a>
 
   </div>
+
 </footer>
-
- <script>feather.replace();
-
-const navbarNav = document.querySelector(".navbar-nav");
-const menuBtn = document.querySelector("#menu-btn");
-
-menuBtn.addEventListener("click", function(e){
-  e.preventDefault();
-  e.stopPropagation();
-  navbarNav.classList.toggle("active");
-});
-
-document.addEventListener("click", function (e) {
-  if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove("active");
-  }
-});
-
-    </script>
-    <!-- js -->
-    <script src="js/script.js"></script>
 </body>
 </html>

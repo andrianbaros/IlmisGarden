@@ -279,6 +279,59 @@ body {
   }
 
   /* =============================
+   ARTICLE IMAGE (CROPPED LANDSCAPE)
+============================= */
+.article-imagep {
+  max-width: 900px;     /* lebar kotak */
+  height: 360px;        /* tinggi landscape */
+  margin: 3rem auto;    /* center */
+  overflow: hidden;
+  border-radius: 18px;
+  margin-top: 4rem;
+}
+
+.article-imagep img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;    /* crop rapi */
+  object-position: center 40%;
+}
+
+@media (max-width: 768px) {
+  .article-imagep {
+    max-width: 90%;
+    height: 220px;
+    margin: 2rem auto;
+  }
+}
+
+/* =============================
+   ARTICLE IMAGE (CROPPED LANDSCAPE)
+============================= */
+.article-image-land {
+  padding: 0;
+  height: 920px;              /* tinggi banner */
+  overflow: hidden;
+}
+
+.article-image-land img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;          /* crop otomatis */
+  object-position: center;    /* fokus tengah */
+  border-radius: 0;
+}
+
+@media (max-width: 768px) {
+  .article-image-land {
+    height: 460px;
+  }
+}
+
+
+
+
+  /* =============================
    PRODUCT VERTICAL LAYOUT
 ============================= */
 .article-products {

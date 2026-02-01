@@ -58,16 +58,8 @@
   </nav>
 
 <!-- ================= POSTER HEADER ================= -->
-<section class="poster-header">
-
-  <div class="poster-side left">
-    <img src="img/DGR01996.png" alt="Poster Bulan Penuh Cinta Left">
-  </div>
-
-  <div class="poster-side right">
-    <img src="img/SEBULAN PENUH CINTA.png" alt="Poster Bulan Penuh Cinta Right">
-  </div>
-
+<section class="article-image-land">
+  <img src="img/VALENTINE 2026.png" alt="Imlek Arrangement Ilmisgarden">
 </section>
 
 
