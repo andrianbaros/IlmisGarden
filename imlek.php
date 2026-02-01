@@ -6,18 +6,36 @@
   <title>Merayakan Imlek | Ilmisgarden</title>
 
   <link rel="icon" href="img/F4F6F4-full.png" />
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="https://unpkg.com/feather-icons"></script>
+
 
   <!-- CSS -->
   <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="css/article.css" />
 <link rel="stylesheet" href="css/article-imlek.css" />
+  <style>
+  /* Default: desktop → menu disembunyikan */
+#menu-btn {
+  display: none;
+}
 
+/* Muncul hanya di layar kecil */
+@media (max-width: 1366px) {
+  #menu-btn {
+    display: inline-block;
+  }
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- Navbar -->
-<nav class="navbar">
+ <!-- Navbar -->
+  <nav class="navbar">
     <a href="index.php" class="navbar-logo">
       <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
     </a>
@@ -31,20 +49,22 @@
     <div class="navbar-extra">
       <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
       <a href="profile.php" id="user"><i data-feather="user"></i></a>
-       <a href="#" id="menu-btn">
+ <a href="#" id="menu-btn">
   <i data-feather="menu"></i>
 </a>
+
     </div>
   </nav>
 
-<section class="article-imagep">
+
+<section class="article-imagep" style="margin-top: 100px;">
   <img src="img/DGR01932.jpg" alt="Imlek Arrangement Ilmisgarden">
 </section>
 
 
 <!-- ================= HERO ================= -->
-<section class="article-hero">
-  <div class="article-hero-content">
+<section class="article-hero" >
+  <div class="article-hero-content" >
     <h1>Merayakan Imlek dengan Keindahan dan Makna</h1>
     <p>Bersama Ilmisgarden</p>
 
@@ -225,6 +245,23 @@
   </div>
 </footer>
 
+ <script>feather.replace();
 
+const navbarNav = document.querySelector(".navbar-nav");
+const menuBtn = document.querySelector("#menu-btn");
+
+menuBtn.addEventListener("click", function(e){
+  e.preventDefault();
+  e.stopPropagation();
+  navbarNav.classList.toggle("active");
+});
+
+document.addEventListener("click", function (e) {
+  if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
+    navbarNav.classList.remove("active");
+  }
+});
+
+    </script>
 </body>
 </html>
