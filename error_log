@@ -1,0 +1,40 @@
+[29-Dec-2025 15:15:52 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000] [1044] Access denied for user 'ilmi8192_admin'@'ciliwung.iixcp.rumahweb.net' to database 'ilmi8192_garden' in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[29-Dec-2025 15:15:53 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000] [1044] Access denied for user 'ilmi8192_admin'@'ciliwung.iixcp.rumahweb.net' to database 'ilmi8192_garden' in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[29-Dec-2025 15:15:54 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000] [1044] Access denied for user 'ilmi8192_admin'@'ciliwung.iixcp.rumahweb.net' to database 'ilmi8192_garden' in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[29-Dec-2025 15:19:22 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[42000] [1044] Access denied for user 'ilmi8192_admin'@'ciliwung.iixcp.rumahweb.net' to database 'ilmi8192_garden' in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[09-Jan-2026 14:47:56 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] Can't connect to server on '103.247.9.152' (115) in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[09-Jan-2026 14:48:01 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] Can't connect to server on '103.247.9.152' (115) in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[29-Jan-2026 22:36:53 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] Can't connect to server on '103.247.9.152' (115) in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/profile.php(3): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[06-Mar-2026 20:28:31 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] Can't connect to server on '103.247.9.152' (115) in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/index.php(2): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17

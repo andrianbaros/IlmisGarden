@@ -87,7 +87,7 @@
 
         <img
           id="aboutMainImage"
-          src="img/about.png"
+          src="img/aboutus1.jpeg"
           alt="Ilmisgarden Gallery">
 
         <button class="about-next" onclick="nextAboutImage()">›</button>

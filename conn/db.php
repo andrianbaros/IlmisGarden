@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$db   = 'ilmisgarden_db';
+$db   = 'ilmisgarden';
 $user = 'root'; // sesuaikan username db Anda
 $pass = '';      // sesuaikan password db Anda
 $charset = 'utf8mb4';

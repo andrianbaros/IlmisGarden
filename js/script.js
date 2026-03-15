@@ -35,11 +35,11 @@ document.addEventListener("DOMContentLoaded", () => {
      berkolaborasi dengan pengrajin lokal
      dan desain berkarakter.`,
 
-    `Rayakan <b>Imlek</b> dengan rangkaian bunga<br>
-     penuh makna, harapan, dan keberuntungan. 🧧🌸`,
+     `Sempurnakan perayaan Idul Fitri dengan hampers elegan yang membawa kehangatan dan<br>
+      kebersamaan. 🌙✨`,
   ];
 
-  const links = ["about.php", "artisan.php", "imlek.php"];
+  const links = ["about.php", "artisan.php","lebaran.php"];
 
   // ===== INIT PERTAMA =====
   heroText.innerHTML = texts[0];

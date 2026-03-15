@@ -759,10 +759,10 @@ body {
 
 /* ===== SPOTLIGHT SECTION ===== */
 .spotlight-section {
-  margin-top: 140px; /* aman dari navbar */
+  margin-top: 1px; /* aman dari navbar */
   display: grid;
   grid-template-columns: repeat(2, 300px); /* sama kayak bouquet */
-  gap: 30px;
+  gap: 20px;
   justify-content: center;
   padding: 0 80px 80px;
 }
@@ -802,3 +802,39 @@ body {
   }
 }
 
+/* ===== EID BANNER ===== */
+.eid-banner {
+  margin-top: 120px; /* jarak dari navbar */
+  display: flex;
+  justify-content: center;
+  padding: 20px 80px 0;
+}
+
+
+.eid-banner img {
+  width: 50%;
+  max-width: 940px; /* kira2 selebar 3 card bouquet */
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+}
+
+.eid-banner img:hover {
+  transform: translateY(-6px);
+}
+
+/* Responsive HP */
+@media (max-width:900px){
+  .eid-banner{
+    padding:40px 20px 0;
+  }
+
+  .eid-banner img{
+    max-width:100%;
+  }
+}
+
+.eid-card{
+  margin:120px auto 20px auto; /* tengah horizontal */
+  display:block;
+}

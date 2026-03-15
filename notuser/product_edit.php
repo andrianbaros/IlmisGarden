@@ -15,7 +15,7 @@ $catalogs = [
 
 $flowers = [
   'Dianthus','Gerbera','Gompie','Hydrangea','Lilly',
-  'Lisianthus','Pom-pom','Rose','Sunflower'
+  'Lisianthus','Pom-pom','Rose','Sunflower', 'Orchid'
 ];
 
 $occasions = [
@@ -30,7 +30,8 @@ $occasions = [
   'Wedding',
   'Workshop',
   'Imlek',
-  'Sebulan Penuh Cinta'
+  'Sebulan Penuh Cinta',
+  'Eid Al Fitr'
 ];
 
 

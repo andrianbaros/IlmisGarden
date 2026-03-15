@@ -162,7 +162,7 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
     <div class="slide"
       style="background-image:url('img/fl (2).jpeg')"></div>
     <div class="slide"
-      style="background-image:url('img/Imlek.png')"></div>
+      style="background-image:url('img/lebaran_banner.png')"></div>
   </div>
 
   <main class="content">
@@ -308,7 +308,7 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
       <p>
       Setiap kisah cinta layak dirayakan dengan keindahan yang tulus. 
       <b>Wedding Bouquet by Ilmisgarden</b> dirangkai dengan sentuhan lembut dan warna-warna yang menggambarkan harapan, cinta, dan kebahagiaan. 
-      Dibuat dengan bunga segar pilihan dan desain yang menyesuaikan tema pernikahanmu — sederhana, elegan, dan penuh makna. 
+      Dibuat dengan bunga segar pilihan dan desain yang menyesuaikan tema pernikahanmu � sederhana, elegan, dan penuh makna. 
       </p>
       <a href="wedding.php" style="color: black;"><button class="btn-weddingpkg">Show More</button></a>
     </div>

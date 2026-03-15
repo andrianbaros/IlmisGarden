@@ -1,0 +1,283 @@
+:root{
+  --primary:#0097b2;
+  --primary-soft:#e8f7fa;
+  --text-dark:#1f2a30;
+  --text-soft:#5f6b73;
+  --white:#ffffff;
+  --border:#e6eef0;
+}
+
+
+/* ================================
+BASE
+================================ */
+body{
+  font-family:'TT Fors Display', sans-serif;
+  background:var(--white);
+  color:var(--text-dark);
+  line-height:1.7;
+}
+
+h1,h2,h3{
+  font-family:'Gulfs Display', serif;
+  color:var(--primary);
+  letter-spacing:0.5px;
+}
+
+
+/* ================================
+POSTER HEADER
+================================ */
+.article-image-land{
+  width:100%;
+  height:700px;
+  overflow:hidden;
+}
+
+.article-image-land img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+
+
+/* ================================
+HERO
+================================ */
+.article-hero{
+  padding:6rem 8%;
+  text-align:center;
+  background:var(--primary-soft);
+}
+
+.article-hero-content{
+  max-width:700px;
+  margin:auto;
+}
+
+.article-hero h1{
+  font-size:2.6rem;
+  margin-bottom:1rem;
+}
+
+.article-hero p{
+  color:var(--text-soft);
+  margin-bottom:2rem;
+  font-size:1rem;
+}
+
+
+/* ================================
+BUTTON
+================================ */
+.btn-primary{
+  display:inline-block;
+  background:var(--primary);
+  color:#fff;
+  padding:0.9rem 2rem;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:0.9rem;
+  letter-spacing:0.4px;
+  transition:0.25s;
+}
+
+.btn-primary:hover{
+  background:#007e95;
+}
+
+.btn-secondary{
+  display:inline-block;
+  border:1px solid var(--primary);
+  color:var(--primary);
+  padding:0.8rem 2rem;
+  border-radius:30px;
+  text-decoration:none;
+  transition:0.25s;
+}
+
+.btn-secondary:hover{
+  background:var(--primary);
+  color:white;
+}
+
+
+/* ================================
+ARTICLE CONTENT
+================================ */
+.article-content{
+  padding:5rem 8%;
+  max-width:820px;
+  margin:auto;
+}
+
+.article-content p{
+  margin-bottom:1.5rem;
+  color:var(--text-dark);
+  font-size:0.97rem;
+}
+
+
+/* ================================
+PRODUCT SECTION
+================================ */
+.article-products{
+  padding:5rem 8%;
+  background:var(--primary-soft);
+}
+
+.article-products h2{
+  text-align:center;
+  margin-bottom:3rem;
+}
+
+
+/* ================================
+PRODUCT GROUP
+================================ */
+.product-vertical{
+  max-width:1000px;
+  margin:0 auto 4rem;
+}
+
+.product-header{
+  text-align:center;
+  margin-bottom:2rem;
+}
+
+.product-header h3{
+  font-size:1.4rem;
+  margin-bottom:0.5rem;
+}
+
+.product-header p{
+  color:var(--text-soft);
+  font-size:0.9rem;
+}
+
+
+/* ================================
+PRODUCT IMAGES
+================================ */
+.product-images-row{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:1.5rem;
+}
+
+.product-image-item{
+  width:220px;
+  text-align:center;
+}
+
+.product-image-item img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border-radius:14px;
+  border:1px solid var(--border);
+  transition:0.3s;
+}
+
+.product-image-item img:hover{
+  transform:translateY(-4px);
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+.product-image-item span{
+  display:block;
+  margin-top:0.6rem;
+  font-size:0.9rem;
+  color:var(--text-dark);
+}
+
+
+/* ================================
+ARTICLE IMAGE
+================================ */
+.article-image{
+  padding:4rem 8%;
+  display:flex;
+  justify-content:center;
+}
+
+.article-image img{
+  max-width:1000px;
+  width:100%;
+  border-radius:18px;
+  object-fit:cover;
+}
+
+
+/* ================================
+CONFESSION / INFO SECTION
+================================ */
+.article-confession{
+  padding:4rem 8%;
+  text-align:center;
+  background:white;
+}
+
+.article-confession h2{
+  margin-bottom:1rem;
+}
+
+.article-confession p{
+  max-width:620px;
+  margin:auto;
+  margin-bottom:1rem;
+  color:var(--text-soft);
+}
+
+
+/* ================================
+CTA
+================================ */
+.article-cta{
+  padding:4rem 8%;
+  text-align:center;
+  background:var(--primary);
+}
+
+.article-cta .btn-primary{
+  background:white;
+  color:var(--primary);
+}
+
+.article-cta .btn-primary:hover{
+  background:#f4f9fa;
+}
+
+
+/* ================================
+RESPONSIVE
+================================ */
+@media(max-width:768px){
+
+.article-image-land{
+  height:420px;
+}
+
+.article-hero{
+  padding:4rem 6%;
+}
+
+.article-hero h1{
+  font-size:2rem;
+}
+
+.article-content,
+.article-products,
+.article-confession,
+.article-cta{
+  padding:3rem 6%;
+}
+
+.product-image-item{
+  width:100%;
+  max-width:280px;
+}
+
+}

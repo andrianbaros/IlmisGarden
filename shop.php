@@ -21,7 +21,7 @@ $flowers = [
 $occasions = [
   'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
   'Gift','Raya','Valentine','Wedding',
-  'Sebulan Penuh Cinta','Imlek'
+  'Sebulan Penuh Cinta','Imlek', 'Eid Al Fitr'
 ];
 
 

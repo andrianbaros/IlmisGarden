@@ -27,7 +27,8 @@ $occasions = [
   'Wedding',
   'Workshop',
   'Imlek',
-  'Sebulan Penuh Cinta'
+  'Sebulan Penuh Cinta',
+  'Eid Al Fitr'
 ];
 
 

@@ -73,21 +73,16 @@ require 'conn/db.php';
     </nav>
 
     <!-- Navbar End -->
-<!-- Bouquet Section -->
-<section class="spotlight-section">
 
-  <a href="bulan-penuh-cinta.php" class="spotlight-card">
-    <img src="img/Bulanpenuhcinta.png" alt="Bulan Penuh Cinta">
-  </a>
-
-  <a href="imlek.php" class="spotlight-card">
-    <img src="img/imlek.png" alt="Imlek">
-  </a>
-
-</section>
+      <!-- Card Lebaran -->
+  <div class="bouquet-card eid-card">
+    <a href="lebaran.php">
+      <img src="img/EID PETALS COLLECTION.png" alt="Eid Petals Collection">
+    </a>
+  </div>
 
 
-<section class="bouquet-section" style="margin-top:100px"> 
+<section class="bouquet-section" style="margin-top:5px"> 
 
 
   <div class="bouquet-card"><a href="wedding.php">
@@ -129,6 +124,18 @@ require 'conn/db.php';
 </section>
 <section style="margin-bottom: 100px";>
 .
+</section>
+
+<section class="spotlight-section">
+
+  <a href="bulan-penuh-cinta.php" class="spotlight-card">
+    <img src="img/Bulanpenuhcinta.png" alt="Bulan Penuh Cinta">
+  </a>
+
+  <a href="imlek.php" class="spotlight-card">
+    <img src="img/Imlek.png" alt="Imlek">
+  </a>
+
 </section>
 
 <footer
