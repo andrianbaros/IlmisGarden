@@ -25,9 +25,9 @@
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(28,34,28,0.88) 0%,
-    rgba(28,34,28,0.3) 50%,
-    rgba(28,34,28,0.05) 100%
+    rgba(28, 34, 28, 0.88) 0%,
+    rgba(28, 34, 28, 0.3) 50%,
+    rgba(28, 34, 28, 0.05) 100%
   );
 }
 
@@ -56,13 +56,15 @@
   font-size: 1rem;
   font-weight: 300;
   line-height: 1.75;
-  color: rgba(255,255,255,0.7);
+  color: rgba(255, 255, 255, 0.7);
   max-width: 460px;
   margin-bottom: 2.2rem;
 }
 
 /* ─── ARTICLE ────────────────────────────────────────── */
-.bpc-article { background: var(--cream); }
+.bpc-article {
+  background: var(--cream);
+}
 
 .bpc-article__inner {
   max-width: 780px;
@@ -86,10 +88,15 @@
   margin-bottom: 1.1rem;
 }
 
-.bpc-article__prose em { color: var(--sage-dark); font-style: italic; }
+.bpc-article__prose em {
+  color: var(--sage-dark);
+  font-style: italic;
+}
 
 /* ─── PRODUCTS ───────────────────────────────────────── */
-.bpc-products { padding-bottom: 5rem; }
+.bpc-products {
+  padding-bottom: 5rem;
+}
 
 .bpc-product-block {
   max-width: 1100px;
@@ -150,7 +157,9 @@
   transition: transform 0.4s var(--ease);
 }
 
-.bpc-product-item:hover img { transform: scale(1.04); }
+.bpc-product-item:hover img {
+  transform: scale(1.04);
+}
 
 .bpc-product-item span {
   font-size: 0.75rem;
@@ -179,7 +188,9 @@
 }
 
 /* ─── LOVE CONFESSION ────────────────────────────────── */
-.bpc-confession { background: var(--cream); }
+.bpc-confession {
+  background: var(--cream);
+}
 
 .bpc-confession__inner {
   max-width: 600px;
@@ -226,7 +237,10 @@
   margin-bottom: 2rem;
 }
 
-.bpc-confession__desc strong { color: var(--charcoal); font-weight: 500; }
+.bpc-confession__desc strong {
+  color: var(--charcoal);
+  font-weight: 500;
+}
 
 /* Confession button — rose themed */
 .btn-confession {
@@ -259,10 +273,14 @@
   transform: translateY(-1px);
 }
 
-.btn-confession:hover svg { transform: translateX(3px); }
+.btn-confession:hover svg {
+  transform: translateX(3px);
+}
 
 /* ─── FINAL CTA ──────────────────────────────────────── */
-.bpc-cta { text-align: center; }
+.bpc-cta {
+  text-align: center;
+}
 
 .bpc-cta__inner {
   max-width: 600px;
@@ -285,7 +303,7 @@
 
 .bpc-cta__sub {
   font-size: 0.92rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
   margin-bottom: 2.2rem;
 }
@@ -315,11 +333,33 @@
     max-width: 100%;
   }
 
-  .bpc-behind { padding: 0 5% 2.5rem; }
+  .bpc-behind {
+    padding: 0 5% 2.5rem;
+  }
 }
 
 @media (max-width: 480px) {
   .bpc-product-block__grid--5 {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+.floating-about {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f6f52; /* bisa sesuaikan */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-about:hover {
+  background-color: #3b5440;
+  transform: translateY(-3px);
 }

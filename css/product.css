@@ -10,7 +10,9 @@
   padding-right: 7%;
 }
 
-.page-hero__content { max-width: 700px; }
+.page-hero__content {
+  max-width: 700px;
+}
 
 .page-hero__title {
   font-family: var(--serif);
@@ -54,7 +56,11 @@
 .product-banner__overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(28,34,28,0.55) 0%, transparent 60%);
+  background: linear-gradient(
+    to right,
+    rgba(28, 34, 28, 0.55) 0%,
+    transparent 60%
+  );
   display: flex;
   align-items: center;
   padding-left: 5%;
@@ -71,7 +77,9 @@
 }
 
 /* ─── PRODUCT SECTION ────────────────────────────────── */
-.product-section { background: var(--cream); }
+.product-section {
+  background: var(--cream);
+}
 
 /* ─── CATEGORY GRID ──────────────────────────────────── */
 .category-grid {
@@ -86,13 +94,13 @@
   border-radius: var(--r-lg);
   overflow: hidden;
   background: var(--white);
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .category-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 20px 40px rgba(40,49,40,0.13);
+  box-shadow: 0 20px 40px rgba(40, 49, 40, 0.13);
 }
 
 .category-card__img {
@@ -139,7 +147,9 @@
 }
 
 /* ─── SPOTLIGHT SECTION ──────────────────────────────── */
-.spotlight-section { background: var(--warm); }
+.spotlight-section {
+  background: var(--warm);
+}
 
 .spotlight-grid {
   display: grid;
@@ -159,7 +169,7 @@
 
 .spotlight-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 20px 40px rgba(40,49,40,0.2);
+  box-shadow: 0 20px 40px rgba(40, 49, 40, 0.2);
 }
 
 .spotlight-card__img {
@@ -195,7 +205,7 @@
 
 .spotlight-card__label p {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.5;
 }
 
@@ -252,4 +262,24 @@
   .category-card__label h3 {
     font-size: 0.9rem;
   }
+}
+.floating-about {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f6f52; /* bisa sesuaikan */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-about:hover {
+  background-color: #3b5440;
+  transform: translateY(-3px);
 }

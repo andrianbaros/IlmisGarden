@@ -118,7 +118,7 @@
   </section>
 
   <!-- ─── CONTACT SECTION ───────────────────────────────── -->
-  <section class="section section--warm contact-section">
+  <section id="contact" class="section section--warm contact-section">
     <div class="section__header reveal" style="justify-content:center; text-align:center;">
       <div>
         <p class="section__label">Hubungi Kami</p>
@@ -276,5 +276,8 @@
     }
   </script>
   <script src="js/script.js"></script>
+   <a href="#contact" class="floating-about">
+  Hubungi Kami
+</a>
 </body>
 </html>

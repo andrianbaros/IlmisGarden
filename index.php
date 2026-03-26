@@ -389,5 +389,8 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
+    <a href="about.php#contact" class="floating-about">
+  Hubungi Kami
+</a>
 </body>
 </html>

@@ -234,5 +234,8 @@ require 'conn/db.php';
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
   <script src="js/script.js"></script>
+  <a href="about.php#contact" class="floating-about">
+  Hubungi Kami
+</a>
 </body>
 </html>

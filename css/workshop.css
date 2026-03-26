@@ -47,13 +47,15 @@
   font-size: 0.95rem;
   font-weight: 300;
   line-height: 1.75;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255, 255, 255, 0.65);
   margin-bottom: 2.2rem;
   max-width: 400px;
 }
 
 /* ─── INTRO ──────────────────────────────────────────── */
-.ws-intro { background: var(--cream); }
+.ws-intro {
+  background: var(--cream);
+}
 
 .ws-intro__inner {
   display: grid;
@@ -99,7 +101,9 @@
 }
 
 /* ─── BENEFITS ───────────────────────────────────────── */
-.ws-benefits { padding-bottom: 5rem; }
+.ws-benefits {
+  padding-bottom: 5rem;
+}
 
 .benefits-grid {
   display: grid;
@@ -114,13 +118,13 @@
   border-radius: var(--r-lg);
   padding: 2rem 1.6rem;
   text-align: center;
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
 .benefit-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 32px rgba(40,49,40,0.12);
+  box-shadow: 0 16px 32px rgba(40, 49, 40, 0.12);
 }
 
 .benefit-card__icon {
@@ -157,7 +161,9 @@
 }
 
 /* ─── SEGMENTS ───────────────────────────────────────── */
-.ws-segments { background: var(--cream); }
+.ws-segments {
+  background: var(--cream);
+}
 
 .segments-grid {
   display: grid;
@@ -169,7 +175,7 @@
   border-radius: var(--r-lg);
   padding: 2.2rem 2rem;
   background: var(--white);
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
   position: relative;
   overflow: hidden;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
@@ -177,13 +183,15 @@
 
 .segment-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 16px 32px rgba(40,49,40,0.12);
+  box-shadow: 0 16px 32px rgba(40, 49, 40, 0.12);
 }
 
 .segment-card::before {
-  content: '';
+  content: "";
   position: absolute;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: 3px;
   background: var(--sage);
 }
@@ -216,7 +224,9 @@
 }
 
 /* ─── FACILITIES ─────────────────────────────────────── */
-.ws-facilities { padding-bottom: 5rem; }
+.ws-facilities {
+  padding-bottom: 5rem;
+}
 
 .facilities-list {
   display: grid;
@@ -230,20 +240,22 @@
   display: flex;
   gap: 1.2rem;
   align-items: flex-start;
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: var(--r-md);
   padding: 1.5rem;
   transition: background 0.2s;
 }
 
-.facility-item:hover { background: rgba(255,255,255,0.08); }
+.facility-item:hover {
+  background: rgba(255, 255, 255, 0.08);
+}
 
 .facility-item__icon {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  background: rgba(112,136,113,0.2);
+  background: rgba(112, 136, 113, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -269,16 +281,18 @@
 .facility-item p {
   font-size: 0.82rem;
   line-height: 1.65;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255, 255, 255, 0.55);
 }
 
 /* ─── PRICELIST ──────────────────────────────────────── */
-.ws-pricelist { background: var(--cream); }
+.ws-pricelist {
+  background: var(--cream);
+}
 
 .price-table-wrap {
   overflow-x: auto;
   border-radius: var(--r-lg);
-  box-shadow: 0 4px 24px rgba(40,49,40,0.09);
+  box-shadow: 0 4px 24px rgba(40, 49, 40, 0.09);
   margin-bottom: 2.5rem;
 }
 
@@ -303,8 +317,12 @@
   white-space: nowrap;
 }
 
-.price-table th:first-child { border-radius: var(--r-md) 0 0 0; }
-.price-table th:last-child  { border-radius: 0 var(--r-md) 0 0; }
+.price-table th:first-child {
+  border-radius: var(--r-md) 0 0 0;
+}
+.price-table th:last-child {
+  border-radius: 0 var(--r-md) 0 0;
+}
 
 .price-tier {
   display: block;
@@ -324,12 +342,16 @@
 }
 
 .price-table tbody tr {
-  border-bottom: 1px solid rgba(40,49,40,0.06);
+  border-bottom: 1px solid rgba(40, 49, 40, 0.06);
   transition: background 0.15s;
 }
 
-.price-table tbody tr:last-child { border-bottom: none; }
-.price-table tbody tr:hover { background: var(--cream); }
+.price-table tbody tr:last-child {
+  border-bottom: none;
+}
+.price-table tbody tr:hover {
+  background: var(--cream);
+}
 
 .price-table td {
   padding: 1rem 1.4rem;
@@ -347,7 +369,7 @@
 }
 
 .na {
-  color: rgba(40,49,40,0.2);
+  color: rgba(40, 49, 40, 0.2);
   font-size: 1.2rem;
 }
 
@@ -356,7 +378,7 @@
   background: var(--white);
   border-radius: var(--r-lg);
   padding: 2rem 2.4rem;
-  box-shadow: 0 4px 20px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 20px rgba(40, 49, 40, 0.07);
 }
 
 .price-includes__title {
@@ -386,13 +408,15 @@
   font-size: 0.82rem;
   color: var(--muted);
   font-style: italic;
-  border-top: 1px solid rgba(40,49,40,0.07);
+  border-top: 1px solid rgba(40, 49, 40, 0.07);
   padding-top: 1rem;
   margin-top: 0.5rem;
 }
 
 /* ─── GALLERY ────────────────────────────────────────── */
-.ws-gallery { padding-bottom: 5rem; }
+.ws-gallery {
+  padding-bottom: 5rem;
+}
 
 .gallery-grid {
   display: grid;
@@ -415,10 +439,14 @@
   transition: transform 0.5s var(--ease);
 }
 
-.gallery-item:hover img { transform: scale(1.06); }
+.gallery-item:hover img {
+  transform: scale(1.06);
+}
 
 /* ─── CTA ────────────────────────────────────────────── */
-.ws-cta { text-align: center; }
+.ws-cta {
+  text-align: center;
+}
 
 .ws-cta__inner {
   max-width: 600px;
@@ -441,7 +469,7 @@
 
 .ws-cta__sub {
   font-size: 0.92rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.7;
   margin-bottom: 2.2rem;
 }
@@ -455,8 +483,12 @@
 
 /* ─── RESPONSIVE ─────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .benefits-grid { grid-template-columns: repeat(2, 1fr); }
-  .gallery-grid  { grid-template-columns: repeat(2, 1fr); }
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
@@ -465,7 +497,9 @@
     min-height: auto;
   }
 
-  .ws-hero__img { aspect-ratio: 16/9; }
+  .ws-hero__img {
+    aspect-ratio: 16/9;
+  }
 
   .ws-hero__content {
     padding: 3rem 7%;
@@ -481,14 +515,49 @@
     order: -1;
   }
 
-  .segments-grid { grid-template-columns: 1fr; max-width: 520px; margin: 0 auto; }
+  .segments-grid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+    margin: 0 auto;
+  }
 
-  .facilities-list { grid-template-columns: 1fr; }
+  .facilities-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 600px) {
-  .benefits-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
-  .gallery-grid  { grid-template-columns: repeat(2, 1fr); gap: 0.6rem; }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6rem;
+  }
   .price-table th,
-  .price-table td { padding: 0.8rem 1rem; }
+  .price-table td {
+    padding: 0.8rem 1rem;
+  }
+}
+.floating-about {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f6f52; /* bisa sesuaikan */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-about:hover {
+  background-color: #3b5440;
+  transform: translateY(-3px);
 }

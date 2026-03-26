@@ -10,7 +10,9 @@
   padding-right: 7%;
 }
 
-.page-hero__content { max-width: 700px; }
+.page-hero__content {
+  max-width: 700px;
+}
 
 .page-hero__title {
   font-family: var(--serif);
@@ -44,16 +46,23 @@
   background: var(--white);
   border-radius: var(--r-lg);
   padding: 1.8rem;
-  box-shadow: 0 4px 20px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 20px rgba(40, 49, 40, 0.07);
   max-height: calc(100vh - 108px);
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--sage-light) transparent;
 }
 
-.shop-sidebar::-webkit-scrollbar { width: 4px; }
-.shop-sidebar::-webkit-scrollbar-track { background: transparent; }
-.shop-sidebar::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 4px; }
+.shop-sidebar::-webkit-scrollbar {
+  width: 4px;
+}
+.shop-sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+.shop-sidebar::-webkit-scrollbar-thumb {
+  background: var(--sage-light);
+  border-radius: 4px;
+}
 
 .sidebar-header {
   display: flex;
@@ -61,7 +70,7 @@
   justify-content: space-between;
   margin-bottom: 1.5rem;
   padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(40,49,40,0.08);
+  border-bottom: 1px solid rgba(40, 49, 40, 0.08);
 }
 
 .sidebar-title {
@@ -78,11 +87,13 @@
   transition: color 0.2s;
 }
 
-.sidebar-clear:hover { color: var(--sage-dark); }
+.sidebar-clear:hover {
+  color: var(--sage-dark);
+}
 
 /* ─── FILTER GROUPS ──────────────────────────────────── */
 .filter-group {
-  border-bottom: 1px solid rgba(40,49,40,0.07);
+  border-bottom: 1px solid rgba(40, 49, 40, 0.07);
   margin-bottom: 0;
 }
 
@@ -113,7 +124,9 @@
   flex-shrink: 0;
 }
 
-.filter-group.open .toggle-icon { transform: rotate(180deg); }
+.filter-group.open .toggle-icon {
+  transform: rotate(180deg);
+}
 
 .filter-group__body {
   overflow: hidden;
@@ -138,7 +151,9 @@
   transition: color 0.2s;
 }
 
-.filter-check:hover { color: var(--charcoal); }
+.filter-check:hover {
+  color: var(--charcoal);
+}
 
 .filter-check input[type="checkbox"] {
   display: none;
@@ -158,7 +173,7 @@
 }
 
 .filter-check__box::after {
-  content: '';
+  content: "";
   width: 8px;
   height: 5px;
   border-left: 1.5px solid var(--white);
@@ -177,7 +192,10 @@
   opacity: 1;
 }
 
-.filter-check input:checked ~ * { color: var(--charcoal); font-weight: 500; }
+.filter-check input:checked ~ * {
+  color: var(--charcoal);
+  font-weight: 500;
+}
 
 /* ─── PRICE FILTER ───────────────────────────────────── */
 .filter-group--price {
@@ -236,10 +254,13 @@
   transition: background 0.2s;
 }
 
-.btn-apply:hover { background: var(--sage-dark); }
+.btn-apply:hover {
+  background: var(--sage-dark);
+}
 
 /* ─── SHOP MAIN ──────────────────────────────────────── */
-.shop-main {}
+.shop-main {
+}
 
 .shop-topbar {
   display: flex;
@@ -255,7 +276,9 @@
   color: var(--muted);
 }
 
-.shop-count strong { color: var(--charcoal); }
+.shop-count strong {
+  color: var(--charcoal);
+}
 
 /* Mobile filter toggle button */
 .btn-filter-toggle {
@@ -274,7 +297,9 @@
   transition: border-color 0.2s;
 }
 
-.btn-filter-toggle:hover { border-color: var(--sage); }
+.btn-filter-toggle:hover {
+  border-color: var(--sage);
+}
 
 .btn-filter-toggle svg {
   width: 14px;
@@ -310,7 +335,9 @@
   transition: background 0.2s;
 }
 
-.filter-pill--clear:hover { background: var(--sage-dark); }
+.filter-pill--clear:hover {
+  background: var(--sage-dark);
+}
 
 /* ─── PRODUCT GRID OVERRIDE for shop ─────────────────── */
 /* Inherits .products-grid from style.css, just adjust columns */
@@ -371,7 +398,8 @@
 
   .shop-sidebar {
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     width: 85%;
     max-width: 320px;
     height: 100%;
@@ -380,7 +408,7 @@
     z-index: 997;
     transform: translateX(-105%);
     transition: transform 0.35s var(--ease);
-    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+    box-shadow: 4px 0 30px rgba(0, 0, 0, 0.15);
   }
 
   .shop-sidebar.open {
@@ -402,4 +430,24 @@
     grid-template-columns: 1fr 1fr;
     gap: 0.75rem;
   }
+}
+.floating-about {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f6f52; /* bisa sesuaikan */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-about:hover {
+  background-color: #3b5440;
+  transform: translateY(-3px);
 }

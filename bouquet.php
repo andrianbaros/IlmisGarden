@@ -785,5 +785,8 @@
     </script>
     <!-- js -->
     <script src="js/script.js"></script>
+     <a href="about.php#contact" class="floating-about">
+  Hubungi Kami
+</a>
 </body>
 </html>

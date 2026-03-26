@@ -10,7 +10,9 @@
   padding-right: 7%;
 }
 
-.page-hero__content { max-width: 700px; }
+.page-hero__content {
+  max-width: 700px;
+}
 
 .page-hero__title {
   font-family: var(--serif);
@@ -27,7 +29,9 @@
 }
 
 /* ─── ABOUT SECTION ──────────────────────────────────── */
-.about-section { background: var(--cream); }
+.about-section {
+  background: var(--cream);
+}
 
 .about-split {
   display: grid;
@@ -37,7 +41,8 @@
 }
 
 /* ─── TEXT SIDE ──────────────────────────────────────── */
-.about-split__text {}
+.about-split__text {
+}
 
 .about-split__heading {
   font-family: var(--serif);
@@ -75,7 +80,7 @@
   background: var(--white);
   border-radius: var(--r-md);
   padding: 1.4rem;
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
 }
 
 .visi-misi-card__icon {
@@ -161,8 +166,12 @@
   line-height: 1;
 }
 
-.about-prev { left: 14px; }
-.about-next { right: 14px; }
+.about-prev {
+  left: 14px;
+}
+.about-next {
+  right: 14px;
+}
 
 .about-prev:hover,
 .about-next:hover {
@@ -193,7 +202,9 @@
 }
 
 /* ─── CONTACT SECTION ────────────────────────────────── */
-.contact-section { padding-bottom: 8rem; }
+.contact-section {
+  padding-bottom: 8rem;
+}
 
 .contact-grid {
   display: grid;
@@ -210,13 +221,13 @@
   display: flex;
   gap: 1.2rem;
   align-items: flex-start;
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
   transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
 
 .contact-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(40,49,40,0.12);
+  box-shadow: 0 12px 32px rgba(40, 49, 40, 0.12);
 }
 
 .contact-card__icon {
@@ -238,10 +249,18 @@
   stroke-width: 1.6;
 }
 
-.contact-card__icon--wa  { background: #128c5e; }
-.contact-card__icon--wa  svg { stroke: #fff; }
-.contact-card__icon--ig  { background: #c13584; }
-.contact-card__icon--ig  svg { stroke: #fff; }
+.contact-card__icon--wa {
+  background: #128c5e;
+}
+.contact-card__icon--wa svg {
+  stroke: #fff;
+}
+.contact-card__icon--ig {
+  background: #c13584;
+}
+.contact-card__icon--ig svg {
+  stroke: #fff;
+}
 
 .contact-card__body h3 {
   font-family: var(--serif);
@@ -314,4 +333,24 @@
   .visi-misi-card {
     flex-direction: column;
   }
+}
+.floating-about {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #4f6f52; /* bisa sesuaikan */
+  color: white;
+  padding: 12px 18px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-size: 14px;
+  font-family: "DM Sans", sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: all 0.3s ease;
+}
+
+.floating-about:hover {
+  background-color: #3b5440;
+  transform: translateY(-3px);
 }
