@@ -1,351 +1,280 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
-
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ilmis Garden | Artisan Product</title>
+  <title>IlmisGarden — About Us</title>
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-  <!-- Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <script src="https://unpkg.com/feather-icons"></script>
-
-  <!-- CSS -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/about.css" />
 </head>
-
 <body>
 
-  <!-- Navbar -->
-  <nav class="navbar">
-    <a href="index.php" class="navbar-logo">
-      <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
-    </a>
-
-    <div class="navbar-nav">
-      <a href="product.php">Product</a>
-      <a href="shop.php">Catalog</a>
-      <a href="about.php" class="active">About Us</a>
-    </div>
-
-    <div class="navbar-extra">
-      <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
-      <a href="profile.php" id="user"><i data-feather="user"></i></a>
-       <a href="#" id="menu-btn">
-  <i data-feather="menu"></i>
-</a>
-    </div>
+  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose">✕</button>
+    <a href="product.php">Product</a>
+    <a href="shop.php">Catalog</a>
+    <a href="about.php">About Us</a>
   </nav>
 
-<section class="about" id="about" style="margin-top:100px;">
-  <div class="aboutus-wrapper">
+  <!-- ─── NAVBAR ───────────────────────────────────────── -->
+  <header class="nav" id="navbar">
+    <a href="index.php" class="nav__logo">
+      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+    </a>
 
-    <!-- TEXT -->
-    <div class="aboutus-text">
-      <h2>About Ilmisgarden</h2>
+    <ul class="nav__links">
+      <li><a href="product.php">Product</a></li>
+      <li><a href="shop.php">Catalog</a></li>
+      <li><a href="about.php" class="active">About Us</a></li>
+    </ul>
 
-      <p>
-        Ilmisgarden berawal dari kecintaan terhadap bunga sejak usia muda dan
-        tumbuh di lingkungan perkebunan. Kami percaya bahwa bunga adalah simbol
-        keindahan, kesuburan, dan kebahagiaan.
-      </p>
-
-      <p>
-        Melalui rangkaian dan produk berbahan dasar bunga, Ilmisgarden hadir
-        untuk menghadirkan pengalaman yang bermakna dan menyentuh emosi di setiap
-        momen penting.
-      </p>
-
-      <h3>Visi</h3>
-      <p>
-        Menjadi toko bunga ikonik dengan produk berbahan dasar bunga yang
-        berkualitas dan berkarakter.
-      </p>
-
-      <h3>Misi</h3>
-      <ul>
-        <li>Menghadirkan produk bunga berkualitas dan inovatif</li>
-        <li>Menciptakan pengalaman berbelanja yang berkesan</li>
-        <li>Menerapkan prinsip keberlanjutan</li>
-        <li>Membangun komunitas pencinta keindahan bunga</li>
-      </ul>
+    <div class="nav__actions">
+      <a href="cart.php" class="nav__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+      <a href="profile.php" class="nav__icon" aria-label="Profile">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
 
-    <!-- SLIDER (DI BAWAH TEKS) -->
-    <div class="about-slider">
-
-      <div class="about-slider-main">
-        <button class="about-prev" onclick="prevAboutImage()">‹</button>
-
-        <img
-          id="aboutMainImage"
-          src="img/aboutus1.jpeg"
-          alt="Ilmisgarden Gallery">
-
-        <button class="about-next" onclick="nextAboutImage()">›</button>
-      </div>
-
-      <div class="about-thumbnails">
-        <img src="img/aboutus1.jpeg" onclick="setAboutImage(0)" class="active">
-        <img src="img/aboutus2.jpeg" onclick="setAboutImage(1)">
-        <img src="img/aboutus3.jpeg" onclick="setAboutImage(2)">
-        <img src="img/aboutus4.jpeg" onclick="setAboutImage(3)">
-        <img src="img/fototeam.jpeg" onclick="setAboutImage(4)">
-      </div>
-
+  <!-- ─── PAGE HERO ─────────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="page-hero__content reveal">
+      <p class="section__label">Mengenal Kami</p>
+      <h1 class="page-hero__title">About <em>Ilmisgarden</em></h1>
     </div>
-
   </div>
-</section>
 
+  <!-- ─── ABOUT SPLIT ───────────────────────────────────── -->
+  <section class="section about-section">
+    <div class="about-split">
 
+      <!-- Text side -->
+      <div class="about-split__text reveal">
+        <p class="section__label">Cerita Kami</p>
+        <h2 class="about-split__heading">Berawal dari <em>Kecintaan</em><br>terhadap Bunga</h2>
 
+        <p>Ilmisgarden berawal dari kecintaan terhadap bunga sejak usia muda dan tumbuh di lingkungan perkebunan. Kami percaya bahwa bunga adalah simbol keindahan, kesuburan, dan kebahagiaan.</p>
+        <p>Melalui rangkaian dan produk berbahan dasar bunga, Ilmisgarden hadir untuk menghadirkan pengalaman yang bermakna dan menyentuh emosi di setiap momen penting.</p>
 
-<section
-  style="
-    background:#f4f6f4;
-    padding:60px 20px;
-    color:#283128;
-  "
->
-  <div
-    style="
-      max-width:900px;
-      margin:0 auto;
-      background:#ffffff;
-      border-radius:14px;
-      box-shadow:0 6px 20px rgba(0,0,0,.08);
-      padding:30px 25px;
-    "
-  >
-    <h2 style="text-align:center; margin-bottom:25px;">
-      Lokasi & Kontak Ilmisgarden
-    </h2>
+        <div class="about-visi-misi">
+          <div class="visi-misi-card reveal">
+            <div class="visi-misi-card__icon">
+              <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            </div>
+            <div>
+              <h3>Visi</h3>
+              <p>Menjadi toko bunga ikonik dengan produk berbahan dasar bunga yang berkualitas dan berkarakter.</p>
+            </div>
+          </div>
 
-    <!-- LOKASI -->
-    <div style="display:flex; gap:14px; margin-bottom:18px; align-items:flex-start;">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#708871">
-        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1 1 12 6a2.5 2.5 0 0 1 0 5.5z"/>
-      </svg>
+          <div class="visi-misi-card reveal">
+            <div class="visi-misi-card__icon">
+              <svg viewBox="0 0 24 24"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            </div>
+            <div>
+              <h3>Misi</h3>
+              <ul>
+                <li>Menghadirkan produk bunga berkualitas dan inovatif</li>
+                <li>Menciptakan pengalaman berbelanja yang berkesan</li>
+                <li>Menerapkan prinsip keberlanjutan</li>
+                <li>Membangun komunitas pencinta keindahan bunga</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slider side -->
+      <div class="about-split__slider reveal">
+        <div class="about-slider-main">
+          <button class="about-prev" onclick="prevAboutImage()">‹</button>
+          <img id="aboutMainImage" src="img/aboutus1.jpeg" alt="Ilmisgarden Gallery" />
+          <button class="about-next" onclick="nextAboutImage()">›</button>
+        </div>
+        <div class="about-thumbnails">
+          <img src="img/aboutus1.jpeg" onclick="setAboutImage(0)" class="active" alt="" />
+          <img src="img/aboutus2.jpeg" onclick="setAboutImage(1)" alt="" />
+          <img src="img/aboutus3.jpeg" onclick="setAboutImage(2)" alt="" />
+          <img src="img/aboutus4.jpeg" onclick="setAboutImage(3)" alt="" />
+          <img src="img/fototeam.jpeg" onclick="setAboutImage(4)" alt="" />
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CONTACT SECTION ───────────────────────────────── -->
+  <section class="section section--warm contact-section">
+    <div class="section__header reveal" style="justify-content:center; text-align:center;">
       <div>
-        <strong>Alamat Studio</strong>
-        <p style="margin:4px 0;">
-          Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler,<br>
-          Kota Bandung, Jawa Barat 40135
-        </p>
-        <a
-          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
-          target="_blank"
-          style="color:#708871; text-decoration:underline;"
-        >
-          Lihat di Google Maps
-        </a>
+        <p class="section__label">Hubungi Kami</p>
+        <h2 class="section__title">Lokasi &amp; <em>Kontak</em></h2>
       </div>
     </div>
 
-    <hr style="border:none; border-top:1px solid #ddd; margin:20px 0;">
+    <div class="contact-grid reveal">
 
-    <!-- KONTAK -->
-    <div style="display:grid; grid-template-columns:1fr; gap:16px;">
+      <!-- Address -->
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="contact-card__body">
+          <h3>Alamat Studio</h3>
+          <p>Jl. Raya Golf Dago No.4, Cigadung,<br>Kec. Cibeunying Kaler,<br>Kota Bandung, Jawa Barat 40135</p>
+          <a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank" class="contact-link">Lihat di Google Maps →</a>
+        </div>
+      </div>
 
       <!-- WhatsApp -->
-      <div style="display:flex; gap:14px; align-items:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#25D366">
-          <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
-        </svg>
-        <div>
-          <strong>WhatsApp</strong>
-          <p style="margin:4px 0;">+62 857-9507-7194</p>
-          <a
-            href="https://api.whatsapp.com/send?phone=6285795077194"
-            target="_blank"
-            style="color:#708871; text-decoration:underline;"
-          >
-            Chat via WhatsApp
-          </a>
+      <div class="contact-card">
+        <div class="contact-card__icon contact-card__icon--wa">
+          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+        </div>
+        <div class="contact-card__body">
+          <h3>WhatsApp</h3>
+          <p>+62 857-9507-7194</p>
+          <a href="https://api.whatsapp.com/send?phone=6285795077194" target="_blank" class="contact-link">Chat via WhatsApp →</a>
         </div>
       </div>
 
       <!-- Instagram -->
-      <div style="display:flex; gap:14px; align-items:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#E1306C">
-          <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-        </svg>
-        <div>
-          <strong>Instagram</strong>
-          <p style="margin:4px 0;">@ilmisgarden</p>
-          <a
-            href="https://www.instagram.com/ilmisgarden"
-            target="_blank"
-            style="color:#708871; text-decoration:underline;"
-          >
-            Kunjungi Instagram
-          </a>
+      <div class="contact-card">
+        <div class="contact-card__icon contact-card__icon--ig">
+          <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+        </div>
+        <div class="contact-card__body">
+          <h3>Instagram</h3>
+          <p>@ilmisgarden</p>
+          <a href="https://www.instagram.com/ilmisgarden" target="_blank" class="contact-link">Kunjungi Instagram →</a>
         </div>
       </div>
 
       <!-- TikTok -->
-      <div style="display:flex; gap:14px; align-items:center;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="#000">
-          <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
-        </svg>
-        <div>
-          <strong>TikTok</strong>
-          <p style="margin:4px 0;">@ilmisgarden</p>
-          <a
-            href="https://www.tiktok.com/@ilmisgarden"
-            target="_blank"
-            style="color:#708871; text-decoration:underline;"
-          >
-            Lihat di TikTok
-          </a>
+      <div class="contact-card">
+        <div class="contact-card__icon">
+          <svg viewBox="0 0 24 24"><path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/></svg>
+        </div>
+        <div class="contact-card__body">
+          <h3>TikTok</h3>
+          <p>@ilmisgarden</p>
+          <a href="https://www.tiktok.com/@ilmisgarden" target="_blank" class="contact-link">Lihat di TikTok →</a>
         </div>
       </div>
 
     </div>
-  </div>
-</section>
+  </section>
 
-<footer
-  style="
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:#283128;
-    color:#d9d9d9;
-    text-align:center;
-    padding:8px 10px;
-    z-index:9999;
-    font-size:13px;
-  ">
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+      </div>
+      <div class="footer__socials">
+        <a href="https://wa.me/6285795077194" target="_blank" class="footer__social" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/ilmisgarden/" target="_blank" class="footer__social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ilmisgarden" target="_blank" class="footer__social" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer__addr">
+      <a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank">
+        Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
+      </a>
+    </p>
+    <p class="footer__copy">© 2025 Ilmisgarden. All rights reserved.</p>
+  </footer>
 
-  <!-- Address -->
-  <div style="margin-bottom:10px;">
-  <a
-          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
-          target="_blank"
-          style="color:#d9d9d9;"
-        >
-    Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
-  </a>  <br>
-</div>
+  <!-- ─── SCRIPTS ───────────────────────────────────────── -->
+  <script>
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-  <!-- Social Icons -->
-  <div style="display:flex; justify-content:center; gap:28px; align-items:center;">
+    /* Mobile menu */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+    );
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6285795077194"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
-      </svg>
-      <span>WA</span>
-    </a>
+    /* Scroll reveal */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/ilmisgarden/"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-      </svg>
-      <span>IG</span>
-    </a>
+    /* About slider */
+    const aboutImages = [
+      "img/aboutus1.jpeg",
+      "img/aboutus2.jpeg",
+      "img/aboutus3.jpeg",
+      "img/aboutus4.jpeg",
+      "img/fototeam.jpeg"
+    ];
+    let aboutIndex = 0;
+    const aboutImg = document.getElementById("aboutMainImage");
+    const thumbs   = document.querySelectorAll(".about-thumbnails img");
 
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@ilmisgarden"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
-      </svg>
-      <span>TikTok</span>
-    </a>
+    function updateAboutSlider() {
+      aboutImg.style.opacity = 0;
+      setTimeout(() => {
+        aboutImg.src = aboutImages[aboutIndex];
+        aboutImg.style.opacity = 1;
+        thumbs.forEach(t => t.classList.remove("active"));
+        thumbs[aboutIndex].classList.add("active");
+      }, 200);
+    }
 
-  </div>
-</footer>
+    function nextAboutImage() {
+      aboutIndex = (aboutIndex + 1) % aboutImages.length;
+      updateAboutSlider();
+    }
 
+    function prevAboutImage() {
+      aboutIndex = (aboutIndex - 1 + aboutImages.length) % aboutImages.length;
+      updateAboutSlider();
+    }
 
+    function setAboutImage(index) {
+      aboutIndex = index;
+      updateAboutSlider();
+      resetAutoSlide();
+    }
 
- <script>feather.replace();
-
-const navbarNav = document.querySelector(".navbar-nav");
-const menuBtn = document.querySelector("#menu-btn");
-
-menuBtn.addEventListener("click", function(e){
-  e.preventDefault();
-  e.stopPropagation();
-  navbarNav.classList.toggle("active");
-});
-
-document.addEventListener("click", function (e) {
-  if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove("active");
-  }
-});
-
-    </script>
-<script>
-  const aboutImages = [
-    "img/aboutus1.jpeg",
-    "img/aboutus2.jpeg",
-    "img/aboutus3.jpeg",
-    "img/aboutus4.jpeg",
-    "img/fototeam.jpeg"
-  ];
-
-  let aboutIndex = 0;
-  const aboutImg = document.getElementById("aboutMainImage");
-  const thumbs = document.querySelectorAll(".about-thumbnails img");
-
-  function updateAboutSlider() {
-    aboutImg.style.opacity = 0;
-    setTimeout(() => {
-      aboutImg.src = aboutImages[aboutIndex];
-      aboutImg.style.opacity = 1;
-
-      thumbs.forEach(t => t.classList.remove("active"));
-      thumbs[aboutIndex].classList.add("active");
-    }, 200);
-  }
-
-  function nextAboutImage() {
-    aboutIndex = (aboutIndex + 1) % aboutImages.length;
-    updateAboutSlider();
-  }
-
-  function prevAboutImage() {
-    aboutIndex = (aboutIndex - 1 + aboutImages.length) % aboutImages.length;
-    updateAboutSlider();
-  }
-
-  function setAboutImage(index) {
-    aboutIndex = index;
-    updateAboutSlider();
-    resetAutoSlide();
-  }
-
-  let aboutInterval = setInterval(nextAboutImage, 4000);
-
-  function resetAutoSlide() {
-    clearInterval(aboutInterval);
-    aboutInterval = setInterval(nextAboutImage, 4000);
-  }
-</script>
-
-
-
-    <!-- js -->
-    <script src="js/script.js"></script>
+    let aboutInterval = setInterval(nextAboutImage, 4000);
+    function resetAutoSlide() {
+      clearInterval(aboutInterval);
+      aboutInterval = setInterval(nextAboutImage, 4000);
+    }
+  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

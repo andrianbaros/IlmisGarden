@@ -1,0 +1,405 @@
+/* ─── PAGE HERO ──────────────────────────────────────── */
+.page-hero {
+  padding-top: 72px;
+  min-height: 26vh;
+  background: var(--forest);
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3.5rem;
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
+.page-hero__content { max-width: 700px; }
+
+.page-hero__title {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 300;
+  line-height: 1.1;
+  color: var(--white);
+  margin-top: 0.6rem;
+}
+
+.page-hero__title em {
+  font-style: italic;
+  color: var(--sage-light);
+}
+
+/* ─── SHOP LAYOUT ────────────────────────────────────── */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 3rem 5% 6rem;
+  align-items: start;
+}
+
+/* ─── SIDEBAR ────────────────────────────────────────── */
+.shop-sidebar {
+  position: sticky;
+  top: 88px;
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: 1.8rem;
+  box-shadow: 0 4px 20px rgba(40,49,40,0.07);
+  max-height: calc(100vh - 108px);
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sage-light) transparent;
+}
+
+.shop-sidebar::-webkit-scrollbar { width: 4px; }
+.shop-sidebar::-webkit-scrollbar-track { background: transparent; }
+.shop-sidebar::-webkit-scrollbar-thumb { background: var(--sage-light); border-radius: 4px; }
+
+.sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(40,49,40,0.08);
+}
+
+.sidebar-title {
+  font-family: var(--serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--charcoal);
+}
+
+.sidebar-clear {
+  font-size: 0.75rem;
+  color: var(--muted);
+  border-bottom: 1px dotted var(--muted);
+  transition: color 0.2s;
+}
+
+.sidebar-clear:hover { color: var(--sage-dark); }
+
+/* ─── FILTER GROUPS ──────────────────────────────────── */
+.filter-group {
+  border-bottom: 1px solid rgba(40,49,40,0.07);
+  margin-bottom: 0;
+}
+
+.filter-group__toggle {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: none;
+  border: none;
+  padding: 0.9rem 0;
+  font-family: var(--sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  cursor: pointer;
+  text-align: left;
+  letter-spacing: 0.03em;
+}
+
+.toggle-icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--muted);
+  fill: none;
+  stroke-width: 2;
+  transition: transform 0.25s var(--ease);
+  flex-shrink: 0;
+}
+
+.filter-group.open .toggle-icon { transform: rotate(180deg); }
+
+.filter-group__body {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.35s var(--ease);
+  padding-bottom: 0;
+}
+
+.filter-group.open .filter-group__body {
+  padding-bottom: 0.8rem;
+}
+
+/* ─── CUSTOM CHECKBOXES ──────────────────────────────── */
+.filter-check {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0.3rem 0;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.filter-check:hover { color: var(--charcoal); }
+
+.filter-check input[type="checkbox"] {
+  display: none;
+}
+
+.filter-check__box {
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid #cdd4cd;
+  background: var(--white);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.filter-check__box::after {
+  content: '';
+  width: 8px;
+  height: 5px;
+  border-left: 1.5px solid var(--white);
+  border-bottom: 1.5px solid var(--white);
+  transform: rotate(-45deg) translateY(-1px);
+  opacity: 0;
+  transition: opacity 0.15s;
+}
+
+.filter-check input:checked + .filter-check__box {
+  background: var(--sage);
+  border-color: var(--sage);
+}
+
+.filter-check input:checked + .filter-check__box::after {
+  opacity: 1;
+}
+
+.filter-check input:checked ~ * { color: var(--charcoal); font-weight: 500; }
+
+/* ─── PRICE FILTER ───────────────────────────────────── */
+.filter-group--price {
+  border-bottom: none;
+  padding-top: 0.5rem;
+}
+
+.filter-check--price {
+  margin-bottom: 0.6rem;
+}
+
+.price-input-wrap {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.price-prefix {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.price-input-wrap input {
+  width: 100%;
+  padding: 0.5rem 0.7rem;
+  border: 1.5px solid #cdd4cd;
+  border-radius: var(--r-sm);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  color: var(--charcoal);
+  background: var(--cream);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.price-input-wrap input:focus {
+  border-color: var(--sage);
+}
+
+/* ─── APPLY BUTTON ───────────────────────────────────── */
+.btn-apply {
+  width: 100%;
+  margin-top: 1.4rem;
+  padding: 0.75rem;
+  background: var(--forest);
+  color: var(--white);
+  border: none;
+  border-radius: var(--r-sm);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-apply:hover { background: var(--sage-dark); }
+
+/* ─── SHOP MAIN ──────────────────────────────────────── */
+.shop-main {}
+
+.shop-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.shop-count {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.shop-count strong { color: var(--charcoal); }
+
+/* Mobile filter toggle button */
+.btn-filter-toggle {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1.1rem;
+  background: var(--white);
+  border: 1.5px solid #cdd4cd;
+  border-radius: 100px;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--charcoal);
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.btn-filter-toggle:hover { border-color: var(--sage); }
+
+.btn-filter-toggle svg {
+  width: 14px;
+  height: 14px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+}
+
+/* ─── FILTER PILLS ───────────────────────────────────── */
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.filter-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3rem 0.85rem;
+  background: var(--stone);
+  color: var(--charcoal);
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 400;
+}
+
+.filter-pill--clear {
+  background: var(--forest);
+  color: var(--white);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-pill--clear:hover { background: var(--sage-dark); }
+
+/* ─── PRODUCT GRID OVERRIDE for shop ─────────────────── */
+/* Inherits .products-grid from style.css, just adjust columns */
+.shop-main .products-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* ─── EMPTY STATE ────────────────────────────────────── */
+.empty-state {
+  text-align: center;
+  padding: 5rem 2rem;
+  color: var(--muted);
+}
+
+.empty-state__icon {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+}
+
+.empty-state h3 {
+  font-family: var(--serif);
+  font-size: 1.6rem;
+  font-weight: 300;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.empty-state p {
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Active nav link */
+.nav__links a.active {
+  color: #fff;
+}
+.nav__links a.active::after {
+  width: 100%;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .shop-layout {
+    grid-template-columns: 240px 1fr;
+    gap: 1.8rem;
+  }
+
+  .shop-main .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .shop-layout {
+    grid-template-columns: 1fr;
+    padding: 1.5rem 5% 5rem;
+  }
+
+  .shop-sidebar {
+    position: fixed;
+    top: 0; left: 0;
+    width: 85%;
+    max-width: 320px;
+    height: 100%;
+    max-height: 100%;
+    border-radius: 0;
+    z-index: 997;
+    transform: translateX(-105%);
+    transition: transform 0.35s var(--ease);
+    box-shadow: 4px 0 30px rgba(0,0,0,0.15);
+  }
+
+  .shop-sidebar.open {
+    transform: translateX(0);
+  }
+
+  .btn-filter-toggle {
+    display: inline-flex;
+  }
+
+  .shop-main .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .shop-main .products-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+  }
+}

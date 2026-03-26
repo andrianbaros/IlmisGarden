@@ -1,218 +1,324 @@
-/* ===========================
-   Decoration Page Styling
-   =========================== */
-
-/* Hero Section */
+/* ─── HERO ───────────────────────────────────────────── */
 .deco-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 100svh;
+  padding-top: 72px;
+  overflow: hidden;
+  background: var(--forest);
+}
+
+/* Left: photo collage */
+.deco-hero__img-collage {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  overflow: hidden;
+}
+
+.deco-hero__img-stack {
   display: flex;
-  gap: 40px;
-  padding: 80px 7%;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.deco-hero__img {
+  overflow: hidden;
+  border-radius: var(--r-md);
+  background: var(--stone);
+}
+
+.deco-hero__img--tall {
+  height: 100%;
+}
+
+.deco-hero__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+
+.deco-hero__img:hover img { transform: scale(1.04); }
+
+/* Right: content */
+.deco-hero__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5rem 7% 5rem 6%;
+}
+
+.deco-hero__title {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+  margin: 0.8rem 0 1.4rem;
+}
+
+.deco-hero__title em {
+  font-style: italic;
+  color: var(--sage-light);
+}
+
+.deco-hero__sub {
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.65);
+  max-width: 420px;
+  margin-bottom: 2.2rem;
+}
+
+/* ─── ABOUT ──────────────────────────────────────────── */
+.deco-about { background: var(--cream); }
+
+.deco-about__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5%;
+  align-items: start;
+}
+
+.deco-about__heading {
+  font-family: var(--serif);
+  font-size: clamp(1.7rem, 3vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--charcoal);
+  margin: 0.8rem 0 1.2rem;
+}
+
+.deco-about__heading em {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.deco-about__text p {
+  font-size: 0.93rem;
+  line-height: 1.8;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+/* Feature cards */
+.deco-about__cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.deco-feature-card {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: 1.3rem 1.5rem;
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+  box-shadow: 0 4px 14px rgba(40,49,40,0.07);
+  transition: transform 0.25s var(--ease);
+}
+
+.deco-feature-card:hover { transform: translateY(-3px); }
+
+.deco-feature-card__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--forest);
+  display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
+  flex-shrink: 0;
 }
 
-.deco-hero-left img {
-  width: 420px;
-  max-width: 100%;
-  border-radius: 14px;
+.deco-feature-card__icon svg {
+  width: 18px;
+  height: 18px;
+  stroke: var(--sage-light);
+  fill: none;
+  stroke-width: 1.6;
+}
+
+.deco-feature-card h3 {
+  font-family: var(--serif);
+  font-size: 1rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.25rem;
+}
+
+.deco-feature-card p {
+  font-size: 0.8rem;
+  line-height: 1.65;
+  color: var(--muted);
+}
+
+/* ─── GALLERY ────────────────────────────────────────── */
+.deco-gallery { padding-bottom: 5rem; }
+
+.deco-gallery__masonry {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 260px;
+  gap: 1rem;
+}
+
+.deco-gallery__item {
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: var(--stone);
+}
+
+.deco-gallery__item--tall {
+  grid-row: span 2;
+}
+
+.deco-gallery__item img {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  display: block;
+  transition: transform 0.5s var(--ease);
 }
 
-.deco-hero-right {
-  flex: 1;
-  min-width: 320px;
+.deco-gallery__item:hover img { transform: scale(1.06); }
+
+/* ─── DECORATION TYPES ───────────────────────────────── */
+.deco-types { background: var(--cream); }
+
+.deco-types__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
 }
 
-.deco-hero-right h1 {
-  font-size: 32px;
-  line-height: 1.3;
-  margin-bottom: 18px;
-  font-weight: 700;
-  color: #313531;
+.deco-type-card {
+  background: var(--white);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.6rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
 }
 
-.deco-hero-right p {
-  margin-bottom: 14px;
-  font-size: 15px;
+.deco-type-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(to right, var(--sage), var(--sage-light));
+}
+
+.deco-type-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 32px rgba(40,49,40,0.12);
+}
+
+.deco-type-card__num {
+  font-family: var(--serif);
+  font-size: 3rem;
+  font-weight: 300;
+  color: var(--sage-light);
+  line-height: 1;
+  margin-bottom: 1rem;
+  opacity: 0.6;
+}
+
+.deco-type-card h3 {
+  font-family: var(--serif);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.6rem;
+}
+
+.deco-type-card p {
+  font-size: 0.83rem;
   line-height: 1.7;
-  color: #444;
+  color: var(--muted);
 }
 
-/* ===========================
-   Gallery Section
-   =========================== */
+/* ─── CTA ────────────────────────────────────────────── */
+.deco-cta { text-align: center; }
 
-   .deco-gallery-section {
-    padding: 60px 0;        /* hilangkan padding kiri-kanan */
-    display: flex;
-    justify-content: center;
-  }
-
-/* Mobile Default → 1 kolom vertikal */
-.deco-gallery {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  justify-content: center;  
-  justify-items: center;      
-  gap: 28px;
+.deco-cta__inner {
+  max-width: 560px;
+  margin: 0 auto;
 }
 
-
-
-.deco-gallery img {
-  width: 90%;                 /* tidak full, jadi tetap center */
-  max-width: 500px;           /* batas maksimum supaya rapi */
-  height: 380px;
-  object-fit: cover;
-  border-radius: 14px;
-  transition: 0.3s ease;
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+.deco-cta__title {
+  font-family: var(--serif);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: var(--white);
+  margin: 0.8rem 0 1rem;
 }
 
-
-.deco-gallery img:hover {
-  transform: scale(1.02);
+.deco-cta__title em {
+  font-style: italic;
+  color: var(--sage-light);
 }
 
-/* Desktop → 4 kolom berjajar */
-@media (min-width: 900px) {
-  .deco-gallery {
-    width: 100%;
-    max-width: 1200px;    /* menentukan area grid */
-    margin: 0 auto;       /* pusatkan container */
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);  /* SELALU 3 kolom */
-    gap: 28px;
-    justify-items: center;
-  }
-  
-
-  .deco-gallery img {
-    height: 500px;
-    max-height: 500px;
-  }
+.deco-cta__sub {
+  font-size: 0.92rem;
+  color: rgba(255,255,255,0.6);
+  line-height: 1.7;
+  margin-bottom: 2rem;
 }
 
-
-/* ===========================
-   Decoration Types
-   =========================== */
-
-.deco-types {
-  text-align: center;
-  padding: 70px 7%;
-  background: #f4f6f4;
+.deco-cta .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.deco-types h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 35px;
-  color: #313531;
+/* ─── RESPONSIVE ─────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .deco-types__grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-.deco-card-wrapper {
-  display: grid;
-  gap: 25px;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
-
-.deco-card {
-  background: white;
-  padding: 25px 22px;
-  border-radius: 16px;
-  text-align: left;
-  border: 1.5px solid #e3e7e3;
-  transition: 0.3s ease;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.07);
-}
-
-.deco-card:hover {
-  transform: scale(1.02);
-  border-color: #b9c1b9;
-}
-
-.deco-card h3 {
-  font-size: 20px;
-  margin-bottom: 10px;
-  font-weight: 600;
-  color: #2f322f;
-}
-
-.deco-card p {
-  font-size: 14.5px;
-  color: #555;
-  line-height: 1.6;
-}
-
-/* ===========================
-   Contact Section
-   =========================== */
-
-.deco-contact {
-  padding: 70px 7%;
-  text-align: center;
-}
-
-.deco-contact h2 {
-  font-size: 26px;
-  font-weight: 600;
-  margin-bottom: 25px;
-  color: #2f322f;
-}
-
-.btn-wa {
-  background: #4caf50;
-  color: white;
-  padding: 14px 26px;
-  border-radius: 10px;
-  font-size: 16px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.btn-wa:hover {
-  background: #449b47;
-}
-
-/* ===========================
-   Responsive
-   =========================== */
 
 @media (max-width: 900px) {
   .deco-hero {
-    flex-direction: column;
-    text-align: center;
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
 
-  .deco-hero-right h1 {
-    font-size: 28px;
+  .deco-hero__img-collage {
+    height: 50vw;
+    padding: 0.5rem;
   }
 
-  .deco-hero-left img {
-    width: 100%;
-    max-width: 420px;
+  .deco-hero__content { padding: 3rem 7%; }
+
+  .deco-about__inner { grid-template-columns: 1fr; }
+
+  .deco-gallery__masonry {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 200px;
   }
 
-  .deco-gallery img {
-    height: 330px;
-  }
+  .deco-gallery__item--tall { grid-row: span 2; }
 }
 
-@media (max-width: 500px) {
-  .deco-hero-right h1 {
-    font-size: 23px;
+@media (max-width: 600px) {
+  .deco-types__grid { grid-template-columns: 1fr; max-width: 400px; margin: 0 auto; }
+
+  .deco-gallery__masonry {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: 160px;
   }
 
-  .deco-card p {
-    font-size: 13.5px;
+  .deco-hero__img-collage {
+    grid-template-columns: 1fr;
+    height: 70vw;
   }
 
-  .deco-gallery img {
-    height: 280px;
-  }
+  .deco-hero__img-stack { flex-direction: row; }
 }

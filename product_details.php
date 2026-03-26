@@ -45,7 +45,6 @@ if (!$images) {
    ADD TO CART
 ================================ */
 if (isset($_POST['add_to_cart'])) {
-
     if (!$user_id) {
         header("Location: signin.php");
         exit;
@@ -54,21 +53,18 @@ if (isset($_POST['add_to_cart'])) {
     $qty = max(1, (int)$_POST['qty']);
 
     $stmt = $pdo->prepare(
-        "SELECT id_cart, qty FROM cart
-         WHERE user_id = ? AND product_id = ?"
+        "SELECT id_cart, qty FROM cart WHERE user_id = ? AND product_id = ?"
     );
     $stmt->execute([$user_id, $id]);
     $cart = $stmt->fetch();
 
     if ($cart) {
         $pdo->prepare(
-            "UPDATE cart SET qty = qty + ?
-             WHERE id_cart = ?"
+            "UPDATE cart SET qty = qty + ? WHERE id_cart = ?"
         )->execute([$qty, $cart['id_cart']]);
     } else {
         $pdo->prepare(
-            "INSERT INTO cart (user_id, product_id, qty)
-             VALUES (?, ?, ?)"
+            "INSERT INTO cart (user_id, product_id, qty) VALUES (?, ?, ?)"
         )->execute([$user_id, $id, $qty]);
     }
 
@@ -79,237 +75,247 @@ if (isset($_POST['add_to_cart'])) {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title><?= htmlspecialchars($product['name']) ?> — Ilmisgarden</title>
+  <link rel="icon" href="img/F4F6F4-full.png" />
 
-<title><?= htmlspecialchars($product['name']) ?> | Ilmisgarden</title>
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-<link rel="icon" href="img/F4F6F4-full.png">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="css/detail.css">
-
-<script src="https://unpkg.com/feather-icons"></script>
-
-<style>
-/* ===== GALLERY ===== */
-.product-gallery img {
-  border-radius: 12px;
-}
-.thumbs {
-  display: flex;
-  gap: 10px;
-  margin-top: 12px;
-  flex-wrap: wrap;
-}
-.thumbs img {
-  width: 70px;
-  height: 70px;
-  object-fit: cover;
-  cursor: pointer;
-  opacity: .7;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-}
-.thumbs img:hover {
-  opacity: 1;
-}
-
-/* ===== PRODUCT DETAIL ===== */
-.product-detail {
-  max-width: 1100px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-
-.product-info h1 {
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.product-price {
-  font-size: 22px;
-  font-weight: bold;
-  color: #4a6652;
-  display: block;
-  margin-bottom: 20px;
-}
-
-.qty-box {
-  margin-bottom: 14px;
-}
-
-.qty-box input {
-  padding: 6px;
-}
-
-.buy-button {
-  background: #708871;
-  color: #fff;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
-  cursor: pointer;
-}
-
-.buy-button:hover {
-  background: #4a6652;
-}
-
-.desc-box {
-  margin-top: 28px;
-}
-
-.desc-box h3 {
-  margin-bottom: 8px;
-}
-
-@media (max-width: 900px) {
-  .product-detail {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/detail.css" />
 </head>
-
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar">
-  <a href="index.php" class="navbar-logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" style="width:200px">
-  </a>
+  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose">✕</button>
+    <a href="product.php">Product</a>
+    <a href="shop.php">Catalog</a>
+    <a href="about.php">About Us</a>
+  </nav>
 
-  <div class="navbar-nav">
-    <a href="shop.php">Product</a>
-    <a href="index.php#catalog">Catalog</a>
-    <a href="about.php">About</a>
-  </div>
+  <!-- ─── NAVBAR ───────────────────────────────────────── -->
+  <header class="nav" id="navbar">
+    <a href="index.php" class="nav__logo">
+      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+    </a>
 
-  <div class="navbar-extra">
-    <?php if ($user_id): ?>
-      <span>Hello, <?= htmlspecialchars($_SESSION['username']) ?></span>
-      <a href="logout.php"><i data-feather="log-out"></i></a>
-    <?php else: ?>
-      <a href="signin.php"><i data-feather="log-in"></i></a>
-    <?php endif; ?>
-    <a href="cart.php"><i data-feather="shopping-cart"></i></a>
-  </div>
-</nav>
+    <ul class="nav__links">
+      <li><a href="product.php">Product</a></li>
+      <li><a href="shop.php">Catalog</a></li>
+      <li><a href="about.php">About Us</a></li>
+    </ul>
 
-<!-- CONTENT -->
-<main>
-
-<div class="product-detail">
-
-  <!-- GALLERY -->
-  <div class="product-gallery">
-    <img id="mainImage"
-         src="<?= htmlspecialchars($images[0]['image']) ?>"
-         style="width:100%;max-width:420px">
-
-    <div class="thumbs">
-      <?php foreach ($images as $img): ?>
-        <img src="<?= htmlspecialchars($img['image']) ?>"
-             onclick="document.getElementById('mainImage').src=this.src">
-      <?php endforeach; ?>
+    <div class="nav__actions">
+      <?php if ($user_id): ?>
+        <a href="logout.php" class="nav__icon" aria-label="Logout">
+          <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        </a>
+      <?php else: ?>
+        <a href="signin.php" class="nav__icon" aria-label="Sign In">
+          <svg viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+        </a>
+      <?php endif; ?>
+      <a href="cart.php" class="nav__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+      <a href="profile.php" class="nav__icon" aria-label="Profile">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
+  </header>
+
+  <!-- ─── BREADCRUMB ────────────────────────────────────── -->
+  <div class="breadcrumb">
+    <a href="index.php">Home</a>
+    <span>›</span>
+    <a href="shop.php">Catalog</a>
+    <span>›</span>
+    <span><?= htmlspecialchars($product['name']) ?></span>
   </div>
 
-  <!-- INFO -->
-  <div class="product-info">
-    <h1><?= htmlspecialchars($product['name']) ?></h1>
+  <!-- ─── PRODUCT DETAIL ────────────────────────────────── -->
+  <main class="detail-layout">
 
-    <span class="product-price">
-      Rp <?= number_format($product['price'], 0, ',', '.') ?>
-    </span>
-
-    <form method="POST">
-      <div class="qty-box">
-        <label>Qty</label><br>
-        <input type="number" name="qty" value="1" min="1" style="width:70px">
+    <!-- Gallery -->
+    <div class="detail-gallery reveal">
+      <div class="gallery-main">
+        <img id="mainImage"
+             src="<?= htmlspecialchars($images[0]['image']) ?>"
+             alt="<?= htmlspecialchars($product['name']) ?>" />
       </div>
 
-      <button type="submit" name="add_to_cart" class="buy-button">
-        Add to Cart
-      </button>
-    </form>
-
-    <div class="desc-box">
-      <h3>Description</h3>
-      <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
+      <?php if (count($images) > 1): ?>
+      <div class="gallery-thumbs">
+        <?php foreach ($images as $i => $img): ?>
+        <button class="thumb-btn <?= $i === 0 ? 'active' : '' ?>"
+                onclick="setMainImage(this, '<?= htmlspecialchars($img['image']) ?>')">
+          <img src="<?= htmlspecialchars($img['image']) ?>"
+               alt="Thumbnail <?= $i + 1 ?>" />
+        </button>
+        <?php endforeach; ?>
+      </div>
+      <?php endif; ?>
     </div>
-  </div>
 
-</div>
+    <!-- Info -->
+    <div class="detail-info reveal">
 
-</main>
-<footer
-  style="
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:#283128;
-    color:#d9d9d9;
-    text-align:center;
-    padding:8px 10px;
-    z-index:9999;
-    font-size:13px;
-  ">
+      <!-- Tags -->
+      <div class="detail-tags">
+        <?php if (!empty($product['catalog'])): ?>
+          <span class="detail-tag"><?= htmlspecialchars($product['catalog']) ?></span>
+        <?php endif; ?>
+        <?php if (!empty($product['occasion'])): ?>
+          <span class="detail-tag detail-tag--muted"><?= htmlspecialchars($product['occasion']) ?></span>
+        <?php endif; ?>
+      </div>
 
-  <!-- Address -->
-  <div style="margin-bottom:10px;">
-  <a
-          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
-          target="_blank"
-          style="color:#d9d9d9;"
-        >
-    Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
-  </a>  <br>
-</div>
+      <h1 class="detail-name"><?= htmlspecialchars($product['name']) ?></h1>
 
-  <!-- Social Icons -->
-  <div style="display:flex; justify-content:center; gap:28px; align-items:center;">
+      <p class="detail-price">Rp <?= number_format($product['price'], 0, ',', '.') ?></p>
 
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6285795077194"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
-      </svg>
-      <span>WA</span>
-    </a>
+      <!-- Add to cart -->
+      <form method="POST" class="detail-form">
+        <div class="qty-control">
+          <button type="button" class="qty-btn" id="qtyMinus">−</button>
+          <input type="number" name="qty" id="qtyInput" value="1" min="1" readonly />
+          <button type="button" class="qty-btn" id="qtyPlus">+</button>
+        </div>
 
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/ilmisgarden/"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-      </svg>
-      <span>IG</span>
-    </a>
+        <button type="submit" name="add_to_cart" class="btn-cart">
+          <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Tambah ke Keranjang
+        </button>
 
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@ilmisgarden"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
-      </svg>
-      <span>TikTok</span>
-    </a>
+        <a href="https://wa.me/6285795077194?text=Halo, saya tertarik dengan <?= urlencode($product['name']) ?>"
+           target="_blank" class="btn-wa">
+          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+          Tanya via WhatsApp
+        </a>
+      </form>
 
-  </div>
-</footer>
+      <!-- Meta info -->
+      <div class="detail-meta">
+        <?php if (!empty($product['flower'])): ?>
+        <div class="detail-meta__row">
+          <span class="detail-meta__label">Bunga</span>
+          <span class="detail-meta__value"><?= htmlspecialchars($product['flower']) ?></span>
+        </div>
+        <?php endif; ?>
+        <?php if (!empty($product['occasion'])): ?>
+        <div class="detail-meta__row">
+          <span class="detail-meta__label">Occasion</span>
+          <span class="detail-meta__value"><?= htmlspecialchars($product['occasion']) ?></span>
+        </div>
+        <?php endif; ?>
+      </div>
 
+      <!-- Description -->
+      <?php if (!empty($product['description'])): ?>
+      <div class="detail-desc">
+        <button class="detail-desc__toggle" id="descToggle">
+          Deskripsi Produk
+          <svg class="toggle-chevron" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="detail-desc__body" id="descBody">
+          <p><?= nl2br(htmlspecialchars($product['description'])) ?></p>
+        </div>
+      </div>
+      <?php endif; ?>
 
-<script>
-feather.replace();
-</script>
+    </div>
+  </main>
 
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+      </div>
+      <div class="footer__socials">
+        <a href="https://wa.me/6285795077194" target="_blank" class="footer__social" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/ilmisgarden/" target="_blank" class="footer__social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ilmisgarden" target="_blank" class="footer__social" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer__addr">
+      <a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank">
+        Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
+      </a>
+    </p>
+    <p class="footer__copy">© 2025 Ilmisgarden. All rights reserved.</p>
+  </footer>
+
+  <!-- ─── SCRIPTS ───────────────────────────────────────── -->
+  <script>
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    /* Mobile menu */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+    );
+
+    /* Gallery thumbnails */
+    function setMainImage(btn, src) {
+      document.getElementById('mainImage').src = src;
+      document.querySelectorAll('.thumb-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+
+    /* Qty stepper */
+    const qtyInput = document.getElementById('qtyInput');
+    document.getElementById('qtyMinus').addEventListener('click', () => {
+      if (+qtyInput.value > 1) qtyInput.value = +qtyInput.value - 1;
+    });
+    document.getElementById('qtyPlus').addEventListener('click', () => {
+      qtyInput.value = +qtyInput.value + 1;
+    });
+
+    /* Description accordion */
+    const descToggle = document.getElementById('descToggle');
+    const descBody   = document.getElementById('descBody');
+    if (descToggle && descBody) {
+      descBody.style.maxHeight = descBody.scrollHeight + 'px'; // open by default
+      descToggle.classList.add('open');
+
+      descToggle.addEventListener('click', () => {
+        const isOpen = descToggle.classList.toggle('open');
+        descBody.style.maxHeight = isOpen ? descBody.scrollHeight + 'px' : '0';
+      });
+    }
+
+    /* Scroll reveal */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>

@@ -21,9 +21,8 @@ $flowers = [
 $occasions = [
   'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
   'Gift','Raya','Valentine','Wedding',
-  'Sebulan Penuh Cinta','Imlek', 'Eid Al Fitr'
+  'Sebulan Penuh Cinta','Imlek','Eid Al Fitr'
 ];
-
 
 /* =============================
    GET FILTER
@@ -58,7 +57,6 @@ if ($catalogFilter) {
   $sql .= " AND p.catalog IS NOT NULL AND (" . implode(" OR ", $likes) . ")";
 }
 
-
 if ($flowerFilter) {
   $likes = [];
   foreach ($flowerFilter as $f) {
@@ -77,11 +75,6 @@ if ($occasionFilter) {
   $sql .= " AND p.occasion IS NOT NULL AND (" . implode(" OR ", $likes) . ")";
 }
 
-
-
-/* =============================
-   PRICE
-============================= */
 if ($priceFilterActive && $maxPrice) {
   $sql .= " AND p.price <= ?";
   $params[] = $maxPrice;
@@ -89,372 +82,327 @@ if ($priceFilterActive && $maxPrice) {
 
 $sql .= " ORDER BY p.id DESC";
 
-
 $stmt = $pdo->prepare($sql);
 $stmt->execute($params);
 $products = $stmt->fetchAll();
+
+$activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occasionFilter)
+                   + ($priceFilterActive && $maxPrice ? 1 : 0);
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Ilmisgarden</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IlmisGarden — Catalog</title>
+  <link rel="icon" href="img/F4F6F4-full.png" />
 
-<link rel="icon" href="img/F4F6F4-full.png">
-<link rel="stylesheet" href="css/navbar.css">
-<link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
-<script src="https://unpkg.com/feather-icons"></script>
-
-<style>
-/* ===== FILTER BAR ===== */
-.filter-bar {
-  background:#fff;
-  padding:20px;
-  border-radius:14px;
-  box-shadow:0 6px 20px rgba(0,0,0,.06);
-  margin-bottom:30px;
-}
-
-.filter-grid {
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-}
-
-.filter-group h5 {
-  margin-bottom:10px;
-  font-size:14px;
-}
-
-.filter-group label {
-  display:block;
-  font-size:13px;
-  margin-bottom:6px;
-}
-
-.filter-actions {
-  margin-top:16px;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-}
-
-@media(max-width:900px){
-  .filter-grid{
-    grid-template-columns:1fr;
-  }
-}
-
-/* ===== ACTIVE NAVBAR FIX (GLOBAL) ===== */
-.navbar .navbar-nav a.active {
-  color: #1c221c !important;
-  font-weight: 700;
-}
-
-.navbar .navbar-nav a.active::after {
-  content: "";
-  display: block;
-  padding-bottom: 0.5rem;
-  border-bottom: 0.1rem solid #1c221c;
-  transform: scaleX(0.6) !important;
-}
-
-.navbar .navbar-nav a.active:hover {
-  color: #1c221c;
-}
-
-/* ===== ACTIVE MOBILE OVERRIDE ===== */
-@media (max-width: 1366px) {
-  .navbar .navbar-nav a.active {
-    color: #1c221c !important;
-  }
-
-  .navbar .navbar-nav a.active::after {
-    transform: scaleX(0.6) !important;
-  }
-}
-
-.filter-actions {
-  margin-top:20px;
-  display:flex;
-  flex-direction:column;   /* ini bikin turun ke bawah */
-  align-items:flex-start;
-  gap:10px;
-}
-.price-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
-  /* Default: desktop → menu disembunyikan */
-#menu-btn {
-  display: none;
-}
-
-/* Muncul hanya di layar kecil */
-@media (max-width: 1366px) {
-  #menu-btn {
-    display: inline-block;
-  }
-}
-
-
-
-</style>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/shop.css" />
 </head>
 <body>
-<!-- Navbar Start -->
-    <nav class="navbar">
-<a href="index.php" class="navbar-logo">
-  <img src="img/F4F6F4-full.png" alt="Logo" style="width: 200px; height: auto;" />
-</a>
 
+  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose">✕</button>
+    <a href="product.php">Product</a>
+    <a href="shop.php">Catalog</a>
+    <a href="about.php">About Us</a>
+  </nav>
 
-      
-<div class="navbar-nav">
-  <a href="product.php">Product</a>
-  <a href="shop.php" data-section="catalog" class="active">Catalog</a>
-  <a href="about.php" data-section="about">About Us</a>
-</div>
+  <!-- ─── NAVBAR ───────────────────────────────────────── -->
+  <header class="nav" id="navbar">
+    <a href="index.php" class="nav__logo">
+      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+    </a>
 
-      <div class="navbar-extra">
-        
+    <ul class="nav__links">
+      <li><a href="product.php">Product</a></li>
+      <li><a href="shop.php" class="active">Catalog</a></li>
+      <li><a href="about.php">About Us</a></li>
+    </ul>
 
+    <div class="nav__actions">
+      <a href="cart.php" class="nav__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+      <a href="profile.php" class="nav__icon" aria-label="Profile">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
+      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-        <a href="cart.php" id="shopping-cart"><i data-feather="shopping-cart"></i></a>
-        <a href="profile.php" id="user"><i data-feather="user"></i></a>
-        <a href="#" id="menu-btn">
-  <i data-feather="menu"></i>
-</a>
+  <!-- ─── PAGE HERO ─────────────────────────────────────── -->
+  <div class="page-hero">
+    <div class="page-hero__content">
+      <p class="section__label">Koleksi Lengkap</p>
+      <h1 class="page-hero__title">Explore Our <em>Catalog</em></h1>
+    </div>
+  </div>
 
+  <!-- ─── MAIN LAYOUT ───────────────────────────────────── -->
+  <div class="shop-layout">
 
+    <!-- ── SIDEBAR FILTER ────────────────────────────────── -->
+    <aside class="shop-sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <h2 class="sidebar-title">Filter</h2>
+        <?php if ($activeFilterCount > 0): ?>
+          <a href="shop.php" class="sidebar-clear">Reset (<?= $activeFilterCount ?>)</a>
+        <?php endif; ?>
       </div>
-    </nav>
-    <!-- Navbar End -->
 
+      <form method="GET" id="filterForm">
 
-<div class="container">
+        <!-- By Catalog -->
+        <div class="filter-group">
+          <button type="button" class="filter-group__toggle">
+            By Catalog
+            <svg class="toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-group__body">
+            <?php foreach ($catalogs as $c): ?>
+            <label class="filter-check">
+              <input type="checkbox" name="catalog[]" value="<?= $c ?>"
+                <?= in_array($c, $catalogFilter) ? 'checked' : '' ?>>
+              <span class="filter-check__box"></span>
+              <?= $c ?>
+            </label>
+            <?php endforeach; ?>
+          </div>
+        </div>
 
-<!-- FILTER BAR -->
-<form method="GET" class="filter-bar">
+        <!-- By Flowers -->
+        <div class="filter-group">
+          <button type="button" class="filter-group__toggle">
+            By Flowers
+            <svg class="toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-group__body">
+            <?php foreach ($flowers as $f): ?>
+            <label class="filter-check">
+              <input type="checkbox" name="flower[]" value="<?= $f ?>"
+                <?= in_array($f, $flowerFilter) ? 'checked' : '' ?>>
+              <span class="filter-check__box"></span>
+              <?= $f ?>
+            </label>
+            <?php endforeach; ?>
+          </div>
+        </div>
 
-<div class="filter-accordion-wrapper">
+        <!-- By Occasion -->
+        <div class="filter-group">
+          <button type="button" class="filter-group__toggle">
+            By Occasion
+            <svg class="toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="filter-group__body">
+            <?php foreach ($occasions as $o): ?>
+            <label class="filter-check">
+              <input type="checkbox" name="occasion[]" value="<?= $o ?>"
+                <?= in_array($o, $occasionFilter) ? 'checked' : '' ?>>
+              <span class="filter-check__box"></span>
+              <?= $o ?>
+            </label>
+            <?php endforeach; ?>
+          </div>
+        </div>
 
-  <!-- BY CATALOG -->
-  <div class="accordion-item">
-    <button type="button" class="accordion-header">
-      By Catalog
-      <span class="icon">▸</span>
-    </button>
-    <div class="accordion-body">
-      <?php foreach ($catalogs as $c): ?>
-        <label>
-          <input type="checkbox" name="catalog[]" value="<?= $c ?>"
-            <?= in_array($c,$catalogFilter)?'checked':'' ?>>
-          <?= $c ?>
-        </label>
-      <?php endforeach; ?>
+        <!-- Price -->
+        <div class="filter-group filter-group--price">
+          <label class="filter-check filter-check--price">
+            <input type="checkbox" name="price_filter" id="priceToggle"
+              <?= $priceFilterActive ? 'checked' : '' ?>>
+            <span class="filter-check__box"></span>
+            Max Price
+          </label>
+          <div class="price-input-wrap" id="priceInputWrap"
+               style="<?= $priceFilterActive ? '' : 'display:none' ?>">
+            <span class="price-prefix">Rp</span>
+            <input type="number" name="max_price" min="0" step="1000"
+                   placeholder="500.000"
+                   value="<?= htmlspecialchars($maxPrice ?? '') ?>" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn-apply">Terapkan Filter</button>
+
+      </form>
+    </aside>
+
+    <!-- ── PRODUCT AREA ───────────────────────────────────── -->
+    <main class="shop-main">
+
+      <!-- Topbar -->
+      <div class="shop-topbar">
+        <p class="shop-count">
+          <?php if ($activeFilterCount > 0): ?>
+            Menampilkan <strong><?= count($products) ?></strong> produk
+          <?php else: ?>
+            <strong><?= count($products) ?></strong> produk tersedia
+          <?php endif; ?>
+        </p>
+
+        <!-- Mobile filter toggle -->
+        <button class="btn-filter-toggle" id="filterToggle">
+          <svg viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
+          Filter<?= $activeFilterCount > 0 ? " ({$activeFilterCount})" : '' ?>
+        </button>
+      </div>
+
+      <!-- Active filter pills -->
+      <?php if ($activeFilterCount > 0): ?>
+      <div class="filter-pills">
+        <?php foreach ($catalogFilter as $c): ?>
+          <span class="filter-pill"><?= $c ?></span>
+        <?php endforeach; ?>
+        <?php foreach ($flowerFilter as $f): ?>
+          <span class="filter-pill"><?= $f ?></span>
+        <?php endforeach; ?>
+        <?php foreach ($occasionFilter as $o): ?>
+          <span class="filter-pill"><?= $o ?></span>
+        <?php endforeach; ?>
+        <?php if ($priceFilterActive && $maxPrice): ?>
+          <span class="filter-pill">≤ Rp <?= number_format($maxPrice, 0, ',', '.') ?></span>
+        <?php endif; ?>
+        <a href="shop.php" class="filter-pill filter-pill--clear">✕ Reset</a>
+      </div>
+      <?php endif; ?>
+
+      <!-- Product grid -->
+      <?php if (!$products): ?>
+        <div class="empty-state">
+          <div class="empty-state__icon">🌿</div>
+          <h3>Tidak ada produk ditemukan</h3>
+          <p>Coba ubah atau reset filter yang digunakan.</p>
+          <a href="shop.php" class="btn-primary">Reset Filter</a>
+        </div>
+      <?php else: ?>
+      <div class="products-grid stagger">
+        <?php foreach ($products as $p):
+          $img = $p['main_image'] ?: 'img/no-image.png';
+        ?>
+        <article class="product-card reveal">
+          <a href="product_details.php?id=<?= $p['id'] ?>">
+            <div class="product-card__img">
+              <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" />
+              <?php if (!empty($p['catalog'])): ?>
+              <span class="product-card__tag"><?= htmlspecialchars($p['catalog']) ?></span>
+              <?php endif; ?>
+            </div>
+          </a>
+          <div class="product-card__body">
+            <h3 class="product-card__name"><?= htmlspecialchars($p['name']) ?></h3>
+            <p class="product-card__price">Rp <?= number_format($p['price'], 0, ',', '.') ?></p>
+            <a href="product_details.php?id=<?= $p['id'] ?>">
+              <button class="product-card__btn">Beli Sekarang</button>
+            </a>
+          </div>
+        </article>
+        <?php endforeach; ?>
+      </div>
+      <?php endif; ?>
+
+    </main>
+  </div>
+
+  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+      </div>
+      <div class="footer__socials">
+        <a href="https://wa.me/6285795077194" target="_blank" class="footer__social" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/ilmisgarden/" target="_blank" class="footer__social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ilmisgarden" target="_blank" class="footer__social" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/></svg>
+        </a>
+      </div>
     </div>
-  </div>
+    <p class="footer__addr">
+      <a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank">
+        Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
+      </a>
+    </p>
+    <p class="footer__copy">© 2025 Ilmisgarden. All rights reserved.</p>
+  </footer>
 
-  <!-- BY FLOWERS -->
-  <div class="accordion-item">
-    <button type="button" class="accordion-header">
-      By Flowers
-      <span class="icon">▸</span>
-    </button>
-    <div class="accordion-body">
-      <?php foreach ($flowers as $f): ?>
-        <label>
-          <input type="checkbox" name="flower[]" value="<?= $f ?>"
-            <?= in_array($f,$flowerFilter)?'checked':'' ?>>
-          <?= $f ?>
-        </label>
-      <?php endforeach; ?>
-    </div>
-  </div>
+  <!-- ─── SCRIPTS ───────────────────────────────────────── -->
+  <script>
+    /* Navbar scroll */
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
 
-  <!-- BY OCCASION -->
-  <div class="accordion-item">
-    <button type="button" class="accordion-header">
-      By Occasion
-      <span class="icon">▸</span>
-    </button>
-    <div class="accordion-body">
-      <?php foreach ($occasions as $o): ?>
-        <label>
-          <input type="checkbox" name="occasion[]" value="<?= $o ?>"
-            <?= in_array($o,$occasionFilter)?'checked':'' ?>>
-          <?= $o ?>
-        </label>
-      <?php endforeach; ?>
-    </div>
-  </div>
+    /* Mobile menu */
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a =>
+      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
+    );
 
-</div>
+    /* Sidebar filter toggle (mobile) */
+    const filterToggle = document.getElementById('filterToggle');
+    const sidebar      = document.getElementById('sidebar');
+    filterToggle.addEventListener('click', () => {
+      sidebar.classList.toggle('open');
+    });
 
+    /* Accordion filter groups */
+    document.querySelectorAll('.filter-group__toggle').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const group = btn.closest('.filter-group');
+        const body  = group.querySelector('.filter-group__body');
+        const isOpen = group.classList.contains('open');
 
-<div class="filter-actions">
+        // Close all
+        document.querySelectorAll('.filter-group').forEach(g => {
+          g.classList.remove('open');
+          const b = g.querySelector('.filter-group__body');
+          if (b) b.style.maxHeight = null;
+        });
 
-  <div class="price-row">
-    <label>
-      <input type="checkbox" name="price_filter"
-        <?= $priceFilterActive ? 'checked' : '' ?>>
-      Max Price
-    </label>
-
-    <?php if ($priceFilterActive): ?>
-      <input type="number"
-        name="max_price"
-        min="0"
-        step="1000"
-        placeholder="Contoh: 500000"
-        value="<?= htmlspecialchars($maxPrice ?? '') ?>">
-    <?php endif; ?>
-  </div>
-
-  <button type="submit">Apply Filter</button>
-
-</div>
-
-
-
-</form>
-
-<!-- PRODUCTS -->
-<section class="products">
-<?php if (!$products): ?>
-  <p>Tidak ada produk.</p>
-<?php else: ?>
-  <?php foreach ($products as $p): ?>
-    <?php $img = $p['main_image'] ?: 'img/no-image.png'; ?>
-<div class="product-card">
-
-  <a href="product_details.php?id=<?= $p['id'] ?>">
-    <div class="product-image"
-         style="background:url('<?= htmlspecialchars($img) ?>') center/cover no-repeat;"></div>
-  </a>
-
-  <h4><?= htmlspecialchars($p['name']) ?></h4>
-  <p class="price">Rp <?= number_format($p['price'],0,',','.') ?></p>
-
-  <a href="product_details.php?id=<?= $p['id'] ?>" class="buy-button">BUY</a>
-
-</div>
-
-  <?php endforeach; ?>
-<?php endif; ?>
-</section>
-
-</div>
-<section class="container" style="padding-bottom:110px;"></section>
-
-<footer
-  style="
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:#283128;
-    color:#d9d9d9;
-    text-align:center;
-    padding:8px 10px;
-    z-index:9999;
-    font-size:13px;
-  ">
-
-  <!-- Address -->
-  <div style="margin-bottom:10px;">
-  <a
-          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
-          target="_blank"
-          style="color:#d9d9d9;"
-        >
-    Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
-  </a>  <br>
-</div>
-
-  <!-- Social Icons -->
-  <div style="display:flex; justify-content:center; gap:28px; align-items:center;">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6285795077194"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
-      </svg>
-      <span>WA</span>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/ilmisgarden/"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-      </svg>
-      <span>IG</span>
-    </a>
-
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@ilmisgarden"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
-      </svg>
-      <span>TikTok</span>
-    </a>
-
-  </div>
-</footer>
-
-<script>
-  document.querySelectorAll('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const body = item.querySelector('.accordion-body');
-
-      document.querySelectorAll('.accordion-item').forEach(i => {
-        if (i !== item) {
-          i.classList.remove('active');
-          i.querySelector('.accordion-body').style.maxHeight = null;
+        // Open clicked if it was closed
+        if (!isOpen) {
+          group.classList.add('open');
+          body.style.maxHeight = body.scrollHeight + 'px';
         }
       });
-
-      if (item.classList.contains('active')) {
-        item.classList.remove('active');
-        body.style.maxHeight = null;
-      } else {
-        item.classList.add('active');
-        body.style.maxHeight = body.scrollHeight + "px";
-      }
     });
-  });
 
-feather.replace();
+    /* Price toggle */
+    const priceToggle    = document.getElementById('priceToggle');
+    const priceInputWrap = document.getElementById('priceInputWrap');
+    priceToggle.addEventListener('change', () => {
+      priceInputWrap.style.display = priceToggle.checked ? 'flex' : 'none';
+    });
 
-const navbarNav = document.querySelector(".navbar-nav");
-const menuBtn = document.querySelector("#menu-btn");
-
-menuBtn.addEventListener("click", function(e){
-  e.preventDefault();
-  e.stopPropagation();
-  navbarNav.classList.toggle("active");
-});
-
-document.addEventListener("click", function (e) {
-  if (!menuBtn.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove("active");
-  }
-});
-
-    </script>
-    <!-- js -->
-    <script src="js/script.js"></script>
-
+    /* Scroll reveal */
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script src="js/script.js"></script>
 </body>
 </html>
