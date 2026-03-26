@@ -151,19 +151,31 @@ $transactions = $stmt->fetchAll();
 
         <div class="txn-list">
           <?php foreach ($transactions as $t):
-            $statusClass = match(strtolower($t['status'])) {
-              'paid', 'success', 'selesai'  => 'txn-status--success',
-              'pending', 'menunggu'          => 'txn-status--pending',
-              'cancelled', 'dibatalkan'      => 'txn-status--cancelled',
-              default                        => 'txn-status--default',
-            };
-            $statusLabel = match(strtolower($t['status'])) {
-              'paid'      => 'Dibayar',
-              'success'   => 'Selesai',
-              'pending'   => 'Menunggu',
-              'cancelled' => 'Dibatalkan',
-              default     => ucfirst($t['status']),
-            };
+           $status = strtolower($t['status']);
+
+// Status Class
+if (in_array($status, ['paid', 'success', 'selesai'])) {
+  $statusClass = 'txn-status--success';
+} elseif (in_array($status, ['pending', 'menunggu'])) {
+  $statusClass = 'txn-status--pending';
+} elseif (in_array($status, ['cancelled', 'dibatalkan'])) {
+  $statusClass = 'txn-status--cancelled';
+} else {
+  $statusClass = 'txn-status--default';
+}
+
+// Status Label
+if ($status === 'paid') {
+  $statusLabel = 'Dibayar';
+} elseif ($status === 'success' || $status === 'selesai') {
+  $statusLabel = 'Selesai';
+} elseif ($status === 'pending' || $status === 'menunggu') {
+  $statusLabel = 'Menunggu';
+} elseif ($status === 'cancelled' || $status === 'dibatalkan') {
+  $statusLabel = 'Dibatalkan';
+} else {
+  $statusLabel = ucfirst($t['status']);
+}
           ?>
           <div class="txn-card">
             <div class="txn-card__head">
