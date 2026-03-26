@@ -871,3 +871,13 @@ button {
   background-color: #3b5440;
   transform: translateY(-3px);
 }
+#hero-text {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.4s ease;
+}
+
+#hero-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}

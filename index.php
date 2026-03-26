@@ -89,6 +89,7 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/index.css" />
+
 </head>
 <body>
 
@@ -125,31 +126,32 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
     </div>
   </header>
 
-  <!-- ─── HERO ─────────────────────────────────────────── -->
-  <section class="hero" id="home">
-    <div class="hero__slides">
-      <div class="hero__slide active" style="background-image:url('img/Picture1.png')"></div>
-      <div class="hero__slide" style="background-image:url('img/fl (2).jpeg')"></div>
-      <div class="hero__slide" style="background-image:url('img/lebaran_banner.png')"></div>
-    </div>
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero__slides">
+    <div class="hero__slide active" style="background-image:url('img/Picture1.png')"></div>
+    <div class="hero__slide" style="background-image:url('img/fl (2).jpeg')"></div>
+    <div class="hero__slide" style="background-image:url('img/lebaran_banner.png')"></div>
+  </div>
 
-    <div class="hero__content">
-      <p class="hero__eyebrow">Flower Atelier · Bandung</p>
-      <h1 class="hero__title">Selamat datang di<br><em>Ilmisgarden</em></h1>
-      <p class="hero__sub">Rangkaian bunga segar yang dirangkai dengan penuh cinta — untuk setiap momen berharga dalam hidupmu.</p>
-      <div class="hero__actions">
-        <a href="product.php" class="btn-primary">Lihat Produk →</a>
-        <a href="about.php" class="btn-outline">Tentang Kami</a>
-      </div>
-    </div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Flower Atelier · Bandung</p>
 
-    <div class="hero__dots">
-      <button class="hero__dot active" data-slide="0"></button>
-      <button class="hero__dot" data-slide="1"></button>
-      <button class="hero__dot" data-slide="2"></button>
-    </div>
-  </section>
+    <h1 class="hero__title" id="hero-title"></h1>
+    <p class="hero__sub" id="hero-text"></p>
 
+    <div class="hero__actions">
+      <a href="#" id="hero-btn" class="btn-primary">Lihat Produk →</a>
+      <a href="about.php" class="btn-outline">Tentang Kami</a>
+    </div>
+  </div>
+
+  <div class="hero__dots">
+    <button class="hero__dot active" data-slide="0"></button>
+    <button class="hero__dot" data-slide="1"></button>
+    <button class="hero__dot" data-slide="2"></button>
+  </div>
+</section>
   <!-- ─── BESTSELLERS ──────────────────────────────────── -->
   <section class="section">
     <div class="section__header reveal">
@@ -348,24 +350,6 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    /* Hero slideshow */
-    const slides = document.querySelectorAll('.hero__slide');
-    const dots   = document.querySelectorAll('.hero__dot');
-    let current  = 0, timer;
-
-    function goTo(n) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = (n + slides.length) % slides.length;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-    }
-    function startAuto() { timer = setInterval(() => goTo(current + 1), 4500); }
-    function resetAuto()  { clearInterval(timer); startAuto(); }
-
-    dots.forEach(d => d.addEventListener('click', () => { goTo(+d.dataset.slide); resetAuto(); }));
-    startAuto();
-
     /* Mobile menu */
     const hamburger   = document.getElementById('hamburger');
     const mobileMenu  = document.getElementById('mobileMenu');
@@ -392,5 +376,6 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
     <a href="about.php#contact" class="floating-about">
   Hubungi Kami
 </a>
+<script src="js/script.js"></script>
 </body>
 </html>

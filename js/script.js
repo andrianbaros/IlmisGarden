@@ -1,30 +1,31 @@
 // =====================
-// NAVBAR TOGGLE
+// NAVBAR TOGGLE (FIX)
 // =====================
 const navbarNav = document.querySelector(".navbar-nav");
+const menu = document.querySelector("#hamburger");
 
-document.querySelector("#menu").onclick = () => {
-  navbarNav.classList.toggle("active");
-};
-
-const menu = document.querySelector("#menu");
-
-document.addEventListener("click", function (e) {
-  if (!menu.contains(e.target) && !navbarNav.contains(e.target)) {
-    navbarNav.classList.remove("active");
-  }
-});
+if (menu && navbarNav) {
+  menu.onclick = () => {
+    navbarNav.classList.toggle("active");
+  };
+}
 
 // =====================
-// =====================
-// SLIDESHOW HERO
+// HERO SLIDESHOW FINAL
 // =====================
 document.addEventListener("DOMContentLoaded", () => {
   let currentSlide = 0;
 
-  const slides = document.querySelectorAll(".slide");
+  const slides = document.querySelectorAll(".hero__slide");
   const heroText = document.getElementById("hero-text");
   const heroBtn = document.getElementById("hero-btn");
+  const heroTitle = document.getElementById("hero-title");
+  const dots = document.querySelectorAll(".hero__dot");
+
+  if (!heroText || !heroBtn || !heroTitle) {
+    console.error("Hero element tidak ditemukan!");
+    return;
+  }
 
   const texts = [
     `Tempat di mana setiap bunga punya cerita.<br>
@@ -35,40 +36,59 @@ document.addEventListener("DOMContentLoaded", () => {
      berkolaborasi dengan pengrajin lokal
      dan desain berkarakter.`,
 
-     `Sempurnakan perayaan Idul Fitri dengan hampers elegan yang membawa kehangatan dan<br>
-      kebersamaan. 🌙✨`,
+    `Sempurnakan perayaan Idul Fitri dengan hampers elegan<br>
+     yang membawa kehangatan dan kebersamaan. 🌙✨`,
   ];
 
-  const links = ["about.php", "artisan.php","lebaran.php"];
+  const titles = [
+    "Selamat datang di<br><em>Ilmisgarden</em>",
+    "Produk Artisan<br><em>Eksklusif</em>",
+    "Eid Collection<br><em>Special</em>",
+  ];
 
-  // ===== INIT PERTAMA =====
-  heroText.innerHTML = texts[0];
-  heroBtn.dataset.link = links[0];
+  const links = ["product.php", "artisan.php", "lebaran.php"];
+
+  const btnTexts = [
+    "Lihat Produk →",
+    "Lihat Artisan →",
+    "Lihat Koleksi Lebaran →",
+  ];
+
+  function updateContent(index) {
+    heroText.innerHTML = texts[index];
+    heroTitle.innerHTML = titles[index];
+    heroBtn.innerText = btnTexts[index];
+    heroBtn.href = links[index];
+  }
+
+  // INIT
+  updateContent(0);
   heroText.classList.add("show");
 
-  heroBtn.addEventListener("click", () => {
-    window.location.href = heroBtn.dataset.link;
-  });
-
-  function changeSlide() {
-    // slide visual
+  function changeSlide(index = null) {
     slides[currentSlide].classList.remove("active");
-    currentSlide = (currentSlide + 1) % slides.length;
-    slides[currentSlide].classList.add("active");
+    dots[currentSlide].classList.remove("active");
 
-    // text anim
+    currentSlide = index !== null ? index : (currentSlide + 1) % slides.length;
+
+    slides[currentSlide].classList.add("active");
+    dots[currentSlide].classList.add("active");
+
     heroText.classList.remove("show");
 
     setTimeout(() => {
-      heroText.innerHTML = texts[currentSlide];
-      heroBtn.dataset.link = links[currentSlide];
-
-      // 🔥 PENTING: PAKSA repaint
-      void heroText.offsetWidth;
-
+      updateContent(currentSlide);
       heroText.classList.add("show");
     }, 300);
   }
 
-  setInterval(changeSlide, 4000);
+  let interval = setInterval(changeSlide, 4000);
+
+  dots.forEach((dot) => {
+    dot.addEventListener("click", () => {
+      clearInterval(interval);
+      changeSlide(parseInt(dot.dataset.slide));
+      interval = setInterval(changeSlide, 4000);
+    });
+  });
 });
