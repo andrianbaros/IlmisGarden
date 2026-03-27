@@ -16,215 +16,369 @@
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
+  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
+  <nav class="mobile-menu" id="mobileMenu">
+    <button class="mobile-menu__close" id="mobileClose">✕</button>
+    <a href="product.php">Product</a>
+    <a href="shop.php">Catalog</a>
+    <a href="about.php">About Us</a>
+  </nav>
 
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-  <a href="index.php" class="nav__logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-  </a>
-
-  <ul class="nav__links">
-    <li><a href="product.php" class="active">Product</a></li>
-    <li><a href="shop.php">Catalog</a></li>
-    <li><a href="about.php">About Us</a></li>
-  </ul>
-
-  <div class="nav__actions">
-    <a href="cart.php" class="nav__icon" aria-label="Cart">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+  <!-- ─── NAVBAR ───────────────────────────────────────── -->
+  <header class="nav" id="navbar">
+    <a href="index.php" class="nav__logo">
+      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
     </a>
-
-    <a href="profile.php" class="nav__icon" aria-label="Profile">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
-
-    <!-- WRAPPER PENTING -->
-    <div class="nav__menu-wrapper">
+    <ul class="nav__links">
+      <li><a href="product.php">Product</a></li>
+      <li><a href="shop.php">Catalog</a></li>
+      <li><a href="about.php">About Us</a></li>
+    </ul>
+    <div class="nav__actions">
+      <a href="cart.php" class="nav__icon" aria-label="Cart">
+        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      </a>
+      <a href="profile.php" class="nav__icon" aria-label="Profile">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </a>
       <button class="nav__hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
-
-      <!-- PINDAH MOBILE MENU KE SINI -->
-      <nav class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileClose">✕</button>
-        <a href="product.php">Product</a>
-        <a href="shop.php">Catalog</a>
-        <a href="about.php">About Us</a>
-      </nav>
     </div>
+  </header>
 
-  </div>
-</header>
-
-
-  <!-- ─── PAGE HERO ─────────────────────────────────────── -->
-  <div class="page-hero">
-    <div class="page-hero__content reveal">
-      <p class="section__label">Kerajinan Tangan</p>
-      <h1 class="page-hero__title">Artisan <em>Product</em></h1>
-    </div>
-  </div>
-
-  <!-- ─── INTRO ─────────────────────────────────────────── -->
-  <section class="section artisan-intro">
-    <div class="artisan-intro__inner reveal">
-      <p class="artisan-intro__lead">Produk artisan kami dibuat dengan tangan, penuh perhatian, dan dibuat khusus untuk setiap momen.</p>
-      <p class="artisan-intro__body">Setiap produk artisan yang kami hadirkan merupakan hasil dari kecintaan terhadap keindahan dan ketelitian dalam setiap proses. Dari pemilihan bahan hingga detail akhir, semua dikerjakan dengan penuh dedikasi untuk menghasilkan karya yang tak hanya indah, tetapi juga bermakna.</p>
+  <!-- ─── HERO ─────────────────────────────────────────── -->
+  <section class="artisan-hero">
+    <div class="artisan-container">
+      <h1>Artisan Collection</h1>
+      <p>
+        Di balik setiap produk kami, ada sebuah cerita tentang keindahan, craftsmanship, dan sentuhan bunga yang membawa ketenangan. Melalui Artisan Collection, 
+        kami menghadirkan rangkaian produk fungsional berbahan dasar bunga yang dibuat secara khusus bersama pengrajin lokal Bandung. Kami percaya bahwa kualitas 
+        terbaik lahir dari tangan-tangan ahli. Karena itu, kami berkolaborasi dengan para pengrajin lokal Bandung. Kolaborasi ini juga merupakan bentuk dukungan kami 
+        terhadap komunitas kreatif lokal, sehingga setiap pembelian produk untuk mempercantik ruangan, juga membantu menghidupkan industri kerajinan dalam negeri.
+      </p>
+      <p>
+        Setiap produk dalam koleksi ini terdapat bunga-bunga yang indah untuk dilihat, dan mampu membuat perasaan 
+        orang yang menggunakannya jauh lebih baik. Kehadiran penambahan bunga di setiap produk yang biasa kita pakai dapat 
+        membuat rasa lebih tenang dan rileks saat menggunakannya, juga mood yang lebih positif.
+      </p>
     </div>
   </section>
 
   <!-- ─── PRODUCT SECTIONS ──────────────────────────────── -->
-  <section class="section artisan-section">
+  <section class="artisan-section">
 
-    <!-- Product 1 -->
+    <!-- ── 1. FLORAL TEA ── -->
     <div class="artisan-card reveal">
       <div class="artisan-img">
-        <img src="img/ArtisanProduct.png" alt="Artisan Product" loading="lazy" />
+        <img src="img/artisan1.jpg" alt="Floral Tea">
       </div>
       <div class="artisan-content">
-        <p class="section__label">Unggulan</p>
-        <h2>Produk <em>Artisan</em> Kami</h2>
-        <p>Rangkaian produk handcrafted yang dibuat dengan bahan pilihan dan teknik yang telah diasah selama bertahun-tahun. Setiap detail mencerminkan perhatian dan kecintaan kami terhadap seni merangkai.</p>
-        <ul>
-          <li>Dibuat dengan tangan, satu per satu</li>
-          <li>Bahan berkualitas premium</li>
-          <li>Dapat dikustomisasi sesuai kebutuhan</li>
-          <li>Dikemas dengan elegan</li>
-        </ul>
-        <a href="shop.php?catalog%5B%5D=Artisan" class="btn-primary">Lihat di Catalog →</a>
+        <h2>1. Floral Tea</h2>
+        <p>
+          Floral Tea adalah salah satu koleksi paling spesial dari artisan series kami. Diracik melalui kolaborasi bersama Hage Natural, 
+          teh ini menggabungkan keindahan bunga dengan cita rasa yang lembut dan manfaat yang menenangkan. Setiap elemennya dirancang secara 
+          detail mulai dari pemilihan bunga, gagang teh berbentuk bunga, hingga kemasan yang artistik sehingga menghadirkan pengalaman minum teh yang berbeda 
+          dari biasanya, lebih intim, lebih estetik, dan lebih mindful.
+        </p>
+        <p>
+          Floral Tea menggunakan dua bunga utama yang terkenal dengan efek relaksasinya, yaitu bunga camomile dan bunga lavender. 
+          Kombinasi keduanya menghasilkan teh dengan aroma yang mewah, rasa yang halus, serta manfaat relaksasi yang kuat, cocok dinikmati saat malam hari, 
+          setelah bekerja, atau saat ingin me time.
+        </p>
       </div>
     </div>
 
-    <!-- Product 2 (reverse) -->
-    <div class="artisan-card artisan-card--reverse reveal">
+    <!-- Floral Tea Catalog -->
+    <div class="catalog-block reveal">
+      <div class="catalog-header">
+        <h3>Floral Tea Camovender</h3>
+      </div>
+      <div class="orchid-section">
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/floral1.jpg" alt="Floral Tea 1 Sachet">
+          </div>
+          <div class="orchid-text">
+            <h3>Camovender</h3>
+            <div class="price-block">
+              <h4>12 K</h4>
+              <p>1 Sachet Floral Tea Camovender</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/floral2.jpg" alt="Floral Tea 5 Sachet">
+          </div>
+          <div class="orchid-text">
+            <h3>Camovender</h3>
+            <div class="price-block">
+              <h4>57 K</h4>
+              <p>5 Sachet Floral Tea Camovender</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/floral3.jpg" alt="Floral Tea 10 Sachet">
+          </div>
+          <div class="orchid-text">
+            <h3>Camovender</h3>
+            <div class="price-block">
+              <h4>75 K</h4>
+              <p>10 Sachet Floral Tea Camovender</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 2. FLORAL SCENT ── -->
+    <div class="artisan-card reverse reveal">
       <div class="artisan-img">
-        <img src="img/ArtisanProductmenu.png" alt="Artisan Product" loading="lazy" />
+        <img src="img/artisan2.jpg" alt="Floral Scent Diffuser">
       </div>
       <div class="artisan-content">
-        <p class="section__label">Custom Order</p>
-        <h2>Pesan <em>Sesuai Keinginanmu</em></h2>
-        <p>Kami menerima pesanan custom untuk berbagai kebutuhan — hadiah ulang tahun, souvenir pernikahan, kenangan wisuda, hingga dekorasi ruangan pribadi. Ceritakan konsepmu dan kami akan wujudkan.</p>
-        <ul>
-          <li>Konsultasi desain gratis</li>
-          <li>Tersedia untuk berbagai budget</li>
-          <li>Siap kirim ke seluruh Indonesia</li>
+        <h2>2. Floral Scent</h2>
+        <p>
+          Diffuser Floral kami adalah perpaduan antara aroma yang menenangkan dan keindahan visual yang estetik. 
+          Dirancang sebagai dekor fungsional, diffuser ini tidak hanya menyebarkan wangi floral yang lembut, 
+          tetapi juga mempercantik ruangan melalui potongan bunga asli yang kami masukkan ke dalam botolnya.
+          Komposisi utama diffuser adalah alkohol dan essential oil premium.
+        </p>
+        <p>
+          <em>Ambience de Fleur –</em> Desain diffuser dibuat dengan konsep minimalis natural sehingga mudah menyatu dengan berbagai gaya interior, 
+          mulai dari modern, minimalis, rustic, hingga classic. Dilengkapi dengan reed stick yang membantu aroma menyebar secara perlahan 
+          dan konsisten. Diffuser kami cocok untuk kamar tidur, ruang tamu, ruang kerja, hingga area self-care.
+        </p>
+      </div>
+    </div>
+
+    <!-- Floral Scent Catalog -->
+    <div class="catalog-block reveal">
+      <div class="catalog-header">
+        <h3>Floral Scent</h3>
+      </div>
+      <div class="orchid-section">
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/Fleur2.png" alt="Ambience de Fleur 100ml">
+          </div>
+          <div class="orchid-text">
+            <h3>Ambience de Fleur</h3>
+            <div class="price-block">
+              <h4>115 K</h4>
+              <p>100 ml Floral Scent + Stick Reed<br>Dengan dekorasi bunga<br>Lembut, Elegan, Menenangkan</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/Fleur1.png" alt="Ambience de Fleur 200ml">
+          </div>
+          <div class="orchid-text">
+            <h3>Ambience de Fleur</h3>
+            <div class="price-block">
+              <h4>178 K</h4>
+              <p>200 ml Floral Scent + Stick Reed<br>Dengan dekorasi bunga<br>Lembut, Elegan, Menenangkan</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── 3. BLOOMING BAR & LUSH PETALS ── -->
+    <div class="artisan-card reveal">
+      <div class="artisan-img">
+        <img src="img/artisan3.jpg" alt="Blooming Bar">
+      </div>
+      <div class="artisan-content">
+        <h2>3. Blooming Bar &amp; Lush Petals</h2>
+        <p>
+          Dalam kolaborasi spesial bersama RawGlow Rituals, Ilmisgarden menghadirkan rangkaian perawatan tubuh natural yang memadukan 
+          keindahan bunga dengan kehangatan ritual selfcare. Blooming Bar dan Lush Petals tercipta untuk memanjakan kulit sekaligus memberikan 
+          pengalaman mandi yang aromatik, lembut, dan menenangkan.
+        </p>
+        <p>
+          Terinspirasi dari pesona bunga dan ketenangan mandi ritual, kedua produk ini menggunakan organic botanical oil serta petal bunga pilihan, 
+          menciptakan sensasi perawatan tubuh yang lembut, mewah, dan penuh makna.
+        </p>
+        <p>
+          <strong>Blooming Bar — Handmade Soap Natural</strong><br>
+          Blooming Bar adalah sabun mandi yang dirancang untuk memberi kelembaban tahan lama tanpa membuat kulit terasa licin ataupun kering. 
+          Teksturnya yang lembut dan busa creamy membersihkan kulit secara menyeluruh sambil mempertahankan hidrasi alami.
+        </p>
+        <p>
+          Diformulasikan dari <strong>Virgin Coconut Oil (VCO), Sunflower Oil, Palm Oil, Olive Oil, Castor Oil, dan Canola Oil</strong> 
+          yang bekerja bersama untuk membersihkan sekaligus menutrisi kulit. Dipadukan dengan <strong>Fragrance Oil premium</strong> dan <strong>Petal bunga pilihan</strong>, 
+          sabun ini memberikan pengalaman mandi yang lebih menyegarkan dan mewah setiap hari.
+        </p>
+      </div>
+    </div>
+
+    <!-- Blooming Bar Catalog -->
+    <div class="catalog-block reveal">
+      <div class="catalog-header">
+        <h3>Blooming Bar</h3>
+      </div>
+      <div class="orchid-section">
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming1.png" alt="Blooming Bar Lavender">
+          </div>
+          <div class="orchid-text">
+            <h3>Lavender</h3>
+            <div class="price-block">
+              <h4>58 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Relaks dan menenangkan</p>
+            </div>
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Tatakan Kayu + Pouch Scrub</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming2.png" alt="Blooming Bar Floral">
+          </div>
+          <div class="orchid-text">
+            <h3>Floral</h3>
+            <div class="price-block">
+              <h4>58 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Relaks dan menenangkan</p>
+            </div>
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Tatakan Kayu + Pouch Scrub</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming3.png" alt="Blooming Bar Fresh">
+          </div>
+          <div class="orchid-text">
+            <h3>Fresh</h3>
+            <div class="price-block">
+              <h4>58 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Relaks dan menenangkan</p>
+            </div>
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Tatakan Kayu + Pouch Scrub</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/blooming4.png" alt="Blooming Bar Coconut">
+          </div>
+          <div class="orchid-text">
+            <h3>Coconut</h3>
+            <div class="price-block">
+              <h4>58 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Relaks dan menenangkan</p>
+            </div>
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>10gr Blooming Bar<br>Dengan dekorasi bunga<br>Tatakan Kayu + Pouch Scrub</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── LUSH PETALS ── -->
+    <div class="artisan-card reverse reveal">
+      <div class="artisan-img">
+        <img src="img/artisan4.jpg" alt="Lush Petals">
+      </div>
+      <div class="artisan-content">
+        <h2>Lush Petals — Body Scrub Moisturizing &amp; Exfoliating</h2>
+        <p>
+          Untuk perawatan kulit yang lebih menyeluruh, Ilmisgarden menghadirkan Lush Petals, body scrub lembut dengan exfoliant alami yang aman digunakan setiap hari.
+          Kandungan botanical oils dan petal bunga membantu mengangkat sel kulit mati secara gentle tanpa iritasi, sekaligus menjaga hidrasi kulit.
+        </p>
+        <p>
+          Lush Petals memberikan manfaat seperti membantu menghaluskan dan mencerahkan kulit, mengangkat sel kulit mati tanpa membuat kulit terasa kering. 
+          Kandungannya juga bekerja untuk mengunci kelembapan setelah mandi, sehingga kulit tetap lembut dan segar sepanjang hari.
+        </p>
+        <p>
+          Kolaborasi Ilmisgarden x RawGlow Rituals bertujuan untuk mengubah rutinitas mandi menjadi momen self-love yang memanjakan tubuh, pikiran, dan indera.
+          Setiap detail mulai dari aroma, komposisi bahan, tekstur, hingga tampilan kelopak bunga dirancang dengan cinta dan dedikasi.
+        </p>
+        <ul class="feature-list">
+          <li>✓ Cocok untuk semua jenis kulit</li>
+          <li>✓ Aman untuk pemakaian harian</li>
+          <li>✓ Ideal untuk kulit lembab, glowing, dan harum sepanjang hari</li>
         </ul>
-        <a href="https://wa.me/6285795077194?text=Halo, saya ingin custom order artisan product" target="_blank" class="btn-primary">Konsultasi via WhatsApp →</a>
       </div>
     </div>
 
-  </section>
-
-  <!-- ─── CTA STRIP ─────────────────────────────────────── -->
-  <div class="artisan-cta-strip reveal">
-    <div class="artisan-cta-strip__inner">
-      <p>Tertarik dengan produk artisan kami?</p>
-      <a href="https://wa.me/6285795077194?text=Halo, saya ingin info artisan product" target="_blank" class="btn-primary">
-        <svg viewBox="0 0 24 24" style="width:15px;height:15px;fill:currentColor;"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
-        WhatsApp Kami
-      </a>
-    </div>
-  </div>
-
-  <!-- ─── ORCHID ON VASE ────────────────────────────────── -->
-  <section class="section artisan-orchid">
-    <div class="artisan-orchid__header reveal">
-      <p class="section__label">Tanaman Premium</p>
-      <h2>Orchid <em>on Vase</em></h2>
-    </div>
-
-    <div class="orchid-section">
-
-      <!-- Orchid 1 / 2 -->
-      <div class="orchid-row reveal">
-        <div class="orchid-image">
-          <img src="img/orchid21.png" alt="Orchid 1 or 2" loading="lazy" />
-        </div>
-        <div class="orchid-text">
-          <h3>Orchid 1 or 2</h3>
-          <div class="price-blocks">
+    <!-- Lush Petals Catalog -->
+    <div class="catalog-block reveal">
+      <div class="catalog-header">
+        <h3>Lush Petals</h3>
+      </div>
+      <div class="orchid-section">
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/lav1.png" alt="Lush Petals Floral">
+          </div>
+          <div class="orchid-text">
+            <h3>Floral</h3>
             <div class="price-block">
-              <h4>365K</h4>
-              <p>1 orchid plant<br>Small ceramic vase<br>Ornaments</p>
+              <h4>135 K</h4>
+              <p>Lembut, manis, dan romantis</p>
             </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/lav2.png" alt="Lush Petals Mint">
+          </div>
+          <div class="orchid-text">
+            <h3>Mint</h3>
             <div class="price-block">
-              <h4>665K</h4>
-              <p>2 orchid plants<br>Small ceramic vase<br>Ornaments</p>
+              <h4>135 K</h4>
+              <p>Segar, dingin, dan menyegarkan pikiran</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="orchid-row">
+          <div class="orchid-image">
+            <img src="img/lav3.png" alt="Lush Petals Lavender">
+          </div>
+          <div class="orchid-text">
+            <h3>Lavender</h3>
+            <div class="price-block">
+              <h4>135 K</h4>
+              <p>Menenangkan dan memberi efek relaks</p>
             </div>
           </div>
         </div>
       </div>
-
-      <!-- Orchid 3 -->
-      <div class="orchid-row reveal">
-        <div class="orchid-image">
-          <img src="img/orchid22.png" alt="Orchid 3" loading="lazy" />
-        </div>
-        <div class="orchid-text">
-          <h3>Orchid 3</h3>
-          <div class="price-blocks">
-            <div class="price-block">
-              <h4>1.000K</h4>
-              <p>3 orchid plants<br>Medium ceramic vase<br>Ornaments</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Orchid 5 / 6 -->
-      <div class="orchid-row reveal">
-        <div class="orchid-image">
-          <img src="img/orchid23.png" alt="Orchid 5 or 6" loading="lazy" />
-        </div>
-        <div class="orchid-text">
-          <h3>Orchid 5 or 6</h3>
-          <div class="price-blocks">
-            <div class="price-block">
-              <h4>1.600K</h4>
-              <p>5 orchid plants<br>Large ceramic vase<br>Ornaments</p>
-            </div>
-            <div class="price-block">
-              <h4>1.900K</h4>
-              <p>6 orchid plants<br>Large ceramic vase<br>Ornaments</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Variety -->
-    <p class="orchid-var-title reveal">Pilihan Varietas</p>
-    <div class="orchid-variety reveal">
-      <img src="img/orchid-var1.png" alt="Variety 1" loading="lazy" />
-      <img src="img/orchid-var2.png" alt="Variety 2" loading="lazy" />
-      <img src="img/orchid-var3.png" alt="Variety 3" loading="lazy" />
-      <img src="img/orchid-var4.png" alt="Variety 4" loading="lazy" />
-      <img src="img/orchid-var5.png" alt="Variety 5" loading="lazy" />
+    <!-- Closing tagline -->
+    <div class="artisan-tagline reveal">
+      <p><em>Blooming Bar &amp; Lush Petals — Let Your Bathing Time Blossom Beautifully</em></p>
+      <p>Rasakan keharuman bunga, kelembutan kulit, dan ketenangan batin dalam setiap ritual mandi Anda.</p>
     </div>
+
   </section>
 
-  <!-- ─── FINAL CTA ─────────────────────────────────────── -->
-  <section class="section section--dark artisan-cta reveal">
-    <div class="artisan-cta__inner">
-      <p class="section__label">Pesan Sekarang</p>
-      <h2 class="artisan-cta__title">Hadirkan Karya <em>Istimewa</em><br>untuk Momenmu</h2>
-      <p class="artisan-cta__sub">Setiap produk dibuat dengan penuh perhatian — khusus untukmu.</p>
-      <a href="https://wa.me/6285795077194?text=Halo, saya tertarik dengan artisan product Ilmisgarden" target="_blank" class="btn-primary">
-        <svg viewBox="0 0 24 24" style="width:16px;height:16px;fill:currentColor;"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
-        Chat via WhatsApp
-      </a>
-    </div>
-  </section>
-
-  <!-- ─── FOOTER ───────────────────────────────────────── -->
+  <!-- ─── FOOTER ────────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer__top">
       <div class="footer__logo"><img src="img/F4F6F4-full.png" alt="Ilmisgarden" /></div>
@@ -240,9 +394,15 @@
         </a>
       </div>
     </div>
-    <p class="footer__addr"><a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank">Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135</a></p>
+    <p class="footer__addr">
+      <a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank">
+        Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
+      </a>
+    </p>
     <p class="footer__copy">© 2025 Ilmisgarden. All rights reserved.</p>
   </footer>
+
+  <a href="about.php#contact" class="floating-about">Hubungi Kami</a>
 
   <script>
     const navbar = document.getElementById('navbar');
@@ -256,13 +416,12 @@
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
     const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+      entries.forEach(e => {
+        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+      });
     }, { threshold: 0.07 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
   <script src="js/script.js"></script>
-   <a href="about.php#contact" class="floating-about">
-  Hubungi Kami
-</a>
 </body>
 </html>

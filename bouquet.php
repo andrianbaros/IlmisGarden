@@ -744,75 +744,43 @@
 
 
   </section>
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__logo"><img src="img/F4F6F4-full.png" alt="Ilmisgarden" /></div>
+      <div class="footer__socials">
+        <a href="https://wa.me/6285795077194" target="_blank" class="footer__social" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+        </a>
+        <a href="https://www.instagram.com/ilmisgarden/" target="_blank" class="footer__social" aria-label="Instagram">
+          <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@ilmisgarden" target="_blank" class="footer__social" aria-label="TikTok">
+          <svg viewBox="0 0 24 24"><path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/></svg>
+        </a>
+      </div>
+    </div>
+    <p class="footer__addr"><a href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7" target="_blank">Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135</a></p>
+    <p class="footer__copy">© 2025 Ilmisgarden. All rights reserved.</p>
+  </footer>
 
-<footer
-  style="
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:#283128;
-    color:#d9d9d9;
-    text-align:center;
-    padding:8px 10px;
-    z-index:9999;
-    font-size:13px;
-  ">
+  <script>
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 
-  <!-- Address -->
-  <div style="margin-bottom:10px;">
-  <a
-          href="https://maps.app.goo.gl/rsnJ95JT2Sy38p1W7"
-          target="_blank"
-          style="color:#d9d9d9;"
-        >
-    Jl. Raya Golf Dago No.4, Cigadung, Kec. Cibeunying Kaler, Kota Bandung, Jawa Barat 40135
-  </a>  <br>
-</div>
+    const hamburger   = document.getElementById('hamburger');
+    const mobileMenu  = document.getElementById('mobileMenu');
+    const mobileClose = document.getElementById('mobileClose');
+    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
+    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
 
-  <!-- Social Icons -->
-  <div style="display:flex; justify-content:center; gap:28px; align-items:center;">
-
-    <!-- WhatsApp -->
-    <a href="https://wa.me/6285795077194"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/>
-      </svg>
-      <span>WA</span>
-    </a>
-
-    <!-- Instagram -->
-    <a href="https://www.instagram.com/ilmisgarden/"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/>
-      </svg>
-      <span>IG</span>
-    </a>
-
-    <!-- TikTok -->
-    <a href="https://www.tiktok.com/@ilmisgarden"
-       target="_blank"
-       style="color:#d9d9d9; text-decoration:none; display:flex; align-items:center; gap:6px;">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="#d9d9d9">
-        <path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/>
-      </svg>
-      <span>TikTok</span>
-    </a>
-
-  </div>
-</footer>
-
-    <!-- feather icons -->
-    <script>
-      feather.replace();
-    </script>
-    <!-- js -->
-    <script src="js/script.js"></script>
-     <a href="about.php#contact" class="floating-about">
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.07 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+  <script src="js/script.js"></script>
+   <a href="about.php#contact" class="floating-about">
   Hubungi Kami
 </a>
 </body>

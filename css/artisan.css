@@ -1,366 +1,363 @@
-/* ─── PAGE HERO ──────────────────────────────────────── */
-.page-hero {
-  padding-top: 72px;
-  min-height: 26vh;
-  background: var(--forest);
-  display: flex;
-  align-items: flex-end;
-  padding-bottom: 3.5rem;
-  padding-left: 7%;
-  padding-right: 7%;
+/* ======================================================
+   GLOBAL FIX
+====================================================== */
+body {
+  padding-top: 80px;
 }
 
-.page-hero__content {
-  max-width: 700px;
-}
-
-.page-hero__title {
-  font-family: var(--serif);
-  font-size: clamp(2.2rem, 5vw, 4rem);
-  font-weight: 300;
-  line-height: 1.1;
-  color: var(--white);
-  margin-top: 0.6rem;
-}
-
-.page-hero__title em {
-  font-style: italic;
-  color: var(--sage-light);
-}
-
-/* ─── ARTISAN INTRO ──────────────────────────────────── */
-.artisan-intro {
-  background: var(--cream);
-}
-
-.artisan-intro__inner {
-  max-width: 780px;
+.artisan-container {
+  max-width: 1100px;
   margin: 0 auto;
-  text-align: center;
+  padding: 0 20px;
 }
 
-.artisan-intro__lead {
+/* ======================================================
+   NAVBAR — tidak diubah
+====================================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  z-index: 1000;
+}
+
+/* ======================================================
+   HERO
+====================================================== */
+.artisan-hero {
+  background: var(--cream);
+  padding: 80px 20px 60px;
+}
+
+.artisan-hero h1 {
   font-family: var(--serif);
-  font-size: clamp(1.1rem, 2vw, 1.35rem);
-  font-weight: 300;
-  line-height: 1.75;
-  color: var(--charcoal);
+  font-size: clamp(2rem, 5vw, 3rem);
   margin-bottom: 1.2rem;
-  font-style: italic;
 }
 
-.artisan-intro__body {
-  font-size: 0.93rem;
-  line-height: 1.85;
+.artisan-hero p {
+  font-size: 0.95rem;
+  line-height: 1.9;
   color: var(--muted);
   margin-bottom: 1rem;
+  max-width: 720px;
 }
 
-/* ─── PRODUCT CARDS ──────────────────────────────────── */
+/* ======================================================
+   SECTION WRAPPER
+====================================================== */
 .artisan-section {
   background: var(--cream);
-  padding-bottom: 5rem;
+  padding: 60px 20px 80px;
 }
 
+/* ======================================================
+   PRODUCT CARD
+====================================================== */
 .artisan-card {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 5%;
+  gap: 56px;
   align-items: center;
   max-width: 1100px;
-  margin: 0 auto 5rem;
+  margin: 0 auto 72px;
 }
 
-.artisan-card--reverse {
+.artisan-card.reverse {
   direction: rtl;
 }
 
-.artisan-card--reverse > * {
+.artisan-card.reverse > * {
   direction: ltr;
 }
 
+/* IMAGE */
 .artisan-img {
-  border-radius: var(--r-xl);
-  overflow: hidden;
+  width: 100%;
   aspect-ratio: 4/5;
-  background: var(--stone);
+  overflow: hidden;
+  border-radius: 20px;
+  background: #eee;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
 .artisan-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
-  transition: transform 0.5s var(--ease);
+  transition: transform 0.5s ease;
 }
 
-.artisan-card:hover .artisan-img img {
+.artisan-card:hover img {
   transform: scale(1.04);
 }
 
-.artisan-content {
-}
-
+/* TEXT */
 .artisan-content h2 {
   font-family: var(--serif);
   font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-  font-weight: 300;
-  line-height: 1.2;
-  color: var(--charcoal);
-  margin-bottom: 1.1rem;
-}
-
-.artisan-content h2 em {
-  font-style: italic;
-  color: var(--sage);
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
 }
 
 .artisan-content p {
-  font-size: 0.92rem;
-  line-height: 1.8;
+  font-size: 0.95rem;
+  line-height: 1.85;
   color: var(--muted);
-  margin-bottom: 0.9rem;
+  margin-bottom: 0.85rem;
 }
 
-.artisan-content ul {
+/* Feature list (checklist) */
+.feature-list {
   list-style: none;
   padding: 0;
-  margin: 0.5rem 0 0;
+  margin-top: 1rem;
   display: flex;
   flex-direction: column;
-  gap: 0.4rem;
+  gap: 6px;
 }
 
-.artisan-content ul li {
-  font-size: 0.87rem;
-  color: var(--charcoal);
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+.feature-list li {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.6;
 }
 
-.artisan-content ul li::before {
-  content: "";
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--sage);
-  flex-shrink: 0;
+/* ======================================================
+   CATALOG BLOCK (replaces broken orchid-center)
+====================================================== */
+.catalog-block {
+  max-width: 900px;
+  margin: 0 auto 80px;
 }
 
-.artisan-content .btn-primary {
-  margin-top: 1.5rem;
-  display: inline-flex;
-}
-
-/* ─── ORCHID ON VASE ─────────────────────────────────── */
-.artisan-orchid {
-  background: var(--warm);
-}
-
-.artisan-orchid__header {
+.catalog-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 28px;
+  padding: 14px 24px;
+  background: #f0ece6;
+  border-radius: 12px;
+  display: inline-block;
+  width: 100%;
 }
 
-.artisan-orchid__header h2 {
+.catalog-header h3 {
   font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 300;
-  color: var(--charcoal);
-  margin-top: 0.5rem;
+  font-size: 1.4rem;
+  letter-spacing: 0.02em;
 }
 
-.artisan-orchid__header h2 em {
-  font-style: italic;
-  color: var(--sage);
-}
-
-/* Orchid rows */
+/* ======================================================
+   ORCHID SECTION
+====================================================== */
 .orchid-section {
-  max-width: 860px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 16px;
 }
 
 .orchid-row {
   display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 2rem;
+  grid-template-columns: 150px 1fr;
+  gap: 24px;
   align-items: center;
-  background: var(--white);
-  border-radius: var(--r-lg);
-  padding: 1.8rem 2rem;
-  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  padding: 20px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .orchid-row:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 32px rgba(40, 49, 40, 0.12);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.09);
 }
 
+/* IMAGE */
 .orchid-image img {
-  width: 150px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--stone);
   display: block;
-  margin: 0 auto;
-  transition: border-color 0.2s;
+  margin: auto;
 }
 
-.orchid-row:hover .orchid-image img {
-  border-color: var(--sage-light);
-}
-
+/* TEXT */
 .orchid-text h3 {
   font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--charcoal);
-  margin-bottom: 1rem;
-  padding-bottom: 0.6rem;
-  border-bottom: 1px solid rgba(40, 49, 40, 0.08);
+  font-size: 1.2rem;
+  margin-bottom: 10px;
 }
 
-.orchid-text .price-blocks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
+/* PRICE BLOCKS */
 .price-block {
+  display: inline-block;
+  margin-top: 8px;
+  margin-right: 8px;
+  padding: 10px 16px;
   background: var(--cream);
-  border-radius: var(--r-md);
-  padding: 1rem 1.2rem;
-  min-width: 150px;
-  border: 1px solid rgba(40, 49, 40, 0.06);
+  border-radius: 10px;
+  vertical-align: top;
 }
 
 .price-block h4 {
   font-family: var(--serif);
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: var(--sage-dark);
-  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  margin-bottom: 4px;
 }
 
 .price-block p {
-  font-size: 0.78rem;
+  font-size: 0.85rem;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.6;
+  margin: 0;
 }
 
-/* Variety */
-.orchid-var-title {
+/* ======================================================
+   CLOSING TAGLINE
+====================================================== */
+.artisan-tagline {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 48px 20px 0;
+}
+
+.artisan-tagline p {
+  font-size: 1rem;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+
+.artisan-tagline p:first-child {
   font-family: var(--serif);
+  font-size: 1.15rem;
+  color: inherit;
+}
+
+/* ======================================================
+   REVEAL ANIMATION
+====================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ======================================================
+   FLOATING BUTTON
+====================================================== */
+.floating-about {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 18px;
+  border-radius: 30px;
+  background: #4f6f52;
+  color: white;
+  font-size: 14px;
+  text-decoration: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  transition: 0.3s;
+}
+
+.floating-about:hover {
+  transform: translateY(-3px);
+  background: #3b5440;
+}
+
+/* ======================================================
+   NAV MENU
+====================================================== */
+.nav__links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+}
+
+.nav__hamburger span {
+  width: 22px;
+  height: 2px;
+  background: white;
+}
+
+@media (max-width: 860px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+}
+
+/* MOBILE MENU */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 220px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: #2f3e34;
+  border-radius: 16px;
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: 0.25s ease;
+  z-index: 2000;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  color: white;
   font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--charcoal);
-  margin: 2.5rem 0 1.2rem;
-  text-align: center;
+  text-decoration: none;
 }
 
-.orchid-variety {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 0.8rem;
-  max-width: 860px;
-  margin: 0 auto;
+.mobile-menu__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: white;
 }
 
-.orchid-variety img {
-  width: 72px;
-  height: 72px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid var(--stone);
-  transition: transform 0.25s var(--ease), border-color 0.2s;
-  cursor: pointer;
-}
-
-.orchid-variety img:hover {
-  transform: scale(1.1);
-  border-color: var(--sage);
-}
-
-/* ─── ARTISAN CTA STRIP ──────────────────────────────── */
-.artisan-cta-strip {
-  background: var(--sage);
-  padding: 1.8rem 7%;
-}
-
-.artisan-cta-strip__inner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.artisan-cta-strip__inner p {
-  font-family: var(--serif);
-  font-size: 1.2rem;
-  font-weight: 300;
-  font-style: italic;
-  color: var(--white);
-}
-
-.artisan-cta-strip .btn-primary {
-  background: var(--forest);
-  white-space: nowrap;
-}
-
-.artisan-cta-strip .btn-primary:hover {
-  background: var(--charcoal);
-}
-
-/* ─── ARTISAN FINAL CTA ──────────────────────────────── */
-.artisan-cta {
-  text-align: center;
-}
-
-.artisan-cta__inner {
-  max-width: 560px;
-  margin: 0 auto;
-}
-
-.artisan-cta__title {
-  font-family: var(--serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 300;
-  line-height: 1.15;
-  color: var(--white);
-  margin: 0.8rem 0 1rem;
-}
-
-.artisan-cta__title em {
-  font-style: italic;
-  color: var(--sage-light);
-}
-
-.artisan-cta__sub {
-  font-size: 0.92rem;
-  color: rgba(255, 255, 255, 0.6);
-  line-height: 1.7;
-  margin-bottom: 2rem;
-}
-
-/* ─── RESPONSIVE ─────────────────────────────────────── */
+/* ======================================================
+   RESPONSIVE
+====================================================== */
 @media (max-width: 900px) {
   .artisan-card {
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 28px;
   }
 
-  .artisan-card--reverse {
+  .artisan-card.reverse {
     direction: ltr;
   }
 
@@ -373,149 +370,65 @@
     text-align: center;
   }
 
-  .orchid-text .price-blocks {
-    justify-content: center;
-  }
-
-  .artisan-cta-strip__inner {
-    flex-direction: column;
-    text-align: center;
+  .orchid-image img {
+    width: 110px;
+    height: 110px;
   }
 }
 
 @media (max-width: 600px) {
-  .orchid-image img {
-    width: 120px;
-    height: 120px;
+  .artisan-hero {
+    padding: 60px 15px 40px;
   }
-  .orchid-variety img {
-    width: 56px;
-    height: 56px;
+
+  .artisan-section {
+    padding: 40px 15px 60px;
+  }
+
+  .artisan-content p {
+    font-size: 0.9rem;
+  }
+
+  .price-block {
+    display: block;
+    margin-right: 0;
+    margin-bottom: 8px;
   }
 }
-.floating-about {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4f6f52; /* bisa sesuaikan */
+
+/* ======================================================
+   FOOTER
+====================================================== */
+.footer {
+  width: 100%;
+  background: var(--forest);
   color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 14px;
-  font-family: "DM Sans", sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  transition: all 0.3s ease;
+  padding: 40px 20px;
+  margin-top: 60px;
 }
 
-.floating-about:hover {
-  background-color: #3b5440;
-  transform: translateY(-3px);
-}
-/* =========================
-   NAVBAR BASE
-========================= */
-.nav {
-  position: fixed;
-}
-
-.nav__right {
-  position: relative; /* penting buat anchor dropdown */
-}
-/* DESKTOP MENU */
-.nav__links {
+.footer__top {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  gap: 2.5rem;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
-/* HAMBURGER DEFAULT (HIDDEN DI DESKTOP) */
-.nav__hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 4px;
-  background: none;
-  border: none;
-  cursor: pointer;
+.footer__logo img {
+  height: 40px;
 }
 
-.nav__hamburger span {
-  width: 22px;
-  height: 2px;
-  background: #fff;
-}
-
-/* =========================
-   MOBILE NAV
-========================= */
-@media (max-width: 860px) {
-  .nav__links {
-    display: none;
-  }
-
-  .nav__hamburger {
-    display: flex;
-  }
-}
-
-/* =========================
-   MOBILE MENU (FLOATING)
-========================= */
-.mobile-menu {
-  position: fixed;
-  top: 80px;
-  right: 20px;
-  width: 220px;
-
-  background: #2f3e34;
-  border-radius: 16px;
-  padding: 1.5rem;
-
+.footer__socials {
   display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
-
-  opacity: 0;
-  transform: translateY(-10px) scale(0.95);
-  pointer-events: none;
-  transition: all 0.25s ease;
-
-  z-index: 2000;
+  gap: 12px;
 }
 
-.mobile-menu.open {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
-}
-
-/* =========================
-   MENU LINKS
-========================= */
-.mobile-menu a {
-  color: #fff;
-  text-decoration: none;
-  font-family: "Cormorant Garamond", serif;
-  font-size: 1.2rem;
-  transition: 0.2s;
-}
-
-.mobile-menu a:hover {
-  opacity: 0.6;
-}
-
-/* =========================
-   CLOSE BUTTON
-========================= */
-.mobile-menu__close {
-  position: absolute;
-  top: 10px;
-  right: 12px;
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 1.2rem;
-  cursor: pointer;
+.footer__addr,
+.footer__copy {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.85rem;
+  opacity: 0.8;
 }
