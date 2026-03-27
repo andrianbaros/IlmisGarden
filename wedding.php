@@ -17,36 +17,52 @@
 </head>
 <body>
 
-  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
-  <nav class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu__close" id="mobileClose">✕</button>
-    <a href="product.php">Product</a>
-    <a href="shop.php">Catalog</a>
-    <a href="about.php">About Us</a>
-  </nav>
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu__close" id="mobileClose">✕</button>
+  <a href="product.php">Product</a>
+  <a href="shop.php">Catalog</a>
+  <a href="about.php">About Us</a>
+</nav>
 
-  <!-- ─── NAVBAR ───────────────────────────────────────── -->
-  <header class="nav" id="navbar">
-    <a href="index.php" class="nav__logo">
-      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+<!-- NAVBAR -->
+<header class="nav" id="navbar">
+  <a href="index.php" class="nav__logo">
+    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+  </a>
+
+  <ul class="nav__links">
+    <li><a href="product.php" class="active">Product</a></li>
+    <li><a href="shop.php">Catalog</a></li>
+    <li><a href="about.php">About Us</a></li>
+  </ul>
+
+  <div class="nav__actions">
+    <a href="cart.php" class="nav__icon" aria-label="Cart">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
     </a>
-    <ul class="nav__links">
-      <li><a href="product.php">Product</a></li>
-      <li><a href="shop.php">Catalog</a></li>
-      <li><a href="about.php">About Us</a></li>
-    </ul>
-    <div class="nav__actions">
-      <a href="cart.php" class="nav__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      </a>
-      <a href="profile.php" class="nav__icon" aria-label="Profile">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
+
+    <a href="profile.php" class="nav__icon" aria-label="Profile">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
+
+    <!-- WRAPPER PENTING -->
+    <div class="nav__menu-wrapper">
       <button class="nav__hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+
+      <!-- PINDAH MOBILE MENU KE SINI -->
+      <nav class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="mobileClose">✕</button>
+        <a href="product.php">Product</a>
+        <a href="shop.php">Catalog</a>
+        <a href="about.php">About Us</a>
+      </nav>
     </div>
-  </header>
+
+  </div>
+</header>
 
   <!-- ─── HERO ─────────────────────────────────────────── -->
   <section class="wedding-hero">

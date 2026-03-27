@@ -9,13 +9,13 @@
 .txn-card {
   background: var(--white);
   border-radius: var(--r-lg);
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
   overflow: hidden;
   transition: box-shadow 0.25s var(--ease);
 }
 
 .txn-card:hover {
-  box-shadow: 0 10px 28px rgba(40,49,40,0.12);
+  box-shadow: 0 10px 28px rgba(40, 49, 40, 0.12);
 }
 
 /* Head: order ID + status */
@@ -24,7 +24,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.1rem 1.4rem;
-  border-bottom: 1px solid rgba(40,49,40,0.07);
+  border-bottom: 1px solid rgba(40, 49, 40, 0.07);
   background: var(--cream);
 }
 
@@ -61,10 +61,22 @@
   text-transform: uppercase;
 }
 
-.txn-status--success   { background: #dcfce7; color: #15803d; }
-.txn-status--pending   { background: #fef9c3; color: #a16207; }
-.txn-status--cancelled { background: #fee2e2; color: #b91c1c; }
-.txn-status--default   { background: var(--stone); color: var(--muted); }
+.txn-status--success {
+  background: #dcfce7;
+  color: #15803d;
+}
+.txn-status--pending {
+  background: #fef9c3;
+  color: #a16207;
+}
+.txn-status--cancelled {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+.txn-status--default {
+  background: var(--stone);
+  color: var(--muted);
+}
 
 /* Body: items + meta */
 .txn-card__body {
@@ -107,11 +119,14 @@
   color: var(--muted);
 }
 
-.txn-meta-row span:last-child { font-weight: 400; color: var(--charcoal); }
+.txn-meta-row span:last-child {
+  font-weight: 400;
+  color: var(--charcoal);
+}
 
 .txn-meta-row--total {
   padding-top: 0.35rem;
-  border-top: 1px solid rgba(40,49,40,0.08);
+  border-top: 1px solid rgba(40, 49, 40, 0.08);
   margin-top: 0.1rem;
 }
 
@@ -134,8 +149,8 @@
   align-items: center;
   gap: 0.4rem;
   padding: 0.65rem 1.4rem;
-  background: rgba(40,49,40,0.025);
-  border-top: 1px solid rgba(40,49,40,0.06);
+  background: rgba(40, 49, 40, 0.025);
+  border-top: 1px solid rgba(40, 49, 40, 0.06);
   font-size: 0.75rem;
   color: var(--muted);
 }
@@ -155,7 +170,7 @@
   padding: 4rem 2rem;
   background: var(--white);
   border-radius: var(--r-lg);
-  box-shadow: 0 4px 16px rgba(40,49,40,0.07);
+  box-shadow: 0 4px 16px rgba(40, 49, 40, 0.07);
 }
 
 .txn-empty__icon {
@@ -206,4 +221,110 @@
   .txn-meta-row {
     justify-content: space-between;
   }
+}
+/* =========================
+   NAVBAR BASE
+========================= */
+.nav {
+  position: fixed;
+}
+
+.nav__right {
+  position: relative; /* penting buat anchor dropdown */
+}
+/* DESKTOP MENU */
+.nav__links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+/* HAMBURGER DEFAULT (HIDDEN DI DESKTOP) */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+@media (max-width: 860px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+}
+
+/* =========================
+   MOBILE MENU (FLOATING)
+========================= */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 220px;
+
+  background: #2f3e34;
+  border-radius: 16px;
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.25s ease;
+
+  z-index: 2000;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* =========================
+   MENU LINKS
+========================= */
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+
+.mobile-menu a:hover {
+  opacity: 0.6;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+.mobile-menu__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
 }

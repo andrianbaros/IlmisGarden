@@ -12,43 +12,59 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/about.css" />
 </head>
 <body>
 
-  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
-  <nav class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu__close" id="mobileClose">✕</button>
-    <a href="product.php">Product</a>
-    <a href="shop.php">Catalog</a>
-    <a href="about.php">About Us</a>
-  </nav>
 
-  <!-- ─── NAVBAR ───────────────────────────────────────── -->
-  <header class="nav" id="navbar">
-    <a href="index.php" class="nav__logo">
-      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu__close" id="mobileClose">✕</button>
+  <a href="product.php">Product</a>
+  <a href="shop.php">Catalog</a>
+  <a href="about.php" class="active">About Us</a>
+</nav>
+
+<!-- NAVBAR -->
+<header class="nav" id="navbar">
+  <a href="index.php" class="nav__logo">
+    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+  </a>
+
+  <ul class="nav__links">
+    <li><a href="product.php" >Product</a></li>
+    <li><a href="shop.php">Catalog</a></li>
+    <li><a href="about.php" class="active">About Us</a></li>
+  </ul>
+
+  <div class="nav__actions">
+    <a href="cart.php" class="nav__icon" aria-label="Cart">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
     </a>
 
-    <ul class="nav__links">
-      <li><a href="product.php">Product</a></li>
-      <li><a href="shop.php">Catalog</a></li>
-      <li><a href="about.php" class="active">About Us</a></li>
-    </ul>
+    <a href="profile.php" class="nav__icon" aria-label="Profile">
+      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+    </a>
 
-    <div class="nav__actions">
-      <a href="cart.php" class="nav__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      </a>
-      <a href="profile.php" class="nav__icon" aria-label="Profile">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
+    <!-- WRAPPER PENTING -->
+    <div class="nav__menu-wrapper">
       <button class="nav__hamburger" id="hamburger" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
+
+      <!-- PINDAH MOBILE MENU KE SINI -->
+      <nav class="mobile-menu" id="mobileMenu">
+        <button class="mobile-menu__close" id="mobileClose">✕</button>
+        <a href="product.php">Product</a>
+        <a href="shop.php">Catalog</a>
+        <a href="about.php">About Us</a>
+      </nav>
     </div>
-  </header>
+
+  </div>
+</header>
+
 
   <!-- ─── PAGE HERO ─────────────────────────────────────── -->
   <div class="page-hero">
@@ -213,24 +229,48 @@
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    /* Mobile menu */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
+ // ELEMENT
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileClose = document.getElementById("mobileClose");
 
-    /* Scroll reveal */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+// TOGGLE MENU
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.toggle("open");
+});
 
+// CLOSE VIA X
+mobileClose.addEventListener("click", () => {
+  mobileMenu.classList.remove("open");
+});
+
+// CLOSE SAAT KLIK LINK
+document.querySelectorAll("#mobileMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+  });
+});
+
+// CLOSE SAAT KLIK LUAR (SMART)
+document.addEventListener("click", (e) => {
+  if (
+    !mobileMenu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    mobileMenu.classList.remove("open");
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
     /* About slider */
     const aboutImages = [
       "img/aboutus1.jpeg",

@@ -1,16 +1,4 @@
 // =====================
-// NAVBAR TOGGLE (FIX)
-// =====================
-const navbarNav = document.querySelector(".navbar-nav");
-const menu = document.querySelector("#hamburger");
-
-if (menu && navbarNav) {
-  menu.onclick = () => {
-    navbarNav.classList.toggle("active");
-  };
-}
-
-// =====================
 // HERO SLIDESHOW FINAL
 // =====================
 document.addEventListener("DOMContentLoaded", () => {

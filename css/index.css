@@ -797,87 +797,109 @@ button {
   transition-delay: 0.3s;
 }
 
-/* ─── MOBILE NAV ─────────────────────────────────────── */
+/* =========================
+   NAVBAR BASE
+========================= */
+.nav {
+  position: fixed;
+}
+
+.nav__right {
+  position: relative; /* penting buat anchor dropdown */
+}
+/* DESKTOP MENU */
+.nav__links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+/* HAMBURGER DEFAULT (HIDDEN DI DESKTOP) */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
 @media (max-width: 860px) {
   .nav__links {
     display: none;
   }
+
   .nav__hamburger {
     display: flex;
   }
 }
+
+/* =========================
+   MOBILE MENU (FLOATING)
+========================= */
 .mobile-menu {
-  display: none;
   position: fixed;
-  inset: 0;
-  z-index: 998;
-  background: var(--forest);
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 2.5rem;
-}
-.mobile-menu.open {
+  top: 80px;
+  right: 20px;
+  width: 220px;
+
+  background: #2f3e34;
+  border-radius: 16px;
+  padding: 1.5rem;
+
   display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.25s ease;
+
+  z-index: 2000;
 }
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* =========================
+   MENU LINKS
+========================= */
 .mobile-menu a {
-  font-family: var(--serif);
-  font-size: 2.5rem;
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.85);
-  font-style: italic;
+  color: #fff;
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  transition: 0.2s;
 }
+
+.mobile-menu a:hover {
+  opacity: 0.6;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
 .mobile-menu__close {
   position: absolute;
-  top: 1.5rem;
-  right: 2rem;
+  top: 10px;
+  right: 12px;
   background: none;
   border: none;
-  color: rgba(255, 255, 255, 0.6);
-  font-size: 1.8rem;
+  color: #fff;
+  font-size: 1.2rem;
   cursor: pointer;
-}
-
-/* ─── DEMO IMAGE PLACEHOLDERS ────────────────────────── */
-/* Replace src="" with real paths in production */
-.placeholder-img {
-  background: linear-gradient(135deg, var(--sage-light) 0%, var(--stone) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.placeholder-img::after {
-  content: "🌸";
-  font-size: 3rem;
-  opacity: 0.4;
-}
-.floating-about {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #4f6f52; /* bisa sesuaikan */
-  color: white;
-  padding: 12px 18px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-size: 14px;
-  font-family: "DM Sans", sans-serif;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-  z-index: 999;
-  transition: all 0.3s ease;
-}
-
-.floating-about:hover {
-  background-color: #3b5440;
-  transform: translateY(-3px);
-}
-#hero-text {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease;
-}
-
-#hero-text.show {
-  opacity: 1;
-  transform: translateY(0);
 }

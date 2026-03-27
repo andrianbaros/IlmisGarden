@@ -93,22 +93,22 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-  <!-- ─── MOBILE MENU ──────────────────────────────────── -->
-  <nav class="mobile-menu" id="mobileMenu">
-    <button class="mobile-menu__close" id="mobileClose">✕</button>
-    <a href="product.php">Product</a>
-    <a href="shop.php">Catalog</a>
-    <a href="about.php">About Us</a>
-  </nav>
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu">
+  <button class="mobile-menu__close" id="mobileClose">✕</button>
+  <a href="product.php">Product</a>
+  <a href="shop.php">Catalog</a>
+  <a href="about.php">About Us</a>
+</nav>
 
-  <!-- ─── NAVBAR ───────────────────────────────────────── -->
-  <header class="nav" id="navbar">
+<!-- NAVBAR -->
+<header class="nav" id="navbar">
     <a href="index.php" class="nav__logo">
       <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
     </a>
 
     <ul class="nav__links">
-      <li><a href="product.php">Product</a></li>
+      <li><a href="product.php" >Product</a></li>
       <li><a href="shop.php">Catalog</a></li>
       <li><a href="about.php">About Us</a></li>
     </ul>
@@ -343,39 +343,53 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
   </footer>
 
   <!-- ─── SCRIPTS ───────────────────────────────────────── -->
-  <script>
-    /* Navbar scroll effect */
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
+<script>
+// ELEMENT
+const hamburger = document.getElementById("hamburger");
+const mobileMenu = document.getElementById("mobileMenu");
+const mobileClose = document.getElementById("mobileClose");
+
+// TOGGLE MENU
+hamburger.addEventListener("click", () => {
+  mobileMenu.classList.toggle("open");
+});
+
+// CLOSE VIA X
+mobileClose.addEventListener("click", () => {
+  mobileMenu.classList.remove("open");
+});
+
+// CLOSE SAAT KLIK LINK
+document.querySelectorAll("#mobileMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.remove("open");
+  });
+});
+
+// CLOSE SAAT KLIK LUAR (SMART)
+document.addEventListener("click", (e) => {
+  if (
+    !mobileMenu.contains(e.target) &&
+    !hamburger.contains(e.target)
+  ) {
+    mobileMenu.classList.remove("open");
+  }
+});
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+      }
     });
+  }, { threshold: 0.1 });
 
-    /* Mobile menu */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
-
-    /* Scroll reveal */
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('visible');
-          observer.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  </script>
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+});
+</script>
     <a href="about.php#contact" class="floating-about">
   Hubungi Kami
 </a>
-<script src="js/script.js"></script>
+<script src="js/script.js"></script> 
 </body>
 </html>

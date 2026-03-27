@@ -520,3 +520,109 @@
   background-color: #3b5440;
   transform: translateY(-3px);
 }
+/* =========================
+   NAVBAR BASE
+========================= */
+.nav {
+  position: fixed;
+}
+
+.nav__right {
+  position: relative; /* penting buat anchor dropdown */
+}
+/* DESKTOP MENU */
+.nav__links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+/* HAMBURGER DEFAULT (HIDDEN DI DESKTOP) */
+.nav__hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav__hamburger span {
+  width: 22px;
+  height: 2px;
+  background: #fff;
+}
+
+/* =========================
+   MOBILE NAV
+========================= */
+@media (max-width: 860px) {
+  .nav__links {
+    display: none;
+  }
+
+  .nav__hamburger {
+    display: flex;
+  }
+}
+
+/* =========================
+   MOBILE MENU (FLOATING)
+========================= */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 220px;
+
+  background: #2f3e34;
+  border-radius: 16px;
+  padding: 1.5rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.25s ease;
+
+  z-index: 2000;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* =========================
+   MENU LINKS
+========================= */
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+
+.mobile-menu a:hover {
+  opacity: 0.6;
+}
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+.mobile-menu__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
