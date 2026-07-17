@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'conn/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -7,9 +6,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password   = trim($_POST['password']);
 
     if (filter_var($identifier, FILTER_VALIDATE_EMAIL)) {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE email = ?");
+        $stmt = $pdo->prepare("SELECT id_user, username, email, password FROM users WHERE email = ?");
     } else {
-        $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
+        $stmt = $pdo->prepare("SELECT id_user, username, email, password FROM users WHERE username = ?");
     }
 
     $stmt->execute([$identifier]);
@@ -20,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['username']  = $user['username'];
         $_SESSION['email']     = $user['email'];
         $_SESSION['flash_msg'] = "Login berhasil, Selamat datang {$user['username']}!";
-        header("Location: shop.php");
+        header("Location: " . BASE_URL . "/shop");
         exit;
     } else {
         $error = "Username/Email atau Password salah.";
@@ -30,9 +29,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <title>Sign In | Ilmis Garden</title>
+  <meta name="description" content="Masuk ke akun Ilmis Garden Anda untuk memesan bunga potong, melacak pesanan, dan mengelola profil belanja Anda.">
+  <link rel="canonical" href="https://ilmisgarden.com/signin">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilmisgarden.com/signin">
+  <meta property="og:title" content="Sign In | Ilmis Garden">
+  <meta property="og:description" content="Masuk ke akun Ilmis Garden Anda untuk memesan bunga potong, melacak pesanan, dan mengelola profil belanja Anda.">
+  <meta property="og:image" content="https://ilmisgarden.com/img/Picture1.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ilmisgarden.com/signin">
+  <meta name="twitter:title" content="Sign In | Ilmis Garden">
+  <meta name="twitter:description" content="Masuk ke akun Ilmis Garden Anda untuk memesan bunga potong, melacak pesanan, dan mengelola profil belanja Anda.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/Picture1.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign In — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->
@@ -48,8 +64,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- Left panel — decorative -->
     <div class="auth-panel">
-      <a href="index.php" class="auth-panel__logo">
-        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+      <a href="<?= BASE_URL ?>/" class="auth-panel__logo">
+        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" / loading="lazy" decoding="async">
       </a>
       <div class="auth-panel__content">
         <p class="auth-panel__eyebrow">Flower Atelier · Bandung</p>
@@ -119,10 +135,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
 
         <p class="auth-switch">
-          Belum punya akun? <a href="signup.php">Daftar sekarang</a>
+          Belum punya akun? <a href="<?= BASE_URL ?>/signup">Daftar sekarang</a>
         </p>
 
-        <a href="index.php" class="auth-back">
+        <a href="<?= BASE_URL ?>/" class="auth-back">
           <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
           Kembali ke Beranda
         </a>

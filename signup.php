@@ -56,9 +56,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <title>Sign Up | Register Account | Ilmis Garden</title>
+  <meta name="description" content="Daftar akun Ilmis Garden baru untuk kemudahan transaksi, diskon khusus member, dan update koleksi bunga terbaru.">
+  <link rel="canonical" href="https://ilmisgarden.com/signup">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilmisgarden.com/signup">
+  <meta property="og:title" content="Sign Up | Register Account | Ilmis Garden">
+  <meta property="og:description" content="Daftar akun Ilmis Garden baru untuk kemudahan transaksi, diskon khusus member, dan update koleksi bunga terbaru.">
+  <meta property="og:image" content="https://ilmisgarden.com/img/Picture1.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ilmisgarden.com/signup">
+  <meta name="twitter:title" content="Sign Up | Register Account | Ilmis Garden">
+  <meta name="twitter:description" content="Daftar akun Ilmis Garden baru untuk kemudahan transaksi, diskon khusus member, dan update koleksi bunga terbaru.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/Picture1.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign Up — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->
@@ -74,8 +91,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <!-- ─── LEFT PANEL ─────────────────────────────────── -->
     <div class="auth-panel">
-      <a href="index.php" class="auth-panel__logo">
-        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
+      <a href="<?= BASE_URL ?>/" class="auth-panel__logo">
+        <img src="img/F4F6F4-full.png" alt="Ilmisgarden" / loading="lazy" decoding="async">
       </a>
       <div class="auth-panel__content">
         <p class="auth-panel__eyebrow">Flower Atelier · Bandung</p>
@@ -98,7 +115,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <h1 class="auth-form-title">Registrasi Berhasil!</h1>
             <p class="auth-form-sub" style="margin-bottom:2rem;">Akunmu sudah siap. Silakan masuk untuk mulai berbelanja.</p>
-            <a href="signin.php" class="auth-submit" style="text-decoration:none; display:flex;">
+            <a href="<?= BASE_URL ?>/signin" class="auth-submit" style="text-decoration:none; display:flex;">
               Masuk Sekarang
               <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </a>
@@ -223,10 +240,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </form>
 
           <p class="auth-switch">
-            Sudah punya akun? <a href="signin.php">Masuk di sini</a>
+            Sudah punya akun? <a href="<?= BASE_URL ?>/signin">Masuk di sini</a>
           </p>
 
-          <a href="index.php" class="auth-back">
+          <a href="<?= BASE_URL ?>/" class="auth-back">
             <svg viewBox="0 0 24 24"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             Kembali ke Beranda
           </a>

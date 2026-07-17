@@ -1,0 +1,136 @@
+/* =============================
+   THEME IMLEK
+============================= */
+:root {
+    --imlek-text: #ae2836;
+  }
+  
+  /* =============================
+   FONT FACE
+============================= */
+@font-face {
+    font-family: 'TT Commons Pro';
+    src: url('../fonts/TTCommonsPro-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'TT Commons Pro';
+    src: url('../fonts/TTCommonsPro-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'TT Commons Pro';
+    src: url('../fonts/TTCommonsPro-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* =============================
+   FOOTER FONT OVERRIDE
+============================= */
+footer,
+footer * {
+  font-family: 'Poppins', sans-serif !important;
+}
+
+
+  
+  /* =============================
+     GLOBAL
+  ============================= */
+  body {
+    background: url('../img/bg-imlek.png') repeat;
+    color: var(--imlek-text);
+    font-family: 'TT Commons Pro', sans-serif;
+    padding-bottom: calc(90px + 20px);
+  }
+  
+  /* =============================
+     HEADING
+  ============================= */
+  h1, h2, h3 {
+    color: var(--imlek-text);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    font-family: 'TT Commons Pro', sans-serif;
+  }
+  
+  /* =============================
+     HERO
+  ============================= */
+  .article-hero {
+    background: transparent;
+  }
+  
+  .article-hero p {
+    color: var(--imlek-text);
+  }
+  
+  /* =============================
+     ARTICLE CONTENT
+  ============================= */
+  .article-content p {
+    color: var(--imlek-text);
+  }
+  
+  /* =============================
+     BUTTON
+  ============================= */
+  .btn-primary {
+    background-color: var(--imlek-text);
+    color: #fff;
+  }
+  
+  .btn-primary:hover {
+    background-color: #8f1f2b;
+  }
+  
+  .btn-secondary {
+    border: 1px solid var(--imlek-text);
+    color: var(--imlek-text);
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--imlek-text);
+    color: #fff;
+  }
+  
+  /* =============================
+     POSTER HEADER
+  ============================= */
+  .poster-header {
+    background: transparent;
+  }
+  
+  /* =============================
+     PRODUCT SECTION
+  ============================= */
+  .article-products {
+    background: transparent;
+  }
+  
+  .product-header p,
+  .product-image-item span {
+    color: var(--imlek-text);
+  }
+  
+  /* =============================
+     CTA
+  ============================= */
+  .article-cta {
+    background: transparent;
+    margin-bottom: 90px;
+  }
+  
+  /* =============================
+   PARAGRAPH
+============================= */
+p, span, li {
+    font-family: 'TT Commons Pro', sans-serif;
+    font-weight: 400;
+    color: var(--imlek-text);
+  }

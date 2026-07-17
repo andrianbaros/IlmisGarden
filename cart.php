@@ -1,9 +1,8 @@
 <?php
-session_start();
 require 'conn/db.php';
 
 if (!isset($_SESSION['id_user'])) {
-    header("Location: signin.php");
+    header("Location: " . BASE_URL . "/signin");
     exit;
 }
 
@@ -21,10 +20,18 @@ if (isset($_GET['buy']) && $_GET['buy'] == 1) {
         $totalItem = 0; $subtotal = 0;
         foreach ($items as $i) { $totalItem += $i['qty']; $subtotal += $i['price'] * $i['qty']; }
 
+        $discount = 0;
+        $campaign = null;
+        if (isset($_SESSION['campaign_discount']) && $_SESSION['campaign_discount'] > 0) {
+            $discount = (int)round($subtotal * $_SESSION['campaign_discount']);
+            $campaign = $_SESSION['campaign_source'] ?? null;
+        }
+        $final_subtotal = $subtotal - $discount;
+
         $pdo->beginTransaction();
         try {
-            $stmt = $pdo->prepare("INSERT INTO transactions (user_id, total_items, subtotal, status) VALUES (?, ?, ?, 'belum diproses')");
-            $stmt->execute([$user_id, $totalItem, $subtotal]);
+            $stmt = $pdo->prepare("INSERT INTO transactions (user_id, total_items, subtotal, discount, campaign, status) VALUES (?, ?, ?, ?, ?, 'belum diproses')");
+            $stmt->execute([$user_id, $totalItem, $final_subtotal, $discount, $campaign]);
             $transactionId = $pdo->lastInsertId();
 
             $stmtItem = $pdo->prepare("INSERT INTO transaction_items (transaction_id, product_id, qty, price) VALUES (?, ?, ?, ?)");
@@ -57,21 +64,50 @@ $cart = $stmt->fetchAll();
 $totalItem = 0; $subtotal = 0;
 foreach ($cart as $c) { $totalItem += $c['qty']; $subtotal += $c['price'] * $c['qty']; }
 
+$discount = 0;
+if (isset($_SESSION['campaign_discount']) && $_SESSION['campaign_discount'] > 0) {
+    $discount = (int)round($subtotal * $_SESSION['campaign_discount']);
+}
+$final_subtotal = $subtotal - $discount;
+
 /* ── WA message ── */
 $message  = "Halo, saya ingin membeli produk berikut:\n";
 foreach ($cart as $c) {
     $message .= "- {$c['name']} (x{$c['qty']}) : Rp. " . number_format($c['price'] * $c['qty'], 0, ',', '.') . "\n";
 }
-$message .= "\nTotal Item: $totalItem\nSubtotal: Rp. " . number_format($subtotal, 0, ',', '.');
+if ($discount > 0) {
+    $message .= "\nSubtotal: Rp. " . number_format($subtotal, 0, ',', '.');
+    $message .= "\nDiskon Campaign (" . htmlspecialchars($_SESSION['campaign_source'] ?? '') . "): -Rp. " . number_format($discount, 0, ',', '.');
+    $message .= "\nTotal Pembayaran: Rp. " . number_format($final_subtotal, 0, ',', '.');
+} else {
+    $message .= "\nTotal Item: $totalItem\nSubtotal: Rp. " . number_format($subtotal, 0, ',', '.');
+}
 $waText   = urlencode($message);
-$buyLink  = "cart.php?buy=1&msg=" . $waText;
+$buyLink  = "cart?buy=1&msg=" . $waText;
 ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
+  <title>Shopping Cart | Ilmis Garden</title>
+  <meta name="description" content="Lihat keranjang belanja Anda, sesuaikan pesanan bunga segar Anda, dan nikmati diskon khusus sebelum checkout.">
+  <link rel="canonical" href="https://ilmisgarden.com/cart">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ilmisgarden.com/cart">
+  <meta property="og:title" content="Shopping Cart | Ilmis Garden">
+  <meta property="og:description" content="Lihat keranjang belanja Anda, sesuaikan pesanan bunga segar Anda, dan nikmati diskon khusus sebelum checkout.">
+  <meta property="og:image" content="https://ilmisgarden.com/img/Picture1.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://ilmisgarden.com/cart">
+  <meta name="twitter:title" content="Shopping Cart | Ilmis Garden">
+  <meta name="twitter:description" content="Lihat keranjang belanja Anda, sesuaikan pesanan bunga segar Anda, dan nikmati diskon khusus sebelum checkout.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/Picture1.png">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Keranjang — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->
@@ -84,57 +120,14 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
 
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-  <a href="index.php" class="nav__logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-  </a>
 
-  <ul class="nav__links">
-    <li><a href="product.php" >Product</a></li>
-    <li><a href="shop.php">Catalog</a></li>
-    <li><a href="about.php">About Us</a></li>
-  </ul>
-
-  <div class="nav__actions">
-    <a href="cart.php" class="nav__icon" aria-label="Cart" class="active">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    </a>
-
-    <a href="profile.php" class="nav__icon" aria-label="Profile">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
-
-    <!-- WRAPPER PENTING -->
-    <div class="nav__menu-wrapper">
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- PINDAH MOBILE MENU KE SINI -->
-      <nav class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileClose">✕</button>
-        <a href="product.php">Product</a>
-        <a href="shop.php">Catalog</a>
-        <a href="about.php">About Us</a>
-      </nav>
-    </div>
-
-  </div>
-</header>
+<?php include 'includes/navbar.php'; ?>
 
 
   <!-- ─── BREADCRUMB ────────────────────────────────────── -->
   <div class="breadcrumb">
-    <a href="index.php">Home</a>
+    <a href="<?= BASE_URL ?>/">Home</a>
     <span>›</span>
     <span>Keranjang</span>
   </div>
@@ -154,7 +147,7 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
           </div>
           <h3>Keranjangmu masih kosong</h3>
           <p>Temukan rangkaian bunga untukmu dan tambahkan ke keranjang.</p>
-          <a href="shop.php" class="btn-primary">Mulai Belanja →</a>
+          <a href="<?= BASE_URL ?>/shop" class="btn-primary">Mulai Belanja →</a>
         </div>
 
       <?php else: ?>
@@ -177,7 +170,7 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
 
             <!-- Qty stepper -->
             <div class="cart-item__qty">
-              <form method="post" action="update_cart.php" class="qty-form">
+              <form method="post" action="<?= BASE_URL ?>/update_cart" class="qty-form">
                 <input type="hidden" name="cart_id" value="<?= $c['cart_id'] ?>">
                 <button type="submit" name="action" value="minus" class="qty-btn">−</button>
                 <span class="qty-value"><?= $c['qty'] ?></span>
@@ -191,7 +184,7 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
             </div>
 
             <!-- Remove -->
-            <form method="post" action="remove_cart.php" class="cart-item__remove">
+            <form method="post" action="<?= BASE_URL ?>/remove_cart" class="cart-item__remove">
               <input type="hidden" name="cart_id" value="<?= $c['cart_id'] ?>">
               <button type="submit" class="cart-remove-btn" aria-label="Hapus">
                 <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>
@@ -203,7 +196,7 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
         </div>
 
         <div class="cart-list__footer">
-          <a href="shop.php" class="cart-continue">← Lanjut Belanja</a>
+          <a href="<?= BASE_URL ?>/shop" class="cart-continue">← Lanjut Belanja</a>
         </div>
 
       <?php endif; ?>
@@ -235,10 +228,25 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
           <span>Total Item</span>
           <span><?= $totalItem ?> item</span>
         </div>
-        <div class="cart-summary__total-row cart-summary__total-row--grand">
-          <span>Subtotal</span>
-          <span>Rp <?= number_format($subtotal, 0, ',', '.') ?></span>
-        </div>
+        <?php if ($discount > 0): ?>
+          <div class="cart-summary__total-row">
+            <span>Subtotal</span>
+            <span>Rp <?= number_format($subtotal, 0, ',', '.') ?></span>
+          </div>
+          <div class="cart-summary__total-row" style="color: #c99a5c; font-weight: 500;">
+            <span>Diskon Campaign (10%)</span>
+            <span>-Rp <?= number_format($discount, 0, ',', '.') ?></span>
+          </div>
+          <div class="cart-summary__total-row cart-summary__total-row--grand">
+            <span>Total Bayar</span>
+            <span>Rp <?= number_format($final_subtotal, 0, ',', '.') ?></span>
+          </div>
+        <?php else: ?>
+          <div class="cart-summary__total-row cart-summary__total-row--grand">
+            <span>Subtotal</span>
+            <span>Rp <?= number_format($subtotal, 0, ',', '.') ?></span>
+          </div>
+        <?php endif; ?>
       </div>
 
       <a href="<?= $buyLink ?>" class="cart-checkout-btn">
@@ -257,16 +265,16 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
   <!-- ─── FOOTER ───────────────────────────────────────── -->
   <footer class="footer">
     <div class="footer__top">
-      <div class="footer__logo"><img src="img/F4F6F4-full.png" alt="Ilmisgarden" /></div>
-      <div class="footer__socials">
+      <div class="footer__logo"><img src="img/F4F6F4-full.png" alt="Ilmis Garden Logo" loading="lazy" decoding="async" /></div>
+            <div class="footer__socials">
         <a href="https://wa.me/6285795077194" target="_blank" class="footer__social" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24"><path d="M20.52 3.48A11.78 11.78 0 0 0 12 0C5.38 0 .01 5.38.01 12c0 2.11.55 4.18 1.6 6.01L0 24l6.16-1.61A11.93 11.93 0 0 0 12 24c6.62 0 12-5.38 12-12a11.78 11.78 0 0 0-3.48-8.52z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.012 0C5.398 0 .019 5.396.019 12.01c0 2.111.549 4.185 1.597 6.009L0 24l6.135-1.61c1.764.96 3.754 1.47 5.867 1.47 6.614 0 11.993-5.387 11.993-12.01C24.005 5.396 18.626 0 12.012 0zm6.735 16.947c-.276.779-1.396 1.439-2.256 1.548-.756.096-1.74.156-2.82-.192-4.632-1.488-7.596-6.192-7.824-6.492-.228-.3-1.896-2.52-1.896-4.812 0-2.292 1.188-3.42 1.62-3.876.372-.396.984-.576 1.572-.576.192 0 .36.012.516.024.456.024.684.06.984.78.372.9 1.272 3.108 1.38 3.324.108.216.18.468.036.756-.144.288-.3.468-.588.804-.288.336-.612.756-.876 1.02-.276.288-.564.6-.24 1.152.324.552 1.44 2.376 3.096 3.852 2.124 1.896 3.912 2.484 4.464 2.712.552.228.876.18 1.2-.192.42-.48 1.8-2.1 2.28-2.82.18-.276.36-.228.612-.132.252.096 1.608.756 2.952 1.428.468.228.78.336.888.528.12.192.12 1.104-.156 1.884z"/></svg>
         </a>
         <a href="https://www.instagram.com/ilmisgarden/" target="_blank" class="footer__social" aria-label="Instagram">
-          <svg viewBox="0 0 24 24"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm5 5a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm6.5-.9a1.1 1.1 0 1 1-2.2 0 1.1 1.1 0 0 1 2.2 0z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
         </a>
         <a href="https://www.tiktok.com/@ilmisgarden" target="_blank" class="footer__social" aria-label="TikTok">
-          <svg viewBox="0 0 24 24"><path d="M16 0h4a6.5 6.5 0 0 1-4-2v14a5 5 0 1 1-5-5h1v3a2 2 0 1 0 2 2V0z"/></svg>
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.05 1.62 4.2 1.12 1.27 2.7 2.06 4.38 2.27v4.11a8.88 8.88 0 0 1-5-1.73v7.35a7.58 7.58 0 0 1-7.58 7.58 7.59 7.59 0 0 1-7.58-7.59 7.57 7.57 0 0 1 7.58-7.58c.29 0 .59.02.88.07V13a3.61 3.61 0 0 0-.88-.11 3.69 3.69 0 0 0-3.69 3.69 3.69 3.69 0 0 0 3.69 3.69 3.69 3.69 0 0 0 3.69-3.69V0z"/></svg>
         </a>
       </div>
     </div>
@@ -278,12 +286,7 @@ $buyLink  = "cart.php?buy=1&msg=" . $waText;
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    
   </script>
   <script src="js/script.js"></script>
 </body>

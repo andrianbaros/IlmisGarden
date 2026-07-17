@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'conn/db.php';
 
 $user_id = $_SESSION['id_user'] ?? null;
@@ -21,8 +20,11 @@ $flowers = [
 $occasions = [
   'Anniversary','Birthday','Christmas','Graduation','Grand Opening',
   'Gift','Raya','Valentine','Wedding',
-  'Sebulan Penuh Cinta','Imlek','Eid Al Fitr'
+  'Sebulan Penuh Cinta','Imlek'
 ];
+if (defined('SHOW_EID_COLLECTION') && SHOW_EID_COLLECTION) {
+    $occasions[] = 'Eid Al Fitr';
+}
 
 /* =============================
    GET FILTER
@@ -94,7 +96,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IlmisGarden — Catalog</title>
+  <title>Ilmisgarden — Catalog</title>
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->
@@ -108,52 +110,9 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
 
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-  <a href="index.php" class="nav__logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-  </a>
 
-  <ul class="nav__links">
-    <li><a href="product.php" >Product</a></li>
-    <li><a href="shop.php" class="active">Catalog</a></li>
-    <li><a href="about.php">About Us</a></li>
-  </ul>
-
-  <div class="nav__actions">
-    <a href="cart.php" class="nav__icon" aria-label="Cart">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    </a>
-
-    <a href="profile.php" class="nav__icon" aria-label="Profile">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
-
-    <!-- WRAPPER PENTING -->
-    <div class="nav__menu-wrapper">
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- PINDAH MOBILE MENU KE SINI -->
-      <nav class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileClose">✕</button>
-        <a href="product.php">Product</a>
-        <a href="shop.php">Catalog</a>
-        <a href="about.php">About Us</a>
-      </nav>
-    </div>
-
-  </div>
-</header>
+<?php include 'includes/navbar.php'; ?>
 
 
   <!-- ─── PAGE HERO ─────────────────────────────────────── -->
@@ -172,7 +131,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
       <div class="sidebar-header">
         <h2 class="sidebar-title">Filter</h2>
         <?php if ($activeFilterCount > 0): ?>
-          <a href="shop.php" class="sidebar-clear">Reset (<?= $activeFilterCount ?>)</a>
+          <a href="<?= BASE_URL ?>/shop" class="sidebar-clear">Reset (<?= $activeFilterCount ?>)</a>
         <?php endif; ?>
       </div>
 
@@ -289,7 +248,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
         <?php if ($priceFilterActive && $maxPrice): ?>
           <span class="filter-pill">≤ Rp <?= number_format($maxPrice, 0, ',', '.') ?></span>
         <?php endif; ?>
-        <a href="shop.php" class="filter-pill filter-pill--clear">✕ Reset</a>
+        <a href="<?= BASE_URL ?>/shop" class="filter-pill filter-pill--clear">✕ Reset</a>
       </div>
       <?php endif; ?>
 
@@ -299,7 +258,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
           <div class="empty-state__icon">🌿</div>
           <h3>Tidak ada produk ditemukan</h3>
           <p>Coba ubah atau reset filter yang digunakan.</p>
-          <a href="shop.php" class="btn-primary">Reset Filter</a>
+          <a href="<?= BASE_URL ?>/shop" class="btn-primary">Reset Filter</a>
         </div>
       <?php else: ?>
       <div class="products-grid stagger">
@@ -307,7 +266,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
           $img = $p['main_image'] ?: 'img/no-image.png';
         ?>
         <article class="product-card reveal">
-          <a href="product_details.php?id=<?= $p['id'] ?>">
+          <a href="product_details?id=<?= $p['id'] ?>">
             <div class="product-card__img">
               <img src="<?= htmlspecialchars($img) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" />
               <?php if (!empty($p['catalog'])): ?>
@@ -318,7 +277,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
           <div class="product-card__body">
             <h3 class="product-card__name"><?= htmlspecialchars($p['name']) ?></h3>
             <p class="product-card__price">Rp <?= number_format($p['price'], 0, ',', '.') ?></p>
-            <a href="product_details.php?id=<?= $p['id'] ?>">
+            <a href="product_details?id=<?= $p['id'] ?>">
               <button class="product-card__btn">Beli Sekarang</button>
             </a>
           </div>
@@ -365,52 +324,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
     });
 
     /* Mobile menu */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
-
-    /* Sidebar filter toggle (mobile) */
-    const filterToggle = document.getElementById('filterToggle');
-    const sidebar      = document.getElementById('sidebar');
-    filterToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
-    });
-
-    /* Accordion filter groups */
-    document.querySelectorAll('.filter-group__toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const group = btn.closest('.filter-group');
-        const body  = group.querySelector('.filter-group__body');
-        const isOpen = group.classList.contains('open');
-
-        // Close all
-        document.querySelectorAll('.filter-group').forEach(g => {
-          g.classList.remove('open');
-          const b = g.querySelector('.filter-group__body');
-          if (b) b.style.maxHeight = null;
-        });
-
-        // Open clicked if it was closed
-        if (!isOpen) {
-          group.classList.add('open');
-          body.style.maxHeight = body.scrollHeight + 'px';
-        }
-      });
-    });
-
-    /* Price toggle */
-    const priceToggle    = document.getElementById('priceToggle');
-    const priceInputWrap = document.getElementById('priceInputWrap');
-    priceToggle.addEventListener('change', () => {
-      priceInputWrap.style.display = priceToggle.checked ? 'flex' : 'none';
-    });
-
-    /* Scroll reveal */
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -419,7 +333,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
   <script src="js/script.js"></script>
-   <a href="about.php#contact" class="floating-about">
+   <a href="<?= BASE_URL ?>/about#contact" class="floating-about">
   Hubungi Kami
 </a>
 </body>

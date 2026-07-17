@@ -1,3 +1,4 @@
+<?php require 'conn/db.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,52 +18,9 @@
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
 
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-  <a href="index.php" class="nav__logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-  </a>
 
-  <ul class="nav__links">
-    <li><a href="product.php" class="active">Product</a></li>
-    <li><a href="shop.php">Catalog</a></li>
-    <li><a href="about.php">About Us</a></li>
-  </ul>
-
-  <div class="nav__actions">
-    <a href="cart.php" class="nav__icon" aria-label="Cart">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    </a>
-
-    <a href="profile.php" class="nav__icon" aria-label="Profile">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
-
-    <!-- WRAPPER PENTING -->
-    <div class="nav__menu-wrapper">
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- PINDAH MOBILE MENU KE SINI -->
-      <nav class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileClose">✕</button>
-        <a href="product.php">Product</a>
-        <a href="shop.php">Catalog</a>
-        <a href="about.php">About Us</a>
-      </nav>
-    </div>
-
-  </div>
-</header>
+<?php include 'includes/navbar.php'; ?>
 
   <!-- ─── HERO ─────────────────────────────────────────── -->
   <section class="wedding-hero">
@@ -70,7 +28,7 @@
     <div class="wedding-hero__content reveal">
       <p class="section__label">Wedding Arrangement</p>
       <h1 class="wedding-hero__title">Make Your Special Day<br><em>Bloom with Beauty</em></h1>
-      <a href="shop.php?occasion%5B%5D=Wedding" class="btn-primary">Lihat Koleksi Wedding →</a>
+      <a href="shop?occasion%5B%5D=Wedding" class="btn-primary">Lihat Koleksi Wedding →</a>
     </div>
     <div class="wedding-hero__scroll">
       <span>Scroll</span>
@@ -87,6 +45,9 @@
         <h2 class="wedding-intro__heading">Makna di Balik<br><em>Wedding Bouquet</em></h2>
         <p>Tradisi pengantin wanita membawa wedding bouquet bukan sekadar hiasan yang mempercantik penampilan. Di balik rangkaian bunga itu, tersimpan simbol yang melambangkan harapan, doa, dan keindahan perjalanan baru yang akan dimulai bersama pasangan.</p>
         <p>Setiap tangkai bunga menggambarkan makna: kesetiaan, kebahagiaan, ketulusan, dan cinta yang tumbuh dari hati. Kini, wedding bouquet adalah simbol bahwa cinta adalah sesuatu yang hidup, indah, tumbuh, dan layak dirayakan.</p>
+        <p>Ilmisgarden adalah toko bunga di Bandung yang menyediakan bouquet fresh flowers untuk berbagai momen spesial seperti wisuda, ulang tahun, anniversary, lamaran, Mother’s Day, hampers floral, dan gift produk fungsional berbahan dasar bunga yang identik dengan Kota Bandung.
+Kami melayani custom rangkaian bunga, hampers dan gift decoration, serta same day flower delivery area Bandung. 
+Dengan desain yang soft, feminine, dan berkesan, ilmisgarden ingin menjadi bagian dari kebahagiaan setiap momen melalui rangkaian bunga yang indah dan thoughtful.</p>
       </div>
 
       <div class="wedding-intro__img reveal">
@@ -148,7 +109,7 @@
         <p class="section__label">Pilihan Gaya</p>
         <h2 class="section__title">Wedding Bouquet <em>Styles</em></h2>
       </div>
-      <a href="shop.php?occasion%5B%5D=Wedding" class="link-arrow">Lihat Semua →</a>
+      <a href="shop?occasion%5B%5D=Wedding" class="link-arrow">Lihat Semua →</a>
     </div>
 
     <div class="bouquet-styles-grid stagger">
@@ -241,7 +202,7 @@
       <p class="wedding-cta__sub">Hubungi kami untuk konsultasi desain bouquet yang sesuai dengan tema dan gaya pernikahanmu.</p>
       <div class="wedding-cta__actions">
         <a href="https://wa.me/6285795077194?text=Halo, saya ingin konsultasi wedding bouquet" target="_blank" class="btn-primary">Chat via WhatsApp →</a>
-        <a href="shop.php?occasion%5B%5D=Wedding" class="btn-outline">Lihat Koleksi</a>
+        <a href="shop?occasion%5B%5D=Wedding" class="btn-outline">Lihat Koleksi</a>
       </div>
     </div>
   </section>
@@ -279,14 +240,7 @@
       navbar.classList.toggle('scrolled', window.scrollY > 60);
     });
 
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
+    
 
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
@@ -296,7 +250,7 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
   <script src="js/script.js"></script>
-   <a href="about.php#contact" class="floating-about">
+   <a href="about#contact" class="floating-about">
   Hubungi Kami
 </a>
 </body>

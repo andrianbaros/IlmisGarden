@@ -38,3 +38,13 @@ Stack trace:
 #0 /home/ilmi8192/public_html/index.php(2): require()
 #1 {main}
   thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[23-Apr-2026 00:03:16 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] Can't connect to server on '103.247.9.152' (115) in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/shop.php(3): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17
+[23-Apr-2026 00:03:22 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[HY000] [2002] Can't connect to server on '103.247.9.152' (115) in /home/ilmi8192/public_html/conn/db.php:17
+Stack trace:
+#0 /home/ilmi8192/public_html/shop.php(3): require()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/conn/db.php on line 17

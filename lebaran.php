@@ -1,3 +1,4 @@
+<?php require 'conn/db.php'; ?>
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -17,52 +18,9 @@
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
 
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-  <a href="index.php" class="nav__logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-  </a>
 
-  <ul class="nav__links">
-    <li><a href="product.php" class="active">Product</a></li>
-    <li><a href="shop.php">Catalog</a></li>
-    <li><a href="about.php">About Us</a></li>
-  </ul>
-
-  <div class="nav__actions">
-    <a href="cart.php" class="nav__icon" aria-label="Cart">
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    </a>
-
-    <a href="profile.php" class="nav__icon" aria-label="Profile">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
-
-    <!-- WRAPPER PENTING -->
-    <div class="nav__menu-wrapper">
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- PINDAH MOBILE MENU KE SINI -->
-      <nav class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileClose">✕</button>
-        <a href="product.php">Product</a>
-        <a href="shop.php">Catalog</a>
-        <a href="about.php">About Us</a>
-      </nav>
-    </div>
-
-  </div>
-</header>
+<?php include 'includes/navbar.php'; ?>
 
 
   <!-- ─── HERO ─────────────────────────────────────────── -->
@@ -75,7 +33,7 @@
       <p class="section__label">Koleksi Spesial</p>
       <h1 class="article-hero__title">Merayakan Hari yang Fitri<br>bersama <em>Ilmisgarden</em></h1>
       <p class="article-hero__sub">Rayakan kehangatan Hari Raya dengan rangkaian hampers elegan dari Eid Petals Collection yang menghadirkan keharuman bunga, ketenangan, dan kehangatan dalam satu bingkisan istimewa.</p>
-      <a href="shop.php?occasion%5B%5D=Eid+Al+Fitr" class="btn-primary">Lihat Koleksi Eid Petals →</a>
+      <a href="shop?occasion%5B%5D=Eid+Al+Fitr" class="btn-primary">Lihat Koleksi Eid Petals →</a>
     </div>
   </section>
 
@@ -190,7 +148,7 @@
       <p class="section__label">Pesan Sekarang</p>
       <h2 class="article-cta__title">Hadirkan <em>Kehangatan</em><br>di Hari yang Fitri</h2>
       <p class="article-cta__sub">Tersedia dalam berbagai pilihan paket untuk keluarga, sahabat, dan kolega.</p>
-      <a href="shop.php?occasion%5B%5D=Eid+Al+Fitr" class="btn-primary">Lihat Semua Koleksi Eid →</a>
+      <a href="shop?occasion%5B%5D=Eid+Al+Fitr" class="btn-primary">Lihat Semua Koleksi Eid →</a>
     </div>
   </section>
 
@@ -229,16 +187,7 @@
     });
 
     /* Mobile menu */
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a =>
-      a.addEventListener('click', () => mobileMenu.classList.remove('open'))
-    );
-
-    /* Scroll reveal */
+    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -247,7 +196,7 @@
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
   <script src="js/script.js"></script>
-   <a href="about.php#contact" class="floating-about">
+   <a href="about#contact" class="floating-about">
   Hubungi Kami
 </a>
 </body>

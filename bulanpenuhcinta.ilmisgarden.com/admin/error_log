@@ -1,2 +1,4 @@
 [28-Jan-2026 18:02:15 Asia/Jakarta] PHP Warning:  Undefined variable $O in /home/ilmi8192/public_html/valentine.ilmisgarden.com/db.php on line 4
 [28-Jan-2026 18:02:15 Asia/Jakarta] PHP Warning:  mysqli::__construct(): (HY000/1045): Access denied for user 'ilmi8192_admin'@'ciliwung.iixcp.rumahweb.net' (using password: YES) in /home/ilmi8192/public_html/valentine.ilmisgarden.com/db.php on line 8
+[12-Jul-2026 13:23:06 Asia/Jakarta] PHP Warning:  Undefined array key "username" in /home/ilmi8192/public_html/bulanpenuhcinta.ilmisgarden.com/admin/login_process.php on line 5
+[12-Jul-2026 13:23:06 Asia/Jakarta] PHP Warning:  Undefined array key "password" in /home/ilmi8192/public_html/bulanpenuhcinta.ilmisgarden.com/admin/login_process.php on line 6

@@ -1,10 +1,9 @@
 <?php
-session_start();
 require 'conn/db.php';
 
 // Pastikan user login
 if (!isset($_SESSION['id_user'])) {
-    header("Location: signin.php");
+    header("Location: " . BASE_URL . "/signin");
     exit;
 }
 
@@ -19,5 +18,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['cart_id'])) {
 }
 
 // Balik ke cart
-header("Location: cart.php");
+header("Location: " . BASE_URL . "/cart");
 exit;

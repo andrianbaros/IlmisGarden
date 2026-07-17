@@ -1,7 +1,6 @@
 <?php
-session_start();
+require 'conn/db.php';
 session_unset();
 session_destroy();
-header("Location: index.php");
+header("Location: " . BASE_URL . "/");
 exit;
-?>

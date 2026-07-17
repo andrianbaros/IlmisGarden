@@ -5,7 +5,7 @@ require 'conn/db.php';
    BESTSELLERS
 ============================= */
 $stmt = $pdo->prepare("
-  SELECT p.*, pi.image
+  SELECT p.id, p.name, p.price, pi.image
   FROM products p
   LEFT JOIN product_images pi 
     ON pi.product_id = p.id AND pi.is_primary = 1
@@ -23,7 +23,7 @@ $maxPrice = $priceFilterActive && isset($_GET['max_price']) ? (int)$_GET['max_pr
 
 if ($priceFilterActive && $maxPrice !== null) {
     $stmt = $pdo->prepare("
-      SELECT p.*, pi.image
+      SELECT p.id, p.name, p.price, pi.image
       FROM products p
       LEFT JOIN product_images pi 
         ON pi.product_id = p.id AND pi.is_primary = 1
@@ -33,7 +33,7 @@ if ($priceFilterActive && $maxPrice !== null) {
     $stmt->execute([$maxPrice]);
 } else {
     $stmt = $pdo->query("
-      SELECT p.*, pi.image
+      SELECT p.id, p.name, p.price, pi.image
       FROM products p
       LEFT JOIN product_images pi 
         ON pi.product_id = p.id AND pi.is_primary = 1
@@ -47,7 +47,7 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
    WEDDING PRODUCTS
 ============================= */
 $stmt = $pdo->prepare("
-  SELECT p.*, pi.image
+  SELECT p.id, p.name, p.price, pi.image
   FROM products p
   LEFT JOIN product_images pi 
     ON pi.product_id = p.id AND pi.is_primary = 1
@@ -63,7 +63,7 @@ $weddingProducts = $stmt->fetchAll(PDO::FETCH_ASSOC);
    WORKSHOP PRODUCTS
 ============================= */
 $stmt2 = $pdo->prepare("
-  SELECT p.*, pi.image
+  SELECT p.id, p.name, p.price, pi.image
   FROM products p
   LEFT JOIN product_images pi 
     ON pi.product_id = p.id AND pi.is_primary = 1
@@ -79,8 +79,9 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>IlmisGarden — Flower Atelier</title>
-  <link rel="icon" href="img/F4F6F4-full.png" />
+  <title>Ilmisgarden — Flower Atelier</title>
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="favicon-32x32.png" type="image/png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -93,45 +94,30 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
 
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-    <a href="index.php" class="nav__logo">
-      <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-    </a>
 
-    <ul class="nav__links">
-      <li><a href="product.php" >Product</a></li>
-      <li><a href="shop.php">Catalog</a></li>
-      <li><a href="about.php">About Us</a></li>
-    </ul>
-
-    <div class="nav__actions">
-      <a href="cart.php" class="nav__icon" aria-label="Cart">
-        <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-      </a>
-      <a href="profile.php" class="nav__icon" aria-label="Profile">
-        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-      </a>
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-  </header>
+<?php include 'includes/navbar.php'; ?>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero__slides">
-    <div class="hero__slide active" style="background-image:url('img/Picture1.png')"></div>
-    <div class="hero__slide" style="background-image:url('img/fl (2).jpeg')"></div>
-    <div class="hero__slide" style="background-image:url('img/lebaran_banner.png')"></div>
+    <div class="hero__slide active" style="background-image:url('img/Picture1.png')"
+         data-title="Selamat datang di<br><em>Ilmisgarden</em>"
+         data-text="Tempat di mana setiap bunga punya cerita.<br>Kami merangkai setiap tangkai dengan cinta untuk setiap momen spesialmu."
+         data-link="product"
+         data-btn="Lihat Produk →"></div>
+    <div class="hero__slide" style="background-image:url('img/fl (2).jpeg')"
+         data-title="Produk Artisan<br><em>Eksklusif</em>"
+         data-text="Artisan produk berbahan dasar bunga<br>berkolaborasi dengan pengrajin lokal dan desain berkarakter."
+         data-link="artisan"
+         data-btn="Lihat Artisan →"></div>
+    <?php if (defined('SHOW_EID_COLLECTION') && SHOW_EID_COLLECTION): ?>
+    <div class="hero__slide" style="background-image:url('img/lebaran_banner.png')"
+         data-title="Eid Collection<br><em>Special</em>"
+         data-text="Sempurnakan perayaan Idul Fitri dengan hampers elegan<br>yang membawa kehangatan dan kebersamaan."
+         data-link="lebaran"
+         data-btn="Lihat Koleksi Lebaran →"></div>
+    <?php endif; ?>
   </div>
 
   <div class="hero__content">
@@ -142,14 +128,28 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
     <div class="hero__actions">
       <a href="#" id="hero-btn" class="btn-primary">Lihat Produk →</a>
-      <a href="about.php" class="btn-outline">Tentang Kami</a>
+      <a href="<?= BASE_URL ?>/about" class="btn-outline">Tentang Kami</a>
     </div>
   </div>
 
   <div class="hero__dots">
     <button class="hero__dot active" data-slide="0"></button>
     <button class="hero__dot" data-slide="1"></button>
+    <?php if (defined('SHOW_EID_COLLECTION') && SHOW_EID_COLLECTION): ?>
     <button class="hero__dot" data-slide="2"></button>
+    <?php endif; ?>
+  </div>
+</section>
+
+    <!-- ─── ABOUT STRIP ──────────────────────────────────── -->
+<section class="about-strip reveal">
+  <div class="about-strip__inner">
+    <div class="about-strip__text">
+      <p class="about-strip__desc">
+        Ilmisgarden adalah toko bunga di Bandung yang menyediakan bouquet fresh flowers untuk berbagai momen spesial. Kami melayani <strong>custom rangkaian bunga</strong>, hampers &amp; gift decoration, serta <strong>same day delivery</strong> area Bandung — dengan desain yang soft, feminine, dan berkesan.
+      </p>
+    </div>
+    <a href="<?= BASE_URL ?>/about" class="about-strip__cta">Kenali Kami →</a>
   </div>
 </section>
   <!-- ─── BESTSELLERS ──────────────────────────────────── -->
@@ -159,7 +159,7 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         <p class="section__label">Terlaris</p>
         <h2 class="section__title">Our <em>Bestsellers</em></h2>
       </div>
-      <a href="product.php" class="link-arrow">Lihat Semua →</a>
+      <a href="<?= BASE_URL ?>/product" class="link-arrow">Lihat Semua →</a>
     </div>
 
     <div class="products-grid stagger">
@@ -167,13 +167,13 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         <?php foreach ($bestsellers as $p): ?>
         <article class="product-card reveal">
           <div class="product-card__img">
-            <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" />
+            <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" decoding="async" width="500" height="500" />
             <span class="product-card__tag">Terlaris</span>
           </div>
           <div class="product-card__body">
             <h3 class="product-card__name"><?= htmlspecialchars($p['name']) ?></h3>
             <p class="product-card__price">Rp <?= number_format($p['price'], 0, ',', '.') ?></p>
-            <a href="product_details.php?id=<?= $p['id'] ?>">
+            <a href="product_details?id=<?= $p['id'] ?>">
               <button class="product-card__btn">Beli Sekarang</button>
             </a>
           </div>
@@ -192,32 +192,32 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
         <p class="section__label">Koleksi</p>
         <h2 class="section__title">Explore Our <em>Catalog</em></h2>
       </div>
-      <a href="shop.php" class="link-arrow">Semua Catalog →</a>
+      <a href="<?= BASE_URL ?>/shop" class="link-arrow">Semua Catalog →</a>
     </div>
 
     <div class="catalog-masonry stagger">
-      <a href="shop.php?catalog[]=Bouquet" class="catalog-pill reveal">
-        <img src="img/bouquet.png" alt="Bouquet" loading="lazy" />
+      <a href="shop?catalog[]=Bouquet" class="catalog-pill reveal">
+        <img src="img/bouquet.png" alt="Bouquet" loading="lazy" decoding="async" width="1200" height="1600" />
         <div class="catalog-pill__label"><span>Bouquet</span></div>
       </a>
-      <a href="shop.php?catalog[]=Box" class="catalog-pill reveal">
-        <img src="img/box.png" alt="Box" loading="lazy" />
+      <a href="shop?catalog[]=Box" class="catalog-pill reveal">
+        <img src="img/box.png" alt="Box" loading="lazy" decoding="async" width="1200" height="1600" />
         <div class="catalog-pill__label"><span>Box</span></div>
       </a>
-      <a href="shop.php?catalog[]=Basket" class="catalog-pill reveal">
-        <img src="img/basket.png" alt="Basket" loading="lazy" />
+      <a href="shop?catalog[]=Basket" class="catalog-pill reveal">
+        <img src="img/basket.png" alt="Basket" loading="lazy" decoding="async" width="1200" height="1600" />
         <div class="catalog-pill__label"><span>Basket</span></div>
       </a>
-      <a href="shop.php?catalog[]=Standing+Flowers" class="catalog-pill reveal">
-        <img src="img/standing.png" alt="Standing Flower" loading="lazy" />
+      <a href="shop?catalog[]=Standing+Flowers" class="catalog-pill reveal">
+        <img src="img/standing.png" alt="Standing Flower" loading="lazy" decoding="async" width="1200" height="1600" />
         <div class="catalog-pill__label"><span>Standing Flower</span></div>
       </a>
-      <a href="shop.php?catalog[]=Vase" class="catalog-pill reveal">
-        <img src="img/vase.png" alt="Vase" loading="lazy" />
+      <a href="shop?catalog[]=Vase" class="catalog-pill reveal">
+        <img src="img/vase.png" alt="Vase" loading="lazy" decoding="async" width="1200" height="1600" />
         <div class="catalog-pill__label"><span>Vase</span></div>
       </a>
-      <a href="artisan.php" class="catalog-pill reveal">
-        <img src="img/ArtisanProductmenu.png" alt="Artisan Product" loading="lazy" />
+      <a href="<?= BASE_URL ?>/artisan" class="catalog-pill reveal">
+        <img src="img/ArtisanProductmenu.png" alt="Artisan Product" loading="lazy" decoding="async" width="3024" height="4032" />
         <div class="catalog-pill__label"><span>Artisan Product</span></div>
       </a>
     </div>
@@ -227,14 +227,14 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
   <section class="section">
     <div class="split">
       <div class="split__img reveal">
-        <img src="img/weddingpkg.jpg" alt="Wedding Package" loading="lazy" />
+        <img src="img/weddingpkg.jpg" alt="Wedding Package" loading="lazy" decoding="async" width="1200" height="1401" />
       </div>
       <div class="split__text reveal">
         <p class="section__label">Special Package</p>
         <h2>Wedding <em>Package</em></h2>
         <p>Setiap kisah cinta layak dirayakan dengan keindahan yang tulus. <strong>Wedding Bouquet by Ilmisgarden</strong> dirangkai dengan sentuhan lembut dan warna-warna yang menggambarkan harapan, cinta, dan kebahagiaan.</p>
         <p>Dibuat dengan bunga segar pilihan dan desain yang menyesuaikan tema pernikahanmu — sederhana, elegan, dan penuh makna.</p>
-        <a href="wedding.php" class="btn-primary">Lihat Paket →</a>
+        <a href="<?= BASE_URL ?>/wedding" class="btn-primary">Lihat Paket →</a>
       </div>
     </div>
 
@@ -243,13 +243,13 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
       <?php foreach ($weddingProducts as $p): ?>
       <article class="product-card reveal">
         <div class="product-card__img">
-          <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" />
+          <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" decoding="async" width="500" height="500" />
           <span class="product-card__tag">Wedding</span>
         </div>
         <div class="product-card__body">
           <h3 class="product-card__name"><?= htmlspecialchars($p['name']) ?></h3>
           <p class="product-card__price">Rp <?= number_format($p['price'], 0, ',', '.') ?></p>
-          <a href="product_details.php?id=<?= $p['id'] ?>">
+          <a href="product_details?id=<?= $p['id'] ?>">
             <button class="product-card__btn">Beli Sekarang</button>
           </a>
         </div>
@@ -263,14 +263,14 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
   <section class="section">
     <div class="workshop-strip reveal">
       <div class="workshop-strip__img">
-        <img src="img/image (2).png" alt="Workshop" loading="lazy" />
+        <img src="img/image (2).png" alt="Workshop" loading="lazy" decoding="async" width="864" height="1184" />
       </div>
       <div class="workshop-strip__body">
         <p class="section__label">Pengalaman Unik</p>
         <h2>Flower <em>Workshop</em></h2>
         <p>Merangkai bunga adalah cara untuk menyentuh jiwa, memberi ketenangan di tengah kesibukan, dan menumbuhkan rasa percaya diri.</p>
         <p>Dengan setiap kelopak yang kamu susun, kamu bukan hanya menciptakan karya seni, tapi juga menciptakan momen kebahagiaan dan kedamaian dalam dirimu.</p>
-        <a href="workshop.php" class="btn-primary">Show More →</a>
+        <a href="<?= BASE_URL ?>/workshop" class="btn-primary">Show More →</a>
       </div>
     </div>
 
@@ -279,13 +279,13 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
       <?php foreach ($workshopProducts as $p): ?>
       <article class="product-card reveal">
         <div class="product-card__img">
-          <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" />
+          <img src="<?= htmlspecialchars($p['image']) ?>" alt="<?= htmlspecialchars($p['name']) ?>" loading="lazy" decoding="async" width="500" height="500" />
           <span class="product-card__tag">Workshop</span>
         </div>
         <div class="product-card__body">
           <h3 class="product-card__name"><?= htmlspecialchars($p['name']) ?></h3>
           <p class="product-card__price">Rp <?= number_format($p['price'], 0, ',', '.') ?></p>
-          <a href="product_details.php?id=<?= $p['id'] ?>">
+          <a href="product_details?id=<?= $p['id'] ?>">
             <button class="product-card__btn">Beli Sekarang</button>
           </a>
         </div>
@@ -344,37 +344,7 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 
   <!-- ─── SCRIPTS ───────────────────────────────────────── -->
 <script>
-// ELEMENT
-const hamburger = document.getElementById("hamburger");
-const mobileMenu = document.getElementById("mobileMenu");
-const mobileClose = document.getElementById("mobileClose");
 
-// TOGGLE MENU
-hamburger.addEventListener("click", () => {
-  mobileMenu.classList.toggle("open");
-});
-
-// CLOSE VIA X
-mobileClose.addEventListener("click", () => {
-  mobileMenu.classList.remove("open");
-});
-
-// CLOSE SAAT KLIK LINK
-document.querySelectorAll("#mobileMenu a").forEach(link => {
-  link.addEventListener("click", () => {
-    mobileMenu.classList.remove("open");
-  });
-});
-
-// CLOSE SAAT KLIK LUAR (SMART)
-document.addEventListener("click", (e) => {
-  if (
-    !mobileMenu.contains(e.target) &&
-    !hamburger.contains(e.target)
-  ) {
-    mobileMenu.classList.remove("open");
-  }
-});
 document.addEventListener("DOMContentLoaded", () => {
   const observer = new IntersectionObserver(entries => {
     entries.forEach(e => {
@@ -387,7 +357,7 @@ document.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 });
 </script>
-    <a href="about.php#contact" class="floating-about">
+    <a href="about#contact" class="floating-about">
   Hubungi Kami
 </a>
 <script src="js/script.js"></script> 

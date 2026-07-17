@@ -1,15 +1,14 @@
 <?php
-session_start();
 require 'conn/db.php';
 
 if (!isset($_SESSION['id_user'])) {
-    header("Location: signin.php");
+    header("Location: " . BASE_URL . "/signin");
     exit;
 }
 
 $user_id = $_SESSION['id_user'];
 
-$stmt = $pdo->prepare("SELECT * FROM users WHERE id_user=?");
+$stmt = $pdo->prepare("SELECT id_user, username, email, address, password FROM users WHERE id_user=?");
 $stmt->execute([$user_id]);
 $user = $stmt->fetch();
 
@@ -42,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $msg = "Profil berhasil diperbarui.";
     }
 
-    $stmt = $pdo->prepare("SELECT * FROM users WHERE id_user=?");
+    $stmt = $pdo->prepare("SELECT id_user, username, email, address, password FROM users WHERE id_user=?");
     $stmt->execute([$user_id]);
     $user = $stmt->fetch();
     $_SESSION['username'] = $user['username'];
@@ -66,51 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<!-- MOBILE MENU -->
-<nav class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu__close" id="mobileClose">✕</button>
-  <a href="product.php">Product</a>
-  <a href="shop.php">Catalog</a>
-  <a href="about.php">About Us</a>
-</nav>
-<!-- NAVBAR -->
-<header class="nav" id="navbar">
-  <a href="index.php" class="nav__logo">
-    <img src="img/F4F6F4-full.png" alt="Ilmisgarden" />
-  </a>
 
-  <ul class="nav__links">
-    <li><a href="product.php" >Product</a></li>
-    <li><a href="shop.php">Catalog</a></li>
-    <li><a href="about.php">About Us</a></li>
-  </ul>
-
-  <div class="nav__actions">
-    <a href="cart.php" class="nav__icon" aria-label="Cart" >
-      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-    </a>
-
-    <a href="profile.php" class="nav__icon" aria-label="Profile" class="active">
-      <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-    </a>
-
-    <!-- WRAPPER PENTING -->
-    <div class="nav__menu-wrapper">
-      <button class="nav__hamburger" id="hamburger" aria-label="Menu">
-        <span></span><span></span><span></span>
-      </button>
-
-      <!-- PINDAH MOBILE MENU KE SINI -->
-      <nav class="mobile-menu" id="mobileMenu">
-        <button class="mobile-menu__close" id="mobileClose">✕</button>
-        <a href="product.php">Product</a>
-        <a href="shop.php">Catalog</a>
-        <a href="about.php">About Us</a>
-      </nav>
-    </div>
-
-  </div>
-</header>
+<?php include 'includes/navbar.php'; ?>
 
 
   <!-- ─── PROFILE LAYOUT ────────────────────────────────── -->
@@ -129,11 +85,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
 
       <nav class="profile-nav">
-        <a href="profile.php" class="profile-nav__link active">
+        <a href="profile" class="profile-nav__link active">
           <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
           Profil Saya
         </a>
-        <a href="transaction.php" class="profile-nav__link">
+        <a href="transaction" class="profile-nav__link">
           <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
           Transaksi
         </a>
@@ -147,7 +103,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
           Membership
           <span class="profile-nav__badge">Soon</span>
         </a>
-        <a href="logout.php" class="profile-nav__link profile-nav__link--logout">
+        <a href="logout" class="profile-nav__link profile-nav__link--logout">
           <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
           Keluar
         </a>
@@ -295,12 +251,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
 
-    const hamburger   = document.getElementById('hamburger');
-    const mobileMenu  = document.getElementById('mobileMenu');
-    const mobileClose = document.getElementById('mobileClose');
-    hamburger.addEventListener('click', () => mobileMenu.classList.add('open'));
-    mobileClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
-    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+    
 
     function togglePw(id) {
       const input = document.getElementById(id);
@@ -319,7 +270,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     cfPw.addEventListener('input', checkMatch);
   </script>
   <script src="js/script.js"></script>
-   <a href="about.php#contact" class="floating-about">
+   <a href="about#contact" class="floating-about">
   Hubungi Kami
 </a>
 </body>
