@@ -1,6 +1,6 @@
 <?php
 require 'conn/db.php';
-session_unset();
-session_destroy();
+unset($_SESSION['id_user']);
+unset($_SESSION['username']);
 header("Location: " . BASE_URL . "/");
 exit;

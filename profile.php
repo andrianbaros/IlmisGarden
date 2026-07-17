@@ -50,9 +50,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <title>My Profile | Ilmis Garden</title>
+  <meta name="description" content="Kelola profil dan pesanan Anda di Ilmis Garden.">
+  <link rel="canonical" href="https://ilmisgarden.com/profile">
+  
+  <meta property="og:title" content="My Profile | Ilmis Garden">
+  <meta property="og:description" content="Kelola profil dan pesanan Anda di Ilmis Garden.">
+  <meta property="og:url" content="https://ilmisgarden.com/profile">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Profile | Ilmis Garden">
+  <meta name="twitter:description" content="Kelola profil dan pesanan Anda di Ilmis Garden.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profil — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->

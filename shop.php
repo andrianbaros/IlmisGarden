@@ -94,9 +94,25 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <title>Shop Flowers & Bouquets | Ilmis Garden</title>
+  <meta name="description" content="Jelajahi berbagai pilihan bunga dan buket cantik di katalog Ilmis Garden.">
+  <link rel="canonical" href="https://ilmisgarden.com/shop">
+  
+  <meta property="og:title" content="Shop Flowers & Bouquets | Ilmis Garden">
+  <meta property="og:description" content="Jelajahi berbagai pilihan bunga dan buket cantik di katalog Ilmis Garden.">
+  <meta property="og:url" content="https://ilmisgarden.com/shop">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shop Flowers & Bouquets | Ilmis Garden">
+  <meta name="twitter:description" content="Jelajahi berbagai pilihan bunga dan buket cantik di katalog Ilmis Garden.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ilmisgarden — Catalog</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->

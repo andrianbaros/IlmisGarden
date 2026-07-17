@@ -56,23 +56,39 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <title>Sign Up | Register Account | Ilmis Garden</title>
-  <meta name="description" content="Daftar akun Ilmis Garden baru untuk kemudahan transaksi, diskon khusus member, dan update koleksi bunga terbaru.">
+
+  <title>Sign Up | Ilmis Garden</title>
+  <meta name="description" content="Daftar akun baru di Ilmis Garden.">
   <link rel="canonical" href="https://ilmisgarden.com/signup">
   
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sign Up | Ilmis Garden">
+  <meta property="og:description" content="Daftar akun baru di Ilmis Garden.">
   <meta property="og:url" content="https://ilmisgarden.com/signup">
-  <meta property="og:title" content="Sign Up | Register Account | Ilmis Garden">
-  <meta property="og:description" content="Daftar akun Ilmis Garden baru untuk kemudahan transaksi, diskon khusus member, dan update koleksi bunga terbaru.">
-  <meta property="og:image" content="https://ilmisgarden.com/img/Picture1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sign Up | Ilmis Garden">
+  <meta name="twitter:description" content="Daftar akun baru di Ilmis Garden.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
+  
+  
+  
+  
+  <!-- Open Graph / Facebook -->
+  
+  
+  
+  
+  
 
   <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://ilmisgarden.com/signup">
-  <meta name="twitter:title" content="Sign Up | Register Account | Ilmis Garden">
-  <meta name="twitter:description" content="Daftar akun Ilmis Garden baru untuk kemudahan transaksi, diskon khusus member, dan update koleksi bunga terbaru.">
-  <meta name="twitter:image" content="https://ilmisgarden.com/img/Picture1.png">
+  
+  
+  
+  
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   

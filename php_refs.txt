@@ -1,0 +1,43 @@
+bulanpenuhcinta.ilmisgarden.com\index.php:14:<form action="submit.php" method="POST" autocomplete="off">
+bulanpenuhcinta.ilmisgarden.com\submit.php:46:header("Location: thanks.php");
+bulanpenuhcinta.ilmisgarden.com\success.php:16:<a href="index.php">
+bulanpenuhcinta.ilmisgarden.com\thanks.php:29:window.location.href = "index.php";
+bulanpenuhcinta.ilmisgarden.com\admin\dashboard.php:4:header("Location: login.php");
+bulanpenuhcinta.ilmisgarden.com\admin\dashboard.php:223:<a class="btn" href="select.php?id=<?= $row['id'] ?>">⭐ Pilih</a>
+bulanpenuhcinta.ilmisgarden.com\admin\dashboard.php:225:<a class="btn" href="../view.php?c=<?= $row['token'] ?>" target="_blank">
+bulanpenuhcinta.ilmisgarden.com\admin\login.php:4:header("Location: dashboard.php");
+bulanpenuhcinta.ilmisgarden.com\admin\login.php:23:<form action="login_process.php" method="POST">
+bulanpenuhcinta.ilmisgarden.com\admin\login_process.php:19:header("Location: dashboard.php");
+bulanpenuhcinta.ilmisgarden.com\admin\login_process.php:24:header("Location: login.php?error=1");
+bulanpenuhcinta.ilmisgarden.com\admin\logout.php:4:header("Location: login.php");
+bulanpenuhcinta.ilmisgarden.com\admin\select.php:18:header("Location: dashboard.php");
+notuser\admin_layout.php:27:<a href="dashboard.php" class="admin-sidebar__link <?= $page_id === 'dashboard' ? 'active' : '' ?>">
+notuser\admin_layout.php:32:<a href="admin_transaction.php" class="admin-sidebar__link <?= $page_id === 'orders' ? 'active' : '' ?>">
+notuser\admin_layout.php:37:<a href="product.php" class="admin-sidebar__link <?= $page_id === 'products' ? 'active' : '' ?>">
+notuser\admin_layout.php:42:<a href="bestseller.php" class="admin-sidebar__link <?= $page_id === 'bestseller' ? 'active' : '' ?>">
+notuser\admin_layout.php:49:<a href="logout_admin.php">
+notuser\admin_transaction.php:7:header("Location: login_admin.php");
+notuser\admin_transaction.php:33:header("Location: admin_transaction.php?msg=deleted");
+notuser\admin_transaction.php:46:header("Location: admin_transaction.php?msg=updated");
+notuser\bestseller.php:7:header("Location: login_admin.php");
+notuser\bestseller.php:187:<a href="bestseller.php" class="btn-cancel" style="display: flex; align-items: center; justify-content: center; height: 100%;">Clear</a>
+notuser\dashboard.php:7:header("Location: login_admin.php");
+notuser\dashboard.php:227:<a href="admin_transaction.php" style="font-size: 0.82rem; color: var(--sage-dark); font-weight: 600; display: inline-flex; align-items: center; gap: 4px; text-decoration: none;">
+notuser\login_admin.php:22:header("Location: dashboard.php");
+notuser\login_admin.php:62:<a href="../index.php">← Back to Store</a>
+notuser\logout_admin.php:15:header("Location: login_admin.php");
+notuser\product.php:7:header("Location: login_admin.php");
+notuser\product.php:91:<a href="product_add.php" class="btn-add-product">
+notuser\product.php:114:<a href="product_edit.php?id=<?= $p['id'] ?>" class="btn-edit">
+notuser\product.php:118:<a href="product_delete.php?id=<?= $p['id'] ?>"
+notuser\product_add.php:6:header("Location: login_admin.php");
+notuser\product_add.php:105:header("Location: product.php?msg=added");
+notuser\product_add.php:134:<a href="product.php" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--muted);font-weight:500;">
+notuser\product_add.php:187:<a href="product.php" class="btn-cancel">Cancel</a>
+notuser\product_delete.php:4:header("Location: login_admin.php");
+notuser\product_delete.php:42:header("Location: product.php?msg=deleted");
+notuser\product_edit.php:6:header("Location: login_admin.php");
+notuser\product_edit.php:96:header("Location: product_edit.php?id=".$id);
+notuser\product_edit.php:166:header("Location: product.php?msg=updated");
+notuser\product_edit.php:236:<a href="product.php" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--muted);font-weight:500;">
+notuser\product_edit.php:298:<a href="product.php" class="btn-cancel">Cancel</a>

@@ -2,9 +2,25 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <title>Bulan Penuh Cinta | Ilmis Garden</title>
+  <meta name="description" content="Koleksi bunga spesial untuk bulan penuh cinta.">
+  <link rel="canonical" href="https://ilmisgarden.com/bulan-penuh-cinta">
+  
+  <meta property="og:title" content="Bulan Penuh Cinta | Ilmis Garden">
+  <meta property="og:description" content="Koleksi bunga spesial untuk bulan penuh cinta.">
+  <meta property="og:url" content="https://ilmisgarden.com/bulan-penuh-cinta">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bulan Penuh Cinta | Ilmis Garden">
+  <meta name="twitter:description" content="Koleksi bunga spesial untuk bulan penuh cinta.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Bulan Penuh Cinta — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->

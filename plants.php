@@ -2,9 +2,25 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <title>Live Plants | Ilmis Garden</title>
+  <meta name="description" content="Koleksi tanaman hias segar untuk mempercantik ruangan Anda.">
+  <link rel="canonical" href="https://ilmisgarden.com/plants">
+  
+  <meta property="og:title" content="Live Plants | Ilmis Garden">
+  <meta property="og:description" content="Koleksi tanaman hias segar untuk mempercantik ruangan Anda.">
+  <meta property="og:url" content="https://ilmisgarden.com/plants">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Live Plants | Ilmis Garden">
+  <meta name="twitter:description" content="Koleksi tanaman hias segar untuk mempercantik ruangan Anda.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Real Plants — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->

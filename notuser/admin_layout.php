@@ -65,9 +65,9 @@ $admin_name = $_SESSION['admin_username'] ?? 'Admin';
     <span class="admin-topbar__title"><?= htmlspecialchars($page_title) ?></span>
   </div>
   <div class="admin-topbar__right">
-    <span class="admin-topbar__badge">
+    <span class="admin-topbar__badge" id="liveClock">
       <i class='bx bx-time-five' style="font-size: 1.1rem;"></i>
-      <?= date('d M Y') ?>
+      <?= date('d M Y, H:i:s') ?>
     </span>
   </div>
 </header>

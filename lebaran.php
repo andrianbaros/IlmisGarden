@@ -2,9 +2,25 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <title>Eid Mubarak Collection | Ilmis Garden</title>
+  <meta name="description" content="Hampers dan koleksi bunga Lebaran dari Ilmis Garden.">
+  <link rel="canonical" href="https://ilmisgarden.com/lebaran">
+  
+  <meta property="og:title" content="Eid Mubarak Collection | Ilmis Garden">
+  <meta property="og:description" content="Hampers dan koleksi bunga Lebaran dari Ilmis Garden.">
+  <meta property="og:url" content="https://ilmisgarden.com/lebaran">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eid Mubarak Collection | Ilmis Garden">
+  <meta name="twitter:description" content="Hampers dan koleksi bunga Lebaran dari Ilmis Garden.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Eid Petals Collection — Ilmisgarden</title>
+  
   <link rel="icon" href="img/F4F6F4-full.png" />
 
   <!-- Fonts -->

@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
+  <title>Ilmis Garden | Florist, Bouquet & Decoration Services</title>
+  <meta name="description" content="Selamat datang di Ilmis Garden, penyedia layanan karangan bunga, buket, dan dekorasi terbaik.">
+  <link rel="canonical" href="https://ilmisgarden.com/">
+  
+  <meta property="og:title" content="Ilmis Garden | Florist, Bouquet & Decoration Services">
+  <meta property="og:description" content="Selamat datang di Ilmis Garden, penyedia layanan karangan bunga, buket, dan dekorasi terbaik.">
+  <meta property="og:url" content="https://ilmisgarden.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ilmis Garden | Florist, Bouquet & Decoration Services">
+  <meta name="twitter:description" content="Selamat datang di Ilmis Garden, penyedia layanan karangan bunga, buket, dan dekorasi terbaik.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
   <meta charset="UTF-8">
-  <title>Love Confession 💖</title>
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body class="page">

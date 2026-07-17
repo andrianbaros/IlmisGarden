@@ -16,13 +16,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['admin_username'] = $admin['username'];
         $_SESSION['admin_email']    = $admin['email'];
         $_SESSION['is_admin']       = true;
-
+        
         $_SESSION['flash_msg'] = "Login berhasil, Selamat datang Admin {$admin['username']}!";
-
+        
         header("Location: dashboard.php");
         exit;
     } else {
-        $error = "Username/Email atau Password salah";
+        $error = "Username atau password salah!";
     }
 }
 ?>
@@ -59,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       <button type="submit">Sign In</button>
       <div class="switch">
-        <a href="../index.php">← Back to Store</a>
+        <a href="../">← Back to Store</a>
       </div>
     </form>
   </div>

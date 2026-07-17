@@ -2,9 +2,25 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+  <title>Bouquet Collection | Ilmis Garden</title>
+  <meta name="description" content="Koleksi buket bunga cantik untuk setiap momen spesial Anda.">
+  <link rel="canonical" href="https://ilmisgarden.com/bouquet">
+  
+  <meta property="og:title" content="Bouquet Collection | Ilmis Garden">
+  <meta property="og:description" content="Koleksi buket bunga cantik untuk setiap momen spesial Anda.">
+  <meta property="og:url" content="https://ilmisgarden.com/bouquet">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Bouquet Collection | Ilmis Garden">
+  <meta name="twitter:description" content="Koleksi buket bunga cantik untuk setiap momen spesial Anda.">
+  <meta name="twitter:image" content="https://ilmisgarden.com/img/F4F6F4-full.png">
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IlmisGarden</title>
+    
     <link rel="icon" href="img/F4F6F4-full.png" />
 
     <!-- Fonts -->
