@@ -209,3 +209,175 @@ Stack trace:
 [06-Mar-2026 13:27:02 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_edit.php on line 108
 [06-Mar-2026 13:27:02 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_edit.php on line 109
 [06-Mar-2026 13:27:02 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_edit.php on line 110
+[17-Mar-2026 11:09:30 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[17-Mar-2026 11:09:30 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[17-Mar-2026 11:09:30 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[17-Mar-2026 11:09:30 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[10-Apr-2026 14:20:52 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[10-Apr-2026 14:20:52 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[10-Apr-2026 14:20:52 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[10-Apr-2026 14:20:52 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[13-Apr-2026 16:40:09 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[13-Apr-2026 16:40:09 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[13-Apr-2026 16:40:09 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[13-Apr-2026 16:40:09 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[13-Apr-2026 17:54:20 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[13-Apr-2026 17:54:20 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[13-Apr-2026 17:54:20 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[13-Apr-2026 17:54:20 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[13-Apr-2026 17:54:36 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[13-Apr-2026 17:54:36 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[13-Apr-2026 17:54:36 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[13-Apr-2026 17:54:36 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[13-Apr-2026 17:58:23 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[13-Apr-2026 17:58:23 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[13-Apr-2026 17:58:23 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[13-Apr-2026 17:58:23 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[15-Apr-2026 13:33:44 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_edit.php on line 109
+[15-Apr-2026 13:33:44 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_edit.php on line 110
+[15-Apr-2026 13:33:44 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_edit.php on line 111
+[15-Apr-2026 13:34:26 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_edit.php on line 109
+[15-Apr-2026 13:34:26 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_edit.php on line 110
+[15-Apr-2026 13:34:26 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_edit.php on line 111
+[15-Apr-2026 13:47:50 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_edit.php on line 109
+[15-Apr-2026 13:47:50 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_edit.php on line 110
+[15-Apr-2026 13:47:50 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_edit.php on line 111
+[15-Apr-2026 14:08:23 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_edit.php on line 109
+[15-Apr-2026 14:08:23 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_edit.php on line 110
+[15-Apr-2026 14:08:23 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_edit.php on line 111
+[18-Apr-2026 20:46:21 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[18-Apr-2026 20:46:21 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[18-Apr-2026 20:46:21 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[18-Apr-2026 20:46:21 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[18-Apr-2026 20:46:38 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[18-Apr-2026 20:46:38 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[18-Apr-2026 20:46:38 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[18-Apr-2026 20:46:38 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[18-Apr-2026 20:57:55 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[18-Apr-2026 20:57:55 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[18-Apr-2026 20:57:55 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[18-Apr-2026 20:57:55 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[23-Apr-2026 19:19:43 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[23-Apr-2026 19:19:43 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[23-Apr-2026 19:19:43 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[23-Apr-2026 19:19:43 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[23-Apr-2026 19:19:57 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[23-Apr-2026 19:19:57 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[23-Apr-2026 19:19:57 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[23-Apr-2026 19:19:57 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[25-Apr-2026 10:15:43 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[25-Apr-2026 10:15:43 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[25-Apr-2026 10:15:43 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[25-Apr-2026 10:15:43 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[25-Apr-2026 10:21:17 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[25-Apr-2026 10:21:17 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[25-Apr-2026 10:21:17 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[25-Apr-2026 10:21:17 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[25-Apr-2026 10:29:59 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[25-Apr-2026 10:29:59 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[25-Apr-2026 10:29:59 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[25-Apr-2026 10:29:59 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[12-May-2026 14:59:59 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[12-May-2026 14:59:59 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[12-May-2026 14:59:59 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[12-May-2026 14:59:59 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[12-May-2026 15:02:29 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[12-May-2026 15:02:29 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[12-May-2026 15:02:29 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[12-May-2026 15:02:29 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[13-May-2026 20:04:40 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[13-May-2026 20:04:40 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[13-May-2026 20:04:40 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[13-May-2026 20:04:40 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[08-Jul-2026 15:50:46 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[08-Jul-2026 15:50:46 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[08-Jul-2026 15:50:46 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[08-Jul-2026 15:50:46 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[08-Jul-2026 16:26:05 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[08-Jul-2026 16:26:05 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[08-Jul-2026 16:26:05 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[08-Jul-2026 16:26:05 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56
+[08-Jul-2026 16:27:18 Asia/Jakarta] PHP Warning:  Undefined array key "name" in /home/ilmi8192/public_html/notuser/product_add.php on line 51
+[08-Jul-2026 16:27:18 Asia/Jakarta] PHP Warning:  Undefined array key "description" in /home/ilmi8192/public_html/notuser/product_add.php on line 52
+[08-Jul-2026 16:27:18 Asia/Jakarta] PHP Warning:  Undefined array key "price" in /home/ilmi8192/public_html/notuser/product_add.php on line 53
+[08-Jul-2026 16:27:18 Asia/Jakarta] PHP Fatal error:  Uncaught PDOException: SQLSTATE[23000]: Integrity constraint violation: 1048 Column 'name' cannot be null in /home/ilmi8192/public_html/notuser/product_add.php:56
+Stack trace:
+#0 /home/ilmi8192/public_html/notuser/product_add.php(56): PDOStatement->execute()
+#1 {main}
+  thrown in /home/ilmi8192/public_html/notuser/product_add.php on line 56

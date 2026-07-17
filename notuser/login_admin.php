@@ -12,10 +12,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $admin = $stmt->fetch();
 
     if ($admin && password_verify($password, $admin['password'])) {
-        $_SESSION['id_admin']   = $admin['id_admin'];
-        $_SESSION['username']   = $admin['username'];
-        $_SESSION['email']      = $admin['email'];
-        $_SESSION['is_admin']   = true;
+        $_SESSION['admin_id']       = $admin['id_admin'];
+        $_SESSION['admin_username'] = $admin['username'];
+        $_SESSION['admin_email']    = $admin['email'];
+        $_SESSION['is_admin']       = true;
 
         $_SESSION['flash_msg'] = "Login berhasil, Selamat datang Admin {$admin['username']}!";
 
@@ -31,29 +31,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login</title>
-  <link rel="stylesheet" href="user.css">
+  <title>Admin Login — IlmisGarden</title>
+  <link rel="stylesheet" href="admin_theme.css?v=<?= time() ?>">
   <link rel="icon" href="../img/F4F6F4-full.png" />
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
-  <div class="container">
+<body class="login-page">
+  <div class="login-card">
+    <div class="login-card__logo">
+      <img src="../img/F4F6F4-full.png" alt="IlmisGarden">
+    </div>
+    <h2>Admin Panel</h2>
+    <p class="login-card__subtitle">Sign in to manage your store</p>
+
     <form action="" method="POST">
-      <h2>Admin Sign In</h2>
       <?php if (!empty($error)): ?>
         <div class="error"><?php echo htmlspecialchars($error); ?></div>
       <?php endif; ?>
       <div class="form-group">
-        <label>Username / Email</label>
-        <input type="text" name="login" placeholder="username atau admin@gmail.com" required>
+        <label>Username or Email</label>
+        <input type="text" name="login" placeholder="admin@ilmisgarden.com" required>
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input type="password" name="password" placeholder="enter admin password" required>
+        <input type="password" name="password" placeholder="Enter your password" required>
       </div>
 
-      <button type="submit">Login Admin</button>
+      <button type="submit">Sign In</button>
       <div class="switch">
-        <a href="../signin.php">Login sebagai User</a>
+        <a href="../index.php">← Back to Store</a>
       </div>
     </form>
   </div>

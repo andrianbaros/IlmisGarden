@@ -1,5 +1,5 @@
 // =====================
-// HERO SLIDESHOW FINAL
+// HERO SLIDESHOW FINAL (DYNAMIC)
 // =====================
 document.addEventListener("DOMContentLoaded", () => {
   let currentSlide = 0;
@@ -10,43 +10,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const heroTitle = document.getElementById("hero-title");
   const dots = document.querySelectorAll(".hero__dot");
 
-  if (!heroText || !heroBtn || !heroTitle) {
-    console.error("Hero element tidak ditemukan!");
+  if (!heroText || !heroBtn || !heroTitle || slides.length === 0) {
     return;
   }
 
-  const texts = [
-    `Tempat di mana setiap bunga punya cerita.<br>
-     Kami merangkai setiap tangkai dengan cinta
-     untuk setiap momen spesialmu. 🌷`,
-
-    `Artisan produk berbahan dasar bunga<br>
-     berkolaborasi dengan pengrajin lokal
-     dan desain berkarakter.`,
-
-    `Sempurnakan perayaan Idul Fitri dengan hampers elegan<br>
-     yang membawa kehangatan dan kebersamaan. 🌙✨`,
-  ];
-
-  const titles = [
-    "Selamat datang di<br><em>Ilmisgarden</em>",
-    "Produk Artisan<br><em>Eksklusif</em>",
-    "Eid Collection<br><em>Special</em>",
-  ];
-
-  const links = ["product.php", "artisan.php", "lebaran.php"];
-
-  const btnTexts = [
-    "Lihat Produk →",
-    "Lihat Artisan →",
-    "Lihat Koleksi Lebaran →",
-  ];
-
   function updateContent(index) {
-    heroText.innerHTML = texts[index];
-    heroTitle.innerHTML = titles[index];
-    heroBtn.innerText = btnTexts[index];
-    heroBtn.href = links[index];
+    const slide = slides[index];
+    if (slide) {
+      heroText.innerHTML = slide.getAttribute("data-text") || "";
+      heroTitle.innerHTML = slide.getAttribute("data-title") || "";
+      heroBtn.innerText = slide.getAttribute("data-btn") || "";
+      heroBtn.href = slide.getAttribute("data-link") || "#";
+    }
   }
 
   // INIT
@@ -54,13 +29,19 @@ document.addEventListener("DOMContentLoaded", () => {
   heroText.classList.add("show");
 
   function changeSlide(index = null) {
+    if (slides.length <= 1) return;
+    
     slides[currentSlide].classList.remove("active");
-    dots[currentSlide].classList.remove("active");
+    if (dots[currentSlide]) {
+      dots[currentSlide].classList.remove("active");
+    }
 
     currentSlide = index !== null ? index : (currentSlide + 1) % slides.length;
 
     slides[currentSlide].classList.add("active");
-    dots[currentSlide].classList.add("active");
+    if (dots[currentSlide]) {
+      dots[currentSlide].classList.add("active");
+    }
 
     heroText.classList.remove("show");
 
@@ -70,13 +51,58 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 300);
   }
 
-  let interval = setInterval(changeSlide, 4000);
+  if (slides.length > 1) {
+    let interval = setInterval(changeSlide, 4000);
 
-  dots.forEach((dot) => {
-    dot.addEventListener("click", () => {
-      clearInterval(interval);
-      changeSlide(parseInt(dot.dataset.slide));
-      interval = setInterval(changeSlide, 4000);
+    dots.forEach((dot) => {
+      dot.addEventListener("click", () => {
+        clearInterval(interval);
+        changeSlide(parseInt(dot.dataset.slide));
+        interval = setInterval(changeSlide, 4000);
+      });
+    });
+  }
+});
+
+// =====================
+// MOBILE MENU TOGGLE
+// =====================
+document.addEventListener("DOMContentLoaded", () => {
+  const hamburger = document.getElementById("hamburger");
+  const mobileMenu = document.getElementById("mobileMenu");
+  const mobileClose = document.getElementById("mobileClose");
+
+  if (hamburger && mobileMenu) {
+    hamburger.addEventListener("click", () => {
+      mobileMenu.classList.toggle("open");
+    });
+  }
+
+  if (mobileClose && mobileMenu) {
+    mobileClose.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+    });
+  }
+
+  // Close when clicking any link inside mobile menu
+  document.querySelectorAll("#mobileMenu a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (mobileMenu) {
+        mobileMenu.classList.remove("open");
+      }
     });
   });
+
+  // Close when clicking outside mobile menu and hamburger
+  document.addEventListener("click", (e) => {
+    if (mobileMenu && hamburger) {
+      if (
+        !mobileMenu.contains(e.target) &&
+        !hamburger.contains(e.target)
+      ) {
+        mobileMenu.classList.remove("open");
+      }
+    }
+  });
 });
+

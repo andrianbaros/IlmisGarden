@@ -34,6 +34,7 @@
 html {
   font-size: 16px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -135,9 +136,27 @@ button {
   gap: 1.2rem;
 }
 
+.nav__user-greeting {
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-right: 2px;
+  /* Prevent long names from breaking layout */
+  max-width: 130px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .nav__icon {
-  width: 36px;
-  height: 36px;
+  /* Minimum 44×44px touch target */
+  min-width: 44px;
+  min-height: 44px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -422,6 +441,9 @@ button {
   overflow: hidden;
   position: relative;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  /* Equal height cards via flex column */
+  display: flex;
+  flex-direction: column;
 }
 
 .product-card:hover {
@@ -464,6 +486,10 @@ button {
 
 .product-card__body {
   padding: 1rem 1.2rem 1.2rem;
+  /* Allow body to grow so buy button aligns to bottom */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .product-card__name {
@@ -480,6 +506,8 @@ button {
   color: var(--muted);
   font-weight: 300;
   margin-bottom: 0.9rem;
+  /* push buy button to bottom */
+  flex: 1;
 }
 
 .product-card__btn {
@@ -863,6 +891,15 @@ button {
   .nav__hamburger {
     display: flex;
   }
+  /* On mobile, cap greeting width to avoid crowding */
+  .nav__user-greeting {
+    max-width: 80px;
+    font-size: 0.65rem;
+  }
+  /* Ensure nav actions have correct spacing */
+  .nav__actions {
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -889,6 +926,57 @@ button {
     gap: 0.6rem;
   }
 }
+/* =========================
+   MOBILE MENU
+========================= */
+.mobile-menu {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 220px;
+  background: #2f3e34;
+  border-radius: 16px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.95);
+  pointer-events: none;
+  transition: all 0.25s ease;
+  z-index: 2000;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mobile-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+
+.mobile-menu a:hover {
+  opacity: 0.6;
+}
+
+.mobile-menu__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
 .floating-about {
   position: fixed;
   bottom: 20px;

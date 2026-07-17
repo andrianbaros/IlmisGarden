@@ -37,7 +37,8 @@
     <title>Admin - Tambah Produk</title>
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="../img/F4F6F4-full.png" />
-    </head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
     <body>
     <div class="admin-container">
         <h1>Tambah Produk Baru</h1>

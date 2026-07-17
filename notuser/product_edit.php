@@ -1,5 +1,11 @@
 <?php
+session_start();
 require '../conn/db.php';
+
+if (!isset($_SESSION['is_admin'])) {
+    header("Location: login_admin.php");
+    exit;
+}
 
 $id = $_GET['id'] ?? null;
 if (!$id) die("ID required");
@@ -165,145 +171,73 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Edit Product</title>
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edit Product — IlmisGarden Admin</title>
+<link rel="stylesheet" href="admin_theme.css?v=<?= time() ?>">
+<link rel="icon" href="../img/F4F6F4-full.png" />
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{
-  font-family:Inter,sans-serif;
-  background:#f4f6f4;
-  padding:32px
-}
-h2{margin-bottom:24px}
-
-.form-container{
-  max-width:1100px;
-  margin:auto;
-  display:grid;
-  grid-template-columns:2fr 1fr;
-  gap:24px;
-}
-
-.card{
-  background:#fff;
-  padding:24px;
-  border-radius:14px;
-  box-shadow:0 6px 20px rgba(0,0,0,.06);
-}
-
-label{
-  font-weight:600;
-  font-size:13px;
-  display:block;
-  margin-bottom:6px;
-}
-
-input,textarea{
-  width:100%;
-  padding:10px;
-  border-radius:8px;
-  border:1px solid #c5cec7;
-  margin-bottom:14px;
-}
-
-textarea{min-height:100px}
-
-/* ===== TABLE CHECKBOX ===== */
-.filter-table{
-  width:100%;
-  border-collapse:collapse;
-  margin-bottom:20px;
-}
-
-.filter-table th{
-  text-align:left;
-  font-size:14px;
-  padding-bottom:8px;
-}
-
-.filter-table td{
-  padding:4px 0;
-  vertical-align:middle;
-}
-
-.filter-table input{
-  margin-right:8px;
-}
-
-/* ===== ACTION BUTTON ===== */
-.form-actions{
-  margin-top:20px;
-  display:flex;
-  gap:12px;
-}
-
-button{
-  background:#708871;
-  color:#fff;
-  border:none;
-  padding:10px 18px;
-  border-radius:8px;
-  cursor:pointer;
-}
-
-.btn-cancel{
-  background:#ddd;
-  color:#333;
-  padding:10px 18px;
-  border-radius:8px;
-  text-decoration:none;
-  font-size:13px;
-}
-
-.btn-cancel:hover{background:#cfcfcf}
-
-/* ===== IMAGE ===== */
-.image-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,64px);
-  gap:10px;
-  margin-bottom:12px;
-}
-
-.image-box{
-  width:64px;
-  height:64px;
-  border-radius:10px;
-  overflow:hidden;
-  position:relative;
-  border:1px solid #ddd;
-}
-
-.image-box img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.delete-img{
-  position:absolute;
-  top:-6px;
-  right:-6px;
-  width:22px;
-  height:22px;
-  background:#dc3545;
-  color:#fff;
-  border-radius:50%;
-  text-align:center;
-  line-height:22px;
-  text-decoration:none;
-  font-weight:bold;
-}
-
-@media(max-width:900px){
-  .form-container{grid-template-columns:1fr}
-}
+  .filter-table { width:100%; border-collapse:collapse; margin-bottom:16px; }
+  .filter-table th { text-align:left; font-size:0.82rem; padding:6px 0; color:var(--charcoal); font-weight:600; }
+  .filter-table td { padding:3px 0; vertical-align:middle; font-size:0.85rem; }
+  .filter-table input[type="checkbox"] { width:auto; margin-right:8px; accent-color:var(--sage); }
+  .image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 72px);
+    gap: 10px;
+    margin: 12px 0 16px;
+  }
+  .image-box {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .delete-img {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 18px;
+    height: 18px;
+    background: var(--danger);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    line-height: 1;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    transition: transform 0.15s;
+  }
+  .delete-img:hover {
+    transform: scale(1.15);
+  }
 </style>
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-
 <body>
 
-<h2>Edit Product</h2>
+<?php
+$page_id = 'products';
+$page_title = 'Edit Product';
+include 'admin_layout.php';
+?>
+
+<div style="margin-bottom:24px;">
+  <a href="product.php" style="display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;color:var(--muted);font-weight:500;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+    Back to Products
+  </a>
+</div>
 
 <form method="post" enctype="multipart/form-data">
 <div class="form-container">
@@ -314,14 +248,14 @@ button{
 <label>Product Name</label>
 <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
 
-<label>Description</label>
+<label style="margin-top:16px;">Description</label>
 <textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
 
-<label>Price</label>
+<label style="margin-top:16px;">Price (Rp)</label>
 <input type="number" name="price" value="<?= $product['price'] ?>" required>
 
-<table class="filter-table">
-<tr><th colspan="2">By Catalog</th></tr>
+<table class="filter-table" style="margin-top:20px;">
+<tr><th colspan="2">Catalog</th></tr>
 <?php foreach ($catalogs as $c): ?>
 <tr>
 <td width="24">
@@ -334,7 +268,7 @@ button{
 </table>
 
 <table class="filter-table">
-<tr><th colspan="2">By Flowers</th></tr>
+<tr><th colspan="2">Flowers</th></tr>
 <?php foreach ($flowers as $f): ?>
 <tr>
 <td width="24">
@@ -347,7 +281,7 @@ button{
 </table>
 
 <table class="filter-table">
-<tr><th colspan="2">By Occasion</th></tr>
+<tr><th colspan="2">Occasion</th></tr>
 <?php foreach ($occasions as $o): ?>
 <tr>
 <td width="24">
@@ -368,7 +302,7 @@ button{
 
 <!-- RIGHT -->
 <div class="card">
-<label>Images</label>
+<label>Product Images</label>
 <div class="image-grid">
 <?php foreach ($images as $img): ?>
 <div class="image-box">
@@ -379,11 +313,11 @@ button{
 </div>
 <?php endforeach; ?>
 </div>
-<input type="file" name="images[]" multiple>
+<label style="margin-top:12px;">Add More Images</label>
+<input type="file" name="images[]" multiple accept="image/*" style="margin-top:8px;">
 </div>
 
 </div>
 </form>
 
-</body>
-</html>
+<?php include 'admin_layout_end.php'; ?>
