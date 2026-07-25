@@ -8,6 +8,9 @@ if (!isset($_SESSION['id_user'])) {
 
 $user_id = $_SESSION['id_user'];
 
+/* ── Re-validate campaign against DB ── */
+$activeCamp = get_active_user_campaign($pdo);
+
 /* ── Buy: create transaction & redirect to WA ── */
 if (isset($_GET['buy']) && $_GET['buy'] == 1) {
     $stmt = $pdo->prepare("SELECT c.qty, p.id AS product_id, p.price 
@@ -20,18 +23,44 @@ if (isset($_GET['buy']) && $_GET['buy'] == 1) {
         $totalItem = 0; $subtotal = 0;
         foreach ($items as $i) { $totalItem += $i['qty']; $subtotal += $i['price'] * $i['qty']; }
 
-        $discount = 0;
-        $campaign = null;
-        if (isset($_SESSION['campaign_discount']) && $_SESSION['campaign_discount'] > 0) {
-            $discount = (int)round($subtotal * $_SESSION['campaign_discount']);
-            $campaign = $_SESSION['campaign_source'] ?? null;
+        $discount_amount = 0;
+        $discount_percent = 0;
+        $campaign_id = null;
+        $campaign_name = null;
+        $campaign_code = null;
+        $campaign_legacy = null;
+
+        if ($activeCamp) {
+            $campaign_id    = $activeCamp['id'];
+            $campaign_name  = $activeCamp['campaign_name'];
+            $campaign_code  = $activeCamp['campaign_code'];
+            $campaign_legacy= $activeCamp['campaign_code'];
+
+            if ($activeCamp['discount_type'] === 'percent') {
+                $discount_percent = (float)$activeCamp['discount_value'];
+                $discount_amount  = (int)round($subtotal * ($discount_percent / 100.0));
+            } else {
+                $discount_amount  = (int)$activeCamp['discount_value'];
+                $discount_percent = $subtotal > 0 ? round(($discount_amount / $subtotal) * 100, 2) : 0;
+            }
         }
-        $final_subtotal = $subtotal - $discount;
+        $final_subtotal = max(0, $subtotal - $discount_amount);
 
         $pdo->beginTransaction();
         try {
-            $stmt = $pdo->prepare("INSERT INTO transactions (user_id, total_items, subtotal, discount, campaign, status) VALUES (?, ?, ?, ?, ?, 'belum diproses')");
-            $stmt->execute([$user_id, $totalItem, $final_subtotal, $discount, $campaign]);
+            $stmt = $pdo->prepare("INSERT INTO transactions (user_id, total_items, subtotal, discount, campaign, campaign_id, campaign_name, campaign_code, discount_percent, discount_amount, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'belum diproses')");
+            $stmt->execute([
+                $user_id, 
+                $totalItem, 
+                $final_subtotal, 
+                $discount_amount, 
+                $campaign_legacy,
+                $campaign_id,
+                $campaign_name,
+                $campaign_code,
+                $discount_percent,
+                $discount_amount
+            ]);
             $transactionId = $pdo->lastInsertId();
 
             $stmtItem = $pdo->prepare("INSERT INTO transaction_items (transaction_id, product_id, qty, price) VALUES (?, ?, ?, ?)");
@@ -64,20 +93,27 @@ $cart = $stmt->fetchAll();
 $totalItem = 0; $subtotal = 0;
 foreach ($cart as $c) { $totalItem += $c['qty']; $subtotal += $c['price'] * $c['qty']; }
 
-$discount = 0;
-if (isset($_SESSION['campaign_discount']) && $_SESSION['campaign_discount'] > 0) {
-    $discount = (int)round($subtotal * $_SESSION['campaign_discount']);
+$discount_amount = 0;
+$discount_label = '';
+if ($activeCamp) {
+    if ($activeCamp['discount_type'] === 'percent') {
+        $discount_amount = (int)round($subtotal * ($activeCamp['discount_value'] / 100.0));
+        $discount_label  = "Diskon Campaign (" . htmlspecialchars($activeCamp['campaign_name']) . " - " . (float)$activeCamp['discount_value'] . "%)";
+    } else {
+        $discount_amount = (int)$activeCamp['discount_value'];
+        $discount_label  = "Diskon Campaign (" . htmlspecialchars($activeCamp['campaign_name']) . ")";
+    }
 }
-$final_subtotal = $subtotal - $discount;
+$final_subtotal = max(0, $subtotal - $discount_amount);
 
 /* ── WA message ── */
 $message  = "Halo, saya ingin membeli produk berikut:\n";
 foreach ($cart as $c) {
     $message .= "- {$c['name']} (x{$c['qty']}) : Rp. " . number_format($c['price'] * $c['qty'], 0, ',', '.') . "\n";
 }
-if ($discount > 0) {
+if ($discount_amount > 0) {
     $message .= "\nSubtotal: Rp. " . number_format($subtotal, 0, ',', '.');
-    $message .= "\nDiskon Campaign (" . htmlspecialchars($_SESSION['campaign_source'] ?? '') . "): -Rp. " . number_format($discount, 0, ',', '.');
+    $message .= "\n$discount_label: -Rp. " . number_format($discount_amount, 0, ',', '.');
     $message .= "\nTotal Pembayaran: Rp. " . number_format($final_subtotal, 0, ',', '.');
 } else {
     $message .= "\nTotal Item: $totalItem\nSubtotal: Rp. " . number_format($subtotal, 0, ',', '.');
@@ -244,14 +280,14 @@ $buyLink  = "cart?buy=1&msg=" . $waText;
           <span>Total Item</span>
           <span><?= $totalItem ?> item</span>
         </div>
-        <?php if ($discount > 0): ?>
+        <?php if ($discount_amount > 0): ?>
           <div class="cart-summary__total-row">
             <span>Subtotal</span>
             <span>Rp <?= number_format($subtotal, 0, ',', '.') ?></span>
           </div>
           <div class="cart-summary__total-row" style="color: #c99a5c; font-weight: 500;">
-            <span>Diskon Campaign (10%)</span>
-            <span>-Rp <?= number_format($discount, 0, ',', '.') ?></span>
+            <span><?= htmlspecialchars($discount_label) ?></span>
+            <span>-Rp <?= number_format($discount_amount, 0, ',', '.') ?></span>
           </div>
           <div class="cart-summary__total-row cart-summary__total-row--grand">
             <span>Total Bayar</span>

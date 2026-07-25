@@ -43,6 +43,11 @@ $admin_name = $_SESSION['admin_username'] ?? 'Admin';
       <i class='bx bx-trophy'></i>
       Best Seller
     </a>
+
+    <a href="campaign.php" class="admin-sidebar__link <?= $page_id === 'campaigns' ? 'active' : '' ?>">
+      <i class='bx bx-qr-scan'></i>
+      Campaigns
+    </a>
   </nav>
 
   <div class="admin-sidebar__footer">
