@@ -10,6 +10,9 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 $page_id = 'campaigns';
 $page_title = 'Campaign Management';
 
+// Ensure table exists on hosting DB
+ensure_campaign_tables_exist($pdo);
+
 // Fetch overall campaign stats
 $total_scans = (int)$pdo->query("SELECT COUNT(*) FROM campaign_visits")->fetchColumn();
 $total_trx = (int)$pdo->query("SELECT COUNT(*) FROM transactions WHERE campaign_id IS NOT NULL OR (campaign IS NOT NULL AND campaign != '')")->fetchColumn();

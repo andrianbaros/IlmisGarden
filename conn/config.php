@@ -29,6 +29,45 @@ function generate_signed_campaign_url($campaign, $baseUrl = 'index.php') {
 }
 
 /**
+ * Ensure campaigns table exists automatically
+ * 
+ * @param PDO $pdo
+ * @return void
+ */
+function ensure_campaign_tables_exist($pdo) {
+    if (!$pdo) return;
+    static $checked = false;
+    if ($checked) return;
+    $checked = true;
+
+    try {
+        $sql = "CREATE TABLE IF NOT EXISTS campaigns (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            campaign_name VARCHAR(255) NOT NULL,
+            campaign_code VARCHAR(100) NOT NULL UNIQUE,
+            campaign_token VARCHAR(255) NOT NULL,
+            discount_type ENUM('percent', 'fixed') DEFAULT 'percent',
+            discount_value DECIMAL(10,2) NOT NULL DEFAULT 10.00,
+            status ENUM('ACTIVE', 'INACTIVE') DEFAULT 'ACTIVE',
+            start_date DATETIME NULL,
+            end_date DATETIME NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;";
+        $pdo->exec($sql);
+
+        $chk = $pdo->query("SELECT COUNT(*) FROM campaigns")->fetchColumn();
+        if ($chk == 0) {
+            $token = bin2hex(random_bytes(16));
+            $stmt = $pdo->prepare("INSERT INTO campaigns (campaign_name, campaign_code, campaign_token, discount_type, discount_value, status) VALUES (?, ?, ?, 'percent', 10.00, 'ACTIVE')");
+            $stmt->execute(['Display QR Code Utama', 'DISPLAY2026', $token]);
+        }
+    } catch (Exception $e) {
+        error_log("Auto-migrate campaigns table error: " . $e->getMessage());
+    }
+}
+
+/**
  * Validate campaign against database
  * 
  * @param PDO $pdo
@@ -39,6 +78,8 @@ function generate_signed_campaign_url($campaign, $baseUrl = 'index.php') {
  */
 function validate_db_campaign($pdo, $campaignCode, $token = null, $signature = null) {
     if (!$pdo || empty($campaignCode)) return false;
+
+    ensure_campaign_tables_exist($pdo);
 
     try {
         $stmt = $pdo->prepare("

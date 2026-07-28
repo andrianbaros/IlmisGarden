@@ -10,15 +10,22 @@ if (!isset($_SESSION['is_admin']) || $_SESSION['is_admin'] !== true) {
 
 $action = $_POST['action'] ?? $_GET['action'] ?? '';
 
+// Ensure database table exists before action
+ensure_campaign_tables_exist($pdo);
+
 if ($action === 'create') {
     $name  = trim($_POST['campaign_name'] ?? '');
     $code  = strtoupper(trim($_POST['campaign_code'] ?? ''));
     $type  = $_POST['discount_type'] ?? 'percent';
     $val   = (float)($_POST['discount_value'] ?? 10);
     $status= $_POST['status'] ?? 'ACTIVE';
-    $start = !empty($_POST['start_date']) ? $_POST['start_date'] : null;
-    $end   = !empty($_POST['end_date']) ? $_POST['end_date'] : null;
-    $token = bin2hex(random_bytes(16));
+    $start = !empty($_POST['start_date']) ? date('Y-m-d H:i:s', strtotime($_POST['start_date'])) : null;
+    $end   = !empty($_POST['end_date'])   ? date('Y-m-d H:i:s', strtotime($_POST['end_date']))   : null;
+    try {
+        $token = bin2hex(random_bytes(16));
+    } catch (Exception $ex) {
+        $token = md5(uniqid(mt_rand(), true));
+    }
 
     if (empty($name) || empty($code)) {
         $_SESSION['flash_msg'] = "Nama dan Kode Campaign wajib diisi!";
@@ -33,7 +40,11 @@ if ($action === 'create') {
         $_SESSION['flash_msg'] = "Campaign '$name' ($code) berhasil dibuat!";
         $_SESSION['flash_type'] = "success";
     } catch (Exception $e) {
-        $_SESSION['flash_msg'] = "Gagal membuat campaign: Kode '$code' mungkin sudah digunakan.";
+        if (strpos($e->getMessage(), '1062') !== false || strpos($e->getMessage(), '23000') !== false) {
+            $_SESSION['flash_msg'] = "Gagal membuat campaign: Kode Campaign '$code' sudah digunakan pada campaign lain. Silakan gunakan Kode Campaign yang unik (contoh: RAMADHAN2026, PROMO10).";
+        } else {
+            $_SESSION['flash_msg'] = "Gagal membuat campaign: " . $e->getMessage();
+        }
         $_SESSION['flash_type'] = "danger";
     }
 
@@ -47,8 +58,8 @@ if ($action === 'update') {
     $type  = $_POST['discount_type'] ?? 'percent';
     $val   = (float)($_POST['discount_value'] ?? 10);
     $status= $_POST['status'] ?? 'ACTIVE';
-    $start = !empty($_POST['start_date']) ? $_POST['start_date'] : null;
-    $end   = !empty($_POST['end_date']) ? $_POST['end_date'] : null;
+    $start = !empty($_POST['start_date']) ? date('Y-m-d H:i:s', strtotime($_POST['start_date'])) : null;
+    $end   = !empty($_POST['end_date'])   ? date('Y-m-d H:i:s', strtotime($_POST['end_date']))   : null;
 
     if ($id <= 0 || empty($name)) {
         $_SESSION['flash_msg'] = "Data campaign tidak valid!";
@@ -62,7 +73,11 @@ if ($action === 'update') {
         $stmt->execute([$name, $type, $val, $status, $start, $end, $id]);
 
         if (isset($_POST['regen_token']) && $_POST['regen_token'] == 1) {
-            $newToken = bin2hex(random_bytes(16));
+            try {
+                $newToken = bin2hex(random_bytes(16));
+            } catch (Exception $ex) {
+                $newToken = md5(uniqid(mt_rand(), true));
+            }
             $pdo->prepare("UPDATE campaigns SET campaign_token = ? WHERE id = ?")->execute([$newToken, $id]);
         }
 
