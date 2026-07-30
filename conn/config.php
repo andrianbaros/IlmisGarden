@@ -5,6 +5,34 @@ define('SHOW_EID_COLLECTION', false);
 // Secret key for securing campaign URLs
 define('CAMPAIGN_SECRET', 'ilmisgarden_secret_key_2026_rfv');
 
+// Secret key for encrypting SMTP password in database
+define('SMTP_SECRET_KEY', 'ilmisgarden_smtp_enc_key_2026_secure');
+
+/**
+ * Encrypt SMTP Password
+ */
+function encrypt_smtp_pass($plain_text) {
+    if (empty($plain_text)) return '';
+    $key = hash('sha256', SMTP_SECRET_KEY, true);
+    $iv = openssl_random_pseudo_bytes(16);
+    $cipher = openssl_encrypt($plain_text, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+    return base64_encode($iv . $cipher);
+}
+
+/**
+ * Decrypt SMTP Password
+ */
+function decrypt_smtp_pass($encrypted_text) {
+    if (empty($encrypted_text)) return '';
+    $raw = base64_decode($encrypted_text);
+    if (strlen($raw) < 17) return $encrypted_text;
+    $key = hash('sha256', SMTP_SECRET_KEY, true);
+    $iv = substr($raw, 0, 16);
+    $cipher = substr($raw, 16);
+    $decrypted = openssl_decrypt($cipher, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
+    return $decrypted !== false ? $decrypted : $encrypted_text;
+}
+
 /**
  * Generate a campaign URL with code and token
  * 

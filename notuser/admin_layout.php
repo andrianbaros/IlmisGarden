@@ -48,6 +48,11 @@ $admin_name = $_SESSION['admin_username'] ?? 'Admin';
       <i class='bx bx-qr-scan'></i>
       Campaigns
     </a>
+
+    <a href="smtp_settings.php" class="admin-sidebar__link <?= $page_id === 'smtp' ? 'active' : '' ?>">
+      <i class='bx bx-mail-send'></i>
+      SMTP Settings
+    </a>
   </nav>
 
   <div class="admin-sidebar__footer">

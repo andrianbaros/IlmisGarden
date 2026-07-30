@@ -54,7 +54,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
       <div class="form-group">
         <label>Password</label>
-        <input type="password" name="password" placeholder="Enter your password" required>
+        <div style="position: relative;">
+          <input type="password" id="adminPassword" name="password" placeholder="Enter your password" required style="width: 100%; padding-right: 40px;">
+          <button type="button" onclick="toggleAdminPass()" aria-label="Toggle Password" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #64748b; font-size: 1.2rem; padding: 4px;">
+            <i class='bx bx-show' id="adminPassIcon"></i>
+          </button>
+        </div>
       </div>
 
       <button type="submit">Sign In</button>
@@ -63,5 +68,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
     </form>
   </div>
+
+  <script>
+    function toggleAdminPass() {
+      const input = document.getElementById('adminPassword');
+      const icon = document.getElementById('adminPassIcon');
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.className = 'bx bx-hide';
+      } else {
+        input.type = 'password';
+        icon.className = 'bx bx-show';
+      }
+    }
+  </script>
 </body>
 </html>

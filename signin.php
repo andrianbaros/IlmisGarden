@@ -141,6 +141,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <svg id="eyeIcon" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
               </button>
             </div>
+            <div style="text-align: right; margin-top: 6px; margin-bottom: 14px;">
+              <a href="<?= BASE_URL ?>/forgot_password" style="font-size: 0.84rem; color: #c99a5c; text-decoration: none; font-weight: 500;">Lupa Password?</a>
+            </div>
           </div>
 
           <button type="submit" class="auth-submit">

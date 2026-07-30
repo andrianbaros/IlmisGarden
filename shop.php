@@ -154,7 +154,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
       <form method="GET" id="filterForm">
 
         <!-- By Catalog -->
-        <div class="filter-group">
+        <div class="filter-group open">
           <button type="button" class="filter-group__toggle">
             By Catalog
             <svg class="toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -172,7 +172,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
         </div>
 
         <!-- By Flowers -->
-        <div class="filter-group">
+        <div class="filter-group open">
           <button type="button" class="filter-group__toggle">
             By Flowers
             <svg class="toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -190,7 +190,7 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
         </div>
 
         <!-- By Occasion -->
-        <div class="filter-group">
+        <div class="filter-group open">
           <button type="button" class="filter-group__toggle">
             By Occasion
             <svg class="toggle-icon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
@@ -335,18 +335,67 @@ $activeFilterCount = count($catalogFilter) + count($flowerFilter) + count($occas
   <script>
     /* Navbar scroll */
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+      });
+    }
 
-    /* Mobile menu */
-    
+    /* Scroll reveal observer */
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
       });
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    /* Filter Accordion Toggle */
+    document.querySelectorAll('.filter-group__toggle').forEach(button => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const group = button.closest('.filter-group');
+        if (group) {
+          group.classList.toggle('open');
+        }
+      });
+    });
+
+    /* Max Price Checkbox Toggle */
+    const priceToggle = document.getElementById('priceToggle');
+    const priceInputWrap = document.getElementById('priceInputWrap');
+    if (priceToggle && priceInputWrap) {
+      priceToggle.addEventListener('change', () => {
+        priceInputWrap.style.display = priceToggle.checked ? 'flex' : 'none';
+        if (priceToggle.checked) {
+          const numInput = priceInputWrap.querySelector('input');
+          if (numInput) numInput.focus();
+        }
+      });
+    }
+
+    /* Mobile Filter Drawer & Backdrop Overlay */
+    const filterToggleBtn = document.getElementById('filterToggle');
+    const sidebar = document.getElementById('sidebar');
+
+    if (filterToggleBtn && sidebar) {
+      let overlay = document.querySelector('.sidebar-backdrop');
+      if (!overlay) {
+        overlay = document.createElement('div');
+        overlay.className = 'sidebar-backdrop';
+        document.body.appendChild(overlay);
+      }
+
+      filterToggleBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        sidebar.classList.toggle('open');
+        overlay.classList.toggle('open');
+      });
+
+      overlay.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+        overlay.classList.remove('open');
+      });
+    }
   </script>
   <script src="js/script.js"></script>
    <a href="<?= BASE_URL ?>/about#contact" class="floating-about">
