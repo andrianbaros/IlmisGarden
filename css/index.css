@@ -188,6 +188,7 @@ button {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+  background: linear-gradient(135deg, #637965 0%, #5c715e 50%, #4d604f 100%);
 }
 
 .hero__slides {
@@ -211,10 +212,43 @@ button {
   inset: 0;
   background: linear-gradient(
     to top,
-    rgba(28, 34, 28, 0.85) 0%,
-    rgba(28, 34, 28, 0.2) 50%,
-    rgba(28, 34, 28, 0.05) 100%
+    rgba(32, 44, 34, 0.75) 0%,
+    rgba(32, 44, 34, 0.2) 45%,
+    rgba(32, 44, 34, 0.02) 100%
   );
+  pointer-events: none;
+}
+
+/* Slide dengan gambar tanpa background (PNG Transparan - heroimg1-nogb.png) */
+.hero__slide--nogb {
+  background-size: contain !important;
+  background-position: right 6% center !important;
+  background-repeat: no-repeat !important;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+}
+
+.hero__slide--nogb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 78% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+/* Slide untuk artisan (heroimg2-nogb.png) */
+.hero__slide--artisan {
+  background-size: auto 70% !important;
+  background-position: right 0% center !important;
+  background-repeat: no-repeat !important;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
+}
+
+.hero__slide--artisan::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 85% 50%, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+  pointer-events: none;
 }
 
 .hero__content {
@@ -848,6 +882,17 @@ button {
 /* =========================
    MOBILE NAV
 ========================= */
+@media (max-width: 900px) {
+  .hero__slide--nogb {
+    background-size: contain !important;
+    background-position: center top 10% !important;
+  }
+  .hero__slide--artisan {
+    background-size: auto 55% !important;
+    background-position: center top 10% !important;
+  }
+}
+
 @media (max-width: 860px) {
   .nav__links {
     display: none;
@@ -855,6 +900,17 @@ button {
 
   .nav__hamburger {
     display: flex;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero__slide--nogb {
+    background-size: auto 52% !important;
+    background-position: center top 8% !important;
+  }
+  .hero__slide--artisan {
+    background-size: auto 45% !important;
+    background-position: center top 8% !important;
   }
 }
 

@@ -106,3 +106,104 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// =====================
+// PRODUCT GALLERY THUMBNAIL SWITCHER
+// =====================
+function setMainImage(btn, src) {
+  const mainImage = document.getElementById("mainImage");
+  if (!mainImage) return;
+
+  // Subtle opacity transition
+  mainImage.style.opacity = "0.4";
+
+  setTimeout(() => {
+    mainImage.src = src;
+    mainImage.style.opacity = "1";
+  }, 120);
+
+  // Update active state on thumbnail buttons
+  const thumbs = document.querySelectorAll(".thumb-btn");
+  thumbs.forEach((t) => t.classList.remove("active"));
+
+  if (btn) {
+    btn.classList.add("active");
+  }
+}
+
+// Global binding
+window.setMainImage = setMainImage;
+
+// =====================
+// QUANTITY CONTROL (+ / -)
+// =====================
+function changeQty(delta) {
+  const qtyInput = document.getElementById("qtyInput");
+  if (!qtyInput) return;
+  let currentVal = parseInt(qtyInput.value, 10) || 1;
+  let newVal = currentVal + delta;
+  if (newVal < 1) newVal = 1;
+  qtyInput.value = newVal;
+}
+window.changeQty = changeQty;
+
+// =====================
+// PRODUCT DETAILS PAGE INTERACTIONS
+// =====================
+document.addEventListener("DOMContentLoaded", () => {
+
+
+
+  // Description Accordion Toggle
+  const descToggle = document.getElementById("descToggle");
+  const descBody = document.getElementById("descBody");
+
+  if (descToggle && descBody) {
+    descToggle.addEventListener("click", () => {
+      const isOpen = descToggle.classList.contains("open");
+      if (isOpen) {
+        descToggle.classList.remove("open");
+        descBody.style.maxHeight = "0px";
+      } else {
+        descToggle.classList.add("open");
+        descBody.style.maxHeight = descBody.scrollHeight + "px";
+      }
+    });
+  }
+
+  // Lightbox Modal for Main Display Image
+  const mainImage = document.getElementById("mainImage");
+  const lightbox = document.getElementById("imageLightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const lightboxClose = document.getElementById("lightboxClose");
+
+  if (mainImage && lightbox && lightboxImg) {
+    mainImage.addEventListener("click", () => {
+      lightboxImg.src = mainImage.src;
+      lightbox.classList.add("open");
+      document.body.style.overflow = "hidden";
+    });
+
+    const closeLightbox = () => {
+      lightbox.classList.remove("open");
+      document.body.style.overflow = "";
+    };
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener("click", closeLightbox);
+    }
+
+    lightbox.addEventListener("click", (e) => {
+      if (e.target === lightbox || e.target.classList.contains("image-lightbox__content")) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && lightbox.classList.contains("open")) {
+        closeLightbox();
+      }
+    });
+  }
+});
+
+

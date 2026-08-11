@@ -104,8 +104,13 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 
+  <!-- Preload Critical Images for Performance -->
+  <link rel="preload" as="image" href="img/F4F6F4-full.png" fetchpriority="high">
+  <link rel="preload" as="image" href="img/heroimg1-nogb.png" fetchpriority="high">
+  <link rel="preload" as="image" href="img/heroimg2-nogb.png" fetchpriority="high">
+
   <!-- Stylesheet -->
-  <link rel="stylesheet" href="css/index.css" />
+  <link rel="stylesheet" href="css/index.css?v=<?= time() ?>" />
 
 </head>
 <body>
@@ -117,12 +122,12 @@ $workshopProducts = $stmt2->fetchAll(PDO::FETCH_ASSOC);
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero__slides">
-    <div class="hero__slide active" style="background-image:url('img/Picture1.png')"
+    <div class="hero__slide hero__slide--nogb active" style="background-image:url('img/heroimg1-nogb.png')"
          data-title="Selamat datang di<br><em>Ilmisgarden</em>"
          data-text="Tempat di mana setiap bunga punya cerita.<br>Kami merangkai setiap tangkai dengan cinta untuk setiap momen spesialmu."
          data-link="product"
          data-btn="Lihat Produk →"></div>
-    <div class="hero__slide" style="background-image:url('img/fl (2).jpeg')"
+    <div class="hero__slide hero__slide--artisan" style="background-image:url('img/heroimg2-nogb.png')"
          data-title="Produk Artisan<br><em>Eksklusif</em>"
          data-text="Artisan produk berbahan dasar bunga<br>berkolaborasi dengan pengrajin lokal dan desain berkarakter."
          data-link="artisan"

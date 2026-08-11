@@ -20,7 +20,7 @@ $current_page = basename($_SERVER['PHP_SELF'], '.php');
 <!-- NAVBAR -->
 <header class="nav" id="navbar">
   <a href="<?= BASE_URL ?>/" class="nav__logo">
-    <img src="<?= BASE_URL ?>/img/F4F6F4-full.png" alt="Ilmis Garden Logo" loading="lazy" decoding="async" />
+    <img src="<?= BASE_URL ?>/img/F4F6F4-full.png" alt="Ilmis Garden Logo" decoding="async" />
   </a>
 
   <ul class="nav__links">

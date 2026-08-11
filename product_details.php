@@ -102,7 +102,7 @@ if (isset($_POST['add_to_cart'])) {
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/detail.css" />
+  <link rel="stylesheet" href="css/detail.css?v=<?= time() ?>" />
 </head>
 <body>
 
@@ -162,9 +162,9 @@ if (isset($_POST['add_to_cart'])) {
       <!-- Add to cart -->
       <form method="POST" class="detail-form">
         <div class="qty-control">
-          <button type="button" class="qty-btn" id="qtyMinus">−</button>
+          <button type="button" class="qty-btn" id="qtyMinus" onclick="changeQty(-1)">−</button>
           <input type="number" name="qty" id="qtyInput" value="1" min="1" readonly />
-          <button type="button" class="qty-btn" id="qtyPlus">+</button>
+          <button type="button" class="qty-btn" id="qtyPlus" onclick="changeQty(1)">+</button>
         </div>
 
         <button type="submit" name="add_to_cart" class="btn-cart">
@@ -237,16 +237,36 @@ if (isset($_POST['add_to_cart'])) {
     <p class="footer__copy">© 2025 Ilmisgarden. All rights reserved.</p>
   </footer>
 
+  <!-- ─── LIGHTBOX MODAL ────────────────────────────────── -->
+  <div class="image-lightbox" id="imageLightbox" aria-hidden="true">
+    <div class="image-lightbox__content">
+      <button class="image-lightbox__close" id="lightboxClose" aria-label="Tutup">&times;</button>
+      <img id="lightboxImg" src="" alt="Full View" />
+    </div>
+  </div>
+
   <!-- ─── SCRIPTS ───────────────────────────────────────── -->
+  <script src="js/script.js?v=<?= time() ?>"></script>
   <script>
+    /* Quantity Control Fallback */
+    function changeQty(delta) {
+      const qtyInput = document.getElementById("qtyInput");
+      if (!qtyInput) return;
+      let currentVal = parseInt(qtyInput.value, 10) || 1;
+      let newVal = currentVal + delta;
+      if (newVal < 1) newVal = 1;
+      qtyInput.value = newVal;
+    }
+    window.changeQty = changeQty;
+
     /* Navbar scroll */
     const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      navbar.classList.toggle('scrolled', window.scrollY > 60);
-    });
+    if (navbar) {
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 60);
+      });
+    }
 
-    /* Mobile menu */
-    
     const observer = new IntersectionObserver(entries => {
       entries.forEach(e => {
         if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
@@ -254,6 +274,5 @@ if (isset($_POST['add_to_cart'])) {
     }, { threshold: 0.08 });
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   </script>
-  <script src="js/script.js"></script>
 </body>
 </html>

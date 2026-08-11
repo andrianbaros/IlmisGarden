@@ -501,3 +501,74 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+/* =========================
+   LIGHTBOX MODAL & GALLERY
+========================= */
+.gallery-main img {
+  cursor: pointer;
+}
+
+.image-lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(15, 23, 15, 0.88);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.image-lightbox.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-lightbox__content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-lightbox__content img {
+  max-width: 90vw;
+  max-height: 85vh;
+  border-radius: var(--r-md, 12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+}
+
+.image-lightbox__close {
+  position: absolute;
+  top: -45px;
+  right: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  font-size: 1.8rem;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.image-lightbox__close:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
