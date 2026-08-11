@@ -222,7 +222,7 @@ button {
 /* Slide dengan gambar tanpa background (PNG Transparan - heroimg1-nogb.png) */
 .hero__slide--nogb {
   background-size: contain !important;
-  background-position: right 6% center !important;
+  background-position: right 12% center !important;
   background-repeat: no-repeat !important;
   filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.3));
 }
@@ -905,12 +905,12 @@ button {
 
 @media (max-width: 600px) {
   .hero__slide--nogb {
-    background-size: auto 52% !important;
-    background-position: center top 8% !important;
+    background-size: 110% auto !important;
+    background-position: center top 5% !important;
   }
   .hero__slide--artisan {
     background-size: auto 45% !important;
-    background-position: center top 8% !important;
+    background-position: center top 20% !important;
   }
 }
 
